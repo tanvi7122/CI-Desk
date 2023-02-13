@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "66e84b98-ba29-4244-b599-d6c5cbb22cb2": {
+      "ProjectGuid": "66e84b98-ba29-4244-b599-d6c5cbb22cb2",
+      "DisplayName": "CI-platform",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}

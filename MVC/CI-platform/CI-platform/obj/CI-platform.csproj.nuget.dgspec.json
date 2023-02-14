@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\pca142\\Desktop\\CI-Desk\\MVC\\CI-platform\\CI-platform\\CI-platform.csproj": {}
+    "C:\\Users\\pca142\\Desktop\\CI-Desk\\MVC\\CI-PLATFORM\\CI-platform\\CI-platform.csproj": {}
   },
   "projects": {
-    "C:\\Users\\pca142\\Desktop\\CI-Desk\\MVC\\CI-platform\\CI-platform\\CI-platform.csproj": {
+    "C:\\Users\\pca142\\Desktop\\CI-Desk\\MVC\\CI-PLATFORM\\CI-platform\\CI-platform.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\pca142\\Desktop\\CI-Desk\\MVC\\CI-platform\\CI-platform\\CI-platform.csproj",
+        "projectUniqueName": "C:\\Users\\pca142\\Desktop\\CI-Desk\\MVC\\CI-PLATFORM\\CI-platform\\CI-platform.csproj",
         "projectName": "CI-platform",
-        "projectPath": "C:\\Users\\pca142\\Desktop\\CI-Desk\\MVC\\CI-platform\\CI-platform\\CI-platform.csproj",
+        "projectPath": "C:\\Users\\pca142\\Desktop\\CI-Desk\\MVC\\CI-PLATFORM\\CI-platform\\CI-platform.csproj",
         "packagesPath": "C:\\Users\\pca142\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\pca142\\Desktop\\CI-Desk\\MVC\\CI-platform\\CI-platform\\obj\\",
+        "outputPath": "C:\\Users\\pca142\\Desktop\\CI-Desk\\MVC\\CI-PLATFORM\\CI-platform\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -44,6 +44,24 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

@@ -6,6 +6,7 @@ namespace CI_platform.Controllers
 {
     public class HomeController : Controller
     {
+        
         private readonly ILogger<HomeController> _logger;
 
         public HomeController(ILogger<HomeController> logger)
@@ -19,6 +20,15 @@ namespace CI_platform.Controllers
         }
 
         public IActionResult Forgot_pw()
+        {
+            return View();
+        }
+
+        public IActionResult RegistrationPage()
+        {
+            return View();
+        }
+        public IActionResult reset()
         {
             return View();
         }

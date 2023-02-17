@@ -1,0 +1,81 @@
+
+.profilePhoto{
+    border-radius: 100%;
+    width: 40px;
+    height: 40px;
+}
+
+.border-none{
+    border: none !important;
+    border-radius: 0px !important;
+}
+
+.img-filter{
+    display: none;
+}
+
+.form-check-input:checked {
+    background-color: #ff6a00 !important;
+    border-color: #ff6a00 !important;
+    margin-bottom: 28px;
+}
+.btn-1{
+    position: absolute;
+    top: 5%;
+    left:90%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    background-color: #2d2c2c;
+    color: #ffffff;
+    border-radius: 20px;
+    font-size: 16px;
+ 
+    border: none;
+    cursor: pointer;
+
+}
+.btn-2{
+    position: absolute;
+    top:40%;
+    left: 90%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    background-color: #2d2c2c;
+    color: #ffffff;
+    border-radius: 50%;
+    font-size: 16px;
+    padding: 10px 16px;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+}
+.btn-3{
+    position: absolute;
+    top: 50%;
+    left: 90%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    background-color: #2d2c2c;
+    color: #ffffff;
+    border-radius: 50%;
+    font-size: 16px;
+    padding: 10px 16px;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+}
+
+
+@media screen and (max-width:767px) {
+    #profileText {
+        display: none !important;
+    }
+
+    .img-filter{
+        display: block;
+    }
+
+    .filter-options{
+        display: none;
+    }
+}

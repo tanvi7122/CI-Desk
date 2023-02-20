@@ -1,16 +1,15 @@
-
-.profilePhoto{
+.profilePhoto {
     border-radius: 100%;
     width: 40px;
     height: 40px;
 }
 
-.border-none{
+.border-none {
     border: none !important;
     border-radius: 0px !important;
 }
 
-.img-filter{
+.img-filter {
     display: none;
 }
 
@@ -19,63 +18,73 @@
     border-color: #ff6a00 !important;
     margin-bottom: 28px;
 }
-.btn-1{
-    position: absolute;
-    top: 5%;
-    left:90%;
-    transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
+
+.tablink {
+    border-radius: 17px;
+    background-color: #ffffff;
+    border: none;
+    cursor: pointer;
+}
+
+
+ .btn-1 {
+    /* transform: translate(-50%, -50%); */
+    /* -ms-transform: translate(-50%, -50%); */
     background-color: #2d2c2c;
     color: #ffffff;
     border-radius: 20px;
-    font-size: 16px;
- 
     border: none;
-    cursor: pointer;
-
-}
-.btn-2{
-    position: absolute;
-    top:40%;
-    left: 90%;
-    transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    background-color: #2d2c2c;
-    color: #ffffff;
-    border-radius: 50%;
-    font-size: 16px;
-    padding: 10px 16px;
-    border: none;
-    cursor: pointer;
-    text-align: center;
-}
-.btn-3{
-    position: absolute;
-    top: 50%;
-    left: 90%;
-    transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    background-color: #2d2c2c;
-    color: #ffffff;
-    border-radius: 50%;
-    font-size: 16px;
-    padding: 10px 16px;
-    border: none;
-    cursor: pointer;
-    text-align: center;
 }
 
+.btn-2 {
+
+    /* transform: translate(-50%, -50%); */
+    /* -ms-transform: translate(-50%, -50%); */
+    background-color: #2d2c2c;
+    color: #ffffff;
+    border-radius: 20px;
+    border: none;
+  
+}
+
+.btn-3 {
+  
+    /* transform: translate(-50%, -50%); */
+    /* -ms-transform: translate(-50%, -50%); */
+    background-color: #2d2c2c;
+    color: #ffffff;
+    border-radius: 20px;
+    border: none;
+  
+} 
+.checked {
+    color: yellow;
+    font-size: 20px;
+}
+
+.unchecked {
+    font-size: 20px;
+}
 
 @media screen and (max-width:767px) {
     #profileText {
         display: none !important;
     }
 
-    .img-filter{
+    .img-filter {
         display: block;
     }
 
-    .filter-options{
+    .filter-options {
         display: none;
     }
+
+    .nav-item {
+        display: none;
+    }
+
+    .tablink {
+        display: none;
+    }
+
 }

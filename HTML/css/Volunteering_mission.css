@@ -1,0 +1,10 @@
+.btn_fav{
+    opacity: 1;
+     width: 80%;
+    height: 100%;
+    border:2px solid #757575;
+    align-content: center;
+    color:#757575;
+    border-radius:25px;
+    background-color: #ffffff;
+}

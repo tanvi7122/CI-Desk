@@ -1,0 +1,38 @@
+.profilePhoto {
+    border-radius: 100%;
+    width: 40px;
+    height: 40px;
+}
+
+.border-none {
+    border: none !important;
+    border-radius: 0px !important;
+}
+
+.img-filter {
+    display: none;
+}
+
+
+@media screen and (max-width:767px) {
+ 
+    #profileText {
+        display: none !important;
+    }
+  .img-filter {
+        display: block;
+    }
+
+    .filter-options {
+        display: none;
+    }
+
+    .nav-item {
+        display: none;
+    }
+
+    .tablink {
+        display: none;
+    }
+
+}

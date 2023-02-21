@@ -57,21 +57,22 @@
     border: none;
   
 } 
-.checked {
-    color: yellow;
-    font-size: 20px;
+.btn_view{
+    height: 100%;
+    align-content: center;
+    color: #ff6a00;
+    border-color: #ff6a00;
+    border-radius: 20px;
+    background-color: #ffffff;
 }
 
-.unchecked {
-    font-size: 20px;
-}
 
 @media screen and (max-width:767px) {
+ 
     #profileText {
         display: none !important;
     }
-
-    .img-filter {
+  .img-filter {
         display: block;
     }
 

@@ -4,12 +4,19 @@
 
 <head>
     <meta name="viewport" content="width=device-width" />
-    <link rel="stylesheet" href="css/a.css" />
-    <link rel="stylesheet" href="css/Volunteering_mission.css">
+
+
     <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+
     <script src="js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="css/Volunteering_mission.css">
+
+
     <title>Mission not found</title>
 </head>
 
@@ -98,254 +105,63 @@
         </nav>
     </header>
 
-    <div class="shadow-sm border-bottom">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4 col-sm-12 p-3 border-start border-end d-inline-flex">
-                    <div class="input-group">
-                        <span class="input-group-text bg-white border-none" id="seacrhIcon">
-                            <img src="images/search.png" />
-                        </span>
-                        <input type="text" class="form-control border-none" placeholder="Search" aria-label="Search"
-                            aria-describedby="seacrhIcon">
-                    </div>
-                    <button class="img-filter border-none bg-white ">
-                        <img src="images/filter.png" type="button" data-bs-toggle="offcanvas"
-                            data-bs-target="#filterMenu" aria-controls="filterMenu" />
-                    </button>
-                </div>
-                <div class="filter-options col-md-8">
-                    <div class="row h-100">
-                        <div class="col-md-3 p-3 border-end">
-                            <div class="dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="countryDropdown" role="button"
-                                    data-bs-toggle="dropdown" aria-expanded="false">
-                                    Country
-                                </a>
-                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
-                                    <li><a class="dropdown-item" href="#">Canada</a></li>
-                                    <li><a class="dropdown-item" href="#">England</a></li>
-                                    <li><a class="dropdown-item" href="#">India</a></li>
-                                    <li><a class="dropdown-item" href="#">USA</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-md-3 p-3 border-end">
-                            <div class="dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="cityDropdown" role="button"
-                                    data-bs-toggle="dropdown" aria-expanded="false">
-                                    City
-                                </a>
-                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="cityDropdown">
-                                    <li><a class="dropdown-item" href="#">Delhi</a></li>
-                                    <li><a class="dropdown-item" href="#">Chennai</a></li>
-                                    <li><a class="dropdown-item" href="#">Ahmedabad</a></li>
-                                    <li><a class="dropdown-item" href="#">Mumbai</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-md-3 p-3 border-end">
-                            <div class="dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="themeDropdown" role="button"
-                                    data-bs-toggle="dropdown" aria-expanded="false">
-                                    Theme
-                                </a>
-                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="themeDropdown">
-                                    <li><a class="dropdown-item" href="#">theme1</a></li>
-                                    <li><a class="dropdown-item" href="#">theme2</a></li>
-                                    <li><a class="dropdown-item" href="#">theme3</a></li>
-                                    <li><a class="dropdown-item" href="#">theme4</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-md-3 p-3 border-end">
-                            <div class="dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="skillsDropdown" role="button"
-                                    data-bs-toggle="dropdown" aria-expanded="false">
-                                    Skills
-                                </a>
-                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="skillsDropdown">
-                                    <li><a class="dropdown-item" href="#">skill1</a></li>
-                                    <li><a class="dropdown-item" href="#">skill2</a></li>
-                                    <li><a class="dropdown-item" href="#">skill3</a></li>
-                                    <li><a class="dropdown-item" href="#">skill4</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="offcanvas offcanvas-start" id="filterMenu" aria-labelledby="filterMenu">
-
-                    <div class="offcanvas-header flex-row-reverse">
-                        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
-                            aria-label="Close"></button>
-                    </div>
-                    <div class="offcanvas-body">
-                        <div class="accordion" id="filters">
-                            <div class="accordion-item border-none">
-                                <h2 class="accordion-header" id="country">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#countriesAccordion" aria-expanded="false"
-                                        aria-controls="countriesAccordion">
-                                        Country
-                                    </button>
-                                </h2>
-                                <div id="countriesAccordion" class="accordion-collapse collapse"
-                                    aria-labelledby="country" data-bs-parent="#filters">
-                                    <div class="accordion-body">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="" id="country1">
-                                            <label class="form-check-label" for="country1">
-                                                Canada
-                                            </label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="" id="country2">
-                                            <label class="form-check-label" for="country2">
-                                                England
-                                            </label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="" id="country3">
-                                            <label class="form-check-label" for="country3">
-                                                India
-                                            </label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="" id="country4">
-                                            <label class="form-check-label" for="country4">
-                                                USA
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="accordion-item border-none">
-                                <h2 class="accordion-header" id="city">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#citiesAccordion" aria-expanded="false"
-                                        aria-controls="citiesAccordion">
-                                        City
-                                    </button>
-                                </h2>
-                                <div id="citiesAccordion" class="accordion-collapse collapse" aria-labelledby="city"
-                                    data-bs-parent="#filters">
-                                    <div class="accordion-body">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="" id="city1">
-                                            <label class="form-check-label" for="city1">
-                                                Delhi
-                                            </label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="" id="city2">
-                                            <label class="form-check-label" for="city2">
-                                                Chennai
-                                            </label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="" id="city3">
-                                            <label class="form-check-label" for="city3">
-                                                Ahmedabad
-                                            </label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="" id="city4">
-                                            <label class="form-check-label" for="city4">
-                                                Mumbai
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="accordion-item border-none">
-                                <h2 class="accordion-header" id="theme">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#themesAccordion" aria-expanded="false"
-                                        aria-controls="themesAccordion">
-                                        Theme
-                                    </button>
-                                </h2>
-                                <div id="themesAccordion" class="accordion-collapse collapse" aria-labelledby="theme"
-                                    data-bs-parent="#filters">
-                                    <div class="accordion-body">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="" id="theme1">
-                                            <label class="form-check-label" for="theme1">
-                                                theme1
-                                            </label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="" id="theme2">
-                                            <label class="form-check-label" for="theme2">
-                                                theme2
-                                            </label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="" id="theme3">
-                                            <label class="form-check-label" for="theme3">
-                                                theme3
-                                            </label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="" id="theme4">
-                                            <label class="form-check-label" for="theme4">
-                                                theme5
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="accordion-item border-none">
-                                <h2 class="accordion-header" id="skill">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#skillsAccordion" aria-expanded="false"
-                                        aria-controls="skillsAccordion">
-                                        Skills
-                                    </button>
-                                </h2>
-                                <div id="skillsAccordion" class="accordion-collapse collapse" aria-labelledby="skill"
-                                    data-bs-parent="#filters">
-                                    <div class="accordion-body">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="" id="skill1">
-                                            <label class="form-check-label" for="skill1">
-                                                skill1
-                                            </label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="" id="skill2">
-                                            <label class="form-check-label" for="skill2">
-                                                skill2
-                                            </label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="" id="skill3">
-                                            <label class="form-check-label" for="skill3">
-                                                skill3
-                                            </label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="" id="skill4">
-                                            <label class="form-check-label" for="skill4">
-                                                skill4
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    </div>
-
     <body>
-        <div class="container">
+        <div class="container" style="overflow-x:auto;">
             <div class="row">
-                <div class="col-lg-6 col-md-6 col-sm-12"></div>
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff"
+                        class="swiper mySwiper2">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <img src="./images/Grow-Trees-On-the-path-to-environment-sustainability-2.png" />
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="./images/img11.png" />
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="./images/img1.png" />
+                            </div>
+
+                            <div class="swiper-slide">
+                                <img src="./images/CSR-initiative-stands-for-Coffee--and-Farmer-Equity-2.png" />
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="./images/Education-Supplies-for-Every--Pair-of-Shoes-Sold-2.png" />
+                            </div>
+
+                            <div class="swiper-slide">
+                                <img src="./images/Animal-welfare-_-save-birds-campaign.png" />
+                            </div>
+                        </div>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                    </div>
+                    <div thumbsSlider="" class="swiper mySwiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <img src="./images/Grow-Trees-On-the-path-to-environment-sustainability-2.png" />
+                            </div>
+
+                            <div class="swiper-slide">
+                                <img src="./images/img11.png" />
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="./images/img1.png" />
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="./images/CSR-initiative-stands-for-Coffee--and-Farmer-Equity-2.png" />
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="./images/Education-Supplies-for-Every--Pair-of-Shoes-Sold-2.png" />
+                            </div>
+
+                            <div class="swiper-slide">
+                                <img src="./images/Animal-welfare-_-save-birds-campaign.png" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="col-lg-6 col-md-6 col-sm-12">
                     <h4 class="card-title">Grow-Trees-On-the-path-to-environment-sustainability</h4>
                     <p class="card-text">
@@ -404,6 +220,7 @@
                             <hr>
                         </div>
                     </div>
+
                     <div class="row">
 
                         <div class="col-lg-3 col-md-3 col-sm-6">
@@ -433,16 +250,336 @@
                                 <div>organization</div>
                                 <div>CSE Network</div>
                             </div>
-                        
                         </div>
                         <div class="d-flex justify-content-center mt-2">
-                            <button type="button" class="btn_view">Apply Now <img
-                                src="images/right-arrow.png"></button>
+                            <button type="button" class="btn_view">Apply Now <img src="images/right-arrow.png"></button>
                         </div>
+                    </div>
+                </div>
+                <div class="row p-3">
+                    <div class="col-lg-8 col-md-8 col-sm-12">
+                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#Mission"
+                                    type="button" role="tab" aria-controls="home" aria-selected="true">Mission</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#Documents" type="button"
+                                    role="tab" aria-controls="profile" aria-selected="false">Documents</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#Comments" type="button"
+                                    role="tab" aria-controls="contact" aria-selected="false">Comments</button>
+                            </li>
+                        </ul>
+                        <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade show active" id="Mission" role="tabpanel">
+                                <h2>Inroducton</h2>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                                    exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+                                    irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                                    pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                                    deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur
+                                    adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                                    ex ea commodo consequat.Duis aute irure dolor in reprehenderit in voluptate velit
+                                    esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                                <h2>Challenge</h2>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa debitis quia cupiditate
+                                    consequatur laborum, eaque incidunt optio minima quae dolore nostrum velit fugiat!
+                                    Earum
+                                    quidem porro reprehenderit commodi provident qui!,eaque incidunt optio minima quae
+                                    dolore nostrum velit fugiat! Earum
+                                    quidem porro reprehenderit commodi provident qui!</p>
+                                <h2>Documents</h2>
+                                <div class="row">
+                                    <div class="col-4">
+                                        <button type="button" class="btn_fav"><img
+                                                src="images/pdf.png">Lorem.pdf</button>
+                                    </div>
+                                    <div class="col-4">
+                                        <button type="button" class="btn_fav"><img src="images/doc.png">Lorem
+                                            ipsum.doc</button>
+                                    </div>
+                                    <div class="col-4">
+                                        <button type="button" class="btn_fav"><img
+                                                src="images/xlsx.png">Loremum.xlsx</button>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="tab-pane fade" id="Documents" role="tabpanel">It
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae soluta necessitatibus
+                                    nisi eum quibusdam voluptatum voluptate qui aut esse ea distinctio debitis tempore
+                                    corporis recusandae tenetur consequuntur voluptatibus aliquam facere quia eos, illum
+                                    itaque similique. Repudiandae modi nihil quasi vero placeat, autem quidem deleniti
+                                    voluptatem provident voluptates aperiam excepturi error.</p>
+                            </div>
+                            <div class="tab-pane fade " id="Comments" role="tabpanel">
+                                <div class="form-group  mt-5 mx-2">
+                                    <textarea class="form-control" rows="5" id="comment"
+                                        placeholder="Enter Your Comments...."></textarea>
+                                </div>
+                                <div class=" my-3 mx-2">
+                                    <button type="button" class="btn_view">post comment</button>
+                                </div>
+
+                                <div class="comments mb-3" style="background: #f1f1f1;">
+                                    <div class="row my-3 mx-2" style="background-color: #fff;">
+                                        <div class="col-lg-2 col-md-2 col-sm-2 ">
+                                            <img src="images/volunteer2.png" class="img" style="border-radius: 50%;"
+                                                alt="...">
+                                        </div>
+
+                                        <div class="col-lg-10 col-md-10 col-sm-10">
+                                            <h5>kane williamson</h5>
+                                            <p><small class="text-muted">Monday,October 21, 2019,11:13 AM</small></p>
+                                            <p>This is useful Mission</p>
+                                        </div>
+                                    </div>
+                                    <div class="row my-3 mx-2" style="background-color: #fff;">
+                                        <div class="col-lg-2 col-md-2 col-sm-2 ">
+                                            <img src="images/volunteer2.png" class="img" style="border-radius: 50%;"
+                                                alt="...">
+                                        </div>
+                                        <div class="col-lg-10 col-md-10 col-sm-10">
+                                            <h5>kane williamson</h5>
+                                            <p><small class="text-muted">Monday,October 21, 2019,11:13 AM</small></p>
+                                            <p>This is useful Mission</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-4 col-sm-12">
 
                     </div>
                 </div>
+                <div>
+                    <hr>
+                </div>
+                <div class="p-3 d-flex justify-content-center"><h3>Related Mission</h3></div>
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 col-sm-12">
+                        <div class="card h-100">
+                            <div class="position-relative">
+                                <img src="images/Grow-Trees-On-the-path-to-environment-sustainability.png"
+                                    alt="Grow-Trees" class="card-img-top" />
+
+                                <div class="position-absolute top-0 end-0"> <button class="btn-1" class
+                                        type="submit"><img src="images/pin.png"
+                                            alt="buttonpng" />Newyork</button>
+                                </div>
+                                <div class="position-absolute top-50 end-0 translate-middle-y"><button
+                                        class="btn-2" type="submit"><img src="images/heart.png"
+                                            alt="buttonpng" /></button></div>
+                                <div class="position-absolute bottom-0 end-0"><button class="btn-3"
+                                        type="submit"><img src="images/user.png" alt="buttonpng" /></button>
+                                </div>
+                                <div class="position-absolute top-100 start-50 translate-middle bg-light"
+                                    style="border-radius:15px;">
+                                    <p>Environment</p>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <h4 class="card-title">Grow-Trees-On-the-path-to-environment-sustainability</h4>
+                                <p class="card-text">
+                                    This is a longer card with supporting text below as a natural lead-in to
+                                    additional content. This content is a little bit longer.
+                                </p>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <h8 class="Mission_name">Tree Canada</h8>
+                                    </div>
+                                    <div class="col-6">
+                                        <div col-lg-2 col-md-2><img src="images/selected-star.png"><img
+                                                src="images/selected-star.png"><img
+                                                src="images/selected-star.png"><img
+                                                src="images/selected-star.png"><img
+                                                 src="images/star.png"></div>
+
+                                    </div>
+                                </div>
+                                <br />
+
+                                <div class="row">
+                                    <div class="col-lg-2 col-md-1 col-sm-1  p-0">
+                                        <hr>
+                                    </div>
+                                    <div class="col-lg-8 col-md-10 col-sm-10 p-0 d-flex justify-content-center  border border-dark-subtle"
+                                        style="border-radius:21px;">From10/01/2019 untill 25/02/2019</div>
+                                    <div class="col-lg-2 col-md-1 col-sm-1 p-0 ">
+                                        <hr>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-7">
+                                        <img src="images/Seats-left.png">
+                                        10 seats left
+                                    </div>
+                                </div>
+                                <div class="row-cols-auto d-flex justify-content-center">
+                                    <button type="button" class="btn_view">view details <img
+                                            src="images/right-arrow.png"></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12">
+                        <div class="card h-100">
+                            <div class="position-relative">
+                                <img src="images/Grow-Trees-On-the-path-to-environment-sustainability.png"
+                                    alt="Grow-Trees" class="card-img-top" />
+
+                                <div class="position-absolute top-0 end-0"> <button class="btn-1" class
+                                        type="submit"><img src="images/pin.png"
+                                            alt="buttonpng" />Newyork</button>
+                                </div>
+                                <div class="position-absolute top-50 end-0 translate-middle-y"><button
+                                        class="btn-2" type="submit"><img src="images/heart.png"
+                                            alt="buttonpng" /></button></div>
+                                <div class="position-absolute bottom-0 end-0"><button class="btn-3"
+                                        type="submit"><img src="images/user.png" alt="buttonpng" /></button>
+                                </div>
+                                <div class="position-absolute top-100 start-50 translate-middle bg-light"
+                                    style="border-radius:15px;">
+                                    <p>Environment</p>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <h4 class="card-title">Grow-Trees-On-the-path-to-environment-sustainability</h4>
+                                <p class="card-text">
+                                    This is a longer card with supporting text below as a natural lead-in to
+                                    additional content. This content is a little bit longer.
+                                </p>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <h8 class="Mission_name">Tree Canada</h8>
+                                    </div>
+                                    <div class="col-6">
+                                        <div col-lg-2 col-md-2><img src="images/selected-star.png"><img
+                                                src="images/selected-star.png"><img
+                                                src="images/selected-star.png"><img
+                                                src="images/selected-star.png"><img src="images/star.png"></div>
+
+                                    </div>
+                                </div>
+                                <br />
+
+                                <div class="row">
+                                    <div class="col-lg-2 col-md-1 col-sm-1  p-0">
+                                        <hr>
+                                    </div>
+                                    <div class="col-lg-8 col-md-10 col-sm-10 p-0 d-flex justify-content-center  border border-dark-subtle"
+                                        style="border-radius:21px;">From10/01/2019 untill 25/02/2019</div>
+                                    <div class="col-lg-2 col-md-1 col-sm-1 p-0 ">
+                                        <hr>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-7">
+                                        <img src="images/Seats-left.png">
+                                        10 seats left
+                                    </div>
+                                </div>
+                                <div class="row-cols-auto d-flex justify-content-center">
+                                    <button type="button" class="btn_view">view details <img
+                                            src="images/right-arrow.png"></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12">
+                        <div class="card h-100">
+                            <div class="position-relative">
+                                <img src="images/Grow-Trees-On-the-path-to-environment-sustainability.png"
+                                    alt="Grow-Trees" class="card-img-top" />
+
+                                <div class="position-absolute top-0 end-0"> <button class="btn-1" class
+                                        type="submit"><img src="images/pin.png"
+                                            alt="buttonpng" />Newyork</button>
+                                </div>
+                                <div class="position-absolute top-50 end-0 translate-middle-y"><button
+                                        class="btn-2" type="submit"><img src="images/heart.png"
+                                            alt="buttonpng" /></button></div>
+                                <div class="position-absolute bottom-0 end-0"><button class="btn-3"
+                                        type="submit"><img src="images/user.png" alt="buttonpng" /></button>
+                                </div>
+                                <div class="position-absolute top-100 start-50 translate-middle bg-light"
+                                    style="border-radius:15px;">
+                                    <p>Environment</p>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <h4 class="card-title">Grow-Trees-On-the-path-to-environment-sustainability</h4>
+                                <p class="card-text">
+                                    This is a longer card with supporting text below as a natural lead-in to
+                                    additional content. This content is a little bit longer.
+                                </p>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <h8 class="Mission_name">Tree Canada</h8>
+                                    </div>
+                                    <div class="col-6">
+                                        <div col-lg-2 col-md-2><img src="images/selected-star.png"><img
+                                                src="images/selected-star.png"><img
+                                                src="images/selected-star.png"><img
+                                                src="images/selected-star.png"><img src="images/star.png"></div>
+
+                                    </div>
+                                </div>
+                                <br />
+
+                                <div class="row">
+                                    <div class="col-lg-2 col-md-1 col-sm-1  p-0">
+                                        <hr>
+                                    </div>
+                                    <div class="col-lg-8 col-md-10 col-sm-10 p-0 d-flex justify-content-center  border border-dark-subtle"
+                                        style="border-radius:21px;">From10/01/2019 untill 25/02/2019</div>
+                                    <div class="col-lg-2 col-md-1 col-sm-1 p-0 ">
+                                        <hr>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-7">
+                                        <img src="images/Seats-left.png">
+                                        10 seats left
+                                    </div>
+                                </div>
+                                <div class="row-cols-auto  d-flex justify-content-center">
+                                    <button type="button" class="btn_view">view details <img
+                                            src="images/right-arrow.png"></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <script>
+                    var swiper = new Swiper(".mySwiper", {
+                        loop: true,
+                        spaceBetween: 10,
+                        slidesPerView: 4,
+                        freeMode: true,
+                        watchSlidesProgress: true,
+                    });
+                    var swiper2 = new Swiper(".mySwiper2", {
+                        loop: true,
+                        spaceBetween: 10,
+                        navigation: {
+                            nextEl: ".swiper-button-next",
+                            prevEl: ".swiper-button-prev",
+                        },
+                        thumbs: {
+                            swiper: swiper,
+                        },
+                    });
+                </Script>
             </div>
+
     </body>
     <footer class="bg-light text-center text-lg-start">
         <div class="text-start p-3" style="background-color: rgba(0, 0, 0, 0.2);">

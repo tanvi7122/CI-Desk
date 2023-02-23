@@ -1,3 +1,4 @@
+
 .profilePhoto {
   border-radius: 100%;
   width: 40px;
@@ -117,6 +118,7 @@ body {
   object-fit: cover;
 }
 
+
 .nav-tabs .nav-link:focus,
 .nav-tabs .nav-link:hover,
 .nav-tabs .nav-item.show .nav-link,
@@ -151,6 +153,12 @@ body {
   font-size: 15px;
   line-height: 24px;
   color: #3E3E3E;
+}
+.comment_img{
+  margin: 5%;
+  padding: 10%;
+  height: 7rem;
+  border-radius: 50%;
 }
 .btn-1 {
   /* transform: translate(-50%, -50%); */
@@ -190,5 +198,7 @@ body {
 .img-filter {
       display: block;
   }
-
+  .nav-item {
+    display: none;
+}
 }

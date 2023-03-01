@@ -631,6 +631,32 @@
             "rid": "win"
           }
         }
+      },
+      "CIPlatform.Repository/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.SqlServer": "6.0.0"
+        },
+        "compile": {
+          "bin/placeholder/CIPlatform.Repository.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/CIPlatform.Repository.dll": {}
+        }
+      },
+      "ClPlatform.entities/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.SqlServer": "6.0.0"
+        },
+        "compile": {
+          "bin/placeholder/ClPlatform.entities.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ClPlatform.entities.dll": {}
+        }
       }
     }
   },
@@ -1850,10 +1876,22 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
+    },
+    "CIPlatform.Repository/1.0.0": {
+      "type": "project",
+      "path": "../CIPlatform.Repositiry/CIPlatform.Repository.csproj",
+      "msbuildProject": "../CIPlatform.Repositiry/CIPlatform.Repository.csproj"
+    },
+    "ClPlatform.entities/1.0.0": {
+      "type": "project",
+      "path": "../ClPlatform.entities/ClPlatform.entities.csproj",
+      "msbuildProject": "../ClPlatform.entities/ClPlatform.entities.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "CIPlatform.Repository >= 1.0.0",
+      "ClPlatform.entities >= 1.0.0",
       "Microsoft.EntityFrameworkCore.Design >= 6.0.0",
       "Microsoft.EntityFrameworkCore.SqlServer >= 6.0.0",
       "Microsoft.EntityFrameworkCore.Tools >= 6.0.0"
@@ -1867,11 +1905,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\pca142\\Desktop\\CI-Desk\\MVC\\CI-PLATFORM\\CI-platform\\CI-platform.csproj",
+      "projectUniqueName": "C:\\Users\\pca142\\Desktop\\CI-Desk\\MVC\\CI-platform\\CI-platform\\CI-platform.csproj",
       "projectName": "CI-platform",
-      "projectPath": "C:\\Users\\pca142\\Desktop\\CI-Desk\\MVC\\CI-PLATFORM\\CI-platform\\CI-platform.csproj",
+      "projectPath": "C:\\Users\\pca142\\Desktop\\CI-Desk\\MVC\\CI-platform\\CI-platform\\CI-platform.csproj",
       "packagesPath": "C:\\Users\\pca142\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\pca142\\Desktop\\CI-Desk\\MVC\\CI-PLATFORM\\CI-platform\\obj\\",
+      "outputPath": "C:\\Users\\pca142\\Desktop\\CI-Desk\\MVC\\CI-platform\\CI-platform\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -1892,7 +1930,14 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\pca142\\Desktop\\CI-Desk\\MVC\\CI-platform\\CIPlatform.Repositiry\\CIPlatform.Repository.csproj": {
+              "projectPath": "C:\\Users\\pca142\\Desktop\\CI-Desk\\MVC\\CI-platform\\CIPlatform.Repositiry\\CIPlatform.Repository.csproj"
+            },
+            "C:\\Users\\pca142\\Desktop\\CI-Desk\\MVC\\CI-platform\\ClPlatform.entities\\ClPlatform.entities.csproj": {
+              "projectPath": "C:\\Users\\pca142\\Desktop\\CI-Desk\\MVC\\CI-platform\\ClPlatform.entities\\ClPlatform.entities.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

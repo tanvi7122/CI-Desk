@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ysbelxW6G1Zj1X8PLcEXzaJXFkzHGINtPcjvQNjuF2FELFuD/2YaABGwrOD82dV3H3rjbzw8nSzePNfVDIedsg==",
+  "dgSpecHash": "X2Q33R7RptVvVJug2jidjmAruvscDVRcDQ3sdA8UpogUdxtT5FhkqG2c4o1C/pz2QQOX6T8U/7QVenYJ1PPGsA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\pca142\\Desktop\\CI-Desk\\MVC\\CI-PLATFORM\\CI-platform\\CI-platform.csproj",
+  "projectFilePath": "C:\\Users\\pca142\\Desktop\\CI-Desk\\MVC\\CI-platform\\CI-platform\\CI-platform.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\pca142\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",

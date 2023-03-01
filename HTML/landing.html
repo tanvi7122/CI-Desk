@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/landing.css">
+    
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <title>LANDING_PAGE</title>
+    <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <img src="images/logo.png">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <img src="images/list.png">
+            </button>
+
+
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown" href="#" id="Explore" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false" style="color:#333333">
+                            Explore<img src="images/drop-down.png" class="drop-down mx-3">
+                        </a>
+
+
+                        <ul class="dropdown-menu" aria-labelledby="Explore">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                    aria-expanded="false">Explore</a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">Top Themes</a></li>
+                                    <li><a class="dropdown-item" href="#">Top Countries</a></li>
+                                    <li><a class="dropdown-item" href="#">Top Organization</a></li>
+                                    <li><a class="dropdown-item" href="#">Most Ranked</a></li>
+                                    <li><a class="dropdown-item" href="#">Top Favorite</a></li>
+                                    <li><a class="dropdown-item" href="#">Recommended</a></li>
+                                    <li><a class="dropdown-item" href="#">Random</a></li>
+                                </ul>
+                            </li>
+
+
+                            <li><a class="dropdown-item" href="#">Top Countries</a></li>
+                            <li><a class="dropdown-item" href="#">Top Organisation</a></li>
+                            <li><a class="dropdown-item" href="#">Most Ranked</a></li>
+                            <li><a class="dropdown-item" href="#">Top Favourite</a></li>
+                            <li><a class="dropdown-item" href="#">Recommended</a></li>
+                            <li><a class="dropdown-item" href="#"> Random</a></li>
+                        </ul>
+                    </li>
+
+
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#" style="color:#333333">Stories</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#" style="color:#333333">News</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown" href="#" id="Policy" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false" style="color:#333333">
+                            Policy<img src="images/drop-down.png" class="drop-down mx-3">
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="Policy">
+                            <li><a class="dropdown-item" href="#"> Privacy policy</a></li>
+                            <li><a class="dropdown-item" href="#">Terms & conditions</a></li>
+                            <li><a class="dropdown-item" href="#"> Cookies policy</a></li>
+                        </ul>
+                    </li>
+                    <li class="profile_photo">
+                        <a class="nav-link dropdown" href="#" id="profile_photo" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false" style="color:#333333">
+                            <img src="images/bell-big.png" width="40" height="40" class="rounded-circle">
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="profile_photo ">
+                            <li><a class="dropdown-item" href="#">Dashboard</a></li>
+                            <li><a class="dropdown-item" href="#">My Account</a></li>
+                            <li><a class="dropdown-item" href="#">Help Center</a></li>
+                            <li><a class="dropdown-item" href="#">Logout</a></li>
+                        </ul>
+                    </li>
+                    <li class="profile_photo">
+                        <a class="nav-link dropdown" href="#" id="profile_photo" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false" style="color:#333333">
+                            <img src="images/user-img-large.png" width="40" height="40" class="rounded-circle"> Evan
+                            donohue<img src="images/drop-down.png" class="drop-down mx-3">
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="profile_photo ">
+                            <li><a class="dropdown-item" href="#">My Profile</a></li>
+                            <li><a class="dropdown-item" href="#">Volunteering</a></li>
+                            <li><a class="dropdown-item" href="#">Timesheet</a></li>
+                            <li><a class="dropdown-item" href="#">Logout</a></li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </div>
+    </div>
+    </div>
+    </nav>
+
+</head>
+
+<body style="overflow-x: hidden;">
+
+    <!-- <div class=row>
+        <div class="col-lg-5 col-md-3 col-sm-12">
+            <form action="">
+                <div class="input-group">
+
+                    <button id="search" type="submit" class="btn btn-link text-primary"> <img
+                            src="images/search.png"></button>
+                    <input type="search" placeholder="Search mission" class="form-control border-0">
+                </div>
+            </form>
+        </div>
+        <div class="col-lg-1 col-md-2 col-sm-3">
+            <div class="nav-item dropdown">
+                <a class="nav-link dropdown" href="#" id="Country" role="button" data-bs-toggle="dropdown"
+                    aria-expanded="false" style="color:#333333">
+                    Country<img src="images/drop-down.png" class="drop-down mx-3">
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="Country">
+                    <li><a class="dropdown-item" href="#"> Privacy policy</a></li>
+                    <li><a class="dropdown-item" href="#">Terms & conditions</a></li>
+                    <li><a class="dropdown-item" href="#"> Cookies policy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-lg-1 col-md-2 col-sm-3">
+            <div class="nav-item dropdown">
+                <a class="nav-link dropdown" href="#" id="City" role="button" data-bs-toggle="dropdown"
+                    aria-expanded="false" style="color:#333333">
+                    City<img src="images/drop-down.png" class="drop-down mx-3">
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="City">
+                    <li><a class="dropdown-item" href="#"> Privacy policy</a></li>
+                    <li><a class="dropdown-item" href="#">Terms & conditions</a></li>
+                    <li><a class="dropdown-item" href="#"> Cookies policy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-lg-1 col-md-2 col-sm-3">
+            <div class="nav-item dropdown">
+                <a class="nav-link dropdown" href="#" id="Theme" role="button" data-bs-toggle="dropdown"
+                    aria-expanded="false" style="color:#333333">
+                    Theme<img src="images/drop-down.png" class="drop-down mx-3">
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="Theme">
+                    <li><a class="dropdown-item" href="#"> Privacy policy</a></li>
+                    <li><a class="dropdown-item" href="#">Terms & conditions</a></li>
+                    <li><a class="dropdown-item" href="#"> Cookies policy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-lg-1 col-md-2 col-sm-3">
+            <div class="nav-item dropdown">
+                <a class="nav-link dropdown" href="#" id="Skills" role="button" data-bs-toggle="dropdown"
+                    aria-expanded="false" style="color:#333333">
+                    Skills<img src="images/drop-down.png" class="drop-down mx-3">
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="Skills">
+                    <li><a class="dropdown-item" href="#"> Privacy policy</a></li>
+                    <li><a class="dropdown-item" href="#">Terms & conditions</a></li>
+                    <li><a class="dropdown-item" href="#"> Cookies policy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-lg-1">
+
+        </div> 
+    </div> -->
+    <div class=" shadow p-3 mb-5 bg-body rounded">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-sm-12 border-end">
+
+                    <img src="./Images/search.png" alt="">
+                    <input class="input-field " type="search" placeholder="Search mission...">
+
+                    <button class="img-filter" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample1"
+                        aria-controls="offcanvasExample"><img src="./Images/filter.png" alt=""></button>
+
+
+                </div>
+
+
+                <div class="col-2 border-end col-custom">
+
+                    <a class="nav-link dropdown" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        Country <img src="./Images/drop-down.png" alt="">
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="#">Action</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+
+                    </ul>
+
+
+
+
+
+
+                </div>
+                <div class="col-2 border-end col-custom">
+
+                    <a class="nav-link dropdown" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        City <img src="./Images/drop-down.png" alt="">
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="#">Action</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+
+
+                </div>
+                <div class="col-2 border-end col-custom">
+
+                    <a class="nav-link dropdown" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        Themes <img src="./Images/drop-down.png" alt="">
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="#">Action</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+
+
+                </div>
+                <div class="col-2 border-end col-custom">
+
+                    <a class="nav-link dropdown" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        Skills <img src="./Images/drop-down.png" alt="">
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <div> <input type="checkbox" id="Skills" name="Skills1" value="s1">
+                            <label for="Skills1">Skills1</label>
+                        </div>
+                        <div><input type="checkbox" id="Skills" name="Skills2" value="s2">
+                            <label for="Skills2"> Skills2</label><br>
+                        </div>
+                        <div> <input type="checkbox" id="Skills" name="Skills3" value="s3">
+                            <label for="Skills3"> Skills3</label><br>
+                        </div>
+                        <div> <input type="checkbox" id="Skills" name="Skills1" value="s1">
+                            <label for="Skills1">Skills1</label>
+                        </div>
+                        <div><input type="checkbox" id="Skills" name="Skills2" value="s2">
+                            <label for="Skills2"> Skills2</label><br>
+                        </div>
+                        <div> <input type="checkbox" id="Skills" name="Skills3" value="s3">
+                            <label for="Skills3"> Skills3</label><br>
+                        </div>
+
+                    </ul>
+                </div>
+
+
+
+                <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample1"
+                    aria-labelledby="offcanvasExampleLabel">
+                    <div class="offcanvas-header">
+                        <h5 class="filter" id="offcanvasExampleLabel">Clear All</h5>
+                        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                            aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <div class="col-sm-12 border-end col-custom-offcanvas">
+
+
+                            <div class="accordion" id="accordionExample">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingOne">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#collapseOne" aria-expanded="true"
+                                            aria-controls="collapseOne">
+                                            Country
+                                        </button>
+                                    </h2>
+                                    <div id="collapseOne" class="accordion-collapse collapse show"
+                                        aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value=""
+                                                    id="flexCheckDefault">
+                                                <label class="form-check-label" for="flexCheckDefault">
+                                                    Default checkbox
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value=""
+                                                    id="flexCheckChecked" checked>
+                                                <label class="form-check-label" for="flexCheckChecked">
+                                                    Checked checkbox
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingTwo">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseTwo"
+                                            aria-expanded="false" aria-controls="collapseTwo">
+                                            City
+                                        </button>
+                                    </h2>
+                                    <div id="collapseTwo" class="accordion-collapse collapse"
+                                        aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value=""
+                                                    id="flexCheckDefault">
+                                                <label class="form-check-label" for="flexCheckDefault">
+                                                    Default checkbox
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value=""
+                                                    id="flexCheckChecked" checked>
+                                                <label class="form-check-label" for="flexCheckChecked">
+                                                    Checked checkbox
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingThree">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseThree"
+                                            aria-expanded="false" aria-controls="collapseThree">
+                                            Themes
+                                        </button>
+                                    </h2>
+                                    <div id="collapseThree" class="accordion-collapse collapse"
+                                        aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value=""
+                                                    id="flexCheckDefault">
+                                                <label class="form-check-label" for="flexCheckDefault">
+                                                    Default checkbox
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value=""
+                                                    id="flexCheckChecked" checked>
+                                                <label class="form-check-label" for="flexCheckChecked">
+                                                    Checked checkbox
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingFour">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseFour"
+                                            aria-expanded="false" aria-controls="collapseFour">
+                                            Skills
+                                        </button>
+                                    </h2>
+                                    <div id="collapseFour" class="accordion-collapse collapse"
+                                        aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value=""
+                                                    id="flexCheckDefault">
+                                                <label class="form-check-label" for="flexCheckDefault">
+                                                    Default checkbox
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value=""
+                                                    id="flexCheckChecked" checked>
+                                                <label class="form-check-label" for="flexCheckChecked">
+                                                    Checked checkbox
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+    <script src="js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

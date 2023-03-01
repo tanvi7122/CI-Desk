@@ -1,0 +1,14 @@
+C:\Users\pca142\Desktop\CI-Desk\MVC\CI-PLATFORM\CIPlatform.Repositiry\bin\Debug\net6.0\CIPlatform.Repositiry.deps.json
+C:\Users\pca142\Desktop\CI-Desk\MVC\CI-PLATFORM\CIPlatform.Repositiry\bin\Debug\net6.0\CIPlatform.Repositiry.runtimeconfig.json
+C:\Users\pca142\Desktop\CI-Desk\MVC\CI-PLATFORM\CIPlatform.Repositiry\bin\Debug\net6.0\CIPlatform.Repositiry.dll
+C:\Users\pca142\Desktop\CI-Desk\MVC\CI-PLATFORM\CIPlatform.Repositiry\bin\Debug\net6.0\ref\CIPlatform.Repositiry.dll
+C:\Users\pca142\Desktop\CI-Desk\MVC\CI-PLATFORM\CIPlatform.Repositiry\bin\Debug\net6.0\CIPlatform.Repositiry.pdb
+C:\Users\pca142\Desktop\CI-Desk\MVC\CI-PLATFORM\CIPlatform.Repositiry\obj\Debug\net6.0\CIPlatform.Repositiry.csproj.AssemblyReference.cache
+C:\Users\pca142\Desktop\CI-Desk\MVC\CI-PLATFORM\CIPlatform.Repositiry\obj\Debug\net6.0\CIPlatform.Repositiry.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\pca142\Desktop\CI-Desk\MVC\CI-PLATFORM\CIPlatform.Repositiry\obj\Debug\net6.0\CIPlatform.Repositiry.AssemblyInfoInputs.cache
+C:\Users\pca142\Desktop\CI-Desk\MVC\CI-PLATFORM\CIPlatform.Repositiry\obj\Debug\net6.0\CIPlatform.Repositiry.AssemblyInfo.cs
+C:\Users\pca142\Desktop\CI-Desk\MVC\CI-PLATFORM\CIPlatform.Repositiry\obj\Debug\net6.0\CIPlatform.Repositiry.csproj.CoreCompileInputs.cache
+C:\Users\pca142\Desktop\CI-Desk\MVC\CI-PLATFORM\CIPlatform.Repositiry\obj\Debug\net6.0\CIPlatform.Repositiry.dll
+C:\Users\pca142\Desktop\CI-Desk\MVC\CI-PLATFORM\CIPlatform.Repositiry\obj\Debug\net6.0\ref\CIPlatform.Repositiry.dll
+C:\Users\pca142\Desktop\CI-Desk\MVC\CI-PLATFORM\CIPlatform.Repositiry\obj\Debug\net6.0\CIPlatform.Repositiry.pdb
+C:\Users\pca142\Desktop\CI-Desk\MVC\CI-PLATFORM\CIPlatform.Repositiry\obj\Debug\net6.0\CIPlatform.Repositiry.genruntimeconfig.cache

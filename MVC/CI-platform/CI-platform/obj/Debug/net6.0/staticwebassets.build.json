@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "i77vE4opzDcr7nwQ8tX0ZHxS3A6KYe2w9Dk0/9DCVP4=",
+  "Hash": "RPz4qfxfbabU/LchpHxZArU7E85XzX54JZSK13V3xVw=",
   "Source": "CI-platform",
   "BasePath": "_content/CI-platform",
   "Mode": "Default",
@@ -49,40 +49,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\pca142\\Desktop\\CI-Desk\\MVC\\CI-PLATFORM\\CI-platform\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\CI-platform.bundle.scp.css"
-    },
-    {
-      "Identity": "C:\\Users\\pca142\\Desktop\\CI-Desk\\MVC\\CI-PLATFORM\\CI-platform\\wwwroot\\css\\Forgot_pw.css",
-      "SourceId": "CI-platform",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pca142\\Desktop\\CI-Desk\\MVC\\CI-PLATFORM\\CI-platform\\wwwroot\\",
-      "BasePath": "_content/CI-platform",
-      "RelativePath": "css/Forgot_pw.css",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\Forgot_pw.css"
-    },
-    {
-      "Identity": "C:\\Users\\pca142\\Desktop\\CI-Desk\\MVC\\CI-PLATFORM\\CI-platform\\wwwroot\\css\\RegistrationPage.css",
-      "SourceId": "CI-platform",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pca142\\Desktop\\CI-Desk\\MVC\\CI-PLATFORM\\CI-platform\\wwwroot\\",
-      "BasePath": "_content/CI-platform",
-      "RelativePath": "css/RegistrationPage.css",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\RegistrationPage.css"
     },
     {
       "Identity": "C:\\Users\\pca142\\Desktop\\CI-Desk\\MVC\\CI-PLATFORM\\CI-platform\\wwwroot\\css\\Reset.css",

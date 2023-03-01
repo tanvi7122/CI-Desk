@@ -1,0 +1,5 @@
+C:\Users\pca142\Desktop\CI-Desk\MVC\CI-PLATFORM\CIPlatform.Repositiry\obj\Debug\net6.0\CIPlatform.Repository.csproj.AssemblyReference.cache
+C:\Users\pca142\Desktop\CI-Desk\MVC\CI-PLATFORM\CIPlatform.Repositiry\obj\Debug\net6.0\CIPlatform.Repository.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\pca142\Desktop\CI-Desk\MVC\CI-PLATFORM\CIPlatform.Repositiry\obj\Debug\net6.0\CIPlatform.Repository.AssemblyInfoInputs.cache
+C:\Users\pca142\Desktop\CI-Desk\MVC\CI-PLATFORM\CIPlatform.Repositiry\obj\Debug\net6.0\CIPlatform.Repository.AssemblyInfo.cs
+C:\Users\pca142\Desktop\CI-Desk\MVC\CI-PLATFORM\CIPlatform.Repositiry\obj\Debug\net6.0\CIPlatform.Repository.csproj.CoreCompileInputs.cache

@@ -64,3 +64,4 @@ C:\Users\pca142\Desktop\CI-Desk\MVC\CIPlatform\CIPlatform\bin\Debug\net6.0\CIPla
 C:\Users\pca142\Desktop\CI-Desk\MVC\CIPlatform\CIPlatform\bin\Debug\net6.0\CIPlatform.Repository.pdb
 C:\Users\pca142\Desktop\CI-Desk\MVC\CIPlatform\CIPlatform\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\pca142\Desktop\CI-Desk\MVC\CIPlatform\CIPlatform\bin\Debug\net6.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\pca142\Desktop\CI-Desk\MVC\CIPlatform\CIPlatform\obj\Debug\net6.0\CIPlatform.MvcApplicationPartsAssemblyInfo.cs

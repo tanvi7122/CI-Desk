@@ -1,6 +1,7 @@
 ﻿using CIPlatform.Entities.Data;
 using CIPlatform.Entities.Models;
 using CIPlatform.Repository.Interface;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +14,7 @@ namespace CIPlatform.Repository.Repository
     public class AccountRepository : IAccountRepository
     { 
     public readonly CIPlatformContext _CIPlatformContext;
-
+        private readonly IConfiguration _config;
         public AccountRepository(CIPlatformContext CIPlatformContext)
         {
             _CIPlatformContext = CIPlatformContext;

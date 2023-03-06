@@ -1,36 +1,31 @@
 {
   "Version": 1,
   "ProjectMap": {
-    "66e84b98-ba29-4244-b599-d6c5cbb22cb2": {
-      "ProjectGuid": "66e84b98-ba29-4244-b599-d6c5cbb22cb2",
-      "DisplayName": "CI-platform",
+    "8218a72b-9b8a-45dc-9932-b76ce2de1480": {
+      "ProjectGuid": "8218a72b-9b8a-45dc-9932-b76ce2de1480",
+      "DisplayName": "CI-Platform",
       "ColorIndex": 0
+    },
+    "3e2ae4d6-4435-4116-821e-3d4adf2cbfc7": {
+      "ProjectGuid": "3e2ae4d6-4435-4116-821e-3d4adf2cbfc7",
+      "DisplayName": "CI_Platform.Repository",
+      "ColorIndex": 1
+    },
+    "c250580a-e798-43a4-9d92-489dac97bfec": {
+      "ProjectGuid": "c250580a-e798-43a4-9d92-489dac97bfec",
+      "DisplayName": "CI_Platform.Entity",
+      "ColorIndex": 2
+    },
+    "77b8fc26-47aa-466d-a6a2-dc0f4cdc9bb5": {
+      "ProjectGuid": "77b8fc26-47aa-466d-a6a2-dc0f4cdc9bb5",
+      "DisplayName": "CI_Platform.Repository",
+      "ColorIndex": 3
     },
     "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
       "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
       "DisplayName": "Miscellaneous Files",
       "ColorIndex": -1
-    },
-    "a5c3bad0-2793-4b4f-a8fe-663c23fc4e92": {
-      "ProjectGuid": "a5c3bad0-2793-4b4f-a8fe-663c23fc4e92",
-      "DisplayName": "CI-platform.Entities",
-      "ColorIndex": 1
-    },
-    "d2c78bef-da99-475e-8a33-696196500fd6": {
-      "ProjectGuid": "d2c78bef-da99-475e-8a33-696196500fd6",
-      "DisplayName": "CI-platform.repositiry",
-      "ColorIndex": 2
-    },
-    "0027a278-a553-431a-b21f-ee5ca2894280": {
-      "ProjectGuid": "0027a278-a553-431a-b21f-ee5ca2894280",
-      "DisplayName": "ClPlatform.entities",
-      "ColorIndex": 3
-    },
-    "136bd061-2833-4196-a1a2-3db2e76a0435": {
-      "ProjectGuid": "136bd061-2833-4196-a1a2-3db2e76a0435",
-      "DisplayName": "CIPlatform.Repository",
-      "ColorIndex": 4
     }
   },
-  "NextColorIndex": 5
+  "NextColorIndex": 4
 }

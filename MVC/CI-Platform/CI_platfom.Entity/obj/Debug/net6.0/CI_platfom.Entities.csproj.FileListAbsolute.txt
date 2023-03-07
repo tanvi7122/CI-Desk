@@ -1,0 +1,12 @@
+C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platfom.Entity\bin\Debug\net6.0\CI_platfom.Entities.deps.json
+C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platfom.Entity\bin\Debug\net6.0\CI_platfom.Entities.dll
+C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platfom.Entity\bin\Debug\net6.0\ref\CI_platfom.Entities.dll
+C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platfom.Entity\bin\Debug\net6.0\CI_platfom.Entities.pdb
+C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platfom.Entity\obj\Debug\net6.0\CI_platfom.Entities.csproj.AssemblyReference.cache
+C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platfom.Entity\obj\Debug\net6.0\CI_platfom.Entities.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platfom.Entity\obj\Debug\net6.0\CI_platfom.Entities.AssemblyInfoInputs.cache
+C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platfom.Entity\obj\Debug\net6.0\CI_platfom.Entities.AssemblyInfo.cs
+C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platfom.Entity\obj\Debug\net6.0\CI_platfom.Entities.csproj.CoreCompileInputs.cache
+C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platfom.Entity\obj\Debug\net6.0\CI_platfom.Entities.dll
+C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platfom.Entity\obj\Debug\net6.0\ref\CI_platfom.Entities.dll
+C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platfom.Entity\obj\Debug\net6.0\CI_platfom.Entities.pdb

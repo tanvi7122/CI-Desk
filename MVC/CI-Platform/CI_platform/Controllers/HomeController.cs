@@ -49,7 +49,7 @@ namespace CI_platform.Controllers
             {
                 Console.WriteLine("Login successfull");
                 TempData["success"] = "Login Successful";
-                return RedirectToAction("Registration");
+                return RedirectToAction("Landing_page");
             }
             else
             {
@@ -67,14 +67,25 @@ namespace CI_platform.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
 
-        public IActionResult Registration(User user)
+        public IActionResult Registration(User user, IFormCollection form)
         {
             if (ModelState.IsValid)
             {
-                _AccountRepo.Add(user);
-                _AccountRepo.save();
-                return RedirectToAction("Login");
+
+                if (form["conformpassword"] == user.Password)
+                {
+                    _AccountRepo.Add(user);
+                    _AccountRepo.save();
+                    TempData["success"] = "Registration Successful";
+                    return RedirectToAction("Login");
+                }
+                else
+                {
+                    TempData["error"] = "password dosen't match";
+                    return View(user);
+                }
             }
+            TempData["error"] = "Registration failed";
             return View(user);
         }
         [HttpGet]
@@ -104,14 +115,14 @@ namespace CI_platform.Controllers
             }
             return View(obj);
         }
-        public IActionResult Newpassword()
+        public IActionResult Reset()
         {
             return View();
         }
 
 
         [HttpPost]
-        public IActionResult Newpassword(NewPasswordValidation obj, IFormCollection form)
+        public IActionResult Reset(NewPasswordValidation obj, IFormCollection form)
         {
             if (ModelState.IsValid)
             {
@@ -119,7 +130,7 @@ namespace CI_platform.Controllers
                 {
                     _AccountRepo.UpdateUser(obj);
                     TempData["success"] = "Password updated!!!";
-                    return RedirectToAction("Login", "User");
+                    return RedirectToAction("Login", "Home");
                 }
                 else
                 {
@@ -127,13 +138,9 @@ namespace CI_platform.Controllers
                     return View(obj);
                 }
             }
-            return RedirectToAction("Login", "User");
+            return RedirectToAction("Login", "Home");
         }
-
-
-    
        
 
-
-}
+    }
 }

@@ -1,0 +1,89 @@
+.profilePhoto {
+    border-radius: 100%;
+    width: 40px;
+    height: 40px;
+}
+
+.border-none {
+    border: none !important;
+    border-radius: 0px !important;
+}
+
+.img-filter {
+    display: none;
+}
+
+.form-check-input:checked {
+    background-color: #ff6a00 !important;
+    border-color: #ff6a00 !important;
+    margin-bottom: 28px;
+}
+
+.tablink {
+    border-radius: 17px;
+    background-color: #ffffff;
+    border: none;
+    cursor: pointer;
+}
+
+
+ .btn-1 {
+    /* transform: translate(-50%, -50%); */
+    /* -ms-transform: translate(-50%, -50%); */
+    background-color: #2d2c2c;
+    color: #ffffff;
+    border-radius: 20px;
+    border: none;
+}
+
+.btn-2 {
+
+    /* transform: translate(-50%, -50%); */
+    /* -ms-transform: translate(-50%, -50%); */
+    background-color: #2d2c2c;
+    color: #ffffff;
+    border-radius: 20px;
+    border: none;
+  
+}
+
+.btn-3 {
+  
+    /* transform: translate(-50%, -50%); */
+    /* -ms-transform: translate(-50%, -50%); */
+    background-color: #2d2c2c;
+    color: #ffffff;
+    border-radius: 20px;
+    border: none;
+  
+} 
+.btn_view{
+  
+    align-content: center;
+    color: #ff6a00;
+    border-color: #ff6a00;
+    border-radius: 20px;
+    background-color: #ffffff;
+}
+
+
+@media screen and (max-width:767px) {
+ 
+    #profileText {
+        display: none !important;
+    }
+  .img-filter {
+        display: block;
+    }
+
+    .filter-options {
+        display: none;
+    }
+
+    .nav-item {
+        display: none;
+    }
+    .tablink{
+        display: none;
+    }
+}

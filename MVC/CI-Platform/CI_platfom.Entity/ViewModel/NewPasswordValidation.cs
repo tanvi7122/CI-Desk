@@ -10,7 +10,7 @@ namespace CI_platfom.Entity.ViewModel
     public class NewPasswordValidation
     {
         [Required]
-        public string Password { get; set; }
+        public string? Password { get; set; }
     }
 }
 

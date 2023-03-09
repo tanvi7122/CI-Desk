@@ -1,0 +1,952 @@
+﻿<!DOCTYPE html>
+
+<html>
+0
+
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom">
+            <div class="container">
+
+
+                <div>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+                        data-bs-target="#headerContent" aria-controls="headerContent" aria-expanded="false"
+                        aria-label="Toggle navigation" style="border:none">
+                        <span><img src="~/images/list.png" /></span>
+                    </button>
+                    <a class="navbar-brand" asp-controller="Home" asp-action="HomePage">
+                        <img src="~/images/logo.png">
+                    </a>
+                </div>
+
+                <div class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#" style="color:#333333">Stories</a>
+                </div>
+                <div class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#" style="color:#333333">News</a>
+                </div>
+                <div class="nav-item dropdown">
+                    <a class="nav-link dropdown" href="#" id="Policy" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false" style="color:#333333">
+                        Policy<img src="~/images/drop-down.png" class="drop-down mx-3">
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="Policy">
+                        <li><a class="dropdown-item" href="#"> Privacy policy</a></li>
+                        <li><a class="dropdown-item" href="#">Terms & conditions</a></li>
+                        <li><a class="dropdown-item" href="#"> Cookies policy</a></li>
+                    </ul>
+                </div>
+
+                <div class="offcanvas offcanvas-start" id="headerContent">
+                    <div class="offcanvas-header flex-row-reverse">
+                        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                            aria-label="Close"></button>
+                    </div>
+                    <ul class="navbar-nav  mb-2 mb-lg-0 offcanvas-body">
+                        <li class="nav-items">
+                            <a class="nav-link active" aria-current="page">Stories</a>
+                        </li>
+                        <li class="nav-items dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Policy
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#">Volunteering</a></li>
+                                <li><a class="dropdown-item" href="#">Sponsored</a></li>
+                                <li><a class="dropdown-item" href="#">Terms and Conditions</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+
+                <div class="right-div d-flex">
+                    <div class="m-2 "><i class="bi bi-bell"><sup class="badge" style="color:red">4</sup></i></div>
+                    <div class="dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <span>
+                                <img src="~/images/user-img-large.png" class="profilePhoto">
+                            </span>
+                            <p class="d-inline" id="profileText">
+                                Evan Donohue
+                            </p>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
+                            <li><a class="dropdown-item" href="#">Dashboard</a></li>
+                            <li><a class="dropdown-item" href="#">My Account</a></li>
+                            <li><a class="dropdown-item" href="#">Help Center</a></li>
+                            <li><a class="dropdown-item" href="#">Logout</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+
+            </div>
+        </nav>
+    </header>
+
+    <div class="shadow-sm border-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-sm-12 p-3 border-start border-end d-inline-flex">
+                    <div class="input-group">
+                        <span class="input-group-text bg-white border-none" id="seacrhIcon">
+                            <img src="~/images/search.png" />
+                        </span>
+                        <input type="text" class="form-control border-none" placeholder="Search" aria-label="Search"
+                            aria-describedby="seacrhIcon">
+                    </div>
+                    <button class="img-filter border-none bg-white ">
+                        <img src="~/images/filter.png" type="button" data-bs-toggle="offcanvas"
+                            data-bs-target="#filterMenu" aria-controls="filterMenu">
+                    </button>
+                </div>
+                <div class="filter-options col-md-8">
+                    <div class="row h-100">
+                        <div class="col-md-3 p-3 border-end">
+                            <div class="dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="countryDropdown" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    Country
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
+                                    <li>   <a class="dropdown-item" href="#">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox"/>
+                                            <label class="form-check-label">England</label>
+                                        </div>
+                                    </a></li>
+                                    <li>   <a class="dropdown-item" href="#">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox"/>
+                                            <label class="form-check-label">India</label>
+                                        </div>
+                                    </a></li>
+                                    <li>   <a class="dropdown-item" href="#">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox"/>
+                                            <label class="form-check-label">USA</label>
+                                        </div>
+                                    </a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-3 p-3 border-end">
+                            <div class="dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="cityDropdown" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    City
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="cityDropdown">
+                                    <li><a class="dropdown-item" href="#">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox"/>
+                                            <label class="form-check-label">Delhi</label>
+                                        </div>
+                                    </a></li>
+                                    <li><a class="dropdown-item" href="#">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox"/>
+                                            <label class="form-check-label">Chennai</label>
+                                        </div>
+                                    </a></li>
+                                    <li><a class="dropdown-item" href="#">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox"/>
+                                            <label class="form-check-label">Ahmedabad</label>
+                                        </div>
+                                    </a></li>
+                             
+                                <li><a class="dropdown-item" href="#">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox"/>
+                                        <label class="form-check-label">Mumbai</label>
+                                    </div>
+                                </a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-3 p-3 border-end">
+                            <div class="dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="themeDropdown" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    Theme
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="themeDropdown">
+                                    <li><a class="dropdown-item" href="#">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox"/>
+                                            <label class="form-check-label">theme4</label>
+                                        </div>
+                                    </a></li>
+                                    <li><a class="dropdown-item" href="#">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox"/>
+                                            <label class="form-check-label">theme4</label>
+                                        </div>
+                                    </a></li>
+                                    <li><a class="dropdown-item" href="#">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox"/>
+                                            <label class="form-check-label">theme4</label>
+                                        </div>
+                                    </a></li>
+                                    <li><a class="dropdown-item" href="#">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox"/>
+                                            <label class="form-check-label">theme4</label>
+                                        </div>
+                                    </a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-3 p-3 border-end">
+                            <div class="dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="skillsDropdown" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    Skills
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="skillsDropdown">
+                                    <li><a class="dropdown-item" href="#">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox">
+                                            <label class="form-check-label">skill1</label>
+                                        </div>
+                                    </a></li>
+                                    <li><a class="dropdown-item" href="#">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox">
+                                            <label class="form-check-label">skill2</label>
+                                        </div>
+                                    </a></li>
+                                    <li><a class="dropdown-item" href="#">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox"/>
+                                            <label class="form-check-label">skill3</label>
+                                        </div>
+                                    </a></li>
+                                    <li><a class="dropdown-item" href="#">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox">
+                                            <label class="form-check-label">skill4</label>
+                                        </div>
+                                    </a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="offcanvas offcanvas-start" id="filterMenu" aria-labelledby="filterMenu">
+
+                    <div class="offcanvas-header flex-row-reverse">
+                        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                            aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <div class="accordion" id="filters">
+                            <div class="accordion-item border-none">
+                                <h2 class="accordion-header" id="country">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#countriesAccordion" aria-expanded="false"
+                                        aria-controls="countriesAccordion">
+                                        Country
+                                    </button>
+                                </h2>
+                                <div id="countriesAccordion" class="accordion-collapse collapse"
+                                    aria-labelledby="country" data-bs-parent="#filters">
+                                    <div class="accordion-body">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="" id="country1">
+                                            <label class="form-check-label" for="country1">
+                                                Canada
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="" id="country2">
+                                            <label class="form-check-label" for="country2">
+                                                England
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="" id="country3">
+                                            <label class="form-check-label" for="country3">
+                                                India
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="" id="country4">
+                                            <label class="form-check-label" for="country4">
+                                                USA
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item border-none">
+                                <h2 class="accordion-header" id="city">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#citiesAccordion" aria-expanded="false"
+                                        aria-controls="citiesAccordion">
+                                        City
+                                    </button>
+                                </h2>
+                                <div id="citiesAccordion" class="accordion-collapse collapse" aria-labelledby="city"
+                                    data-bs-parent="#filters">
+                                    <div class="accordion-body">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="" id="city1">
+                                            <label class="form-check-label" for="city1">
+                                                Delhi
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="" id="city2">
+                                            <label class="form-check-label" for="city2">
+                                                Chennai
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="" id="city3">
+                                            <label class="form-check-label" for="city3">
+                                                Ahmedabad
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="" id="city4">
+                                            <label class="form-check-label" for="city4">
+                                                Mumbai
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item border-none">
+                                <h2 class="accordion-header" id="theme">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#themesAccordion" aria-expanded="false"
+                                        aria-controls="themesAccordion">
+                                        Theme
+                                    </button>
+                                </h2>
+                                <div id="themesAccordion" class="accordion-collapse collapse" aria-labelledby="theme"
+                                    data-bs-parent="#filters">
+                                    <div class="accordion-body">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="" id="theme1">
+                                            <label class="form-check-label" for="theme1">
+                                                theme1
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="" id="theme2">
+                                            <label class="form-check-label" for="theme2">
+                                                theme2
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="" id="theme3">
+                                            <label class="form-check-label" for="theme3">
+                                                theme3
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="" id="theme4">
+                                            <label class="form-check-label" for="theme4">
+                                                theme5
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item border-none">
+                                <h2 class="accordion-header" id="skill">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#skillsAccordion" aria-expanded="false"
+                                        aria-controls="skillsAccordion">
+                                        Skills
+                                    </button>
+                                </h2>
+                                <div id="skillsAccordion" class="accordion-collapse collapse" aria-labelledby="skill"
+                                    data-bs-parent="#filters">
+                                    <div class="accordion-body">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="" id="skill1">
+                                            <label class="form-check-label" for="skill1">
+                                                skill1
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="" id="skill2">
+                                            <label class="form-check-label" for="skill2">
+                                                skill2
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="" id="skill3">
+                                            <label class="form-check-label" for="skill3">
+                                                skill3
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="" id="skill4">
+                                            <label class="form-check-label" for="skill4">
+                                                skill4
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+
+    <body>
+        <div class="container mt-4">
+            <div class="row">
+                <div class="col-md-7">
+                    <h1 class="mx-3 my-3">Explore 72 mission</h1>
+                </div>
+                <div class="col-md-3 sort">
+                    <div class="dropdown">
+                        <div class="p-2 dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false" style="border:1px solid black">
+                            Sort BY
+                        </div>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Newest</a></li>
+                            <li><a class="dropdown-item" href="#">Oldest</a></li>
+                            <li><a class="dropdown-item" href="#">Lower Available seats</a></li>
+                        </ul>
+                        
+                    </div>
+                </div>
+          
+                    <div class="col-1">
+                    <button class="tablink" onclick="openPage('list', this,'#d8e4f0')"><img
+                            src="~/images/list.png"></button></div>
+                            <div class="col-1">
+                         <button class="tablink " onclick="openPage('grid', this,'#d8e4f0')" id="defaultOpen"><img
+                            src="~/images/grid.png"></button></div>
+                </div>
+                    <div class="list">
+                        <div id="list" class="tabcontent mt-3">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="column">
+                                        <div class="card ">
+                                            <div class="row">
+                                                <div class="col-md-4 ">
+                                                    <div class="position-relative">
+                                                        <img src="~/images/Grow-Trees-On-the-path-to-environment-sustainability.png"
+                                                            alt="Grow-Trees" class="card-img-bottom" />
+
+                                                        <div class="position-absolute top-0 end-0"> <button
+                                                                class="btn-1" type="submit"><img src="~/images/pin.png"
+                                                                    alt="buttonpng" />Newyork</button></div>
+                                                        <div class="position-absolute top-50 end-0 translate-middle-y">
+                                                            <button class="btn-2" type="submit"><img
+                                                                    src="~/images/heart.png" alt="buttonpng" /></button>
+                                                        </div>
+                                                        <div class="position-absolute bottom-0 end-0"><button
+                                                                class="btn-3" type="submit"><img src="~/images/user.png"
+                                                                    alt="buttonpng" /></button>
+                                                        </div>
+                                                        <div class="position-absolute top-100 start-50 translate-middle bg-light"
+                                                            style="border-radius:15px;">
+                                                            <p>Environment</p>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                                <div class="col-md-8 ">
+                                                    <div class="card-body">
+                                                        <div class="d-flex  justify-content-evenly"
+                                                            style="flex-direction: rows;">
+                                                            <div><img src="~/images/pin1.png">Atlanta</div>
+                                                            <div><img src="~/images/web.png">Environment</div>
+                                                            <div><img src="~/images/organization.png">Smit International
+                                                                Caring Foundation</div>
+                                                            <div><img src="~/images/selected-star.png"><img
+                                                                    src="~/images/selected-star.png"><img
+                                                                    src="~/images/selected-star.png"><img
+                                                                    src="~/images/selected-star.png"><img
+                                                                    src="~/images/star.png"></div>
+                                                        </div>
+                                                        <h4 class="card-title">
+                                                            Grow-Trees-On-the-path-to-environment-sustainability</h4>
+                                                        <p class="card-text">
+                                                            This is a longer card with supporting text below as a
+                                                            natural lead-in to
+                                                            additional content. This content is a little bit longer.
+                                                        </p>
+                                                        <div class="row">
+                                                            <div class="col-lg-2 col-md-6">
+                                                                <img src="~/images/Seats-left.png">
+                                                                10 seats left
+                                                            </div>
+                                                            <div class="col-1 p-0"><img src="~/images/achieved.png"></div>
+                                                            <div class="col-1  p-0">
+                                                                <div class="progress" role="progressbar"
+                                                                    aria-label="Basic example" aria-valuenow="25"
+                                                                    aria-valuemin="0" aria-valuemax="100">
+                                                                    <div class="progress-bar"
+                                                                        style="background-color:#ff8634 ; width: 25%;">
+                                                                    </div>
+                                                                </div>
+                                                                Achieved
+                                                            </div>
+                                                            <div class="col-lg-1 col-md-2">
+                                                                <img src="~/images/calender.png">
+                                                            </div>
+                                                            <div
+                                                                class="col-lg-2 col-md-4 p-0 d-flex justify-content-between">
+                                                                From 01/09/2019 untill 01/12/2020</div>
+
+                                                            <div class="col-lg-2 col-md-6">
+                                                                <i class="bi bi-tools"></i>
+                                                                Skill Botany
+                                                            </div>
+                                                            <div class="col-lg-3 col-md-12 ">
+                                                                <button type="button" class="btn_view p-2">view details
+                                                                    <img src="~/images/right-arrow.png"></button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mt-3">
+                                    <div class="column">
+                                        <div class="card ">
+                                            <div class="row">
+                                                <div class="col-md-4 ">
+                                                    <div class="position-relative">
+                                                        <img src="~/images/Grow-Trees-On-the-path-to-environment-sustainability.png"
+                                                            alt="Grow-Trees" class="card-img-bottom" />
+
+                                                        <div class="position-absolute top-0 end-0"> <button
+                                                                class="btn-1" type="submit"><img src="~/images/pin.png"
+                                                                    alt="buttonpng" />Newyork</button></div>
+                                                        <div class="position-absolute top-50 end-0 translate-middle-y">
+                                                            <button class="btn-2" type="submit"><img
+                                                                    src="~/images/heart.png" alt="buttonpng" /></button>
+                                                        </div>
+                                                        <div class="position-absolute bottom-0 end-0"><button
+                                                                class="btn-3" type="submit"><img src="~/images/user.png"
+                                                                    alt="buttonpng" /></button>
+                                                        </div>
+                                                        <div class="position-absolute top-100 start-50 translate-middle bg-light"
+                                                            style="border-radius:15px;">
+                                                            <p>Environment</p>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                                <div class="col-md-8 ">
+                                                    <div class="card-body">
+                                                        <div class="d-flex  justify-content-evenly"
+                                                            style="flex-direction: rows;">
+                                                            <div><img src="~/images/pin1.png">Atlanta</div>
+                                                            <div><img src="~/images/web.png">Environment</div>
+                                                            <div><img src="~/images/organization.png">Smit International
+                                                                Caring Foundation</div>
+                                                            <div><img src="~/images/selected-star.png"><img
+                                                                    src="~/images/selected-star.png"><img
+                                                                    src="~/images/selected-star.png"><img
+                                                                    src="~/images/selected-star.png"><img
+                                                                    src="~/images/star.png"></div>
+                                                        </div>
+                                                        <h4 class="card-title">
+                                                            Grow-Trees-On-the-path-to-environment-sustainability</h4>
+                                                        <p class="card-text">
+                                                            This is a longer card with supporting text below as a
+                                                            natural lead-in to
+                                                            additional content. This content is a little bit longer.
+                                                        </p>
+                                                        <div class="row">
+                                                            <div class="col-lg-2 col-md-6">
+                                                                <img src="~/images/Seats-left.png">
+                                                                10 seats left
+                                                            </div>
+                                                            <div class="col-1 p-0"><img src="~/images/achieved.png"></div>
+                                                            <div class="col-1  p-0">
+                                                                <div class="progress" role="progressbar"
+                                                                    aria-label="Basic example" aria-valuenow="25"
+                                                                    aria-valuemin="0" aria-valuemax="100">
+                                                                    <div class="progress-bar"
+                                                                        style="background-color:#ff8634 ; width: 25%;">
+                                                                    </div>
+                                                                </div>
+                                                                Achieved
+                                                            </div>
+                                                            <div class="col-lg-1 col-md-2">
+                                                                <img src="~/images/calender.png">
+                                                            </div>
+                                                            <div
+                                                                class="col-lg-2 col-md-4 p-0 d-flex justify-content-between">
+                                                                From 01/09/2019 untill 01/12/2020</div>
+
+                                                            <div class="col-lg-2 col-md-6">
+                                                                <i class="bi bi-tools"></i>
+                                                                Skill Botany
+                                                            </div>
+                                                            <div class="col-lg-3 col-md-12 ">
+                                                                <button type="button" class="btn_view p-2">view details
+                                                                    <img src="~/images/right-arrow.png"></button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="column">
+                                        <div class="card ">
+                                            <div class="row">
+                                                <div class="col-md-4 ">
+                                                    <div class="position-relative">
+                                                        <img src="~/images/Grow-Trees-On-the-path-to-environment-sustainability.png"
+                                                            alt="Grow-Trees" class="card-img-bottom" />
+
+                                                        <div class="position-absolute top-0 end-0"> <button
+                                                                class="btn-1" type="submit"><img src="~/images/pin.png"
+                                                                    alt="buttonpng" />Newyork</button></div>
+                                                        <div class="position-absolute top-50 end-0 translate-middle-y">
+                                                            <button class="btn-2" type="submit"><img
+                                                                    src="~/images/heart.png" alt="buttonpng" /></button>
+                                                        </div>
+                                                        <div class="position-absolute bottom-0 end-0"><button
+                                                                class="btn-3" type="submit"><img src="~/images/user.png"
+                                                                    alt="buttonpng" /></button>
+                                                        </div>
+                                                        <div class="position-absolute top-100 start-50 translate-middle bg-light"
+                                                            style="border-radius:15px;">
+                                                            <p>Environment</p>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                                <div class="col-md-8 ">
+                                                    <div class="card-body">
+                                                        <div class="d-flex  justify-content-evenly"
+                                                            style="flex-direction: rows;">
+                                                            <div><img src="~/images/pin1.png">Atlanta</div>
+                                                            <div><img src="~/images/web.png">Environment</div>
+                                                            <div><img src="~/images/organization.png">Smit International
+                                                                Caring Foundation</div>
+                                                            <div><img src="~/images/selected-star.png"><img
+                                                                    src="~/images/selected-star.png"><img
+                                                                    src="~/images/selected-star.png"><img
+                                                                    src="~/images/selected-star.png"><img
+                                                                    src="~/images/star.png"></div>
+                                                        </div>
+                                                        <h4 class="card-title">
+                                                            Grow-Trees-On-the-path-to-environment-sustainability</h4>
+                                                        <p class="card-text">
+                                                            This is a longer card with supporting text below as a
+                                                            natural lead-in to
+                                                            additional content. This content is a little bit longer.
+                                                        </p>
+                                                        <div class="row">
+                                                            <div class="col-lg-2 col-md-6">
+                                                                <img src="~/images/Seats-left.png">
+                                                                10 seats left
+                                                            </div>
+                                                            <div class="col-1 p-0"><img src="~/images/achieved.png"></div>
+                                                            <div class="col-1  p-0">
+                                                                <div class="progress" role="progressbar"
+                                                                    aria-label="Basic example" aria-valuenow="25"
+                                                                    aria-valuemin="0" aria-valuemax="100">
+                                                                    <div class="progress-bar"
+                                                                        style="background-color:#ff8634 ; width: 25%;">
+                                                                    </div>
+                                                                </div>
+                                                                Achieved
+                                                            </div>
+                                                            <div class="col-lg-1 col-md-2">
+                                                                <img src="~/images/calender.png">
+                                                            </div>
+                                                            <div
+                                                                class="col-lg-2 col-md-4 p-0 d-flex justify-content-between">
+                                                                From 01/09/2019 untill 01/12/2020</div>
+
+                                                            <div class="col-lg-2 col-md-6">
+                                                                <i class="bi bi-tools"></i>
+                                                                Skill Botany
+                                                            </div>
+                                                            <div class="col-lg-3 col-md-12 ">
+                                                                <button type="button" class="btn_view p-2">view details
+                                                                    <img src="~/images/right-arrow.png"></button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="gd">
+                    <div id="grid" class="tabcontent">
+                        <div class="row">
+                            <div class="col-lg-4 col-md-6 col-sm-12">
+                                <div class="card h-100">
+                                    <div class="position-relative">
+                                        <img src="~/images/Grow-Trees-On-the-path-to-environment-sustainability.png"
+                                            alt="Grow-Trees" class="card-img-top" />
+
+                                        <div class="position-absolute top-0 end-0"> <button class="btn-1" class
+                                                type="submit"><img src="~/images/pin.png"
+                                                    alt="buttonpng" />Newyork</button>
+                                        </div>
+                                        <div class="position-absolute top-50 end-0 translate-middle-y"><button
+                                                class="btn-2" type="submit"><img src="~/images/heart.png"
+                                                    alt="buttonpng" /></button></div>
+                                        <div class="position-absolute bottom-0 end-0"><button class="btn-3"
+                                                type="submit"><img src="~/images/user.png" alt="buttonpng" /></button>
+                                        </div>
+                                        <div class="position-absolute top-100 start-50 translate-middle bg-light"
+                                            style="border-radius:15px;">
+                                            <p>Environment</p>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <h4 class="card-title">Grow-Trees-On-the-path-to-environment-sustainability</h4>
+                                        <p class="card-text">
+                                            This is a longer card with supporting text below as a natural lead-in to
+                                            additional content. This content is a little bit longer.
+                                        </p>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <h8 class="Mission_name">Tree Canada</h8>
+                                            </div>
+                                            <div class="col-6">
+                                                <div col-lg-2 col-md-2><img src="~/images/selected-star.png"><img
+                                                        src="~/images/selected-star.png"><img
+                                                        src="~/images/selected-star.png"><img
+                                                        src="~/images/selected-star.png"><img src="~/images/star.png"></div>
+
+                                            </div>
+                                        </div>
+                                        <br />
+
+                                        <div class="row">
+                                            <div class="col-lg-2 col-md-1 col-sm-1 col-1 p-0">
+                                                <hr>
+                                            </div>
+                                            <div class="col-lg-8 col-md-10 col-sm-10 col-10 p-0 d-flex justify-content-center  border border-dark-subtle"
+                                                style="border-radius:21px;">From10/01/2019 untill 25/02/2019</div>
+                                            <div class="col-lg-2 col-md-1 col-sm-1 col-1 p-0 ">
+                                                <hr>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-7">
+                                                <img src="~/images/Seats-left.png">
+                                                10 seats left
+                                            </div>
+                                            <div class="col-1 p-0 m-0">
+                                                <img src="./~/images/deadline.png">
+                                            </div>
+                                            <div class="col-4 p-0">09/01/2019
+                                                deadline
+                                            </div>
+                                        </div>
+                                        <div class="row-cols-auto d-flex justify-content-center">
+                                            <button type="button" class="btn_view p-2">view details <img
+                                                    src="~/images/right-arrow.png"></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-12">
+                                <div class="card h-100">
+                                    <div class="position-relative">
+                                        <img src="~/images/Grow-Trees-On-the-path-to-environment-sustainability.png"
+                                            alt="Grow-Trees" class="card-img-top" />
+
+                                        <div class="position-absolute top-0 end-0"> <button class="btn-1" class
+                                                type="submit"><img src="~/images/pin.png"
+                                                    alt="buttonpng" />Newyork</button>
+                                        </div>
+                                        <div class="position-absolute top-50 end-0 translate-middle-y"><button
+                                                class="btn-2" type="submit"><img src="~/images/heart.png"
+                                                    alt="buttonpng" /></button></div>
+                                        <div class="position-absolute bottom-0 end-0"><button class="btn-3"
+                                                type="submit"><img src="~/images/user.png" alt="buttonpng" /></button>
+                                        </div>
+                                        <div class="position-absolute top-100 start-50 translate-middle bg-light"
+                                            style="border-radius:15px;">
+                                            <p>Environment</p>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <h4 class="card-title">Grow-Trees-On-the-path-to-environment-sustainability</h4>
+                                        <p class="card-text">
+                                            This is a longer card with supporting text below as a natural lead-in to
+                                            additional content. This content is a little bit longer.
+                                        </p>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <h8 class="Mission_name">Tree Canada</h8>
+                                            </div>
+                                            <div class="col-6">
+                                                <div col-lg-2 col-md-2><img src="~/images/selected-star.png"><img
+                                                        src="~/images/selected-star.png"><img
+                                                        src="~/images/selected-star.png"><img
+                                                        src="~/images/selected-star.png"><img src="~/images/star.png"></div>
+
+                                            </div>
+                                        </div>
+                                        <br />
+                                        <div class="row">
+                                            <div class="col-lg-2 col-md-1 col-sm-1 col-1 p-0">
+                                                <hr>
+                                            </div>
+                                            <div class="col-lg-8 col-md-10 col-sm-10 col-10 p-0 d-flex justify-content-center  border border-dark-subtle"
+                                                style="border-radius:21px;">From10/01/2019 untill 25/02/2019</div>
+                                            <div class="col-lg-2 col-md-1 col-sm-1 col-1 p-0 ">
+                                                <hr>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-7">
+                                                <img src="~/images/Seats-left.png">
+                                                10 seats left
+                                            </div>
+                                            <div class="col-1 p-0 m-0">
+                                                <img src="./~/images/deadline.png">
+                                            </div>
+                                            <div class="col-4 p-0">09/01/2019
+                                                deadline
+                                            </div>
+                                        </div>
+                                        <div class="row-cols-auto d-flex justify-content-center">
+                                            <button type="button" class="btn_view p-2">view details <img
+                                                    src="~/images/right-arrow.png"></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-12">
+                                <div class="card h-100">
+                                    <div class="position-relative">
+                                        <img src="~/images/Grow-Trees-On-the-path-to-environment-sustainability.png"
+                                            alt="Grow-Trees" class="card-img-top" />
+
+                                        <div class="position-absolute top-0 end-0"> <button class="btn-1" class
+                                                type="submit"><img src="~/images/pin.png"
+                                                    alt="buttonpng" />Newyork</button>
+                                        </div>
+                                        <div class="position-absolute top-50 end-0 translate-middle-y"><button
+                                                class="btn-2" type="submit"><img src="~/images/heart.png"
+                                                    alt="buttonpng" /></button></div>
+                                        <div class="position-absolute bottom-0 end-0"><button class="btn-3"
+                                                type="submit"><img src="~/images/user.png" alt="buttonpng" /></button>
+                                        </div>
+                                        <div class="position-absolute top-100 start-50 translate-middle bg-light"
+                                            style="border-radius:15px;">
+                                            <p>Environment</p>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <h4 class="card-title">Grow-Trees-On-the-path-to-environment-sustainability</h4>
+                                        <p class="card-text">
+                                            This is a longer card with supporting text below as a natural lead-in to
+                                            additional content. This content is a little bit longer.
+                                        </p>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <h8 class="Mission_name">Tree Canada</h8>
+                                            </div>
+                                            <div class="col-6">
+                                                <div col-lg-2 col-md-2><img src="~/images/selected-star.png"><img
+                                                        src="~/images/selected-star.png"><img
+                                                        src="~/images/selected-star.png"><img
+                                                        src="~/images/selected-star.png"><img src="~/images/star.png"></div>
+
+                                            </div>
+                                        </div>
+                                        <br />
+
+                                        <div class="row">
+                                            <div class="col-lg-2 col-md-1 col-sm-1 col-1 p-0">
+                                                <hr>
+                                            </div>
+                                            <div class="col-lg-8 col-md-10 col-sm-10 col-10 p-0 d-flex justify-content-center  border border-dark-subtle"
+                                                style="border-radius:21px;">From10/01/2019 untill 25/02/2019</div>
+                                            <div class="col-lg-2 col-md-1 col-sm-1 col-1 p-0 ">
+                                                <hr>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-7">
+                                                <img src="~/images/Seats-left.png">
+                                                10 seats left
+                                            </div>
+                                            <div class="col-1 p-0 m-0">
+                                                <img src="./~/images/deadline.png">
+                                            </div>
+                                            <div class="col-4 p-0">09/01/2019
+                                                deadline
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row-cols-auto d-flex justify-content-center">
+                                        <button type="button" class="btn_view p-2">view details
+                                            <img src="~/images/right-arrow.png"></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+         
+     
+        <footer class="bg-light text-center text-lg-start">
+            <div class="text-start p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+                <a class="text-dark" href="##"> Privacy and policy</a>
+            </div>
+        </footer>
+        <script>
+            function openPage(pageName, elmnt, color) {
+                // Hide all elements with class="tabcontent" by default */
+                var i, tabcontent, tablinks;
+                tabcontent = document.getElementsByClassName("tabcontent");
+                for (i = 0; i < tabcontent.length; i++) {
+                    tabcontent[i].style.display = "none";
+                }
+
+                // Remove the background color of all tablinks/buttons
+                tablinks = document.getElementsByClassName("tablink");
+                for (i = 0; i < tablinks.length; i++) {
+                    tablinks[i].style.backgroundColor = "";
+                }
+
+                // Show the specific tab content
+                document.getElementById(pageName).style.display = "block";
+
+                // Add the specific color to the button used to open the tab content
+                elmnt.style.backgroundColor = color;
+            }
+
+            // Get the element with id="defaultOpen" and click on it
+            document.getElementById("defaultOpen").click();
+
+        </script>
+   
+ </body>
+</html>

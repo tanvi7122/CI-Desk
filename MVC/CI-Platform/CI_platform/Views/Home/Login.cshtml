@@ -61,7 +61,13 @@
                     </div>
                 </div>
                 <div class="col-lg-4 d-flex justify-content-center align-items-center">
-                    <form asp-action="Login" asp-controller="Home"  class="login mt-md-5 mt-sm-5 mt-5">
+                    <form asp-action="Login" method="post" asp-controller="Home"  class="login mt-md-5 mt-sm-5 mt-5">
+                                        @if(TempData["success"]!= null)
+                {
+                    <div class="alert alert-success">
+                         @TempData["success"]
+                    </div>
+                }
                         <div class="mb-3 mail">
                             <label asp-for="Email" class="form-label mb-0">Email address</label>
                             <input asp-for="Email" type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="evan.donohue@gmail.com">
@@ -73,6 +79,7 @@
                                 <span style="colour:red;" asp-validation-for="Password"></span>
                         </div>
                         <button type="submit" class="login-btn" >Login</button>
+   
                         <div id="forgotpw" class="mt-3 text-center"><a asp-controller="Home" asp-action="Forgot">Lost your password?</a></div>
                         <div id="register" class="mt-3 text-center">Don’t have an account? <a asp-controller="Home" asp-action="Registration">Create an account</a></div>
                         <div id="privacy-policy" class="text-center">Privacy Policy</div>

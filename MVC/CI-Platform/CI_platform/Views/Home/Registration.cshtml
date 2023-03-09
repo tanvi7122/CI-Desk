@@ -62,8 +62,15 @@
                         </div>
                     </div>
                 </div>
+            
                 <div class="col-lg-4 d-flex justify-content-center align-items-center">
-                    <form  method="post" class="login mt-md-2 mt-sm-2 mt-5">
+                <form   method="post"   class="login mt-md-2 mt-sm-2 mt-5">
+                               @if(TempData["success"]!= null)
+                {
+                    <div class="alert alert-success">
+                         @TempData["success"]
+                    </div>
+                }
                         <div class="mb-3 fname">
                             <label asp-for="FirstName"  class="form-label mb-0">First Name</label>
                             <input asp-for="FirstName" type="text" class="form-control h-lg-100 h-md-75 h-sm-" id="FirstName" placeholder="evan">

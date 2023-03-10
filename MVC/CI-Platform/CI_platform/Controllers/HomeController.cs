@@ -49,7 +49,7 @@ namespace CI_platform.Controllers
             {
                 Console.WriteLine("Login successfull");
                 TempData["success"] = "Login Successful";
-                return RedirectToAction("Landing_page");
+                return RedirectToAction("Landing_page", "Landing_page");
             }
             else
             {

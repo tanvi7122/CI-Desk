@@ -5,6 +5,8 @@ namespace CI_platfom.Entity.Models;
 
 public partial class MissionTheme
 {
+    public readonly string title;
+
     public long MissionThemeId { get; set; }
 
     public string? Title { get; set; }

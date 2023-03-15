@@ -45,6 +45,10 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "EntityFramework": {
+              "target": "Package",
+              "version": "[6.4.4, )"
+            },
             "MailKit": {
               "target": "Package",
               "version": "[3.6.0, )"
@@ -62,6 +66,8 @@
               "version": "[6.0.0, )"
             },
             "Microsoft.CodeAnalysis.Analyzers": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
               "target": "Package",
               "version": "[3.3.4, )"
             },
@@ -88,6 +94,10 @@
             "MimeKit": {
               "target": "Package",
               "version": "[3.6.0, )"
+            },
+            "Power.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[19.3.1703, )"
             }
           },
           "imports": [
@@ -171,6 +181,8 @@
               "version": "[6.0.0, )"
             },
             "Microsoft.CodeAnalysis.Analyzers": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
               "target": "Package",
               "version": "[3.3.4, )"
             },
@@ -197,6 +209,10 @@
             "MimeKit": {
               "target": "Package",
               "version": "[3.6.0, )"
+            },
+            "Power.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[19.3.1703, )"
             }
           },
           "imports": [

@@ -1,6 +1,7 @@
 ﻿using CI_platfom.Entity.Models;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,14 +10,19 @@ namespace CI_platfom.Entity.ViewModel
 {
     public class Landing_page
     {
+     
         public string? Availability { get; set; }
         public long MissionId { get; set; }
 
-        public long ThemeId { get; set; }
+        public long Theme_id { get; set; }
 
-        public long CountryId { get; set; }
+        public long Country_id { get; set; }
+        public long Country{ get; set; }
+        public string CityName { get; set; } = null!;
 
-        public long CityId { get; set; }
+
+        public long city_id { get; set; }
+       
 
         public string Title { get; set; } = null!;
 
@@ -31,6 +37,8 @@ namespace CI_platfom.Entity.ViewModel
         public string? ThemeTitle { get; set; }
         public string MissionType { get; set; } = null!;
         public string? OrganizationName { get; set; }
+        public string GoalObjectiveText { get; set; } = null!;
+        public string? MediaPath { get; set; }
 
         public int Rating { get; set; }
 

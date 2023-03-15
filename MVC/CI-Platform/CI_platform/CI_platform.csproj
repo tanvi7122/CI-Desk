@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <PackageReference Include="MailKit" Version="3.6.0" />
+    <PackageReference Include="Microsoft.AspNet.Mvc" Version="5.2.9" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.Cookies" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="6.0.0" />
@@ -31,6 +32,7 @@
     </PackageReference>
     <PackageReference Include="MimeKit" Version="3.6.0" />
     <PackageReference Include="NETCore.MailKit" Version="2.1.0" />
+    <PackageReference Include="Power.EntityFrameworkCore" Version="19.3.1703" />
   </ItemGroup>
 
   <ItemGroup>

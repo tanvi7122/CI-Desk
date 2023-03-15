@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>CI_platfom.Entity</id>
+    <version>1.0.0</version>
+    <authors>CI_platfom.Entity</authors>
+    <description>Package Description</description>
+    <dependencies>
+      <group targetFramework="net6.0">
+        <dependency id="EntityFramework" version="6.4.4" exclude="Build,Analyzers" />
+        <dependency id="MailKit" version="3.6.0" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.AspNetCore.Authentication.Cookies" version="2.2.0" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.AspNetCore.Identity" version="2.2.0" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" version="6.0.0" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.EntityFrameworkCore" version="8.0.0-preview.1.23111.4" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.EntityFrameworkCore.SqlServer" version="8.0.0-preview.1.23111.4" exclude="Build,Analyzers" />
+        <dependency id="MimeKit" version="3.6.0" exclude="Build,Analyzers" />
+        <dependency id="Power.EntityFrameworkCore" version="19.3.1703" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platfom.Entity\bin\Debug\net6.0\CI_platfom.Entity.runtimeconfig.json" target="lib\net6.0\CI_platfom.Entity.runtimeconfig.json" />
+    <file src="C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platfom.Entity\bin\Debug\net6.0\CI_platfom.Entity.dll" target="lib\net6.0\CI_platfom.Entity.dll" />
+  </files>
+</package>

@@ -1,4 +1,5 @@
 using CI_platfom.Entity.Data;
+
 using CI_platform.Repository.Interface;
 using CI_platform.Repository.Repository;
 using Microsoft.EntityFrameworkCore;
@@ -14,7 +15,7 @@ builder.Services.AddDbContext<CiPlatformContext>(options =>
 });
 builder.Services.AddScoped<IAccountRepository, AccountRepository>();
 builder.Services.AddScoped<IEmailRepository, EmailRepository>();
-
+//builder.Services.AddScoped<ICardRepository,CardRepository>();
 builder.Services.AddSession();
 builder.Services.AddMemoryCache();
 
@@ -37,6 +38,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Registration}/{id?}");
+    pattern: "{controller=Home}/{action=Login}/{id?}");
 
 app.Run();

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CI_platfom.Entity.Models;
 
@@ -7,7 +8,7 @@ public partial class Mission
 {
     public long MissionId { get; set; }
 
-    public long ThemeId { get; set; }
+    public long Theme_id { get; set; }
 
     public long CountryId { get; set; }
 
@@ -39,10 +40,12 @@ public partial class Mission
 
     public DateTime? DeletedAt { get; set; }
 
+    public int? TotalSeats { get; set; }
+    [NotMapped]
     public virtual City City { get; set; } = null!;
 
     public virtual ICollection<Comment> Comments { get; } = new List<Comment>();
-
+    [NotMapped]
     public virtual Country Country { get; set; } = null!;
 
     public virtual ICollection<FavouriteMission> FavouriteMissions { get; } = new List<FavouriteMission>();
@@ -55,14 +58,14 @@ public partial class Mission
 
     public virtual ICollection<MissionInvite> MissionInvites { get; } = new List<MissionInvite>();
 
-    public virtual ICollection<MissionMedium> MissionMedia { get; } = new List<MissionMedium>();
+    public virtual ICollection<MissionMedia> MissionMedia { get; } = new List<MissionMedia>();
 
     public virtual ICollection<MissionRating> MissionRatings { get; } = new List<MissionRating>();
 
     public virtual ICollection<MissionSkill> MissionSkills { get; } = new List<MissionSkill>();
 
     public virtual ICollection<Story> Stories { get; } = new List<Story>();
-
+    [NotMapped]
     public virtual MissionTheme Theme { get; set; } = null!;
 
     public virtual ICollection<Timesheet> Timesheets { get; } = new List<Timesheet>();

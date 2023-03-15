@@ -30,6 +30,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="MimeKit" Version="3.6.0" />
+    <PackageReference Include="Power.EntityFrameworkCore" Version="19.3.1703" />
   </ItemGroup>
 
   <ItemGroup>

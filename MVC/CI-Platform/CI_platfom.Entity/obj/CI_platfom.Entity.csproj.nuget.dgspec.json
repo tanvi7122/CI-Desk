@@ -91,9 +91,17 @@
               "target": "Package",
               "version": "[8.0.0-preview.1.23111.4, )"
             },
+            "Microsoft.jQuery.Unobtrusive.Ajax": {
+              "target": "Package",
+              "version": "[3.2.6, )"
+            },
             "MimeKit": {
               "target": "Package",
               "version": "[3.6.0, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
             },
             "Power.EntityFrameworkCore": {
               "target": "Package",

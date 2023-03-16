@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "umFwJEoX6h8ASFXvgU15V7Nowq+bWcEI4rCGEzGYMAMLV5ELWKX9UJONqtzBAKrnI48K0HdtjeF9SGVeJC7ktA==",
+  "dgSpecHash": "KKKhCnKJsZpX7F2/RhPQBRLoCxwriFNLVSklvpAjPqtuRQ//9KzyOoj3y5nOKbDu+g9QqmF/M5DmRMVkyK9W2A==",
   "success": true,
   "projectFilePath": "C:\\Users\\pca142\\Desktop\\CI-Desk\\MVC\\CI-Platform\\CI_platform.Repository\\CI_platform.Repository.csproj",
   "expectedPackageFiles": [
@@ -12,6 +12,7 @@
     "C:\\Users\\pca142\\.nuget\\packages\\entityframework\\6.4.4\\entityframework.6.4.4.nupkg.sha512",
     "C:\\Users\\pca142\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\pca142\\.nuget\\packages\\jetbrains.annotations\\2018.2.1\\jetbrains.annotations.2018.2.1.nupkg.sha512",
+    "C:\\Users\\pca142\\.nuget\\packages\\jquery\\1.8.0\\jquery.1.8.0.nupkg.sha512",
     "C:\\Users\\pca142\\.nuget\\packages\\mailkit\\3.6.0\\mailkit.3.6.0.nupkg.sha512",
     "C:\\Users\\pca142\\.nuget\\packages\\microsoft.aspnetcore.authentication\\2.2.0\\microsoft.aspnetcore.authentication.2.2.0.nupkg.sha512",
     "C:\\Users\\pca142\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.2.0\\microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",
@@ -71,6 +72,7 @@
     "C:\\Users\\pca142\\.nuget\\packages\\microsoft.identitymodel.protocols\\6.24.0\\microsoft.identitymodel.protocols.6.24.0.nupkg.sha512",
     "C:\\Users\\pca142\\.nuget\\packages\\microsoft.identitymodel.protocols.openidconnect\\6.24.0\\microsoft.identitymodel.protocols.openidconnect.6.24.0.nupkg.sha512",
     "C:\\Users\\pca142\\.nuget\\packages\\microsoft.identitymodel.tokens\\6.24.0\\microsoft.identitymodel.tokens.6.24.0.nupkg.sha512",
+    "C:\\Users\\pca142\\.nuget\\packages\\microsoft.jquery.unobtrusive.ajax\\3.2.6\\microsoft.jquery.unobtrusive.ajax.3.2.6.nupkg.sha512",
     "C:\\Users\\pca142\\.nuget\\packages\\microsoft.net.http.headers\\2.2.0\\microsoft.net.http.headers.2.2.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
@@ -81,7 +83,7 @@
     "C:\\Users\\pca142\\.nuget\\packages\\mimekit\\3.6.0\\mimekit.3.6.0.nupkg.sha512",
     "C:\\Users\\pca142\\.nuget\\packages\\mono.texttemplating\\2.2.1\\mono.texttemplating.2.2.1.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\netstandard.library\\1.6.1\\netstandard.library.1.6.1.nupkg.sha512",
-    "C:\\Users\\pca142\\.nuget\\packages\\newtonsoft.json\\12.0.1\\newtonsoft.json.12.0.1.nupkg.sha512",
+    "C:\\Users\\pca142\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
     "C:\\Users\\pca142\\.nuget\\packages\\nito.asyncex.context\\1.1.0\\nito.asyncex.context.1.1.0.nupkg.sha512",
     "C:\\Users\\pca142\\.nuget\\packages\\nito.asyncex.coordination\\1.0.2\\nito.asyncex.coordination.1.0.2.nupkg.sha512",
     "C:\\Users\\pca142\\.nuget\\packages\\nito.asyncex.tasks\\1.1.0\\nito.asyncex.tasks.1.1.0.nupkg.sha512",

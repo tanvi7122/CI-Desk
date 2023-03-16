@@ -8,8 +8,11 @@ namespace CI_platfom.Entity.ViewModel
 {
     public class CountryView
     {
+        public long CountryId { get; set; }
         public string country { get; set; }
-        //public string theme { get; set; }
+        public long CityId { get; set; }
+        public string CityName { get; set; } = null!;
+
 
     }
 }

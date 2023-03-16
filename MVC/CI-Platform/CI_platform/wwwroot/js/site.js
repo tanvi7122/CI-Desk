@@ -40,7 +40,7 @@ function FilterSortPaginationSearch() {
 
     $.ajax({
         type: "POST",
-        url: "/Home/HomePage",
+        url: "/Landing_pageController/PlatformLandingPost",
         data: { CountryId: CountryId, CityId: CityId, ThemeId: ThemeId, SkillId: SkillId, SearchText: SearchText, sortCase: sortCase, UserId: UserId },
         success: function (data) {
             console.log("This works");
@@ -90,7 +90,7 @@ $("#CountryList li").click(function () {
 function GetCitiesByCountry(CountryId) {
     $.ajax({
         type: "GET",
-        url: "/Home/GetCitiesByCountry",
+        url: "/site/GetCitiesByCountry",
         data: { CountryId: CountryId },
         success: function (data) {
             var dropdown = $("#CityList");
@@ -125,7 +125,7 @@ function GetCitiesByCountry(CountryId) {
 function GetCitiesByCountry(CountryId) {
     $.ajax({
         type: "GET",
-        url: "/Home/GetCitiesByCountry",
+        url: "/site/GetCitiesByCountry",
         data: { CountryId: CountryId },
         success: function (data) {
             var dropdown = $("#CityList");
@@ -133,6 +133,7 @@ function GetCitiesByCountry(CountryId) {
             var items = "";
             $(data).each(function (i, item) {
                 //items += "<option value=" + this.value + ">" + this.text + "</option>"
+                
                 items += `<li> <div class="dropdown-item mb-3 ms-3 form-check"> <input type="checkbox" class="form-check-input" id="exampleCheck1" value=` + item.cityId + `><label class="form-check-label" for="exampleCheck1" value=` + item.cityId + `>` + item.cityName + `</label></div></li>`
             })
             dropdown.html(items);

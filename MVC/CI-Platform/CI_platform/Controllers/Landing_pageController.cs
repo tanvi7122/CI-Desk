@@ -20,33 +20,59 @@ namespace CI_platform.Controllers
         public ActionResult Landing_page()
         {
             //var missions = _context.Missions.ToList();
-            var Landing_page = (from e in _context.Missions
-                                join t in _context.MissionThemes on e.Theme_id equals t.MissionThemeId
-                                join m in _context.MissionRatings on e.MissionId equals m.MissionId
+            var Landing_page = (from m in _context.Missions
+                                join t in _context.MissionThemes on m.Theme_id equals t.MissionThemeId
+                                join cn in _context.Countries on m.CountryId equals cn.CountryId
+                                join ct in _context.Cities on m.CityId equals ct.CityId
+                                join r in _context.MissionRatings on m.MissionId equals r.MissionId
+                                join goal in _context.GoalMissions on m.MissionId equals goal.MissionId into x
+                                from g in x.DefaultIfEmpty()
+                                join img in _context.MissionMedia on m.MissionId equals img.MissionId into y
+                                from i in y.DefaultIfEmpty()
                                 select new Landing_page
                                 {
 
-                                    MissionId = e.MissionId,
-                                    Theme_id = e.Theme_id,
-                                    Country_id = e.CountryId,
-                                    city_id = e.CityId,
-                                    Title = e.Title,
-                                    ShortDescription = e.ShortDescription,
-                                    Description = e.Description,
-                                    OrganizationName = e.OrganizationName,
-                                    StartDate = e.StartDate,
-                                    EndDate = e.EndDate,
-                                    MissionType = e.MissionType,
-                                    CreatedAt = e.CreatedAt,
-                                    UpdatedAt = e.UpdatedAt,
-                                    DeletedAt = e.DeletedAt,
-                                    Availability = e.Availability,
-                                    Rating = m.Rating,
+                                    MissionId = m.MissionId,
+                                    Theme_id = m.Theme_id,
+                                    Country_id = m.CountryId,
+                                    city_id = m.CityId,
+                                    Title = m.Title,
+                                    ShortDescription = m.ShortDescription,
+                                    Description = m.Description,
+                                    OrganizationName = m.OrganizationName,
+                                    StartDate = m.StartDate,
+                                    EndDate = m.EndDate,
+                                    MissionType = m.MissionType,
+                                    CreatedAt = m.CreatedAt,
+                                    UpdatedAt = m.UpdatedAt,
+                                    DeletedAt = m.DeletedAt,
+                                    CityName = ct.CityName,
+                                    Country=cn.Name,
+                                    Availability = m.Availability,
+                                    Rating = r.Rating,
                                     ThemeTitle = t.Title
                                 }).ToList();
+            var CountryView = (from cn in _context.Countries
+                                join ct in _context.Cities on cn.CountryId equals ct.CountryId
+                               select new Landing_page
+                                {
+                                    Country_id = cn.CountryId,
+                                    city_id = ct.CityId,
+                                    CityName = ct.CityName,
+                                    Country = cn.Name,
+                                }).ToList();
+         
             return View(Landing_page);
         }
+        public Action Partial()
+        {
+            var Landing_page = new Landing_page();
+            var CountryView = new CountryView();
+            CountryView.country = CountryView.Getcountry();
 
+            Landing_page.CountryView = CountryView;
+            return PartialView("_GridPartial.cshtml", Landing_page);
+        }
         //POST
         [HttpPost]
         public async Task<IActionResult> PlatformLandingPost(string searchText, int? country_id, string? city_id, string? theme_id, string? skillId, int? sortCase, string? userId)
@@ -57,7 +83,7 @@ namespace CI_platform.Controllers
 
             var MissionIds = items.Select(m => m.MissionId).ToList();
 
-            var list = from m in _context.Missions
+            var Landing_page = from m in _context.Missions
                        join cn in _context.Countries on m.CountryId equals cn.CountryId
                        join ct in _context.Cities on m.CityId equals ct.CityId
                        join t in _context.MissionThemes on m.Theme_id equals t.MissionThemeId
@@ -83,7 +109,7 @@ namespace CI_platform.Controllers
                            MediaPath = i.MediaPath
                        };
 
-            return PartialView("_ResultsPartial", list);
+            return PartialView("_ResultsPartial.cshtml", Landing_page);
             //return Json(list);
         }
 

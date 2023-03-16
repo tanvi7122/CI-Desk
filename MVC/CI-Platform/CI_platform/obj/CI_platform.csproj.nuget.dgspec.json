@@ -91,9 +91,17 @@
               "target": "Package",
               "version": "[8.0.0-preview.1.23111.4, )"
             },
+            "Microsoft.jQuery.Unobtrusive.Ajax": {
+              "target": "Package",
+              "version": "[3.2.6, )"
+            },
             "MimeKit": {
               "target": "Package",
               "version": "[3.6.0, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
             },
             "Power.EntityFrameworkCore": {
               "target": "Package",
@@ -206,9 +214,17 @@
               "target": "Package",
               "version": "[8.0.0-preview.1.23111.4, )"
             },
+            "Microsoft.jQuery.Unobtrusive.Ajax": {
+              "target": "Package",
+              "version": "[3.2.6, )"
+            },
             "MimeKit": {
               "target": "Package",
               "version": "[3.6.0, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
             },
             "Power.EntityFrameworkCore": {
               "target": "Package",
@@ -328,6 +344,14 @@
               "target": "Package",
               "version": "[8.0.0-preview.1.23111.4, )"
             },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[6.0.13, )"
+            },
+            "Microsoft.jQuery.Unobtrusive.Ajax": {
+              "target": "Package",
+              "version": "[3.2.6, )"
+            },
             "MimeKit": {
               "target": "Package",
               "version": "[3.6.0, )"
@@ -336,9 +360,17 @@
               "target": "Package",
               "version": "[2.1.0, )"
             },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
+            },
             "Power.EntityFrameworkCore": {
               "target": "Package",
               "version": "[19.3.1703, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.3.0, )"
             }
           },
           "imports": [

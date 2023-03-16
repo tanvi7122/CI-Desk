@@ -17,12 +17,12 @@ namespace CI_platfom.Entity.ViewModel
         public long Theme_id { get; set; }
 
         public long Country_id { get; set; }
-        public long Country{ get; set; }
-        public string CityName { get; set; } = null!;
 
+        public string? Country { get; set; }
+
+        public string? CityName { get; set; }
 
         public long city_id { get; set; }
-       
 
         public string Title { get; set; } = null!;
 
@@ -37,6 +37,7 @@ namespace CI_platfom.Entity.ViewModel
         public string? ThemeTitle { get; set; }
         public string MissionType { get; set; } = null!;
         public string? OrganizationName { get; set; }
+
         public string GoalObjectiveText { get; set; } = null!;
         public string? MediaPath { get; set; }
 
@@ -47,6 +48,6 @@ namespace CI_platfom.Entity.ViewModel
         public DateTime? UpdatedAt { get; set; }
 
         public DateTime? DeletedAt { get; set; }
-
+        public CountryView CountryView { get; set; }
     }
 }

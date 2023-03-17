@@ -1,14 +1,15 @@
-﻿@*
+﻿@using CI_platfom.Entity.ViewModel
+
+@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
-@using CI_platfom.Entity.ViewModel
 @model IEnumerable<Landing_page>
       <div class="list">
                         <div id="list" class="tabcontent mt-3">
                             <div class="container">
                                 <div class="row">
                                     <div class="column">
-                                 @foreach (var Landing_page in Model)
+                                    @foreach (var obj in Model)
                             {
                                  <div class="card mb-5">
                                             <div class="row">
@@ -19,7 +20,7 @@
 
                                                         <div class="position-absolute top-0 end-0"> <button
                                                                 class="btn-1" type="submit"><img src="~/images/pin.png"
-                                                                    alt="buttonpng" />@Landing_page.CityName</button></div>
+                                                                    alt="buttonpng" />@obj.CityName</button></div>
                                                         <div class="position-absolute top-50 end-0 translate-middle-y">
                                                             <button class="btn-2" type="submit"><img
                                                                     src="~/images/heart.png" alt="buttonpng" /></button>
@@ -30,7 +31,7 @@
                                                         </div>
                                                         <div class="position-absolute top-100 start-50 translate-middle bg-light p-1"
                                                             style="border-radius:18px;">
-                                                            <p>@Landing_page.ThemeTitle</p>
+                                                            <p>@obj.ThemeTitle</p>
                                                         </div>
                                                     </div>
 
@@ -40,22 +41,22 @@
                                                         <div class="d-flex  justify-content-evenly"
                                                             style="flex-direction: rows;">
                                                             <div><img src="~/images/pin1.png">Atlanta</div>
-                                                            <div><img src="~/images/web.png">@Landing_page.ThemeTitle</div>
-                                                            <div><img src="~/images/organization.png">@Landing_page.OrganizationName</div>
+                                                            <div><img src="~/images/web.png">@obj.ThemeTitle</div>
+                                                            <div><img src="~/images/organization.png">@obj.OrganizationName</div>
                                                             <div><img src="~/images/selected-star.png"><img
                                                                     src="~/images/selected-star.png"><img
                                                                     src="~/images/selected-star.png"><img
                                                                     src="~/images/selected-star.png"><img
                                                                     src="~/images/star.png"></div>
                                                         </div>
-                                                        <h4 class="card-title">@Landing_page.Title</h4>
+                                                        <h4 class="card-title">@obj.Title</h4>
                                                         <p class="card-text">
-                                                            @Landing_page.ShortDescription
+                                                            @obj.ShortDescription
                                                         </p>
                                                         <div class="row">
                                                             <div class="col-lg-2 col-md-6">
                                                                 <img src="~/images/Seats-left.png">
-                                                                @Landing_page.Availability
+                                                                @obj.Availability
                                                             </div>
                                                             <div class="col-1 p-0"><img src="~/images/achieved.png"></div>
                                                             <div class="col-1  p-0">
@@ -73,11 +74,11 @@
                                                             </div>
                                                             <div
                                                                 class="col-lg-2 col-md-4 p-0 d-flex justify-content-between">
-                                                                From @Landing_page.StartDate.Value.ToShortDateString() untill @Landing_page.EndDate.Value.ToShortDateString()</div>
+                                                                From @obj.StartDate.Value.ToShortDateString() untill @obj.EndDate.Value.ToShortDateString()</div>
 
                                                             <div class="col-lg-2 col-md-6">
                                                                 <i class="bi bi-tools"></i>
-                                                               @Landing_page.MissionType
+                                                               @obj.MissionType
                                                             </div>
                                                             <div class="col-lg-3 col-md-12 ">
                                                                 <button type="button" class="btn_view p-2">view details

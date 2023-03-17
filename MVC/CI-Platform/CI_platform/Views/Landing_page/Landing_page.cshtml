@@ -5,16 +5,22 @@
 
 
     <header>
+
        @Html.Partial("_NavbarPartial")
     </header>
     <div >
+       
       @Html.Partial("_FilterPartial")
     </div>
         <div class="container mt-4">
+            
             @Html.Partial("_SortingPartial")
-                        @Html.Partial("_ListPartial") 
+
+        
+                    @Html.Partial("_ListPartial") 
               
                 <div class="container">
+              
                     @Html.Partial("_GridPartial")  
                             
                         </div>

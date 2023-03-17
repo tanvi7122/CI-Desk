@@ -1,12 +1,12 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@using CI_platfom.Entity.ViewModel
-@model IEnumerable<Landing_page>
+﻿@using CI_platfom.Entity.ViewModel
+@model IEnumerable<FilterView>
+
+
+
                     <div id="grid" class="tabcontent">
                         <div class="row">
                          
-                @foreach (var Landing_page in Model)
+                @foreach (var obj in Model)
                 {
                     
                   <div class="col-lg-4 col-md-6 col-sm-12 mb-5">
@@ -17,7 +17,7 @@
 
                                         <div class="position-absolute top-0 end-0"> <button class="btn-1" 
                                                 type="submit"><img src="~/images/pin.png"
-                                                    alt="buttonpng" />@Landing_page.CityName</button>
+                                                    alt="buttonpng" />@obj.CityName</button>
                                         </div>
                                         <div class="position-absolute top-50 end-0 translate-middle-y"><button
                                                 class="btn-2" type="submit"><img src="~/images/heart.png"
@@ -27,17 +27,17 @@
                                         </div>
                                         <div class="position-absolute top-100 start-50 translate-middle bg-light p-1"
                                             style="border-radius:18px;">
-                                            <p>@Landing_page.ThemeTitle</p>
+                                            <p>@obj.ThemeTitle</p>
                                         </div>
                                     </div>
                                     <div class="card-body">
-                                        <h4 class="card-title">@Landing_page.Title</h4>
+                                        <h4 class="card-title">@obj.Title</h4>
                                         <p class="card-text">
-                                         @Landing_page.Description
+                                         @obj.Description
                                         </p>
                                         <div class="row">
                                             <div class="col-6">
-                                                <h8 class="Mission_name">@Landing_page.Title</h8>
+                                                <h8 class="Mission_name">@obj.Title</h8>
                                             </div>
                                             <div class="col-6">
                                                 <div col-lg-2 col-md-2><img src="~/images/selected-star.png"><img
@@ -54,7 +54,7 @@
                                                 <hr>
                                             </div>
                                             <div class="col-lg-8 col-md-10 col-sm-10 col-10 p-0 d-flex justify-content-center  border border-dark-subtle"
-                                                style="border-radius:21px;">From @Landing_page.StartDate.Value.ToShortDateString() untill @Landing_page.EndDate.Value.ToShortDateString()</div>
+                                                style="border-radius:21px;">From @obj.StartDate.Value.ToShortDateString() untill @obj.EndDate.Value.ToShortDateString()</div>
                                             <div class="col-lg-2 col-md-1 col-sm-1 col-1 p-0 ">
                                                 <hr>
                                             </div>
@@ -62,12 +62,12 @@
                                         <div class="row">
                                             <div class="col-7">
                                                 <img src="~/images/Seats-left.png">
-                                                @Landing_page.Availability
+                                                @obj.Availability
                                             </div>
                                             <div class="col-1 p-0 m-0">
                                                 <img src="~/images/deadline.png">
                                             </div>
-                                            <div class="col-4 p-0">@Landing_page.EndDate.Value.ToShortDateString()
+                                            <div class="col-4 p-0">@obj.EndDate.Value.ToShortDateString()
                                                 deadline
                                             </div>
                                         </div>

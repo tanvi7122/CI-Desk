@@ -41,11 +41,11 @@ public partial class Mission
     public DateTime? DeletedAt { get; set; }
 
     public int? TotalSeats { get; set; }
-    [NotMapped]
+  
     public virtual City City { get; set; } = null!;
 
     public virtual ICollection<Comment> Comments { get; } = new List<Comment>();
-    [NotMapped]
+ 
     public virtual Country Country { get; set; } = null!;
 
     public virtual ICollection<FavouriteMission> FavouriteMissions { get; } = new List<FavouriteMission>();
@@ -65,7 +65,7 @@ public partial class Mission
     public virtual ICollection<MissionSkill> MissionSkills { get; } = new List<MissionSkill>();
 
     public virtual ICollection<Story> Stories { get; } = new List<Story>();
-    [NotMapped]
+   
     public virtual MissionTheme Theme { get; set; } = null!;
 
     public virtual ICollection<Timesheet> Timesheets { get; } = new List<Timesheet>();

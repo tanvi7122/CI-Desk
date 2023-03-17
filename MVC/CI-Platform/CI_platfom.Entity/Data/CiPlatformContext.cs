@@ -32,7 +32,7 @@ public partial class CiPlatformContext : DbContext
 
     public virtual DbSet<GoalMission> GoalMissions { get; set; }
 
-    public virtual DbSet<Mission> Missions { get; set; }
+    public virtual DbSet<Mission> Mission { get; set; }
 
     public virtual DbSet<MissionApplication> MissionApplications { get; set; }
 

@@ -48,6 +48,7 @@ namespace CI_platfom.Entity.ViewModel
         public DateTime? UpdatedAt { get; set; }
 
         public DateTime? DeletedAt { get; set; }
-        public CountryView CountryView { get; set; }
+
+     
     }
 }

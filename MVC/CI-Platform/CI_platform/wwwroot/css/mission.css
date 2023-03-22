@@ -1,0 +1,158 @@
+﻿.nav-tabs .nav-link.active {
+    color: #414141;
+    background-color: #fff;
+    border-color: #fff #fff #414141;
+    font-weight: 600;
+}
+
+.nav-link {
+    color: #757575;
+}
+
+.volunteer-img {
+    border-radius: 100%;
+    width: 70px;
+    height: 70px;
+}
+
+.volu-btn {
+    background-color: #fff;
+    border: none;
+}
+
+.header-btn {
+    background-color: #fff;
+    border-radius: 21px;
+    border: 1px solid #E8E8E8;
+}
+
+.progress {
+    width: 200px;
+    border-radius: 20px;
+}
+
+.progress-bar {
+    background-color: #F88634;
+}
+
+.header-card {
+    border: 2px solid #E8E8E8;
+    width: 140px;
+    height: 130px;
+  
+}
+.header-card-text {
+    flex-direction: column;
+    justify-content:space-around;
+}
+.mission-info-card {
+    flex-direction: row;
+    justify-content:space-between;
+}
+.submit-btn {
+    border: 1px solid #F88634;
+    color: #F88634;
+    width: 196px;
+    height: 46px;
+    background-color: #fff;
+    border-radius: 21px;
+}
+.doc-btn {
+    width: 196px;
+    height: 46px
+}
+.fav-btn{
+    flex-direction:row;
+}
+.header-img {
+    background-image: url('../images/CSR-initiative-stands-for-Coffee--and-Farmer-Equity-4.png');
+    width: 672px;
+    height: 590px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+@media screen and (max-width:1399px) and (min-width:1200px) {
+    .header-img {
+        background-image: url('../images/CSR-initiative-stands-for-Coffee--and-Farmer-Equity-3.png');
+        width: 606px;
+        height: 630px;
+        background-repeat: no-repeat;
+        /* background-size: cover; */
+    }
+}
+
+@media screen and (max-width:1199px) and (min-width:992px) {
+    .header-img {
+        background-image: url('../images/CSR-initiative-stands-for-Coffee--and-Farmer-Equity-3.png');
+        width: 510px;
+        height: 630px;
+        background-repeat: no-repeat;
+        /* background-size: cover; */
+    }
+  
+    .header-card {
+        border: 2px solid #E8E8E8;
+        width: 110px;
+        height: 110px;
+    }
+}
+
+@media screen and (max-width:768px) {
+    .header-img {
+        background-image: url('../images/CSR-initiative-stands-for-Coffee--and-Farmer-Equity-6.png');
+        width: auto;
+        height: 350px;
+        background-repeat: no-repeat;
+        /* background-size: cover; */
+    }
+
+    .cara {
+        display: hidden;
+    }
+
+}
+
+
+.grid-card-btn {
+    width: 133px;
+    height: 48px;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 2px solid #F88634;
+    border-radius: 24px;
+    opacity: 1;
+    
+}
+
+@media (max-width:520px) {
+    .fav-btn{
+        flex-direction:column;
+        align-items:center;
+      
+    }
+   .mission-info-card{
+       flex-direction:column;
+       justify-content:center;
+       align-items:center;
+       
+   }
+   .mission-info-card .header-card{
+       width:100%;
+   }
+    .mission-info-card .header-card {
+        width: 100%;
+    }
+    
+}
+
+.selectedstar {
+    background-image: url("../images/selected-star.png");
+    width: 22px;
+    height: 20px;
+}
+
+.unselectedstar {
+    background-image: url("../images/star-empty.png");
+    width: 22px;
+    height: 20px;
+}

@@ -3,17 +3,22 @@
 @*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
-
+@{
+    Layout = null;
+}
 @model User
 
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta name="viewport" charset="UTF-8" content="width=device-width, initial-scale=1.0">
+          <meta name="viewport" charset="UTF-8" content="width=device-width, initial-scale=1.0">
         <title>Register</title>
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/login.css">
-        <script src="/js/bootstrap.bundle.min.js"></script>
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/Filters.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
     </head>
     <body>
         <div class="container-fluid mt-1">
@@ -64,7 +69,7 @@
                 </div>
             
                 <div class="col-lg-4 d-flex justify-content-center align-items-center">
-                <form   method="post"   class="login mt-md-2 mt-sm-2 mt-5">
+                <form asp-action="Registration" method="post" class="login mt-md-2 mt-sm-2 mt-5">
                                @if(TempData["success"]!= null)
                 {
                     <div class="alert alert-success">

@@ -2,6 +2,9 @@
 @*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
+@{
+    Layout = null;
+}
 @using CI_platfom.Entity.Models;
 @model User
 <!DOCTYPE html>
@@ -9,9 +12,12 @@
     <head>
         <meta name="viewport" charset="UTF-8" content="width=device-width, initial-scale=1.0">
         <title>Login</title>
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/login.css">
-        <script src="/js/bootstrap.bundle.min.js"></script>
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/Filters.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
     </head>
     <body>
         <div class="container-fluid mt-1">
@@ -62,12 +68,7 @@
                 </div>
                 <div class="col-lg-4 d-flex justify-content-center align-items-center">
                     <form asp-action="Login" method="post" asp-controller="Home"  class="login mt-md-5 mt-sm-5 mt-5">
-                                        @if(TempData["success"]!= null)
-                {
-                    <div class="alert alert-success">
-                         @TempData["success"]
-                    </div>
-                }
+           
                         <div class="mb-3 mail">
                             <label asp-for="Email" class="form-label mb-0">Email address</label>
                             <input asp-for="Email" type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="evan.donohue@gmail.com">

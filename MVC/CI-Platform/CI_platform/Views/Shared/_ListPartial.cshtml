@@ -1,102 +1,168 @@
 ﻿@using CI_platfom.Entity.ViewModel
+@model HomeLandingPageVM
+<div class="container mt-5 d-none" id="partialList">
+    @foreach(var mission in Model.Mission)
+    {
 
+        var registered_users = mission.MissionApplications.Count(m => m.ApprovalStatus.Contains("APPROVE"));
+        var total_seats = mission.TotalSeats - registered_users;
+        double avg_rating=0;
+            if (mission.MissionRatings.Count() > 0)
+            {
+                avg_rating = mission.MissionRatings.Average(r => r.Rating);
+            }
+
+            var missionimg = Model.MissionMedium.Where(m => m.MissionId == @mission.MissionId);
+
+         <div class="card card-div mt-3 list-card">
+            <div class="row g-0">
+                <div class="col-12 col-md-3">
+                   
+                      
+                         
 @*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@model IEnumerable<Landing_page>
-      <div class="list">
-                        <div id="list" class="tabcontent mt-3">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="column">
-                                    @foreach (var obj in Model)
-                            {
-                                 <div class="card mb-5">
-                                            <div class="row">
-                                                <div class="col-md-4 ">
-                                                    <div class="position-relative">
-                                                        <img src="~/images/Grow-Trees-On-the-path-to-environment-sustainability.png"
-                                                            alt="Grow-Trees" class="card-img-bottom" />
+                       @foreach(var missionGridimg in missionimg)
+                        {
+                    
+                              <img style="position: relative;height:100%;width:100%" src=@missionGridimg.MediaPath class="img-fluid rounded-start" alt=@missionGridimg.MediaName">
+                            break;
+                        *@
 
-                                                        <div class="position-absolute top-0 end-0"> <button
-                                                                class="btn-1" type="submit"><img src="~/images/pin.png"
-                                                                    alt="buttonpng" />@obj.CityName</button></div>
-                                                        <div class="position-absolute top-50 end-0 translate-middle-y">
-                                                            <button class="btn-2" type="submit"><img
-                                                                    src="~/images/heart.png" alt="buttonpng" /></button>
-                                                        </div>
-                                                        <div class="position-absolute bottom-0 end-0"><button
-                                                                class="btn-3" type="submit"><img src="~/images/user.png"
-                                                                    alt="buttonpng" /></button>
-                                                        </div>
-                                                        <div class="position-absolute top-100 start-50 translate-middle bg-light p-1"
-                                                            style="border-radius:18px;">
-                                                            <p>@obj.ThemeTitle</p>
-                                                        </div>
-                                                    </div>
+                       
 
-                                                </div>
-                                                <div class="col-md-8 ">
-                                                    <div class="card-body">
-                                                        <div class="d-flex  justify-content-evenly"
-                                                            style="flex-direction: rows;">
-                                                            <div><img src="~/images/pin1.png">Atlanta</div>
-                                                            <div><img src="~/images/web.png">@obj.ThemeTitle</div>
-                                                            <div><img src="~/images/organization.png">@obj.OrganizationName</div>
-                                                            <div><img src="~/images/selected-star.png"><img
-                                                                    src="~/images/selected-star.png"><img
-                                                                    src="~/images/selected-star.png"><img
-                                                                    src="~/images/selected-star.png"><img
-                                                                    src="~/images/star.png"></div>
-                                                        </div>
-                                                        <h4 class="card-title">@obj.Title</h4>
-                                                        <p class="card-text">
-                                                            @obj.ShortDescription
-                                                        </p>
-                                                        <div class="row">
-                                                            <div class="col-lg-2 col-md-6">
-                                                                <img src="~/images/Seats-left.png">
-                                                                @obj.Availability
-                                                            </div>
-                                                            <div class="col-1 p-0"><img src="~/images/achieved.png"></div>
-                                                            <div class="col-1  p-0">
-                                                                <div class="progress" role="progressbar"
-                                                                    aria-label="Basic example" aria-valuenow="25"
-                                                                    aria-valuemin="0" aria-valuemax="100">
-                                                                    <div class="progress-bar"
-                                                                        style="background-color:#ff8634 ; width: 25%;">
-                                                                    </div>
-                                                                </div>
-                                                                Achieved
-                                                            </div>
-                                                            <div class="col-lg-1 col-md-2">
-                                                                <img src="~/images/calender.png">
-                                                            </div>
-                                                            <div
-                                                                class="col-lg-2 col-md-4 p-0 d-flex justify-content-between">
-                                                                From @obj.StartDate.Value.ToShortDateString() untill @obj.EndDate.Value.ToShortDateString()</div>
+                    <button class="list-mission-title mission-theme">@mission.Theme.Title</button>
+                  <div class="location-list1">
+                       
+                        <img src="~/images/pin1.png" style="margin:6px 10px" />
+                        <span style="color: #FFFFFF" class="mission-city">@mission.City.Name</span>
+                        <button class="favourite"><img src="~/images/heart.png"></button>
+                        <button class="userdisplay">
+                            <img src="~/images/user.png" />
+                        </button>
 
-                                                            <div class="col-lg-2 col-md-6">
-                                                                <i class="bi bi-tools"></i>
-                                                               @obj.MissionType
-                                                            </div>
-                                                            <div class="col-lg-3 col-md-12 ">
-                                                                <button type="button" class="btn_view p-2">view details
-                                                                    <img src="~/images/right-arrow.png"></button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                    </div>
+                    @*}*@
+                </div>
+                
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between">
+                            <div class="d-flex">
+                                <div class="mx-3">
+                                    <img src="~/images/pin1.png" alt="location-logo">
+                                    <span class="mission-city">@mission.City.Name</span>
+                                </div>
+                                <div class="mx-3">
+                                    <img src="~/images/web.png" alt="location-logo">
+                                    <span class="mission-theme">@mission.Theme.Title</span>
+                                </div>
+                                <div class="mx-3">
+                                    <img src="~/images/organization.png" alt="location-logo">
+                                    <span>@mission.OrganizationName</span>
+                                </div>
+                            </div>
+                            <div class="d-flex px-3">
+                                @for (int i = 1; i <= avg_rating; i++)
+                                {
+                                    <div>
+                                        <img src="~/images/selected-star.png" alt="rating" />
+                                    </div>
+                                }
+                                @for (int i = 5; i > avg_rating; i--)
+                                {
+                                    <div>
+                                        <img src="~/images/star.png" alt="rating" />
+                                    </div>
+                                }
 
-                            }
-                           
+                            </div>
+
+
+
+
+                        </div>
+                        <h5 class="card-title custom-card-title">@mission.Title</h5>
+                        <p class="card-text" style="color:#757575">@mission.ShortDescription</p>
+
+                        <div class="d-flex justify-content-between list-card">
+
+                            <div class="d-flex">
+                                <div class="d-flex align-items-center" style="margin-right:30px">
+                                    <img src="~/images/Seats-left.png" style="width:30px;height:30px">
+                                    <div class="d-flex flex-column">
+                                        <span>@total_seats</span>
+                                        <span>Seats left</span>
                                     </div>
                                 </div>
-                                
-                              
+                                <div class="d-flex align-items-center" style="margin-right:30px">
+                                    <img src="~/images/mission.png" style="width:30px;height:30px">
+                                    <div class="d-flex flex-column">
+                                        <div class="progress">
+                                            <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                        <span>Achieved</span>
+                                    </div>
+
+
+                                </div>
+                                <div class="d-flex align-items-center" style="margin-right:30px">
+                                    @if (mission.MissionType.Equals("Time"))
+                                    {
+                                        <img src="~/images/calender.png" style="width:30px;height:30px">
+                                        <div class="d-flex flex-column">
+                                            <span>from @mission.StartDate.Value.ToShortDateString()</span>
+                                            <span>Until @mission.EndDate.Value.ToShortDateString()</span>
+                                        </div>
+
+                                    }
+                                    else
+                                    {
+                                        @foreach (var goal_mission in mission.GoalMissions)
+                                        {
+
+
+                                            <button style="width:273px;background: #FFFFFF 0% 0% no-repeat padding-box;
+border: 1px solid #E8E8E8;
+border-radius: 18px;
+opacity: 1;color: #414141">
+                                                @goal_mission.GoalObjectiveText
+                                            </button>
+                                        }
+    
+                                    }
+
+                                </div>
+                                <div class="d-flex align-items-center" style="margin-right:30px">
+                                    <img src="~/images/add.png" style="width:30px;height:30px">
+                                    <div class="d-flex flex-column">
+                                        <span>Skills</span>
+                                        @foreach (var mission_skill in mission.MissionSkills)
+                                        {
+                                             <span>@mission_skill.Skill.SkillName</span>
+                                        }
+                                       
+                                    </div>
+                                </div>
+
                             </div>
+
+                            <div>
+                                <a asp-controller="Home" asp-action="StoryListing">
+                                    <button style="background-color:white;border-radius:24px;border:2px solid #F88634;color:#F88634">
+                                        View Details
+                                        <img src="~/images/right-arrow.png">
+                                    </button>
+                                </a>
+                            </div>
+
                         </div>
+
+
+
                     </div>
                 </div>
+            </div>
+        </div>
+    }
+    @*   }*@
+</div>

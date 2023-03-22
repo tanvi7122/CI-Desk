@@ -1,0 +1,922 @@
+﻿@*
+    @{
+    ViewData["Title"] = "MissionPage";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    }*@
+@using CI_platfom.Entity.ViewModel
+@using System.Globalization
+@model HomeLandingPageVM
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .msdetail .row {
+        --bs-gutter-x: 0;
+        --bs-gutter-y: 0;
+    }
+
+    .yellow-color {
+        color: #F88634;
+    }
+
+   
+</style>
+<script>
+    function CRateOut(rating){
+        for(var i=1;i<=rating;i++){
+            $("#span_"+i).attr('class','bi bi-star')
+        }
+    }
+    function CRateOver(rating){
+        for(var i=1;i<=rating;i++){
+            $("#span_"+i).attr('class','bi bi-star-fill  yellow-color')
+        }
+    }
+    function CRateClick(rating){
+        $('#lblRating').val(rating);
+        for(var i=1;i<=rating;i++){
+            $("#span_"+i).attr('class','bi bi-star-fill  yellow-color')
+        }
+         for(var i=rating+1;i<=5;i++){
+            $("#span_"+i).attr('class','bi bi-star')
+        }
+    }
+    function CRateSelected(){
+        var rating=$('#lblRating').val();
+    for(var i=1;i<=rating;i++){
+            $("#span_"+i).attr('class','bi bi-star-fill  yellow-color')
+        }
+    }
+
+</script>
+
+<body>
+
+    <div class="container p-0 msdetail">
+        <div class="row p-0">
+            <div class="col-lg-6 col-12 p-0 mt-4">
+                <div class="container">
+                    @{
+                        //var missionimg = Model.MissionMedium.Where(m => m.MissionId == Model.AppliedMission.MissionId);
+
+                        //foreach(var missiontitleimg in missionimg)
+                        //{
+                        //    <img src=@missiontitleimg.MediaPath class="w-100 mission-mainimg" id="mainImg" />
+                        //    break;
+                        //}
+                       
+                    
+                  
+                    <div class="row">
+                        <div class="MultiCarousel" data-items="1,3,5,6" data-slide="1" id="MultiCarousel" data-interval="1000">
+                            <div class="MultiCarousel-inner">
+                         
+                            </div>
+                            
+                            <button class="btn btn-custom leftLst">  </button>
+                            <button class="btn btn-custom rightLst">  </button>
+                        </div>
+                    </div>
+                    }
+                </div>
+
+
+            </div>
+
+
+
+            <div class="col-lg-6 col-12 mt-5">
+                <div class="row px-3">
+                    <h2>@Model.AppliedMission.Title</h2>
+                    <p>
+                        @Model.AppliedMission.Description
+                    </p>
+
+                    <div class="col">
+                        <div class="row">
+                            <div class="col-3">
+                                <hr />
+                            </div>
+                            <div class="col-6 d-flex justify-content-center">
+                                @if (Model.AppliedMission.MissionType.Equals("Goal"))
+                                {
+                                      <button class="header-btn">
+                                    
+                                    @foreach(var goal_mission2 in Model.AppliedMission.GoalMissions)
+                                    {
+                                        <div>
+                                            
+                                            @goal_mission2.GoalObjectiveText
+                                        </div>
+                                    }
+                                    </button>
+                                  
+
+                                }
+                                else 
+                                {
+                                      <button class="header-btn">  From @Model.AppliedMission.StartDate.Value.ToShortDateString() until @Model.AppliedMission.EndDate.Value.ToShortDateString()</button>
+                                }
+
+
+                            </div>
+                            <div class="col-3">
+                                <hr />
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="d-flex justify-content-around mt-2">
+                        <div class="d-flex align-items-center">
+                            <img src="~/images/Seats-left.png" alt="" style="margin-right:10px;width:30px;height:30px" />
+                            <div class="d-flex flex-column">
+
+
+                                @foreach (var seat in Model.Mission)
+                                {
+                                    var registered_users = @Model.AppliedMission.MissionApplications.Count(m => m.ApprovalStatus.Contains("APPROVE"));
+                                    Console.WriteLine(registered_users);
+                                    var total_seats = @Model.AppliedMission.TotalSeats - registered_users;
+                                    <span>
+                                        @total_seats
+                                    </span>
+                                }
+                                <span>Seats Left</span>
+                            </div>
+                        </div>
+
+                        <div class="d-flex align-items-center">
+                            @if (Model.AppliedMission.MissionType.Equals("Goal"))
+                            {
+                            <img src="~/images/mission.png" alt="" style="margin-right:10px;width:30px;height:30px" />
+                            <div class="d-flex flex-column">
+
+                                <div class="progress">
+                                     @foreach (var goal_mission in Model.AppliedMission.GoalMissions){
+                                             
+                                                <div class="progress-bar" role="progressbar" style="width:@goal_mission.GoalValue%;" aria-valuenow="@goal_mission.GoalValue" aria-valuemin="0" aria-valuemax="100"></div>
+                                      }
+                                </div>
+
+                                <span>Achieved</span>
+                                </div>
+                            }
+                            else
+                            {
+                                 <img src="~/images/deadline.png" alt="seats-left-logo" />
+                                  <div class="d-flex flex-column">
+                                    <span style="font-weight:400" class="deadline">@((Model.AppliedMission.StartDate - TimeSpan.FromDays(1)).Value.ToShortDateString())</span>
+                                    <span>Deadline</span>
+                                </div>
+
+                            }
+
+                        </div>
+                    </div>
+                    <hr class="mt-3" />
+                    @{
+
+                        var flag = 1;
+                        <div class="d-flex justify-content-between fav-btn">
+                            <form method="post" asp-action="AddToFavorite" asp-controller="Mission">
+                                <input type="hidden" name="missionId" value="@Model.AppliedMission.MissionId" />
+                                <input type="hidden" name="userId" value="@Model.LoggedUser.UserId" />
+                                 <input type="hidden" name="cityId" value="@Model.AppliedMission.CityId" />
+                                  <input type="hidden" name="countryId" value="@Model.AppliedMission.CountryId" />
+                                  <input type="hidden" name="themeId" value="@Model.AppliedMission.ThemeId" />
+                                @foreach (var favourite in Model.AppliedMission.FavouriteMissions)
+                                {
+                                    @if (favourite.UserId.Equals(@Model.LoggedUser.UserId))
+                                    {
+                                        //<img src="~/images/heart1.png" style="margin-right: 20px;"  />
+
+                                        <button class="header-btn" style="width:320px;height:50px;">
+                                            <i class="bi bi-heart-fill text-danger">Added To Favourites</i>
+                                        </button>
+
+                                        flag = 0;
+                                    }
+                                }
+                                @if (flag == 1)
+                                {
+                                    <button class="header-btn" style="width:320px;height:50px" type="submit">
+                                        <i class="bi bi-heart" style="color:black">Add To Favourites</i>
+                                    </button>
+                                }
+
+
+                            </form>
+                            <button class="header-btn" style="width:320px;height:50px" data-bs-toggle="modal" data-bs-target="#coWorker1" type="button"><img src="~/images/heart1.png" style="margin-right: 20px;" />Recommend to Co-Worker</button>
+                            <div class="modal fade" id="coWorker1" tabindex="-1" aria-labelledby="coWorkerlLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-content overflow-scroll" style="max-height:500px">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Recommend To Your Co-Workers</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            @foreach (var user in Model.UserList)
+                                            {
+                                                var torecommendeduser = Model.MissionInvites.FirstOrDefault(m => (m.ToUserId == @user.UserId) && (m.FromUserId == @Model.LoggedUser.UserId) && (m.MissionId == @Model.AppliedMission.MissionId));
+                                                <div class="d-flex justify-content-between mx-3 my-3">
+                                                    <p>@user.FirstName @user.LastName @user.PhoneNumber</p>
+                                                    @if (torecommendeduser == null)
+                                                    {
+                                                        <button class="recommend-btn btn btn-primary" data-mission-id="@Model.AppliedMission.MissionId"  data-theme-id="@Model.AppliedMission.ThemeId" data-fromuser-id="@Model.LoggedUser.UserId" data-touser-id="@user.UserId" data-city-id="@Model.AppliedMission.CityId" data-country-id="@Model.AppliedMission.CountryId">Recommend</button>
+                                                    }
+                                                    else
+                                                    {
+                                                        <button class="recommend-btn btn btn-success" data-mission-id="@Model.AppliedMission.MissionId"  data-theme-id="@Model.AppliedMission.ThemeId" data-city-id="@Model.AppliedMission.CityId" data-country-id="@Model.AppliedMission.CountryId"  data-fromuser-id="@Model.LoggedUser.UserId" data-touser-id="@user.UserId">Recommend</button>
+                                                    }
+
+                                                </div>
+                                            }
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    }
+                    <div class="col mt-3">
+                        <form method="post" asp-action="AddRating" asp-controller="Mission">
+
+                            <div class="d-flex justify-content-center">
+                                <button class="header-btn" style="border:hidden">
+                                    <div onclick="CRateSelected()">
+                                        @{
+                                            var rateobj = Model.AppliedMission.MissionRatings.FirstOrDefault(f => f.UserId == Model.LoggedUser.UserId);
+                                            if (rateobj != null)
+                                            {
+                                                for (int i = 1; i <= rateobj.Rating; i++)
+                                                {
+                                                    <span id="span_@i" onmouseout="CRateOut(@i)" onmouseover="CRateOver(@i)" onClick="CRateClick(@i)" class="bi bi-star-fill  yellow-color"></span>
+                                                }
+                                                for (int j = rateobj.Rating + 1; j <= 5; j++)
+                                                {
+                                                    <span id="span_@j" onmouseout="CRateOut(@j)" onmouseover="CRateOver(@j)" onClick="CRateClick(@j)" class="bi bi-star"></span>
+                                                }
+                                            }
+                                            else
+                                            {
+                                                <span id="span_1" onmouseout="CRateOut(1)" onmouseover="CRateOver(1)" onClick="CRateClick(1)" class="bi bi-star"></span>
+                                                <span id="span_2" onmouseout="CRateOut(2)" onmouseover="CRateOver(2)" onClick="CRateClick(2)" class="bi bi-star"></span>
+                                                <span id="span_3" onmouseout="CRateOut(3)" onmouseover="CRateOver(3)" onClick="CRateClick(3)" class="bi bi-star"></span>
+                                                <span id="span_4" onmouseout="CRateOut(4)" onmouseover="CRateOver(4)" onClick="CRateClick(4)" class="bi bi-star"></span>
+                                                <span id="span_5" onmouseout="CRateOut(5)" onmouseover="CRateOver(5)" onClick="CRateClick(5)" class="bi bi-star"></span>
+
+                                            }
+                                        }
+
+                                    </div>
+                                    <div>
+                                        <input type="hidden" name="rating" id="lblRating" />
+                                        <input type="hidden" name="MissionId" id="lblRating" value="@Model.AppliedMission.MissionId" />
+                                         <input type="hidden" name="cityId" value="@Model.AppliedMission.CityId" />
+                                  <input type="hidden" name="countryId" value="@Model.AppliedMission.CountryId" />
+                                  <input type="hidden" name="themeId" value="@Model.AppliedMission.ThemeId" />
+                                        <input type="hidden" name="UserId" value="@Model.LoggedUser.UserId" id="lblRating" />
+                                    </div>
+                                </button>
+                            </div>
+                           
+                        </form>
+@*
+
+                   <div class="d-flex justify-content-center Rating">
+                            @{
+                                var rateobj = Model.AppliedMission.MissionRatings.FirstOrDefault(f => f.UserId == Model.LoggedUser.UserId);
+                                if (rateobj != null)
+                                {
+                                    @for (int i = 1; i <= rateobj.Rating; i++)
+                                    {
+                                        <p  alt="" data-mission-id="@Model.AppliedMission.MissionId" class="selectedstar"></p>
+                                    }
+                                    @for (int i = 1; i <= (5 - rateobj.Rating); i++)
+                                    {
+                                        <p  alt="" data-mission-id="@Model.AppliedMission.MissionId" class="unselectedstar"></p>
+                                    }
+                                }
+                            }
+                   </div>*@
+                    </div>
+                    <div class="d-flex mt-3 mission-info-card">
+                        <div class="d-flex header-card-text header-card  p-3">
+                            <div>
+                                <img src="~/images/pin1.png" alt="" />
+                            </div>
+                            <div class="mt-2">
+                                <span>City</span>
+                                <p><b>@Model.AppliedMission.City.Name</b></p>
+                            </div>
+                        </div>
+                        <div class="d-flex  header-card-text header-card justify-content-around p-3">
+                            <div>
+                                <img src="~/images/web.png" alt="" />
+                            </div>
+                            <div class="mt-2">
+                                <span>Theme</span>
+                                <p><b>@Model.AppliedMission.Theme.Title</b></p>
+                            </div>
+                        </div>
+                        <div class="d-flex  header-card-text header-card justify-content-around p-3">
+                            <div>
+                                <img src="~/images/calender.png" alt="" />
+                            </div>
+                            <div class="mt-2">
+                                <span>Date</span>
+                                @if (Model.AppliedMission.MissionType.Equals("Time"))
+                                {
+                                     @if(Model.AppliedMission.StartDate < DateTime.Now && Model.AppliedMission.EndDate > DateTime.Now)
+                                    {
+                                        <p><b>Ongoing Opportunity</b></p>
+                                    }
+                                    else if(Model.AppliedMission.StartDate > DateTime.Now)
+                                    {
+                                        <p><b>Opportunity Soon Starts</b></p>
+                                    }
+                                    else
+                                    {
+                                     <p><b>Opportunity Missed</b></p>
+                                    }
+
+                                }
+                                else
+                                {
+                                    <p><b>Goal Based Mission</b></p>
+
+                                }
+                               
+                          
+                            </div>
+                        </div>
+                        <div class="d-flex  header-card-text header-card justify-content-around p-3">
+                            <div>
+                                <img src="~/images/organization.png" alt="" />
+                            </div>
+                            <div class="mt-2">
+                                <span>Organization</span>
+                                <p><b>@Model.AppliedMission.OrganizationName</b></p>
+                            </div>
+                        </div>
+                    </div>
+                     @{
+
+                        var flag1 = 1;
+                    <div class="d-flex justify-content-center mt-3">
+                        @*<form method="post" asp-action="AddVolunteer" asp-controller="Mission"> *@
+                     
+                  @*  <button class="submit-btn apply-btn" type="submit">
+                            Apply
+                            <img src="~/images/right-arrow.png">
+                        </button>
+*@                              <form method="post" asp-action="AddVolunteer" asp-controller="Mission">
+                                <input type="hidden" name="missionId" value="@Model.AppliedMission.MissionId" />
+                                <input type="hidden" name="userId" value="@Model.LoggedUser.UserId" />
+                                 <input type="hidden" name="cityId" value="@Model.AppliedMission.CityId" />
+                                  <input type="hidden" name="countryId" value="@Model.AppliedMission.CountryId" />
+                                  <input type="hidden" name="themeId" value="@Model.AppliedMission.ThemeId" />
+
+                         @foreach (var missionapply in Model.AppliedMission.MissionApplications)
+                                {
+                                    @if (missionapply.UserId.Equals(@Model.LoggedUser.UserId))
+                                    {
+                                        //<img src="~/images/heart1.png" style="margin-right: 20px;"  />
+
+                                           <button class="submit-btn" style="background-color:#449d44;color: #fff;border-color: #398439" data-mission-id="@Model.AppliedMission.MissionId" data-user-id="@Model.LoggedUser.UserId">
+                            Applied already
+                          @* <img src="~/images/right-arrow.png">*@
+                        </button>
+
+                                        flag1 = 0;
+                                    }
+                                }
+                                @if (flag1 == 1)
+                                {
+                                       <button class="submit-btn"  data-mission-id="@Model.AppliedMission.MissionId" data-user-id="@Model.LoggedUser.UserId">
+                            Apply
+                           <img src="~/images/right-arrow.png">
+                        </button>
+                                }
+                        </form>
+                    
+                    </div>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-5" style="height:100%">
+            <div class="col-xl-8 col-12">
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="mission-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Mission</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="organization-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Organization</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="comments-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">Comments</button>
+                    </li>
+                </ul>
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active mt-3 px-3" id="home" role="tabpanel" aria-labelledby="mission-tab">
+                        <h3>Introduction</h3>
+                        <p style="font-size:15px">
+                            @Model.AppliedMission.ShortDescription
+                            <br>
+                            <br>
+                            @Model.AppliedMission.Description
+                            <br>
+                            <br>
+                            voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
+                            officia deserunt mollit anim id est laborum.
+                        </p>
+                        <h3>Challenge</h3>
+                        <p style="font-size:15px">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+                            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                            aliquip ex ea commodo consequat. Duis aute irure dolor in
+                            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+                            culpa qui officia deserunt mollit anim id est laborum.
+                            <br>
+                            <br>
+                            Lorem ipsum
+                            dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                            incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+                            veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+                            ea commodo consequat. Excepteur sint occaecat cupidatat non
+                            proident, sunt in culpa qui officia deserunt mollit anim id est
+                            laborum.
+                        </p>
+                        <h3>Documents</h3>
+                       <div class="d-flex justify-start mt-4">
+                        @foreach(var missiondocument in @Model.missionDocument)
+                        {
+                                @if (@missiondocument.DocumentType.Equals("doc"))
+                                {
+                                     <button class="header-btn doc-btn">
+                                 <img src="~/images/doc.png" alt="">
+                                 <a href="@missiondocument.DocumentPath" target="_blank">@missiondocument.DocumentPath</a>
+                             </button>
+                                }
+                                @if(@missiondocument.DocumentType.Equals("pdf")){
+                                     <button class="header-btn doc-btn">
+                                 <img src="~/images/pdf.png" alt="">
+                                 <a href="@missiondocument.DocumentPath" target="_blank">@missiondocument.DocumentPath</a>
+                                    </button>
+                                }
+                                @if(@missiondocument.DocumentType.Equals("xlsx"))
+                                {
+                                 <button class="header-btn doc-btn">
+                                 <img src="~/images/xlsx.png" alt="">
+                                 <a href="@missiondocument.DocumentPath" target="_blank">@missiondocument.DocumentPath</a>
+                                    </button>
+                                }
+                               
+                  
+                        
+                        }
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="organization-tab">
+
+                        <h3>Introduction</h3>
+
+                        <p>
+                            @Model.AppliedMission.OrganizationName
+                            <br>
+                            <br>
+                            @Model.AppliedMission.OrganizationDetail
+                        </p>
+
+
+                    </div>
+                    <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="comments-tab">
+
+                        <form class="mt-3" method="post" asp-action="AddComment" asp-controller="Mission">
+                            <textarea class="form-control" placeholder="Leave a comment here" style="height: 100px" name="comment_text"></textarea>
+                            @* <label for="floatingTextarea2">Enter Your Comments Here.....</label>*@
+                            <input type="hidden" name="missionId" value="@Model.AppliedMission.MissionId" />
+                            <input type="hidden" name="userId" value="@Model.LoggedUser.UserId" />
+                             <input type="hidden" name="cityId" value="@Model.AppliedMission.CityId" />
+                                  <input type="hidden" name="countryId" value="@Model.AppliedMission.CountryId" />
+                                  <input type="hidden" name="themeId" value="@Model.AppliedMission.ThemeId" />
+                            <button class="submit-btn mt-3">
+                                Post Comment
+                            </button>
+                        </form>
+
+
+                        <div class="container mt-3" style="border:1px solid #e8e8e869;background-color:#e8e8e869;">
+                            <div class="overflow-scroll mt-3" style="max-height:510px">
+
+                                @foreach (var comment in @Model.AppliedMission.Comments.Where(m => m.ApprovalStatus.Contains("PUBLISHED")))
+                                {
+
+                                    <div class="card mb-3" style="max-width: 100%;">
+                                        <div class="row g-0">
+                                            <div class="col-sm-2 col-3 ps-3 pt-3">
+                                                <img src="~/images/volunteer1.png" class="volunteer-img" alt="user-img">
+                                            </div>
+                                            <div class="col-sm-10 col-9">
+                                                <div class="card-body">
+
+                                                    <h5 class="card-title" id="volunteer-name">@comment.User.FirstName @comment.User.LastName</h5>
+                                                    <p class="card-text" id="commented-date">@comment.CreatedAt.Value.ToString("dddd, dd MMMM yyyy HH:mm:ss")</p>
+                                                    <p class="card-text" id="commented-text">@comment.CommentText</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+
+                        </div>
+
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-xl-4 col-12 mt-3 px-3">
+                <div class="row px-3">
+                    <div class="d-flex flex-column" style="border: 1px solid #E8E8E8">
+                        <ul class="nav nav-tabs">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="#">Information</a>
+                            </li>
+                        </ul>
+
+
+                        <div class="d-flex flex-column px-3 mt-3">
+
+                            <p class="m-0 p-0 d-inline">
+                                Skill<span class="ps-3">
+                                    @{
+                                        var count = @Model.AppliedMission.MissionSkills.Count();
+
+
+                                        foreach (var skillname in @Model.AppliedMission.MissionSkills)
+                                        {
+                                            if (count == 1)
+                                            {
+                                                <span>@skillname.Skill.SkillName </span>
+                                            }
+
+                                            else
+                                            {
+                                                <span>@skillname.Skill.SkillName ,</span>
+                                            }
+
+                                            count = count - 1;
+
+                                        }
+                                    }
+                                </span>
+                            </p>
+
+                            <hr />
+                            <p class="m-0 p-0">Days<span class="ps-3">@Model.AppliedMission.Availability</span></p>
+                            <hr />
+                            <p class="m-0 pb-3">
+                                Rating
+                                @{
+                                    double avg_rating = @Model.AppliedMission.MissionRatings.Average(r => r.Rating);
+                                    <span class="ps-3">
+
+                                        @for (int i = 1; i <= avg_rating; i++)
+                                        {
+
+                                            <img src="~/images/selected-star.png" alt="rating" />
+
+                                        }
+                                        @for (int i = 5; i > avg_rating; i--)
+                                        {
+
+                                            <img src="~/images/star.png" alt="rating" />
+
+                                        }
+
+                                        <span>(By @Model.AppliedMission.MissionRatings.Count() Volunteers)</span>
+
+                                    </span>
+                                }
+                            </p>
+
+                        </div>
+
+
+
+                    </div>
+                </div>
+                <div class="row px-3" style="margin-top: 80px;">
+                    <div class="d-flex flex-column" style="border: 1px solid #E8E8E8">
+                        <ul class="nav nav-tabs">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="#">Recent Volunteers</a>
+                            </li>
+                        </ul>
+                          
+                        <div class="d-flex justify-content-around mt-3">
+                            @* <figure>
+                                <img src="~/images/volunteer1.png" alt="" class="volunteer-img">
+                                <figcaption>Andrew Johnson</figcaption>
+                                </figure>
+                                <figure>
+                                <img src="~/images/volunteer2.png" alt="" class="volunteer-img">
+                                <center><figcaption>Andrew Johnson</figcaption></center>
+                                </figure>
+                                <figure>
+                                <img src="~/images/volunteer3.png" alt="" class="volunteer-img">
+                                <center><figcaption>Andrew Johnson</figcaption></center>
+                                </figure>*@
+                            
+
+                          @foreach(var recentvolunteer in @Model.missionApplication)
+                            {
+                                
+                                var userFName = recentvolunteer.User.FirstName;
+                                var userLName = recentvolunteer.User.LastName;
+                                
+
+                                <figure>
+                                <img src=@recentvolunteer.User.Avatar alt="" class="volunteer-img">
+                                <center><figcaption>@userFName @userLName</figcaption></center>
+                                    </figure>
+                                    
+                                }
+                           
+                            
+                        </div>
+                       @* <div class="d-flex justify-content-around">
+                            <figure>
+                                <img src="~/images/volunteer1.png" alt="" class="volunteer-img">
+                                <figcaption>Andrew Johnson</figcaption>
+                            </figure>
+                            <figure>
+                                <img src="~/images/volunteer2.png" alt="" class="volunteer-img">
+                                <center><figcaption>Andrew Johnson</figcaption></center>
+                            </figure>
+                            <figure>
+                                <img src="~/images/volunteer3.png" alt="" class="volunteer-img">
+                                <center><figcaption>Andrew Johnson</figcaption></center>
+                            </figure>
+
+                        </div>*@
+                       @* <div class="d-flex justify-content-around">
+                            <figure>
+                                <img src="~/images/volunteer1.png" alt="" class="volunteer-img">
+                                <figcaption>Andrew Johnson</figcaption>
+                            </figure>
+                            <figure>
+                                <img src="~/images/volunteer2.png" alt="" class="volunteer-img">
+                                <center><figcaption>Andrew Johnson</figcaption></center>
+                            </figure>
+                            <figure>
+                                <img src="~/images/volunteer3.png" alt="" class="volunteer-img">
+                                <center><figcaption>Andrew Johnson</figcaption></center>
+                            </figure>
+
+                        </div>*@
+                        <hr />
+                        <div class="row">
+                            <div class="col-md-1 col-3">
+                                <button class="volu-btn">
+                                    <img src="~/images/left.png" alt="">
+                                </button>
+                            </div>
+                            <div class="col-md-10 col-6 text-center">
+                              @* @count1*@ Total Volunteers  @Model.missionApplication.Count()
+
+                            </div>
+                            <div class="col-md-1 col-3">
+                                <button class="volu-btn">
+                                    <img src="~/images/right-arrow1.png" alt="">
+                                </button>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <hr class="mt-5" />
+        <h2 class="text-center mt-5">Related Missions</h2>
+        <div class="row row-cols-1 row-cols-xl-3 row-cols-md-2 mt-4  g-4">
+            @{
+                //var relatedmission = Model.AppliedMission.Theme.Title;
+
+
+
+                foreach (var relatedtheme in Model.RelatedMissions)
+                {
+                    
+
+            var registered_users_related =relatedtheme.MissionApplications.Count(m => m.ApprovalStatus.Contains("APPROVE"));
+            var total_seats_related = relatedtheme.TotalSeats - registered_users_related;
+           
+             double avg_rating_related=0;
+            if (relatedtheme.MissionRatings.Count() > 0)
+            {
+                avg_rating =  relatedtheme.MissionRatings.Average(r => r.Rating);
+            }
+            var flag_related = 1;
+
+
+                        <div class="col">
+                            <div class="card h-100">
+
+                                <div class="position-relative">
+                        @foreach (var img_mission in relatedtheme.MissionMedia)
+                        {
+                            <img src=@img_mission.MediaPath class="card-img-top" alt="@img_mission.MediaName">
+                            break;
+                        }
+
+                       
+                        <button class="me-2 btn bg-black bg-opacity-50 position-absolute top-0 end-0 p-2 rounded-pill text-decoration-none text-white">
+                            <a href="" class="text-decoration-none text-white">
+                                <img src="~/images/pin.png" alt="" class="img-fluid"> &nbsp;
+                                <span class="mission-city" style="color:white">@relatedtheme.City.Name</span>
+                            </a>
+                        </button>
+                        @* <button class="me-2 btn bg-black bg-opacity-50 position-absolute top-50 end-0 p-2 rounded-pill favorite-button" onclick="addToFavourites(@mission.MissionId)">*@
+                            @*<a href="" class="text-decoration-none text-white">
+                            <img src="~/images/heart.png" alt="" class="img-fluid">
+                            </a>*@
+                             @foreach (var fm in relatedtheme.FavouriteMissions)
+                                {
+                                    @if (fm.UserId.Equals(@Model.LoggedUser.UserId))
+                                    {
+                                        <i class="bi bi-heart-fill favorite-button filled-heart text-danger me-2 btn bg-black bg-opacity-50 position-absolute top-50 end-0 p-2 rounded-pill "  data-mission-id="@relatedtheme.MissionId" data-user-id="@Model.LoggedUser.UserId"></i>
+                                        flag_related = 0;
+                                    }
+
+                                }
+                                @if (flag_related == 1)
+                                {
+                                       <i class="bi bi-heart favorite-button empty-heart text-light me-2 btn bg-black bg-opacity-50 position-absolute top-50 end-0 p-2 rounded-pill " data-mission-id="@relatedtheme.MissionId" data-user-id="@Model.LoggedUser.UserId"></i>
+                                }
+                           @* </button>*@
+                          
+                               
+
+                        <button class="me-2 btn bg-black bg-opacity-50 position-absolute bottom-0 end-0 p-2 rounded-pill" data-bs-toggle="modal" data-bs-target="#coWorker" type="button"  >
+                           <a class="text-decoration-none text-white">
+                                <img src="~/images/user.png" alt="" class="img-fluid">
+                            </a>
+                        </button>
+                        <!-- Button trigger modal -->
+                        <!-- Modal -->
+                  <div class="modal fade" id="coWorker" tabindex="-1" aria-labelledby="coWorkerlLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                       Hello
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-primary">Save changes</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="position-absolute top-100 start-50 translate-middle bg-white rounded-pill px-3 py-2">
+                            <span class="mission-theme">@relatedtheme.Theme.Title</span>
+                        </div>
+                    </div>
+
+                               <div class="card-body px-3">
+                        <h5 class="card-title custom-card-title">@relatedtheme.Title</h5>
+                        <p class="card-text" style="color:#757575">@relatedtheme.ShortDescription</p>
+                        <div class="d-flex justify-content-between">
+                            <p style="color:#414141">
+                                @relatedtheme.OrganizationName
+                            </p>
+
+                            <div class="d-flex">
+                                @for (int i = 1; i <= avg_rating_related; i++)
+                                {
+                                    <div>
+                                        <img src="~/images/selected-star.png" alt="rating" />
+                                    </div>
+                                }
+                                @for (int i = 5; i > avg_rating_related; i--)
+                                {
+                                    <div>
+                                        <img src="~/images/star.png" alt="rating" />
+                                    </div>
+                                }
+
+
+                            </div>
+
+
+                        </div>
+                        <div class="d-flex justify-content-center mt-2">
+                            <div style="width:50px;color:#DDDDDD">
+                                <hr />
+                            </div>
+                            @if (relatedtheme.MissionType.Equals("Time"))
+                            {
+                                <button style="width:273px;background: #FFFFFF 0% 0% no-repeat padding-box;
+border: 1px solid #E8E8E8;
+border-radius: 18px;
+opacity: 1;color: #414141">
+                                    From @relatedtheme.StartDate.Value.ToShortDateString() until @relatedtheme.EndDate.Value.ToShortDateString()
+                                </button>
+                            }
+                            else
+                            {
+                        
+                                @foreach (var goal_mission in relatedtheme.GoalMissions)
+                                {
+
+
+                                    <button style="width:273px;background: #FFFFFF 0% 0% no-repeat padding-box;
+border: 1px solid #E8E8E8;
+border-radius: 18px;
+opacity: 1;color: #414141">
+                                        @goal_mission.GoalObjectiveText
+                                    </button>
+                                }
+                            }
+
+                            <div style="width:50px;color:#DDDDDD">
+                                <hr />
+                            </div>
+                        </div>
+
+                        <div class="d-flex justify-content-around mt-4 info-card">
+                            <div class="d-flex">
+                                <div>
+                                    <img src="~/images/Seats-left.png" alt="seats-left-logo" />
+                                </div>
+                                <div class="d-flex flex-column" style="font-size:22px">
+                                    @*  @foreach(var app_seat in @mission.MissionApplications.GroupBy(m => m.MissionId))
+                                        {
+                                        @app_seat += app_seat;
+
+                                        }*@
+
+                                    <span style="font-weight:600" class="seat-left">@total_seats_related</span>
+                                    <span>seats left</span>
+                                </div>
+
+                            </div>
+
+                            <div class="d-flex">
+                                <div>
+                                    <img src="~/images/deadline.png" alt="seats-left-logo" />
+                                </div>
+                                <div class="d-flex flex-column" style="font-size:22px">
+                                    <span style="font-weight:600" class="deadline">@((relatedtheme.StartDate - TimeSpan.FromDays(1)).Value.ToShortDateString())</span>
+                                    <span>Deadline</span>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer d-flex justify-content-center">
+                        <form asp-controller="Mission" asp-action="MissionDetail" asp-route-missionId="@relatedtheme.MissionId" asp-route-themeid="@relatedtheme.ThemeId">
+                            <a>
+                                <button class="grid-card-btn apply-mission" type="submit">
+                                    <span style="text-align: left;
+letter-spacing: 0px;
+color: #F88634">View Detail</span>
+                                </button>
+                            </a>
+                        </form>
+
+                    </div>                           </div>
+                        </div>
+                    }
+                
+            }
+        </div>
+    </div>
+
+    <hr />
+
+    <div class="container mb-3">
+        <a asp-action="PrivacyPolicy" asp-controller="Mission">Privacy Policy</a>
+    </div>
+
+</body>
+
+

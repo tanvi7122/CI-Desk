@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace CI_platfom.Entity.Models;
 
-public partial class MissionMedia
+public partial class MissionMedium
 {
     public long MissionMediaId { get; set; }
 

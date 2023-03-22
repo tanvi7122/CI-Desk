@@ -17,7 +17,7 @@ namespace CI_platform.Repository.Repository
 
         public Mission GetMissionDetails(long MissionId)
         {
-            Mission mission = _context.Mission.Include(m => m.Country).
+            Mission mission = _context.Missions.Include(m => m.Country).
              Include(m => m.City).
              Include(m => m.MissionRatings).
              Include(m => m.Theme).

@@ -30,6 +30,16 @@ namespace CI_platform.Controllers
 
 
         }
+        public IActionResult Index()
+        {
+            var sessionValue = HttpContext.Session.GetString("UserEmail");
+            if (!String.IsNullOrEmpty(sessionValue))
+            {
+                Console.WriteLine(sessionValue);
+                return RedirectToAction("HomePage", "Mission");
+            }
+            return View();
+        }
 
         public IActionResult Login()
         {
@@ -48,8 +58,9 @@ namespace CI_platform.Controllers
             if (curser != null && curser.Password == user.Password)
             {
                 Console.WriteLine("Login successfull");
+                HttpContext.Session.SetString("UserEmail", user.Email);
                 TempData["success"] = "Login Successful";
-                return RedirectToAction("Landing_page", "Landing_page");
+                return RedirectToAction("HomePage", "Mission");
             }
             else
             {

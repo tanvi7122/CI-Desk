@@ -32,7 +32,7 @@ public partial class CiPlatformContext : DbContext
 
     public virtual DbSet<GoalMission> GoalMissions { get; set; }
 
-    public virtual DbSet<Mission> Mission { get; set; }
+    public virtual DbSet<Mission> Missions { get; set; }
 
     public virtual DbSet<MissionApplication> MissionApplications { get; set; }
 
@@ -40,7 +40,7 @@ public partial class CiPlatformContext : DbContext
 
     public virtual DbSet<MissionInvite> MissionInvites { get; set; }
 
-    public virtual DbSet<MissionMedia> MissionMedia { get; set; }
+    public virtual DbSet<MissionMedium> MissionMedia { get; set; }
 
     public virtual DbSet<MissionRating> MissionRatings { get; set; }
 
@@ -69,8 +69,8 @@ public partial class CiPlatformContext : DbContext
     public virtual DbSet<UserSkill> UserSkills { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-//warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Server=.\\SQL2017;Database=CI_platform;User Id=sa;Password=Tatva@123;Encrypt=False;");
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
+        => optionsBuilder.UseSqlServer("Data Source=PCA142\\SQL2017;DataBase=CI_platform;User ID=sa;Password=Tatva@123;Encrypt=False");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -153,7 +153,7 @@ public partial class CiPlatformContext : DbContext
             entity.Property(e => e.DeletedAt)
                 .HasColumnType("datetime")
                 .HasColumnName("deleted_at");
-            entity.Property(e => e.CityName)
+            entity.Property(e => e.Name)
                 .HasMaxLength(255)
                 .IsUnicode(false)
                 .HasColumnName("name");
@@ -212,6 +212,7 @@ public partial class CiPlatformContext : DbContext
                 .IsUnicode(false)
                 .HasDefaultValueSql("('PENDING')")
                 .HasColumnName("approval_status");
+            entity.Property(e => e.CommentText).IsUnicode(false);
             entity.Property(e => e.CreatedAt)
                 .HasDefaultValueSql("(getdate())")
                 .HasColumnType("datetime")
@@ -368,12 +369,11 @@ public partial class CiPlatformContext : DbContext
                 .HasColumnType("datetime")
                 .HasColumnName("start_date");
             entity.Property(e => e.Status).HasColumnName("status");
-            entity.Property(e => e.Theme_id).HasColumnName("theme_id");
+            entity.Property(e => e.ThemeId).HasColumnName("theme_id");
             entity.Property(e => e.Title)
                 .HasMaxLength(128)
                 .IsUnicode(false)
                 .HasColumnName("title");
-            entity.Property(e => e.TotalSeats).HasColumnName("total_seats");
             entity.Property(e => e.UpdatedAt)
                 .HasColumnType("datetime")
                 .HasColumnName("updated_at");
@@ -389,7 +389,7 @@ public partial class CiPlatformContext : DbContext
                 .HasConstraintName("FK__mission__country__5629CD9C");
 
             entity.HasOne(d => d.Theme).WithMany(p => p.Missions)
-                .HasForeignKey(d => d.Theme_id)
+                .HasForeignKey(d => d.ThemeId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK__mission__theme_i__5535A963");
         });
@@ -507,7 +507,7 @@ public partial class CiPlatformContext : DbContext
                 .HasConstraintName("FK__mission_i__to_us__208CD6FA");
         });
 
-        modelBuilder.Entity<MissionMedia>(entity =>
+        modelBuilder.Entity<MissionMedium>(entity =>
         {
             entity.HasKey(e => e.MissionMediaId).HasName("PK__mission___848A78E8DA764003");
 

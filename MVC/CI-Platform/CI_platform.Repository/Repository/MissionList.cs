@@ -16,7 +16,7 @@ namespace CI_platform.Repository.Repository
 
         public IEnumerable<Mission> GetMissions(List<long> MissionIds)
         {
-            var MissionList = _context.Mission.Where(m => MissionIds.Contains(m.MissionId))
+            var MissionList = _context.Missions.Where(m => MissionIds.Contains(m.MissionId))
                     .Include(m => m.City)
                     .Include(m => m.Country)
                     .Include(m => m.MissionSkills)

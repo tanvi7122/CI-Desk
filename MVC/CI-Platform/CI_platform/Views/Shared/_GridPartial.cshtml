@@ -8,12 +8,12 @@
         {
             var registered_users = mission.MissionApplications.Count(m => m.ApprovalStatus.Contains("APPROVE"));
             var total_seats = mission.TotalSeats - registered_users;
-            double avg_rating=0;
+            double avg_rating = 0;
             if (mission.MissionRatings.Count() > 0)
             {
                 avg_rating = mission.MissionRatings.Average(r => r.Rating);
             }
-          
+
             var flag = 1;
 
 
@@ -22,17 +22,17 @@
                     <span class="d-none created-date">@mission.StartDate </span>
                     <div class="position-relative">
                         @{
-                             var missionimg = Model.MissionMedium.Where(m => m.MissionId == @mission.MissionId);
+                            var missionimg = Model.MissionMedium.Where(m => m.MissionId == @mission.MissionId);
 
-                        foreach(var missionGridimg in missionimg)
-                        {
-                             <img src=@missionGridimg.MediaPath class="card-img-top" alt="@missionGridimg.MediaName">
-                            break;
+                            foreach (var missionGridimg in missionimg)
+                            {
+                                <img src=@missionGridimg.MediaPath class="card-img-top" alt="@missionGridimg.MediaName">
+                                break;
+                            }
+
                         }
 
-                        }
-                       
-             @*           <img src=@mission.. class="card-img-top" alt="@img_mission.MediaName">*@
+                        @*<img src=@mission.. class="card-img-top" alt="@img_mission.MediaName">*@
                         <span class="d-none mission-country">@mission.Country.CountryId</span>
                         <button class="me-2 btn bg-black bg-opacity-50 position-absolute top-0 end-0 p-2 rounded-pill text-decoration-none text-white">
                             <a href="" class="text-decoration-none text-white">
@@ -40,62 +40,59 @@
                                 <span class="mission-city" style="color:white">@mission.City.Name</span>
                             </a>
                         </button>
-                        @* <button class="me-2 btn bg-black bg-opacity-50 position-absolute top-50 end-0 p-2 rounded-pill favorite-button" onclick="addToFavourites(@mission.MissionId)">*@
-                            @*<a href="" class="text-decoration-none text-white">
-                            <img src="~/images/heart.png" alt="" class="img-fluid">
-                            </a>*@
-                             @foreach (var fm in mission.FavouriteMissions)
-                                {
-                                    @if (fm.UserId.Equals(@Model.LoggedUser.UserId))
-                                    {
-                                        <i class="bi bi-heart-fill favorite-button filled-heart text-danger me-2 btn bg-black bg-opacity-50 position-absolute top-50 end-0 p-2 rounded-pill "  data-mission-id="@mission.MissionId" data-user-id="@Model.LoggedUser.UserId"></i>
-                                        flag = 0;
-                                    }
 
-                                }
-                                @if (flag == 1)
-                                {
-                                       <i class="bi bi-heart favorite-button empty-heart text-light me-2 btn bg-black bg-opacity-50 position-absolute top-50 end-0 p-2 rounded-pill " data-mission-id="@mission.MissionId" data-user-id="@Model.LoggedUser.UserId"></i>
-                                }
-                           @* </button>*@
-                          
-                               
+                        @foreach (var fm in mission.FavouriteMissions)
+                        {
+                            @if (fm.UserId.Equals(@Model.LoggedUser.UserId))
+                            {
+                                <i class="bi bi-heart-fill favorite-button filled-heart text-danger me-2 btn bg-black bg-opacity-50 position-absolute top-50 end-0 p-2 rounded-pill " data-mission-id="@mission.MissionId" data-user-id="@Model.LoggedUser.UserId"></i>
+                                flag = 0;
+                            }
 
-                        <button class="me-2 btn bg-black bg-opacity-50 position-absolute bottom-0 end-0 p-2 rounded-pill" data-bs-toggle="modal" data-bs-target="#coWorker" type="button"  >
-                           <a class="text-decoration-none text-white">
+                        }
+                        @if (flag == 1)
+                        {
+                            <i class="bi bi-heart favorite-button empty-heart text-light me-2 btn bg-black bg-opacity-50 position-absolute top-50 end-0 p-2 rounded-pill " data-mission-id="@mission.MissionId" data-user-id="@Model.LoggedUser.UserId"></i>
+                        }
+
+
+
+
+                        <button class="me-2 btn bg-black bg-opacity-50 position-absolute bottom-0 end-0 p-2 rounded-pill" data-bs-toggle="modal" data-bs-target="#coWorker" type="button">
+                            <a class="text-decoration-none text-white">
                                 <img src="~/images/user.png" alt="" class="img-fluid">
                             </a>
                         </button>
                         <!-- Button trigger modal -->
-                  <div class="modal fade" id="coWorker" tabindex="-1" aria-labelledby="coWorkerlLabel" aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-centered">
-                                    <div class="modal-content overflow-scroll" style="max-height:500px">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">Recommend To Your Co-Workers</h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body">
-                                            @foreach (var user in Model.UserList)
-                                            {
-                                                var torecommendeduser = Model.MissionInvites.FirstOrDefault(m => (m.ToUserId == @user.UserId) && (m.FromUserId == @Model.LoggedUser.UserId) && (m.MissionId == @mission.MissionId));
-                                                <div class="d-flex justify-content-between mx-3 my-3">
-                                                    <p>@user.FirstName @user.LastName @user.PhoneNumber</p>
-                                                    @if (torecommendeduser == null)
-                                                    {
-                                                        <button class="recommend-btn btn btn-primary" data-mission-id="@mission.MissionId"  data-theme-id="@mission.ThemeId" data-fromuser-id="@Model.LoggedUser.UserId" data-touser-id="@user.UserId">Recommend</button>
-                                                    }
-                                                    else
-                                                    {
-                                                        <button class="recommend-btn btn btn-success" data-mission-id="@mission.MissionId"  data-theme-id="@mission.ThemeId"  data-fromuser-id="@Model.LoggedUser.UserId" data-touser-id="@user.UserId">Recommended</button>
-                                                    }
-
-                                                </div>
-                                            }
-                                        </div>
-
+                    <div class="modal fade" id="coWorker" tabindex="-1" aria-labelledby="coWorkerlLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content overflow-scroll" style="max-height:500px">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Recommend To Your Co-Workers</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
+                                    <div class="modal-body">
+                                        @foreach (var user in Model.UserList)
+                                        {
+                                            var torecommendeduser = Model.MissionInvites.FirstOrDefault(m => (m.ToUserId == @user.UserId) && (m.FromUserId == @Model.LoggedUser.UserId) && (m.MissionId == @mission.MissionId));
+                                            <div class="d-flex justify-content-between mx-3 my-3">
+                                                <p>@user.FirstName @user.LastName @user.PhoneNumber</p>
+                                                @if (torecommendeduser == null)
+                                                {
+                                                    <button class="recommend-btn btn btn-primary" data-mission-id="@mission.MissionId" data-theme-id="@mission.ThemeId" data-fromuser-id="@Model.LoggedUser.UserId" data-touser-id="@user.UserId">Recommend</button>
+                                                }
+                                                else
+                                                {
+                                                    <button class="recommend-btn btn btn-success" data-mission-id="@mission.MissionId" data-theme-id="@mission.ThemeId" data-fromuser-id="@Model.LoggedUser.UserId" data-touser-id="@user.UserId">Recommended</button>
+                                                }
+
+                                            </div>
+                                        }
+                                    </div>
+
                                 </div>
                             </div>
+                        </div>
                         <div class="position-absolute top-100 start-50 translate-middle bg-white rounded-pill px-3 py-2">
                             <span class="mission-theme">@mission.Theme.Title</span>
                         </div>
@@ -185,38 +182,40 @@
                             </div>
 
                             <div class="d-flex">
-                                 @if(@mission.MissionType.Equals("Time"))
+                                @if (@mission.MissionType.Equals("Time"))
                                 {
-                                <div>
-                                    <img src="~/images/deadline.png" alt="seats-left-logo" />
-                                </div>
-                               
-                                 <div class="d-flex flex-column" style="font-size:22px">
-                                    <span style="font-weight:600" class="deadline">@((mission.StartDate - TimeSpan.FromDays(1)).Value.ToShortDateString())</span>
-                                    <span>Deadline</span>
-                                </div>
+                                    <div>
+                                        <img src="~/images/deadline.png" alt="seats-left-logo" />
+                                    </div>
+
+                                    <div class="d-flex flex-column" style="font-size:22px">
+                                        <span style="font-weight:600" class="deadline">@((mission.StartDate - TimeSpan.FromDays(1)).Value.ToShortDateString())</span>
+                                        <span>Deadline</span>
+                                    </div>
                                 }
-                                else{
-                                 <div>
-                                    <img src="~/images/mission.png" alt="seats-left-logo" />
-                                </div>
-                                 <div class="d-flex flex-column" style="font-size:22px">
-                                  <div class="progress mb-2 mt-2">
-                                      @foreach (var goal_mission in mission.GoalMissions){
-                                             
+                                else
+                                {
+                                    <div>
+                                        <img src="~/images/mission.png" alt="seats-left-logo" />
+                                    </div>
+                                    <div class="d-flex flex-column" style="font-size:22px">
+                                        <div class="progress mb-2 mt-2">
+                                            @foreach (var goal_mission in mission.GoalMissions)
+                                            {
+
                                                 <div class="progress-bar" role="progressbar" style="width:@goal_mission.GoalValue%;" aria-valuenow="@goal_mission.GoalValue" aria-valuemin="0" aria-valuemax="100"></div>
-                                      }
-                                </div>
-                                    <span>Achieved</span>
-                                </div>
+                                            }
+                                        </div>
+                                        <span>Achieved</span>
+                                    </div>
                                 }
-                               
+
 
                             </div>
                         </div>
                     </div>
                     <div class="card-footer d-flex justify-content-center">
-                        <form asp-controller="Mission" asp-action="MissionDetail" asp-route-missionId="@mission.MissionId" asp-route-themeid="@mission.ThemeId"   asp-route-cityid="@mission.CityId" asp-route-countryid="@mission.CountryId" >
+                        <form asp-controller="Mission" asp-action="MissionDetail" asp-route-missionId="@mission.MissionId" asp-route-themeid="@mission.ThemeId" asp-route-cityid="@mission.CityId" asp-route-countryid="@mission.CountryId">
                             <a>
                                 <button class="grid-card-btn apply-mission" type="submit">
                                     <span style="text-align: left;letter-spacing: 0px;

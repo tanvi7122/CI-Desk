@@ -1,38 +1,25 @@
 ﻿@using CI_platfom.Entity.ViewModel
 @model HomeLandingPageVM
 <div class="container mt-5 d-none" id="partialList">
-    @foreach(var mission in Model.Mission)
+    @foreach (var mission in Model.Mission)
     {
 
         var registered_users = mission.MissionApplications.Count(m => m.ApprovalStatus.Contains("APPROVE"));
         var total_seats = mission.TotalSeats - registered_users;
-        double avg_rating=0;
-            if (mission.MissionRatings.Count() > 0)
-            {
-                avg_rating = mission.MissionRatings.Average(r => r.Rating);
-            }
+        double avg_rating = 0;
+        if (mission.MissionRatings.Count() > 0)
+        {
+            avg_rating = mission.MissionRatings.Average(r => r.Rating);
+        }
 
-            var missionimg = Model.MissionMedium.Where(m => m.MissionId == @mission.MissionId);
+        var missionimg = Model.MissionMedium.Where(m => m.MissionId == @mission.MissionId);
 
-         <div class="card card-div mt-3 list-card">
+        <div class="card card-div mt-3 list-card">
             <div class="row g-0">
                 <div class="col-12 col-md-3">
-                   
-                      
-                         
-@*
-                       @foreach(var missionGridimg in missionimg)
-                        {
-                    
-                              <img style="position: relative;height:100%;width:100%" src=@missionGridimg.MediaPath class="img-fluid rounded-start" alt=@missionGridimg.MediaName">
-                            break;
-                        *@
-
-                       
-
                     <button class="list-mission-title mission-theme">@mission.Theme.Title</button>
-                  <div class="location-list1">
-                       
+                    <div class="location-list1">
+
                         <img src="~/images/pin1.png" style="margin:6px 10px" />
                         <span style="color: #FFFFFF" class="mission-city">@mission.City.Name</span>
                         <button class="favourite"><img src="~/images/heart.png"></button>
@@ -41,9 +28,8 @@
                         </button>
 
                     </div>
-                    @*}*@
                 </div>
-                
+
                 <div class="col-md-8">
                     <div class="card-body">
                         <div class="d-flex justify-content-between">
@@ -121,14 +107,14 @@
                                         {
 
 
-                                            <button style="width:273px;background: #FFFFFF 0% 0% no-repeat padding-box;
-border: 1px solid #E8E8E8;
-border-radius: 18px;
-opacity: 1;color: #414141">
+                                        <button style="width:273px;background: #FFFFFF 0% 0% no-repeat padding-box;
+                                                  border: 1px solid #E8E8E8;
+                                                    border-radius: 18px;
+                                                     opacity: 1;color: #414141">
                                                 @goal_mission.GoalObjectiveText
                                             </button>
                                         }
-    
+
                                     }
 
                                 </div>
@@ -138,9 +124,9 @@ opacity: 1;color: #414141">
                                         <span>Skills</span>
                                         @foreach (var mission_skill in mission.MissionSkills)
                                         {
-                                             <span>@mission_skill.Skill.SkillName</span>
+                                            <span>@mission_skill.Skill.SkillName</span>
                                         }
-                                       
+
                                     </div>
                                 </div>
 

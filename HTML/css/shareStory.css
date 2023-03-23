@@ -1,0 +1,326 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: NotoSans;
+}
+/* css strarts of top two navbar */
+.nav ul li a{
+    color: #333;
+    font-weight: 300;
+}
+.userLogo{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+.notification{
+    width: 1.25rem;
+    height: 1.25rem;
+}
+.search{
+    border: none;
+    color: #757575;
+    font-size: 20px;
+}
+.searchlogo{
+    width: 21px;
+    height: 22px;
+}
+.filter{
+    font-size: 16px;
+    color: #414141;
+}
+.dropdown-toggle::after {
+    margin-left: 1.255em !important;
+}
+.roundedPill span{
+    color: #414141;
+    font-size: 13px;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 1px solid #E8E8E8;
+    margin-left: 7px ;
+}
+.btn-close{
+    width: 8px !important;
+    height: 8px !important;
+}
+
+.offcanvas.show{
+    width:333px;
+}
+.offcanvas-body{
+    padding: 7px 9px;
+}
+.main-ul{
+    list-style: none;
+    margin-left: -27px !important;
+    margin-top: 0px !important;
+}
+.filter-ul{
+    list-style: none;
+}
+
+#collapse-explore .sub-ul {
+    list-style: none;   
+    margin-left: -32px !important;
+    margin-top: -3px !important;
+}
+#collapse-explore .drop-data{
+    border-bottom: 1px solid lightgray;
+    padding: 6px;
+}
+.btn-check:focus+.btn, .btn:focus{
+    box-shadow: none !important;
+}
+.drop-down {
+    margin-left: 225px;
+    height: 8px;
+}
+.drop-down-themes{
+    margin-left: 194px;
+    height: 8px;
+}
+.drop-down-countries{
+    margin-left: 181px;
+    height: 8px;
+}
+.drop-down-organization{
+    margin-left: 160px;
+    height: 8px;
+}
+.drop-down-rank{
+    margin-left: 186px;
+    height: 8px;
+}
+.drop-down-favorite{
+    margin-left: 188px;
+    height: 8px;
+}
+.drop-down-recommend{
+    margin-left: 173px;
+    height: 8px;
+}
+.drop-down-random{
+    margin-left: 213px;
+    height: 8px;
+}
+.drop-down-policy{
+    margin-left: 234px;
+    height: 8px;
+}
+.drop-down-country{
+    margin-left: 214px;
+    height: 8px;
+}
+.drop-down-city{
+    margin-left: 244px;
+    height: 8px;
+}
+.drop-down-theme{
+    margin-left: 223px;
+    height: 8px;
+}
+.drop-down-skill{
+    margin-left: 240px;
+    height: 8px;
+}
+.offcanvas-body .main{
+    padding: 0px 0px 0.5px 0.5px;
+    font-size: 20px;
+}
+.offcanvas-header .btn-close {
+    box-shadow: none;
+}
+.offcanvas-body .dropdown-item{
+    background-color: white;
+    color:black;
+}
+.navbar-toggler:focus{
+    box-shadow: none;
+}
+/* css ends of topbar  */
+/* .file{
+    display: none;
+} */
+.submit{
+    border: 1px solid #F88634;
+    color: #F88634;
+}
+.submit:hover{
+    color: #E8E8E8;
+    background-color: #F88634;
+}
+
+/* darg and drop */
+.drag-card {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+
+.drag-card .top {
+    width: 100%;
+}
+
+
+.drag-card button {
+    outline: 0;
+    border: 0;
+    -webkit-appearence: none;
+    background-color: white;
+    color: black;
+    border-radius: 4px;
+    transition: 0.3s;
+    cursor: pointer;
+    font-weight: 400;
+    font-size: 0.8rem;
+    padding: 8px 13px;
+}
+
+.drag-card button:hover {
+    opacity: 0.8;
+}
+
+.drag-card button:active {
+    transform: translateY(5px);
+}
+
+.drag-card .drag-area {
+    width: 100%;
+    height: 150px;
+    border-radius: 5px;
+    border: 2px dashed #d5d5e1;
+    color: #c8c9dd;
+    font-size: 0.9rem;
+    font-weight: 500;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+    -webkit-user-select: none;
+    margin-top: 10px;
+}
+
+.drag-card .drag-area .visible {
+    font-size: 18px;
+}
+.drag-card .select {
+    color: #5256ad;
+    margin-left: 5px;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.drag-card .select:hover {
+    opacity: 0.6;
+}
+
+.drag-card .container-img {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.drag-card .container-img .image {
+    max-width: 100px;
+    width: 100%;
+    margin-top: 30px;
+    margin-right: 30px;
+    height: 100px;
+    position: relative;
+}
+
+.drag-card .container-img .image img {
+    width: 100%;
+    height: 100%;
+    border-radius: 1px;
+}
+
+.drag-card .container-img .image span {
+    position: absolute;
+    top: -2px;
+    right: 5px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/*dragover class will used in drag and drop system */
+.drag-card .drag-area.dragover {
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.drag-card .drag-area.dragover .on-drop {
+    display: inline;
+    font-size: 28px;
+}
+
+.drag-card input,
+.drag-card .drag-area .on-drop, 
+.drag-card .drag-area.dragover .visible {
+    display: none;
+}
+/* end drag drop css */
+
+/* ck editor */
+.options{
+    display: flex;
+    flex-wrap: wrap;
+    /* align-items: center; */
+    gap: 15px;
+    
+}
+.buttons{
+    height: 28px;
+    width: 28px;
+    display: grid;
+    place-items: center;
+    border-radius: 3px;
+    border: none;
+    background-color: #f8f9fa;
+    outline: none;
+    color: #020929;
+} 
+#text-input{
+    border: 1px solid #757575;
+    padding: 20px;
+    height: 30vh;
+}
+.active{
+    background-color: #e0e9ff;
+}
+.end{
+    height: 20px;
+}
+
+form{
+    font-size: 20px;
+}
+
+.no-mission{
+    padding-top: 15px;
+    color: #757575;
+}
+.no-mission li{
+    list-style: none;
+}
+.no-mission li a{
+    color: #333;
+    text-decoration: none;
+}
+
+.dropdown-toggle::after {
+    margin-left: 9px !important;
+}
+
+@media (max-width:767px){
+    .username{
+        display: none;
+    }
+}

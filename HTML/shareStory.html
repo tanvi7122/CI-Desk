@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="viewport" charset="UTF-8" content="width=device-width, initial-scale=1.0">
+        <title>Share Story Page</title>
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="shareStory.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    </head>
+    <body>
+        <!-- sidebar of main menu -->
+        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasExampleLabel"></h5>
+                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <div>
+                    <a class="btn main" data-bs-toggle="collapse" href="#collapse-explore" role="button" aria-expanded="false" aria-controls="collapse-explore">
+                    Explore
+                        <img src="images/drop-down.png" class="drop-down" alt="drop down image">
+                    </a>
+                    <div class="collapse" id="collapse-explore">
+                        <ul class="main-ul mt-2">
+                            <li class="mt-1">
+                                <a class="btn dropdown-item" data-bs-toggle="collapse" href="#collapse-theme" role="button" aria-expanded="false" aria-controls="collapse-theme">
+                                    Top Themes<img src="images/drop-down.png" class="drop-down-themes" alt="drop down image">
+                                </a>
+                                <div class="collapse" id="collapse-theme">
+                                    <ul class="sub-ul">
+                                        <li class="mt-1"><a class="dropdown-item drop-data ms-4" href="#">Education</a></li>
+                                        <li class="mt-1"><a class="dropdown-item drop-data ms-4" href="#">Children</a></li>
+                                        <li class="mt-1"><a class="dropdown-item drop-data ms-4" href="#">Health</a></li>
+                                        <li class="mt-1"><a class="dropdown-item drop-data ms-4" href="#">Animals</a></li>
+                                        <li class="mt-1"><a class="dropdown-item drop-data ms-4" href="#">Nutritions</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="mt-1">
+                                <a class="btn dropdown-item mt-2" data-bs-toggle="collapse" href="#collapse-country" role="button" aria-expanded="false" aria-controls="collapse-country">
+                                Top Countries<img src="images/drop-down.png" class="drop-down-countries" alt="drop down image">
+                                </a>
+                                <div class="collapse" id="collapse-country">
+                                    <ul class="sub-ul">
+                                        <li class="mt-1"><a class="dropdown-item drop-data ms-4" href="#">India</a></li>
+                                        <li class="mt-1"><a class="dropdown-item drop-data ms-4" href="#">USA</a></li>
+                                        <li class="mt-1"><a class="dropdown-item drop-data ms-4" href="#">London</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="mt-1">
+                                <a class="btn dropdown-item mt-2" data-bs-toggle="collapse" href="#collapse-organization" role="button" aria-expanded="false" aria-controls="collapse-organization">
+                                    Top Organization<img src="images/drop-down.png" class="drop-down-organization" alt="drop down image">
+                                </a>
+                                <div class="collapse" id="collapse-organization">
+                                    <ul class="sub-ul">
+                                        <li class="mt-1"><a class="dropdown-item drop-data ms-4" href="#">1</a></li>
+                                        <li class="mt-1"><a class="dropdown-item drop-data ms-4" href="#">2</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="mt-1">
+                                <a class="btn dropdown-item mt-2" data-bs-toggle="collapse" href="#collapse-rank" role="button" aria-expanded="false" aria-controls="collapse-rank">
+                                    Most Ranked<img src="images/drop-down.png" class="drop-down-rank" alt="drop down image">
+                                </a>
+                                <div class="collapse" id="collapse-rank">
+                                    <ul class="sub-ul">
+                                        <li class="mt-1"><a class="dropdown-item drop-data ms-4" href="#">1</a></li>
+                                        <li class="mt-1"><a class="dropdown-item drop-data ms-4" href="#">2</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="mt-1">
+                                <a class="btn dropdown-item mt-2" data-bs-toggle="collapse" href="#collapse-favorite" role="button" aria-expanded="false" aria-controls="collapse-favorite">
+                                    Top Favorite<img src="images/drop-down.png" class="drop-down-favorite" alt="drop down image">
+                                </a>
+                                <div class="collapse" id="collapse-favorite">
+                                    <ul class="sub-ul">
+                                        <li class="mt-1"><a class="dropdown-item drop-data ms-4" href="#">1</a></li>
+                                        <li class="mt-1"><a class="dropdown-item drop-data ms-4" href="#">2</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="mt-1">
+                                <a class="btn dropdown-item mt-2" data-bs-toggle="collapse" href="#collapse-recommend" role="button" aria-expanded="false" aria-controls="collapse-recommend">
+                                    Recommended<img src="images/drop-down.png" class="drop-down-recommend" alt="drop down image">
+                                </a>
+                                <div class="collapse" id="collapse-recommend">
+                                    <ul class="sub-ul">
+                                        <li class="mt-1"><a class="dropdown-item drop-data ms-4" href="#">1</a></li>
+                                        <li class="mt-1"><a class="dropdown-item drop-data ms-4" href="#">2</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="mt-1">
+                                <a class="btn dropdown-item mt-2" data-bs-toggle="collapse" href="#collapse-random" role="button" aria-expanded="false" aria-controls="collapse-random">
+                                    Random<img src="images/drop-down.png" class="drop-down-random" alt="drop down image">
+                                </a>
+                                <div class="collapse" id="collapse-random">
+                                    <ul class="sub-ul">
+                                        <li class="mt-1"><a class="dropdown-item drop-data ms-4" href="#">1</a></li>
+                                        <li class="mt-1"><a class="dropdown-item drop-data ms-4" href="#">2</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <a class="btn main mt-2" href="#">Stories</a><br>
+                    <a class="btn main mt-2" href="#">News</a><br>
+                    <a class="btn main mt-2" data-bs-toggle="collapse" href="#collapse-policy" role="button" aria-expanded="false" aria-controls="collapse-policy">
+                        Policy
+                        <img src="images/drop-down.png" class="drop-down-policy" alt="drop down image">
+                    </a>
+                    <div class="collapse" id="collapse-policy">
+                        <ul class="main-ul">
+                            <li class="mt-1"><a class="dropdown-item drop-data">Mission Policies</a></li>
+                            <li class="mt-1"><a class="dropdown-item drop-data">Other Policies</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- nav bar -->
+        <div class="container mt-3">
+            <!-- Main navbar starts  -->
+            <div class="row">
+                <div class="col-lg-9 col-md-6 col-sm-7 col-6 d-flex justify-content-start">
+                    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+                        <div class="container-fluid">
+                            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample" aria-expanded="false" aria-label="Toggle navigation">
+                                <p class="navbar-toggler-icon"><img src="images/list.png" alt="list icon"></p>
+                            </button>
+                            <!-- <img src="images/logo.png" alt="logo"> -->
+                            <div class="collapse navbar-collapse ms-3 nav" id="navbarSupportedContent">
+                                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                    <!-- <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Explore</a>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="#">Top Themes</a></li>
+                                            <li><a class="dropdown-item" href="#">Top Countries</a></li>
+                                            <li><a class="dropdown-item" href="#">Top Organization</a></li>
+                                            <li><a class="dropdown-item" href="#">Most Ranked</a></li>
+                                            <li><a class="dropdown-item" href="#">Top Favorite</a></li>
+                                            <li><a class="dropdown-item" href="#">Recommended</a></li>
+                                            <li><a class="dropdown-item" href="#">Random</a></li>
+                                        </ul>
+                                    </li> -->
+                                    <li class="nav-item  ms-3">
+                                        <a href="#" class="nav-link">Stories</a>
+                                    </li>
+                                    <!-- <li class="nav-item  ms-3">
+                                        <a href="#" class="nav-link">News</a>
+                                    </li> -->
+                                    <li class="nav-item dropdown ms-3">
+                                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Policy</a>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="#">Mission Policies</a></li>
+                                            <li><a class="dropdown-item" href="#">Other Policies</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+                <div class="col-lg-3 col-md-5 col-sm-5 col-6 d-flex justify-content-end">
+                    <!-- <img src="images/bell.png" alt="notification" class="notification mt-3 me-2"> -->
+                    <img src="images/user-img.png" alt="Logo of user" class="rounded-circle userLogo">
+                    <div class="dropdown">
+                        <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Evan Donohue
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid border"></div>
+
+        <!-- main container -->
+        <div class="container">
+            <h2 class="ms-4 mt-3">Share your Story</h2>
+            <form action="" class="ms-4 mt-5 text-secondary">
+                <!-- first row -->
+                <div class="row row-cols-lg-3 row-cols-md-3 row-cols-sm-2 row-cols-1">
+                    <div class="col">
+                        <label for="" class="form-label ms-1">Select Mission</label>
+                        <select class="form-select" aria-label="Default select example">
+                            <option selected>Select your mission</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
+                    </div>
+                    <div class="col">
+                        <label for="" class="form-label ms-1">My Story Title</label>
+                        <input type="text" name="storyTitle" id="" class="form-control" placeholder="Enter story title">
+                    </div>
+                    <div class="col">
+                        <label for="" class="form-label ms-1">Date</label>
+                        <input type="date" name="storyTitle" id="" class="form-control">
+                    </div>
+                </div>
+                <!-- end of first row -->
+
+                <!-- ckeditor -->
+                <label for="" class="form-label ms-1 mt-3">My Story</label>
+                <div class="container border bg-light">
+                    <div class="options py-2 m-2">
+                        <!-- text format options -->
+                        <button class="option-button format buttons" type="button" id="bold">
+                            <i class="fa-solid fa-bold"></i>
+                        </button>
+                        <button id="italic" class="option-button format buttons" type="button">
+                            <i class="fa-solid fa-italic"></i>
+                        </button>
+                        <button id="underline" class="option-button format buttons" type="button">
+                            <i class="fa-solid fa-underline"></i>
+                        </button>
+                        <button id="strikethrough" class="option-button format buttons" type="button">
+                            <i class="fa-solid fa-strikethrough"></i>
+                        </button>
+                        <button id="superscript" class="option-button script buttons" type="button">
+                            <i class="fa-solid fa-superscript"></i>
+                        </button>
+                        <button id="subscript" class="option-button script buttons" type="button">
+                            <i class="fa-solid fa-subscript"></i>
+                        </button>
+                        <!-- <button id="textformat" class="option-button format buttons" type="button" onclick="format()">
+                            <i class="fa-solid fa-text-slash"></i>
+                        </button> -->
+                            
+                        <!-- end of text format -->
+
+                        <!-- list -->
+                        <button id="insertOrderedList" class="option-button buttons" type="button">
+                            <div class="fa-solid fa-list-ol"></div>
+                        </button>
+                        <button id="insertUnorderedList" class="option-button buttons" type="button">
+                            <div class="fa-solid fa-list"></div>
+                        </button>
+
+                        <!-- Undo / redo  -->
+                        <button id="undo" class="option-button buttons" type="button">
+                            <div class="fa-solid fa-rotate-left"></div>
+                        </button>
+                        <button id="redo" class="option-button buttons" type="button">
+                            <div class="fa-solid fa-rotate-right"></div>
+                        </button>
+                    </div>
+
+                    <!-- text-area -->
+                    <div id="text-input" contenteditable="true" class="bg-white m-2"></div>
+                    <div class="end"></div>
+                    <!-- <div class="end"></div> -->
+                </div>
+                <!-- end of ckeditor -->
+                
+                <!-- video link -->
+                <div class="mt-3"> 
+                    <label for="" class="form-label ms-1">Enter Video URL</label>
+                    <input type="url" name="storyTitle" id="" class="form-control" placeholder="Enter your url">
+                </div>
+                <!-- video link ends -->
+
+                <!-- darg and drop -->
+                <label for="" class="form-label mt-3 ms-1 mb-0">Upload your Photos</label>
+                <div class="card drag-card" style="border: none;">
+                    <div class="drag-area">
+                        <span class="visible">
+                            <span class="select" role="button"><img src="images/drag-and-drop.png"></span>
+                        </span>
+                        <span class="on-drop">Drop images here</span>
+                        <input name="file" type="file" class="file" multiple />
+                    </div>
+                    <!-- IMAGE PREVIEW CONTAINER -->
+                    <div class="container-img mt-3"></div>
+                </div>
+                <!--  -->
+
+                <!-- submit buttons -->
+                <div class="row mt-3">
+                    <div class="col-md-8 col">
+                        <button class="btn btn-outline-secondary rounded-pill px-5 py-2 mt-md-0 mt-2" type="submit">Cancel</button>
+                    </div>
+                    <div class="col-lg-2 col">
+                        <button class="btn submit rounded-pill px-lg-5 px-md-4 px-5 mt-md-0 mt-2 py-2" type="submit">Save</button>
+                    </div>
+                    <div class="col-lg-2 col">
+                        <button class="btn submit rounded-pill px-lg-5 px-md-4 px-5 mt-md-0 mt-2 py-2" type="submit">Submit</button>
+                    </div>
+                </div>
+                <!-- end of button -->
+            </form>
+        </div>
+        
+        <!-- footer -->
+        <div class="container-fluid border mt-5"></div>    
+        <div class="container mt-2">
+            <div class="row d-flex no-mission">
+                <div class="col-lg-9 col-md-8 d-flex mb-4 justify-content-md-start justify-content-center">
+                    <li class="nav-item px-2"><a href="#">Privacy Policy</a></li>
+                    <li class="nav-item px-2"><a href="#">Cookie Policy</a></li>
+                    <li class="nav-item px-2"><a href="#">Terms of Use</a></li>
+                </div>
+                <div class="col-lg-3 col-md-4 text-center copyright mb-4">
+                    <h6>&copy; Optimy.com All right reserved.</h6>
+                </div>
+            </div>
+        </div> 
+
+        <script type="text/javascript" src="js/ckeditor.js"></script>
+        
+        <script src="js/bootstrap.bundle.min.js"></script>  
+        <script type="text/javascript" src="js/darg-drop.js"></script>
+        
+    </body>
+</html>

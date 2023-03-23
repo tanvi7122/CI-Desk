@@ -18,7 +18,7 @@ namespace CI_platform.Repository.Repository
             public IPasswordResetRepository PasswordReset { get; private set; }
 
             public IStoryRepository Story { get; private set; }
-
+          public IStoryMediumRepository storyMedium { get; private set; }
             public ICountryRepository Country { get; private set; }
             public ICityRepository City { get; private set; }
 
@@ -52,6 +52,7 @@ namespace CI_platform.Repository.Repository
                 Skill = new SkillRepository(_db);
                 Missions = new MissionRepository(_db);
                 Story = new StoryRepository(_db);
+               storyMedium = new StoryMediumRepository(_db);
                 FavoriteMission = new FavouriteMissionRepository(_db);
                 MissionRating = new MissionRatingRepository(_db);
                 MissionApplication = new MissionApplicationRepository(_db);

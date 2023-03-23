@@ -21,6 +21,7 @@ builder.Services.AddScoped<IEmailRepository, EmailRepository>();
 builder.Services.AddScoped<IHomeLandingRepository, HomeLandingRepository>();
 builder.Services.AddScoped<IMissionLandingRepository, MissionLandingRepository>();
 builder.Services.AddScoped<IStoryHomeLandingRepository, StoryHomeLandingRepository>();
+builder.Services.AddScoped<IStoryLandingRepository, StoryLandingRepository>();
 //builder.Services.AddScoped<IStoryLandingRepository, StoryLandingRepository>();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddSession();

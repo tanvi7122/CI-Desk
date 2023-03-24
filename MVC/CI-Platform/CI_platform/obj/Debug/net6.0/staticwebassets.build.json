@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "QkaMtz2LBKS8tg8RxchY3EvjFUerjEOpN04sx8BZdw0=",
+  "Hash": "xzjyakhB19ZnGlPDzWtcxh4qfpW5rpLwDw/6ZdvjaBw=",
   "Source": "CI_platform",
   "BasePath": "_content/CI_platform",
   "Mode": "Default",
@@ -49,23 +49,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\pca142\\Desktop\\CI-Desk\\MVC\\CI-Platform\\CI_platform\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\CI_platform.bundle.scp.css"
-    },
-    {
-      "Identity": "C:\\Users\\pca142\\Desktop\\CI-Desk\\MVC\\CI-Platform\\CI_platform\\wwwroot\\css\\a.css",
-      "SourceId": "CI_platform",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pca142\\Desktop\\CI-Desk\\MVC\\CI-Platform\\CI_platform\\wwwroot\\",
-      "BasePath": "_content/CI_platform",
-      "RelativePath": "css/a.css",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\a.css"
     },
     {
       "Identity": "C:\\Users\\pca142\\Desktop\\CI-Desk\\MVC\\CI-Platform\\CI_platform\\wwwroot\\css\\HomePage.css",
@@ -661,6 +644,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\drop-down.png"
+    },
+    {
+      "Identity": "C:\\Users\\pca142\\Desktop\\CI-Desk\\MVC\\CI-Platform\\CI_platform\\wwwroot\\images\\dummy-project-image.jpg",
+      "SourceId": "CI_platform",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\pca142\\Desktop\\CI-Desk\\MVC\\CI-Platform\\CI_platform\\wwwroot\\",
+      "BasePath": "_content/CI_platform",
+      "RelativePath": "images/dummy-project-image.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\dummy-project-image.jpg"
     },
     {
       "Identity": "C:\\Users\\pca142\\Desktop\\CI-Desk\\MVC\\CI-Platform\\CI_platform\\wwwroot\\images\\Education-Supplies-for-Every--Pair-of-Shoes-Sold.png",

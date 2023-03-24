@@ -35,6 +35,7 @@
       "CI_platfom.Entity/1.0.0": {
         "dependencies": {
           "EntityFramework": "6.4.4",
+          "FontAwesome": "4.7.0",
           "MailKit": "3.6.0",
           "Microsoft.AspNetCore.Authentication.Cookies": "2.2.0",
           "Microsoft.AspNetCore.Identity": "2.2.0",
@@ -450,6 +451,7 @@
           "lib/netstandard2.1/EntityFramework.dll": {}
         }
       },
+      "FontAwesome/4.7.0": {},
       "Humanizer.Core/2.14.1": {
         "runtime": {
           "lib/net6.0/Humanizer.dll": {
@@ -4308,6 +4310,13 @@
       "sha512": "sha512-yj1+/4tci7Panu3jKDHYizxwVm0Jvm7b7m057b5h4u8NUHGCR8WIWirBTw+8EptRffwftIWPBeIRGNKD1ewEMQ==",
       "path": "entityframework/6.4.4",
       "hashPath": "entityframework.6.4.4.nupkg.sha512"
+    },
+    "FontAwesome/4.7.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-n4H/brfszElyoZ4kmGh8E75uqvLzLvFr3h2PFVdPH1LwUmWIpeqdaW2pcC4oZAhg7sESyObh0IZpAI8COCNeUg==",
+      "path": "fontawesome/4.7.0",
+      "hashPath": "fontawesome.4.7.0.nupkg.sha512"
     },
     "Humanizer.Core/2.14.1": {
       "type": "package",

@@ -26,8 +26,16 @@
 
                             foreach (var missionGridimg in missionimg)
                             {
-                                <img src=@missionGridimg.MediaPath class="card-img-top" alt="@missionGridimg.MediaName">
-                                break;
+                                if (@missionGridimg.MediaPath != null)
+                                {
+                                    <img src=@missionGridimg.MediaPath class="card-img-top" alt="@missionGridimg.MediaName">
+                                    break;
+                                }
+                                else
+                                {
+                                <img src="~/images/dummy-project-image.jpg" class="card-img-top">
+                                    break;
+                                }
                             }
 
                         }

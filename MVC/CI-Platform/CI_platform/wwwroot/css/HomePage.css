@@ -1,7 +1,7 @@
 ﻿.profilePhoto {
-    border-radius: 100%;
-    width: 40px;
-    height: 40px;
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
 }
 
 .border-none {
@@ -80,7 +80,9 @@
     font-size: 26px;
 }
 
-
+.card-img-top {
+    height:220Px;
+}
 .favourite {
     background: #000000 0% 0% no-repeat padding-box;
     opacity: 0.4;

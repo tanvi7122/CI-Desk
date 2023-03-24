@@ -521,19 +521,43 @@ $('.favorite-button').click(function () {
 });
 
 
-
-$('.submit-btn').click(function () {
-    var button = $(this)
+$('.apply-mission-btn').click(function () {
+    var button = $(this);
     var missionId = $(this).data('mission-id');
     var userId = $(this).data('user-id');
+
     console.log(missionId);
     console.log(userId);
+
     $.ajax({
         url: '/Mission/AddVolunteer',
         type: 'POST',
         data: { missionId: missionId, userId: userId },
         success: function (result) {
             // Show a success message or update the UI
+            //console.log(missionId)
+            //console.log(fromuserId)
+            //console.log(touserId)
+            //var allrecommendedId = $('.post-btn')
+            //allrecommendedId.each(function () {
+            //    if ($(this).data('mission-id') === missionId && $(this).data('fromuser-id') == fromuserId && $(this).data('touser-id') == touserId) {
+            //if ($(this).hasClass('btn-primary')) {
+            //    $(this).addClass('btn-success')
+            //    $(this).removeClass('btn-primary')
+            //    $(this).html('Recommended')
+            //    console.log("added")
+            //}
+            //else {
+            //    $(this).addClass('btn-primary')
+            //    $(this).removeClass('btn-success')
+            //    $(this).html('Recommend')
+            //    console.log("remove")
+            //}
+            //    console.log("comment added");
+            //}
+            /* })*/
+            console.log("Application added");
+
 
         },
         error: function (error) {
@@ -543,6 +567,7 @@ $('.submit-btn').click(function () {
         }
     });
 });
+
 
 
 $('.recommend-btn').click(function () {

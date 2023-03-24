@@ -5,6 +5,7 @@ using CI_platform.Repository.Interface;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
 using System.Net.Mail;
+using System.Text.RegularExpressions;
 
 namespace CI_platform.Controllers
 {
@@ -54,7 +55,7 @@ namespace CI_platform.Controllers
         }
         [HttpPost]
 
-        public IActionResult ShareYourStory(long storyId, long missionId)
+        public IActionResult ShareYourStory(/*long storyId, long missionId*/)
         {
             var sessionValue = HttpContext.Session.GetString("UserEmail");
             if (String.IsNullOrEmpty(sessionValue))
@@ -65,6 +66,24 @@ namespace CI_platform.Controllers
             StoryLandingPageVM storylandingPageData = _StoryHomeLandingRepository.GetStoryLandingPageData(sessionValue);
             return View(storylandingPageData);
 
+        }
+        [HttpPost]
+        public IActionResult AddVideos(string videoUrls)
+        {
+            var urls = videoUrls.Split(new[] { "\r\n", "\n" }, StringSplitOptions.RemoveEmptyEntries);
+            if (urls.Length > 20)
+            {
+                return BadRequest("You can add a maximum of 20 video URLs.");
+            }
+            foreach (var url in urls)
+            {
+                if (!Regex.IsMatch(url, @"^https?:\/\/(?:www\.|m\.)?youtube\.com\/watch\?v=.+$"))
+                {
+                    return BadRequest("Invalid YouTube URL.");
+                }
+                // Save URL to database
+            }
+            return Ok();
         }
 
 

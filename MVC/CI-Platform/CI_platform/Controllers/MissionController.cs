@@ -48,8 +48,9 @@ namespace CI_platform.Controllers
             return View(landingPageData);
         }
 
+      
         [HttpPost]
-        public IActionResult AddVolunteer(long missionId, long userId, long themeId, long cityId, long countryId)
+        public IActionResult AddVolunteer(long missionId, long userId)
         {
             var sessionValue = HttpContext.Session.GetString("UserEmail");
             if (String.IsNullOrEmpty(sessionValue))
@@ -68,9 +69,8 @@ namespace CI_platform.Controllers
                 });
             }
             _unitOfWork.Save();
-            TempData["success"] = "Applied For Mission Successfully";
 
-            return RedirectToAction("MissionDetail", "Mission", new { missionId, themeId, cityId, countryId });
+            return Ok();
         }
 
 

@@ -1,7 +1,7 @@
 ﻿ @using CI_platfom.Entity.ViewModel
 @{
     ViewData["Title"] = "Share_Your_Story";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_StoryLayout.cshtml";
 }
 @model StoryLandingPageVM 
 <div class="container">
@@ -97,7 +97,7 @@
                 <div class="card drag-card" style="border: none;">
                     <div class="drag-area">
                         <span class="visible">
-                            <span class="select" role="button"><img src="images/drag-and-drop.png"></span>
+                            <span class="select" role="button"><img src="~/images/drag-and-drop.png "></span>
                         </span>
                         <span class="on-drop">Drop images here</span>
                         <input name="file" type="file" class="file" multiple />

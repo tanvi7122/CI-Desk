@@ -298,6 +298,10 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "FontAwesome": {
+              "target": "Package",
+              "version": "[4.7.0, )"
+            },
             "MailKit": {
               "target": "Package",
               "version": "[3.6.0, )"

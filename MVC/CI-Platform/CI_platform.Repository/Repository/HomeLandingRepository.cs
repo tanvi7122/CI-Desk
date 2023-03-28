@@ -32,7 +32,7 @@ namespace CI_platform.Repository.Repository
             //missionsList = _unitOfWork.Mission.GetMisssionCard();
             landingPageVM.MissionInvites = _unitOfWork.MissionInvite.GetAll();
             //landingPageVM.Cities = _unitOfWork.City.GetAll().Where(c => c.Name != "Undefined");
-            missionsList = _unitOfWork.Missions.GetMissionCard();
+            missionsList = _unitOfWork.Mission.GetMissionCard();
 
 
     

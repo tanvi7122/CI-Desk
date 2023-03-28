@@ -18,17 +18,7 @@ namespace CI_platform.Repository.Repository
         {
             _context = context;
         }
-        public IEnumerable<MissionApplication> GetStoryCard()
-        {
-            var Mission = _context.MissionApplication.Include(m => m.Mission).Include(m => m.User);
-            return Mission;
-        }
-        public IEnumerable<MissionApplication> GetStoryCardById(long id)
-        {
-            var MissionBYId = _context.MissionApplication.Include(m => m.Mission).Include(m => m.UserId).Include(m => m.MissionApplication).Where(m => m.UserId ==Id);
-
-            return MissionBYId;
-        }
+        
 
     }
 }

@@ -67,6 +67,10 @@
                     </div>
                 </div>
                 <div class="col-lg-4 d-flex justify-content-center align-items-center">
+                      @if (ViewData["success"] != null)
+                         {
+                          <div class="alert alert-success">@ViewData["success"]</div>
+                          }
                     <form asp-action="Login" method="post" asp-controller="Home"  class="login mt-md-5 mt-sm-5 mt-5">
            
                         <div class="mb-3 mail">

@@ -1,7 +1,9 @@
-C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\bin\Debug\net6.0\Microsoft.CodeAnalysis.dll
-C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\bin\Debug\net6.0\refs\Microsoft.Extensions.Features.dll
+C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\bin\Debug\net6.0\zh-Hans\Microsoft.CodeAnalysis.Features.resources.dll
+C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\bin\Debug\net6.0\zh-Hant\Microsoft.CodeAnalysis.VisualBasic.resources.dll
 C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\bin\Debug\net6.0\appsettings.Development.json
 C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\bin\Debug\net6.0\appsettings.json
+C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\bin\Debug\net6.0\libman.json
 C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\bin\Debug\net6.0\CI_platform.staticwebassets.runtime.json
 C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\bin\Debug\net6.0\CI_platform.exe
 C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\bin\Debug\net6.0\CI_platform.deps.json
@@ -102,7 +104,6 @@ C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\bin\Debug\net6.0\ref
 C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\bin\Debug\net6.0\refs\Microsoft.Extensions.Configuration.Xml.dll
 C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\bin\Debug\net6.0\refs\Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions.dll
 C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\bin\Debug\net6.0\refs\Microsoft.Extensions.Diagnostics.HealthChecks.dll
-C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\bin\Debug\net6.0\refs\Microsoft.Extensions.Features.dll
 C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\bin\Debug\net6.0\refs\Microsoft.Extensions.FileProviders.Abstractions.dll
 C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\bin\Debug\net6.0\refs\Microsoft.Extensions.FileProviders.Composite.dll
 C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\bin\Debug\net6.0\refs\Microsoft.Extensions.FileProviders.Embedded.dll
@@ -311,6 +312,7 @@ C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\bin\Debug\net6.0\Mic
 C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\bin\Debug\net6.0\Microsoft.Build.dll
 C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\bin\Debug\net6.0\Microsoft.Build.Framework.dll
 C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\bin\Debug\net6.0\Microsoft.CodeAnalysis.AnalyzerUtilities.dll
+C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\bin\Debug\net6.0\Microsoft.CodeAnalysis.dll
 C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\bin\Debug\net6.0\Microsoft.CodeAnalysis.CSharp.dll
 C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\bin\Debug\net6.0\Microsoft.CodeAnalysis.CSharp.Features.dll
 C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\bin\Debug\net6.0\Microsoft.CodeAnalysis.CSharp.Scripting.dll
@@ -330,6 +332,7 @@ C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\bin\Debug\net6.0\Mic
 C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll
 C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Design.dll
 C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Proxies.dll
+C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Relational.dll
 C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.SqlServer.dll
 C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\bin\Debug\net6.0\Microsoft.Extensions.Caching.Abstractions.dll
 C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\bin\Debug\net6.0\Microsoft.Extensions.Caching.Memory.dll
@@ -484,7 +487,6 @@ C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\bin\Debug\net6.0\pl\
 C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\bin\Debug\net6.0\pt-BR\Microsoft.CodeAnalysis.Features.resources.dll
 C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\bin\Debug\net6.0\ru\Microsoft.CodeAnalysis.Features.resources.dll
 C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\bin\Debug\net6.0\tr\Microsoft.CodeAnalysis.Features.resources.dll
-C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\bin\Debug\net6.0\zh-Hans\Microsoft.CodeAnalysis.Features.resources.dll
 C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\bin\Debug\net6.0\zh-Hant\Microsoft.CodeAnalysis.Features.resources.dll
 C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\bin\Debug\net6.0\cs\Microsoft.CodeAnalysis.Scripting.resources.dll
 C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\bin\Debug\net6.0\de\Microsoft.CodeAnalysis.Scripting.resources.dll
@@ -511,7 +513,6 @@ C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\bin\Debug\net6.0\pt-
 C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\bin\Debug\net6.0\ru\Microsoft.CodeAnalysis.VisualBasic.resources.dll
 C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\bin\Debug\net6.0\tr\Microsoft.CodeAnalysis.VisualBasic.resources.dll
 C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\bin\Debug\net6.0\zh-Hans\Microsoft.CodeAnalysis.VisualBasic.resources.dll
-C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\bin\Debug\net6.0\zh-Hant\Microsoft.CodeAnalysis.VisualBasic.resources.dll
 C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\bin\Debug\net6.0\cs\Microsoft.CodeAnalysis.VisualBasic.Features.resources.dll
 C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\bin\Debug\net6.0\de\Microsoft.CodeAnalysis.VisualBasic.Features.resources.dll
 C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\bin\Debug\net6.0\es\Microsoft.CodeAnalysis.VisualBasic.Features.resources.dll

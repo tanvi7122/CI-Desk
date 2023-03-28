@@ -67,3 +67,42 @@ dragArea.addEventListener('drop', e => {
 	}
 	showImages();
 });
+<script>
+    $(function () {
+        $('#saveAsDraftButton').click(function () {
+            var formData = new FormData($('#storyForm')[0]);
+
+            $.ajax({
+                url: '@Url.Action("SaveAsDraft", "Stories")',
+                type: 'POST',
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function (result) {
+                    alert('Draft saved successfully!');
+                },
+                error: function () {
+                    alert('An error occurred while saving the draft.');
+                }
+            });
+        });
+
+         $('#submitButton').click(function () {
+        var formData = new FormData($('#storyForm')[0]);
+
+    $.ajax({
+        url: '@Url.Action("SubmitStory", "Stories")',
+    type: 'POST',
+    data: formData,
+    processData: false,
+    contentType: false,
+    success: function (result) {
+        alert('Story submitted successfully!');
+            },
+    error: function () {
+        alert('An error occurred while submitting the story.');
+            }
+        });
+    });
+});
+</script>

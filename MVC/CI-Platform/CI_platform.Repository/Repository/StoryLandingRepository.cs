@@ -27,10 +27,11 @@ namespace CI_platform.Repository.Repository
             storylandingPageVM.AppliedStory = _unitOfWork.Story.GetFirstOrDefault(u => u.StoryId == storyId);
             storylandingPageVM.storyInvites = _unitOfWork.StoryInvite.GetAll();
             storylandingPageVM.UserList = _unitOfWork.User.GetAll().Where(u => u.Email != email);
+            storylandingPageVM.Mission = _unitOfWork.Mission.GetAll();
             storylandingPageVM.StoryMedium = _unitOfWork.storyMedium.GetAll();
             IEnumerable<Story> storylist;
             storylist = _unitOfWork.Story.GetStoryCardById(storyId);
-            storylandingPageVM.AppliedStory.Mission = _unitOfWork.Missions.GetFirstOrDefault(u => u.MissionId == missionId);
+            storylandingPageVM.AppliedStory.Mission = (Mission)_unitOfWork.Mission.GetMissionCard(/*u => u.MissionId == missionId*/);
             storylandingPageVM.Stories = storylist;
             storylandingPageVM.Skills = _unitOfWork.Skill.GetAll();
             storylandingPageVM.Cities = _unitOfWork.City.GetAll();

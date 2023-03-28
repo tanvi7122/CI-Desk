@@ -1,12 +1,34 @@
 ﻿using CI_platfom.Entity.Models;
+using System.ComponentModel.DataAnnotations;
 
 namespace CI_platfom.Entity.ViewModel
 {
-    public class StoryLandingPageVM
+    public class  StoryLandingPageVM
     {
+        [Required]
+        public long MissionId { get; set; }
+        
+        [Required]
+        public string Title { get; set; }
+
+        [Required]
+        public string Description { get; set; }
+
+        [Required]
+        public long UserId { get; set; }
+    
+        public string? MediaName { get; set; }
+
+        public string? MediaType { get; set; }
+
+        public string? MediaPath { get; set; }
+
+        public int? Default { get; set; }
+
+        public DateTime? CreatedAt { get; set; }
         public IEnumerable<Story> Stories { get; set; }
         public IEnumerable<StoryMedium> StoryMedium { get; set; }
-
+        public IEnumerable<Mission> Mission { get; set; }
         public IEnumerable<City> Cities { get; set; }
         public IEnumerable<Country> Countries { get; set; }
 

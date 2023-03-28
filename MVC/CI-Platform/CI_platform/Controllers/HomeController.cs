@@ -52,14 +52,14 @@ namespace CI_platform.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Login(User user)
         {
-
+            
             var curser = _AccountRepo.GetUserEmail(user.Email);
             Console.WriteLine(user.Email);
             if (curser != null && curser.Password == user.Password)
             {
                 Console.WriteLine("Login successfull");
                 HttpContext.Session.SetString("UserEmail", user.Email);
-                TempData["success"] = "Login Successful";
+             
                 return RedirectToAction("HomePage", "Mission");
             }
             else
@@ -80,23 +80,30 @@ namespace CI_platform.Controllers
 
         public IActionResult Registration(User user, IFormCollection form)
         {
-            if (ModelState.IsValid)
+            var userphone = _context.Users.FirstOrDefault(t => t.PhoneNumber == user.PhoneNumber);
+            if (ModelState.IsValid && userphone == null)
             {
-
-                if (form["conformpassword"] == user.Password)
+            
+                if (form["ConfirmPassword"] != user.Password)
+                {
+                    ViewData["warning"] = "Passwords do not match";
+         
+                }
+               else
                 {
                     _AccountRepo.Add(user);
                     _AccountRepo.save();
-                    TempData["success"] = "Registration Successful";
+                    ViewData["success"] = "Registration Successful";
                     return RedirectToAction("Login");
-                }
-                else
-                {
-                    TempData["error"] = "password dosen't match";
-                    return View(user);
+                 
                 }
             }
-            TempData["error"] = "Registration failed";
+            else
+                {
+                    ViewData["ErrorMessage"] = "You already have an account. Please log in instead OR Fill all required details ";
+                    return View(user);
+                }
+           
             return View(user);
         }
         [HttpGet]

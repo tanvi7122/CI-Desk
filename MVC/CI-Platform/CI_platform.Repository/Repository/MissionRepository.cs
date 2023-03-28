@@ -20,7 +20,7 @@ namespace CI_platform.Repository.Repository
         }
         public IEnumerable<Mission> GetMissionCard()
         {
-            IEnumerable<Mission> missions = (IEnumerable<Mission>)_context.Missions.Include(m => m.City).Include(m => m.Theme)
+            IEnumerable<Mission> missions = _context.Missions.Include(m => m.City).Include(m => m.Theme)
                 .Include(m => m.GoalMissions).Include(m => m.MissionApplications)
                 .Include(m => m.MissionRatings).Include(m => m.MissionMedia).Include(m => m.MissionSkills).Include(m => m.MissionInvites).
                 Include(m => m.FavouriteMissions);
@@ -28,7 +28,7 @@ namespace CI_platform.Repository.Repository
         }
         public IEnumerable<Mission> GetMissionCardById(long id)
         {
-            IEnumerable<Mission> missionBYId = (IEnumerable<Mission>)_context.Missions.Include(m => m.City).Include(m => m.Theme)
+            IEnumerable<Mission> missionBYId = _context.Missions.Include(m => m.City).Include(m => m.Theme)
                 .Include(m => m.GoalMissions).Include(m => m.MissionApplications)
                 .Include(m => m.MissionRatings).Include(m => m.MissionMedia).Include(m => m.MissionSkills).Include(m => m.MissionInvites).
                 Include(m => m.FavouriteMissions).Include(m => m.Comments).Include(m => m.MissionDocuments).Where(m => m.MissionId == id);

@@ -205,7 +205,7 @@ namespace CI_platform.Controllers
         {
             // Check if the mission is already in favorites for the user
             var mission_user_recommended = _unitOfWork.MissionInvite.GetFirstOrDefault(u => (u.FromUserId == fromuserId) && (u.MissionId == missionId) && (u.ToUserId == touserId));
-            var mission_recommended_theme = _unitOfWork.Missions.GetMissionCardById(missionId);
+            var mission_recommended_theme = _unitOfWork.Mission.GetMissionCardById(missionId);
 
 
 

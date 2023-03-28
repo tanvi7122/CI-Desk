@@ -26,6 +26,8 @@ namespace CI_platform.Repository.Repository
             StoryLandingPageVM.UserList = _unitOfWork.User.GetAll().Where(u => u.Email != email);
             StoryLandingPageVM.Cities = _unitOfWork.City.GetAll();
             StoryLandingPageVM.Themes = _unitOfWork.MissionTheme.GetAll();
+            StoryLandingPageVM.Mission= _unitOfWork.Mission.GetAll();
+            StoryLandingPageVM.missionApplication = _unitOfWork.MissionApplication.GetAll();
             StoryLandingPageVM.Skills = _unitOfWork.Skill.GetAll();
             IEnumerable<Story> storiesList;
             storiesList = _unitOfWork.Story.GetStoryCard().Where(u=>u.Status.Equals("PUBLISHED"));

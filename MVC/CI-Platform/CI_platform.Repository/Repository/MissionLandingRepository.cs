@@ -23,7 +23,7 @@ namespace CI_platform.Repository.Repository
 
             landingPageVM.LoggedUser = _unitOfWork.User.GetFirstOrDefault(u => u.Email == email);
 
-            landingPageVM.AppliedMission = _unitOfWork.Missions.GetFirstOrDefault(u => u.MissionId == missionId);
+            landingPageVM.AppliedMission = _unitOfWork.Mission.GetFirstOrDefault(u => u.MissionId == missionId);
 
             //landingPageVM.Countries = _unitOfWork.Country.GetAll();
             landingPageVM.UserList = _unitOfWork.User.GetAll().Where(u => u.Email != email);
@@ -31,19 +31,19 @@ namespace CI_platform.Repository.Repository
             //landingPageVM.MissionMedia = _unitOfWork.MissionMedia.GetAll().Where(m => m.MissionId == missionId);
             IEnumerable<Mission> missionsList;
             //landingPageVM.Cities = _unitOfWork.City.GetAll();
-            landingPageVM.RelatedMissions = _unitOfWork.Missions.GetMissionCard().Where(m => (m.ThemeId == themeid || m.CountryId==countryid || m.CityId==cityid) && (m.MissionId!=missionId )).Take(3);
+            landingPageVM.RelatedMissions = _unitOfWork.Mission.GetMissionCard().Where(m => (m.ThemeId == themeid || m.CountryId==countryid || m.CityId==cityid) && (m.MissionId!=missionId )).Take(3);
             landingPageVM.MissionMedium = (IEnumerable<MissionMedium>)_unitOfWork.MissionMedium.GetAll();
             landingPageVM.MissionInvites = _unitOfWork.MissionInvite.GetAll();
             landingPageVM.missionApplication = _unitOfWork.MissionApplication.GetAll().Where(m => m.MissionId == missionId);
             landingPageVM.missionDocument = _unitOfWork.MissionDocument.GetAll().Where(m => m.MissionId == missionId);
             //landingPageVM.Cities = _unitOfWork.City.GetAll().Where(c => c.Name != "Undefined");
-            missionsList = (IEnumerable<Mission>)_unitOfWork.Missions.GetMissionCardById(missionId);
+            missionsList = _unitOfWork.Mission.GetMissionCardById(missionId);
 
             landingPageVM.Mission = missionsList;
             landingPageVM.Skills = _unitOfWork.Skill.GetAll();
+            int totalrecords = missionsList.Count();
 
 
-            //int totalrecords = missionsList.Count();
             //int pageSize = 9;
             //missionsList = missionsList.Skip((currentPage - 1) * pageSize).Take(pageSize).ToList();
             //int totalPages = (int)Math.Ceiling(totalrecords / (double)pageSize);

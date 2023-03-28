@@ -55,7 +55,8 @@ namespace CI_platform.Controllers
         }
         [HttpPost]
 
-        public IActionResult ShareYourStory(/*long storyId, long missionId*/)
+
+        public IActionResult ShareYourStory(long storyId, long missionId)
         {
             var sessionValue = HttpContext.Session.GetString("UserEmail");
             if (String.IsNullOrEmpty(sessionValue))

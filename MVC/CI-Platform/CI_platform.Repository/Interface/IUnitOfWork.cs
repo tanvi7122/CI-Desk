@@ -19,7 +19,7 @@ namespace CI_platform.Repository.Interface
 
         public ISkillRepository Skill{ get; }
         public IStoryMediumRepository storyMedium { get; }
-        public IMissionRepository Missions{ get; }
+        public IMissionRepository Mission{ get; }
          
         public IStoryRepository Story{ get; }
         public IMissionRatingRepository MissionRating { get; }

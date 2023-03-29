@@ -31,7 +31,7 @@ namespace CI_platform.Repository.Repository
             storylandingPageVM.StoryMedium = _unitOfWork.storyMedium.GetAll();
             IEnumerable<Story> storylist;
             storylist = _unitOfWork.Story.GetStoryCardById(storyId);
-            storylandingPageVM.AppliedStory.Mission = (Mission)_unitOfWork.Mission.GetMissionCard(/*u => u.MissionId == missionId*/);
+            storylandingPageVM.AppliedStory.Mission = _unitOfWork.Mission.GetFirstOrDefault(u => u.MissionId == missionId);
             storylandingPageVM.Stories = storylist;
             storylandingPageVM.Skills = _unitOfWork.Skill.GetAll();
             storylandingPageVM.Cities = _unitOfWork.City.GetAll();

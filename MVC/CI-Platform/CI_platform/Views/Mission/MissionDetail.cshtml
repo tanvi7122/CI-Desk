@@ -54,58 +54,59 @@
     <div class="container p-0 msdetail">
         <div class="row p-0">
             <div class="col-lg-6 col-md-6 col-sm-12">
-                <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff"
-                     class="swiper mySwiper2">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <img src="~/images/Grow-Trees-On-the-path-to-environment-sustainability-2.png" />
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="~/images/img11.png" />
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="~/images/img1.png" />
-                        </div>
+                    <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff"
+                        class="swiper mySwiper2">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <img src="~/images/Grow-Trees-On-the-path-to-environment-sustainability-2.png" />
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="~/images/img11.png" />
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="~/images/img1.png" />
+                            </div>
 
-                        <div class="swiper-slide">
-                            <img src="~/images/CSR-initiative-stands-for-Coffee--and-Farmer-Equity-2.png" />
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="~/images/Education-Supplies-for-Every--Pair-of-Shoes-Sold-2.png" />
-                        </div>
+                            <div class="swiper-slide">
+                                <img src="~/images/CSR-initiative-stands-for-Coffee--and-Farmer-Equity-2.png" />
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="~/images/Education-Supplies-for-Every--Pair-of-Shoes-Sold-2.png" />
+                            </div>
 
-                        <div class="swiper-slide">
-                            <img src="~/images/Animal-welfare-_-save-birds-campaign.png" />
+                            <div class="swiper-slide">
+                                <img src="~/images/Animal-welfare-_-save-birds-campaign.png" />
+                            </div>
+                        </div>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                    </div>
+                    <div thumbsSlider="" class="swiper mySwiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <img src="~/images/Grow-Trees-On-the-path-to-environment-sustainability-2.png" />
+                            </div>
+
+                            <div class="swiper-slide">
+                                <img src="~/images/img11.png" />
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="~/images/img1.png" />
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="~/images/CSR-initiative-stands-for-Coffee--and-Farmer-Equity-2.png" />
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="~/images/Education-Supplies-for-Every--Pair-of-Shoes-Sold-2.png" />
+                            </div>
+
+                            <div class="swiper-slide">
+                                <img src="~/images/Animal-welfare-_-save-birds-campaign.png" />
+                            </div>
                         </div>
                     </div>
-                    <div class="swiper-button-next"></div>
-                    <div class="swiper-button-prev"></div>
                 </div>
-                <div thumbsSlider="" class="swiper mySwiper">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <img src="~/images/Grow-Trees-On-the-path-to-environment-sustainability-2.png" />
-                        </div>
-
-                        <div class="swiper-slide">
-                            <img src="~/images/img11.png" />
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="~/images/img1.png" />
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="~/images/CSR-initiative-stands-for-Coffee--and-Farmer-Equity-2.png" />
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="~/images/Education-Supplies-for-Every--Pair-of-Shoes-Sold-2.png" />
-                        </div>
-
-                        <div class="swiper-slide">
-                            <img src="~/images/Animal-welfare-_-save-birds-campaign.png" />
-                        </div>
-                    </div>
-                </div>
-            </div>
+            
 
 
 
@@ -927,5 +928,24 @@
     </div>
 
 </body>
-
+      <script>
+                var swiper = new Swiper(".mySwiper", {
+                    loop: true,
+                    spaceBetween: 10,
+                    slidesPerView: 4,
+                    freeMode: true,
+                    watchSlidesProgress: true,
+                });
+                var swiper2 = new Swiper(".mySwiper2", {
+                    loop: true,
+                    spaceBetween: 10,
+                    navigation: {
+                        nextEl: ".swiper-button-next",
+                        prevEl: ".swiper-button-prev",
+                    },
+                    thumbs: {
+                        swiper: swiper,
+                    },
+                });
+           </Script>
 

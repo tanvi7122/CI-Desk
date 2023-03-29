@@ -32,7 +32,7 @@ namespace CI_platform.Repository.Repository
             IEnumerable<Mission> missionsList;
             //landingPageVM.Cities = _unitOfWork.City.GetAll();
             landingPageVM.RelatedMissions = _unitOfWork.Mission.GetMissionCard().Where(m => (m.ThemeId == themeid || m.CountryId==countryid || m.CityId==cityid) && (m.MissionId!=missionId )).Take(3);
-            landingPageVM.MissionMedium = (IEnumerable<MissionMedium>)_unitOfWork.MissionMedium.GetAll();
+            landingPageVM.MissionMedium = _unitOfWork.MissionMedium.GetAll();
             landingPageVM.MissionInvites = _unitOfWork.MissionInvite.GetAll();
             landingPageVM.missionApplication = _unitOfWork.MissionApplication.GetAll().Where(m => m.MissionId == missionId);
             landingPageVM.missionDocument = _unitOfWork.MissionDocument.GetAll().Where(m => m.MissionId == missionId);

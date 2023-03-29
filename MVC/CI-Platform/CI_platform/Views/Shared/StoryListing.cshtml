@@ -37,7 +37,7 @@
 
                         <div class="card-img position-relative">
                             <img src="~/images/Grow-Trees-On-the-path-to-environment-sustainability-1.png" class="card-img-top " alt="...">
-                            <form asp-controller="Story" asp-action="StoryDetail" asp-route-storyId="@story.StoryId" asp-route-missionId="@story">
+                               <form asp-controller="Story" asp-action="StoryDetail" asp-route-storyId="@story.StoryId" asp-route-missionId="@story.Mission.MissionId" asp-route-themeId="@story.Mission.ThemeId" asp-route-cityId="@story.Mission.CityId" asp-route-countryId="@story.Mission.CountryId">
                                 <button class="btn-share-story rounded-pill px-4 py-2 position-absolute top-50 start-50 translate-middle">
                                     View Details
                                     <i class="bi bi-arrow-right" style="color:white"></i>

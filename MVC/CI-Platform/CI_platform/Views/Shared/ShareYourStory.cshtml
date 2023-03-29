@@ -120,7 +120,7 @@
                        
                     </div>
                     <div class="col-lg-2 col">
-                        <button asp-controller="story" asp-action="StoryDetail" type="submit" class="btn submit rounded-pill px-lg-5 px-md-4 px-5 mt-md-0 mt-2 py-2" name="submitType" value="submit">Submit</button>
+                        <button asp-controller="story" asp-action="Shareyourstory" type="submit" class="btn submit rounded-pill px-lg-5 px-md-4 px-5 mt-md-0 mt-2 py-2" name="submitType" value="submit">Submit</button>
                         
                     </div>
                 </div>
@@ -147,4 +147,33 @@
         
         <script src="js/bootstrap.bundle.min.js"></script>  
         <script type="text/javascript" src="js/darg-drop.js"></script>
-        
+        @*    <script>
+            function submit() {
+    //get all selected radio button. In our case we gave same name to radio button
+    //so only one radio button will be selected either Male or Female
+   
+    let formData = {
+        Title: $("#mission").val(),
+        storyTitle: $("#storyTitle").val(),
+        CreatedAt: $("#date").val(),
+        Description: $("#text-input").val(),
+        MediaPath: $("#videourl").val(),
+        MediaPath: $("#photos").val(),
+      
+  
+    }
+    console.log(formData)
+    $.ajax({
+        url: "/Story/ShareYourStory",
+        type: "POST",
+        data: formData,
+        success: function(response) {
+            alert(response);
+        },
+        error: function(request, status, error) {
+            alert(request.responseText);
+        }
+    });
+}
+
+        </script>*@

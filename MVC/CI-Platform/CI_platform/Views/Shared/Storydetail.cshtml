@@ -84,7 +84,7 @@
                         @Model.AppliedStory.User.WhyIVolunteer
                     </p>
                     <div class="col-md-8 col">
-                        <button class="header-btn px-5" style="height:50px"  data-bs-toggle="modal" data-bs-target="#coWorker1" type="button"><img src="~/images/heart1.png" style="margin-right: 20px;" class="flex align-items-center"/>Recommend to Co-Worker</button>
+                        <button class="header-btn px-5" style="height:50px"  data-bs-toggle="modal" data-bs-target="#coWorker1" type="button"><img src="~/images/add1.png" style="margin-right: 20px;" class="flex align-items-center"/>Recommend to Co-Worker</button>
                     </div>
                     <div class="modal fade" id="coWorker1" tabindex="-1" aria-labelledby="coWorkerlLabel" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered">
@@ -96,7 +96,8 @@
                                         <div class="modal-body">
                                             @foreach (var user in Model.UserList)
                                             {
-                                                var torecommendeduser = Model.storyInvites.FirstOrDefault(m => (m.ToUserId == @user.UserId) && (m.FromUserId == @Model.LoggedUser.UserId) && (m.StoryId == @Model.AppliedStory.StoryId));
+                                                @*var torecommendeduser = Model.storyInvites.FirstOrDefault(m => (m.ToUserId == @user.UserId) && (m.FromUserId == @Model.LoggedUser.UserId) && (m.StoryId == @Model.AppliedStory.StoryId));*@
+                                                  var torecommendeduser = Model.storyInvites.FirstOrDefault(m => (m.ToUserId == @user.UserId) && (m.FromUserId == @Model.LoggedUser.UserId) && (m.StoryId == @Model.AppliedStory.StoryId));
                                                 <div class="d-flex justify-content-between mx-3 my-3">
                                                     <p>@user.FirstName @user.LastName @user.PhoneNumber</p>
                                                     @if (torecommendeduser == null)
@@ -116,9 +117,9 @@
                                 </div>
                             </div>
                     <div class="col-md-4 col">
-                                  <form method="post" asp-controller="Mission" asp-action="MissionDetail" asp-route-missionId="@Model.AppliedStory.MissionId" asp-route-themeId="@Model.AppliedStory.Mission.ThemeId" asp-route-cityId="@Model.AppliedStory.Mission.CityId" asp-route-countryId="@Model.AppliedStory.Mission.CountryId">
+                                  <form method="post" asp-controller="Mission" asp-action="MissionDetail" asp-route-missionId="@Model.AppliedStory.Mission.MissionId" asp-route-themeId="@Model.AppliedStory.Mission.ThemeId" asp-route-cityId="@Model.AppliedStory.Mission.CityId" asp-route-countryId="@Model.AppliedStory.Mission.CountryId">
                                 
-                                   <input type="hidden" name="missionId" value="@Model.AppliedStory.MissionId-"/>
+                                   <input type="hidden" name="missionId" value="@Model.AppliedStory.Mission.MissionId"/>
                                     <button class="submit-btn">
                             Open Mission 
                            <img src="~/images/right-arrow.png">

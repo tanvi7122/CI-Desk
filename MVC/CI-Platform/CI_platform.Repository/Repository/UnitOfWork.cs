@@ -1,4 +1,4 @@
-﻿using CI_platfom.Entity.Data;
+﻿    using CI_platfom.Entity.Data;
 using CI_platfom.Entity.Models;
 using CI_platform.Repository.Interface;
 using System;

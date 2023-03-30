@@ -447,39 +447,7 @@ $('#sortByDropdown li').on('click', function () {
 })
 
 
-//$('.apply-mission').click(function () {
 
-//    var missionId = $(this).data('mission-id');
-//    $.ajax({
-//        url: '/Mission/MissionDetail',
-//        type: 'POST',
-//        data: { missionId: missionId },
-//        success: function (result) {
-//          /*   Show a success message or update the UI*/
-//            console.log(missionId)
-//            //var allMissionId = $('.favorite-button')
-//            //allMissionId.each(function () {
-//            //    if ($(this).data('mission-id') === missionId) {
-//            //        if ($(this).hasClass('bi-heart')) {
-//            //            $(this).addClass('bi-heart-fill text-danger')
-//            //            $(this).removeClass('bi-heart text-light')
-//            //            console.log("added")
-//            //        }
-//            //        else {
-//            //            $(this).addClass('bi-heart text-light')
-//            //            $(this).removeClass('bi-heart-fill text-danger')
-//            //            console.log("remove")
-//            //        }
-//            //    }
-//            //})
-//        },
-//        error: function (error) {
-//       /*      Show an error message or handle the error*/
-//            console.log("error")
-
-//        }
-//    });
-//});
 
 
 $('.favorite-button').click(function () {
@@ -615,30 +583,76 @@ $('.recommend-btn').click(function () {
         }
     });
 });
+$('.recommend-story-btn').click(function () {
+    var button = $(this)
+    var storyId = $(this).data('story-id');
+    var missionId = $(this).data('mission-id');
+    var fromuserId = $(this).data('fromuser-id');
+    var touserId = $(this).data('touser-id');
+    console.log(missionId);
+    console.log(fromuserId);
+    console.log(touserId);
+    $.ajax({
+        url: '/Story/RecommendToCoWorker',
+        type: 'POST',
+        data: { storyId: storyId, missionId: missionId, fromuserId: fromuserId, touserId: touserId },
+        success: function (result) {
+            // Show a success message or update the UI
+            console.log(missionId)
+            console.log(fromuserId)
+            console.log(touserId)
+            var allrecommendedId = $('.recommend-story-btn')
+            allrecommendedId.each(function () {
+                if ($(this).data('story-id') === storyId && $(this).data('mission-id') === missionId && $(this).data('fromuser-id') == fromuserId && $(this).data('touser-id') == touserId) {
+                    if ($(this).hasClass('btn-primary')) {
+                        $(this).addClass('btn-success')
+                        $(this).removeClass('btn-primary')
+                        $(this).html('Recommended')
+                        console.log("added")
+                    }
+                    else {
+                        $(this).addClass('btn-primary')
+                        $(this).removeClass('btn-success')
+                        $(this).html('Recommend')
+                        console.log("remove")
+                    }
+                }
+            })
+        },
+        error: function (error) {
+            // Show an error message or handle the error
+            console.log("error")
 
-////$(".Rating p").click(function () {
-
-////    var rate = $(this).index() + 1;
-////    var selectedIcon = $(this).prevAll().addBack();
-////    var unselectedIcon = $(this).nextAll();
-////    var missionId = $(this).data('mission-id');
+        }
+    });
+});
 
 
 
-////    $.ajax({
-////        type: "GET",
-////        url: "/Home/RateMission",
-////        data: { missionid: missionId, rate: rate },
-////        success: function (response) {
-////            console.log("rated succesfully");
+$(".Rating p").click(function () {
 
-////            selectedIcon.removeClass('unselectedstar').addClass('selectedstar');
-////            unselectedIcon.removeClass('selectedstar').addClass('unselectedstar');
+    var rate = $(this).index() + 1;
+    var selectedIcon = $(this).prevAll().addBack();
+    var unselectedIcon = $(this).nextAll();
+    var missionId = $(this).data('mission-id');
+    var userId = $(this).data('user-id');
+    console.log(rate);
 
-////        },
-////        error: function (error) {
-////            console.log(error)
-////        }
-//    })
-//})
+
+    $.ajax({
+        type: "GET",
+        url: "/Mission/AddRating",
+        data: { missionid: missionId, rating: rate, userId: userId },
+        success: function (response) {
+            console.log("rated succesfully");
+
+            selectedIcon.removeClass('unselectedstar').addClass('selectedstar');
+            unselectedIcon.removeClass('selectedstar').addClass('unselectedstar');
+
+        },
+        error: function (error) {
+            console.log(error)
+        }
+    })
+})
 

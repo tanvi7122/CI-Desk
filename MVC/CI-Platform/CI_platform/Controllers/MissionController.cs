@@ -74,6 +74,7 @@ namespace CI_platform.Controllers
         }
 
 
+
         public IActionResult MissionDetail(long missionId, long themeid, long cityid, long countryid)
         {
             var sessionValue = HttpContext.Session.GetString("UserEmail");

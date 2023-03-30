@@ -133,7 +133,7 @@ namespace CI_platform.Controllers
             var smtpClient = new SmtpClient("smtp.gmail.com", 587);
             smtpClient.UseDefaultCredentials = false;
             smtpClient.EnableSsl = true;
-            smtpClient.Credentials = new NetworkCredential("", "");
+            smtpClient.Credentials = new NetworkCredential("tanvizankat@gmail.com", "xpquelppifdzvdpt");
 
             // Send the message
             smtpClient.Send(message);

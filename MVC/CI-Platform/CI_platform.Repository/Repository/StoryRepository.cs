@@ -22,6 +22,11 @@ namespace CI_platform.Repository.Repository
             var stories = _context.Stories.Include(m => m.Mission).Include(m => m.User);
             return stories;
         }
+        public IEnumerable<Story> Add()
+        {
+            var stories = _context.Stories.Include(m => m.Mission).Include(m => m.User);
+            return stories;
+        }
         public IEnumerable<Story> GetStoryCardById(long id)
         {
             var storyBYId = _context.Stories.Include(m => m.Mission).Include(m => m.User).Include(m=>m.StoryInvites).Where(m => m.StoryId == id);

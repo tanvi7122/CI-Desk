@@ -43,18 +43,6 @@ namespace CI_platform.Repository.Repository
             landingPageVM.Skills = _unitOfWork.Skill.GetAll();
             int totalrecords = missionsList.Count();
 
-
-            //int pageSize = 9;
-            //missionsList = missionsList.Skip((currentPage - 1) * pageSize).Take(pageSize).ToList();
-            //int totalPages = (int)Math.Ceiling(totalrecords / (double)pageSize);
-
-            //landingPageVM.Missions = missionsList;
-            //landingPageVM.CurrentPage = currentPage;
-            //landingPageVM.TotalPages = totalPages;
-            ////landingPageVM.sort = sort;
-            //landingPageVM.PageSize = pageSize;
-            //landingPageVM.Themes = _unitOfWork.MissionTheme.GetAll();
-            //landingPageVM.Skills = _unitOfWork.Skill.GetAll();
             return landingPageVM;
         }
     }

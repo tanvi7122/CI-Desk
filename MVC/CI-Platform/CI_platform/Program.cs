@@ -15,14 +15,10 @@ builder.Services.AddDbContext<CiPlatformContext>(options =>
 });
 builder.Services.AddScoped<IAccountRepository, AccountRepository>();
 builder.Services.AddScoped<IEmailRepository, EmailRepository>();
-//builder.Services.AddScoped<IMissionDetail, MissionDetail>();
-//builder.Services.AddScoped<IMissionList, MissionList>();
-//builder.Services.AddScoped<ICardRepository,CardRepository>();
 builder.Services.AddScoped<IHomeLandingRepository, HomeLandingRepository>();
 builder.Services.AddScoped<IMissionLandingRepository, MissionLandingRepository>();
 builder.Services.AddScoped<IStoryHomeLandingRepository, StoryHomeLandingRepository>();
 builder.Services.AddScoped<IStoryLandingRepository, StoryLandingRepository>();
-//builder.Services.AddScoped<IStoryLandingRepository, StoryLandingRepository>();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddSession();
 builder.Services.AddMemoryCache();

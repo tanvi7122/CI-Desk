@@ -1,31 +1,20 @@
 ﻿using CI_platfom.Entity.Models;
+using Microsoft.AspNetCore.Http;
 using System.ComponentModel.DataAnnotations;
 
 namespace CI_platfom.Entity.ViewModel
 {
     public class  StoryLandingPageVM
     {
-        [Required]
         public long MissionId { get; set; }
-        
-        [Required]
         public string Title { get; set; }
-
-        [Required]
         public string Description { get; set; }
-
-        [Required]
         public long UserId { get; set; }
     
-        public string? MediaName { get; set; }
-
-        public string? MediaType { get; set; }
-
-        public string? MediaPath { get; set; }
-
-        public int? Default { get; set; }
-
-        public DateTime? CreatedAt { get; set; }
+        public string Type { get; set; } = null!;
+        public string Path { get; set; } = null!;
+        public string? Status { get; set; }
+        public DateTime? PublishedAt { get; set; }
         public IEnumerable<Story> Stories { get; set; }
         public IEnumerable<StoryMedium> StoryMedium { get; set; }
         public IEnumerable<Mission> Mission { get; set; }
@@ -39,5 +28,6 @@ namespace CI_platfom.Entity.ViewModel
         public IEnumerable<Skill> Skills { get; set; }
         public Story AppliedStory { get; set; }
         public User LoggedUser { get; set; }
+        public IFormFile FormFile { get; set; }
     }
 }

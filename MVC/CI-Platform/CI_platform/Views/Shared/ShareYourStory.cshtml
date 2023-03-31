@@ -6,12 +6,12 @@
 @model StoryLandingPageVM 
 <div class="container">
             <h2 class="ms-4 mt-3">Share your Story</h2>
-            <form method="post" asp-controller="Mission" asp-action="Create" class="ms-4 mt-5 text-secondary" id="myForm">
+            <form method="post" class="ms-4 mt-5 text-secondary" id="myForm">
                 <!-- first row -->
                 <div class="row row-cols-lg-3 row-cols-md-3 row-cols-sm-2 row-cols-1">
                     <div class="col form-group">
-                        <label asp-for="Title" class="form-label ms-1">Select Mission</label>
-                        <select class="form-select" aria-label="Default select example">
+                        <label  class="form-label ms-1">Select Mission</label>
+                        <select  asp-for="AppliedStory.MissionId" class="form-select" aria-label="Default select example">
                             <option selected>Select your mission</option>
                             
                               @{
@@ -19,18 +19,18 @@
                             Console.WriteLine(missionlist);
                             foreach(var listdropdown in missionlist)
                             {
-                                 <option asp-for="Title"value="@listdropdown.MissionId">@listdropdown.Mission.Title</option>
+                                 <option value="@listdropdown.MissionId">@listdropdown.Mission.Title</option>
                             }
                         }    
                         </select>
                     </div>
+                @*    <div class="col form-group">
+                        <label asp-for="Title"  class="form-label ms-1">My Story Title</label>
+                        <input asp-for="Title"  value="@Model.Title type="text" name="storyTitle" id="storyTitle" class="form-control" placeholder="Enter story title">
+                    </div>*@
                     <div class="col form-group">
-                        <label asp-for="Stories" class="form-label ms-1">My Story Title</label>
-                        <input type="text" name="storyTitle" id="Stories" class="form-control" placeholder="Enter story title">
-                    </div>
-                    <div class="col form-group">
-                        <label asp-for="PublishedAt" class="form-label ms-1">Date</label>
-                        <input type="date" name="storyTitle" id="PublishedAt" class="form-control">
+                        <label asp-for="AppliedStory.PublishedAt" class="form-label ms-1">Date</label>
+                        <input asp-for="AppliedStory.PublishedAt"  type="date" name="storyTitle" id="PublishedAt" class="form-control">
                     </div>
                 </div>
                 <!-- end of first row -->
@@ -91,13 +91,13 @@
                 
                 <!-- video link -->
                 <div class="mt-3 form-group"> 
-                    <label asp-for="Path" class="form-label ms-1">Enter Video URL</label>
-                    <input type="url" name="storyTitle" id="Path" class="form-control" placeholder="Enter your url">
+                    <label asp-for="AppliedStory.PublishedAt" class="form-label ms-1">Enter Video URL</label>
+                    <input asp-for="AppliedStory.PublishedAt" type="url" name="storyTitle" id="Path" class="form-control" placeholder="Enter your url">
                 </div>
                 <!-- video link ends -->
 
                 <!-- darg and drop -->
-                <label asp-for="Path" class="form-label mt-3 ms-1 mb-0">Upload your Photos</label>
+                <label asp-for="AppliedStory.PublishedAt" class="form-label mt-3 ms-1 mb-0">Upload your Photos</label>
                 <div class="form-group">
                <div class="card drag-card" style="border: none;">
                     <div class="drag-area">
@@ -105,7 +105,7 @@
                             <span class="select" role="button"><img src="~/images/drag-and-drop.png "></span>
                         </span>
                         <span class="on-drop">Drop images here</span>
-                        <input name="file" type="file" class="file" multiple />
+                        <input asp-for="AppliedStory.PublishedAt"  name="file" type="file" class="file" multiple />
                     </div>
                     <!-- IMAGE PREVIEW CONTAINER -->
                     <div class="container-img mt-3"></div>
@@ -117,14 +117,14 @@
                 <!-- submit buttons -->
                 <div class="row mt-3">
                     <div class="col-md-8 col">
-                        <button class="btn btn-outline-secondary rounded-pill px-5 py-2 mt-md-0 mt-2"  type="submit">Cancel</button>
+                        <button class="btn btn-outline-secondary rounded-pill px-5 py-2 mt-md-0 mt-2" >Cancel</button>
                     </div>
                     <div class="col-lg-2 col">
-                        <button type="submit" class="btn submit rounded-pill px-lg-5 px-md-4 px-5 mt-md-0 mt-2 py-2" name="submitType" value="draft">Save as Draft</button>
+                        <button class="btn submit rounded-pill px-lg-5 px-md-4 px-5 mt-md-0 mt-2 py-2" name="submitType" value="draft">Save as Draft</button>
                        
                     </div>
                     <div class="col-lg-2 col">
-                        <button asp-controller="story" asp-action="Shareyourstory" type="submit" class="btn submit rounded-pill px-lg-5 px-md-4 px-5 mt-md-0 mt-2 py-2" name="submitType" value="submit">Submit</button>
+                        <button  type="submit" class="btn submit rounded-pill px-lg-5 px-md-4 px-5 mt-md-0 mt-2 py-2" name="submitType" value="submit">Submit</button>
                         
                     </div>
                 </div>
@@ -151,33 +151,4 @@
         
         <script src="js/bootstrap.bundle.min.js"></script>  
         <script type="text/javascript" src="js/darg-drop.js"></script>
-            <script>
-            function submit() {
-    //get all selected radio button. In our case we gave same name to radio button
-    //so only one radio button will be selected either Male or Female
-   
-    let formData = {
-        Title: $("#mission").val(),
-        storyTitle: $("#storyTitle").val(),
-        CreatedAt: $("#date").val(),
-        Description: $("#text-input").val(),
-        MediaPath: $("#videourl").val(),
-        MediaPath: $("#photos").val(),
-      
-  
-    }
-    console.log(formData)
-    $.ajax({
-        url: "/Story/ShareYourStory",
-        type: "POST",
-        data: formData,
-        success: function(response) {
-            alert(response);
-        },
-        error: function(request, status, error) {
-            alert(request.responseText);
-        }
-    });
-}
-
-        </script>
+           

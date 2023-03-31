@@ -8,11 +8,9 @@ namespace CI_platfom.Entity.ViewModel
     {
         public long MissionId { get; set; }
         public string Title { get; set; }
-        public string Description { get; set; }
-        public long UserId { get; set; }
-    
         public string Type { get; set; } = null!;
         public string Path { get; set; } = null!;
+        public string? Description { get; set; }
         public string? Status { get; set; }
         public DateTime? PublishedAt { get; set; }
         public IEnumerable<Story> Stories { get; set; }
@@ -27,6 +25,7 @@ namespace CI_platfom.Entity.ViewModel
         public IEnumerable<User> UserList { get; set; }
         public IEnumerable<Skill> Skills { get; set; }
         public Story AppliedStory { get; set; }
+        public StoryMedium ShareStoryMedium { get; set; }    
         public User LoggedUser { get; set; }
         public IFormFile FormFile { get; set; }
     }

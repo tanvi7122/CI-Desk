@@ -41,11 +41,12 @@ namespace CI_platform.Repository.Repository
             public IMissionMediumRepository MissionMedium { get; private set; }
 
             public IStoryInviteRepository StoryInvite { get; private set; }
+            public IAddStoryRepository AddStory { get; private set; }
             public UnitOfWork(CiPlatformContext db)
             {
                 _db = db;
                 User = new UserRepository(_db);
-              
+                AddStory = new AddStoryRepository(_db);
                 Country = new CountryRepository(_db);
                 City = new CityRepository(_db);
                 MissionTheme = new MissionThemeRepository(_db);

@@ -1,154 +1,104 @@
-﻿ @using CI_platfom.Entity.ViewModel
+﻿@using CI_platfom.Entity.ViewModel
+@model StoryLandingPageVM
 @{
-    ViewData["Title"] = "Share_Your_Story";
-    Layout = "~/Views/Shared/_StoryLayout.cshtml";
+    ViewData["Title"] = "Share story page";
+     Layout = "~/Views/Shared/_StoryLayout.cshtml";
 }
-@model StoryLandingPageVM 
-<div class="container">
+
+<head>
+@*<script src="https://cdn.ckeditor.com/ckeditor5/31.1.0/classic/ckeditor.js"></script>*@
+
+<script src="https://cdn.ckeditor.com/4.21.0/standard/ckeditor.js"></script>
+</head>
+
+ <style>
+.ck-content{
+     height:200px !important;
+ }
+ </style>
+ <div class="container">
             <h2 class="ms-4 mt-3">Share your Story</h2>
-            <form method="post" class="ms-4 mt-5 text-secondary" id="myForm">
+            <form action="" class="ms-4 mt-5 text-secondary" id="storyFormData">
                 <!-- first row -->
-                <div class="row row-cols-lg-3 row-cols-md-3 row-cols-sm-2 row-cols-1">
-                    <div class="col form-group">
-                        <label  class="form-label ms-1">Select Mission</label>
-                        <select  asp-for="AppliedStory.MissionId" class="form-select" aria-label="Default select example">
+                <div class="row row-cols-lg-3 row-cols-md-3 row-cols-1">
+                    <div class="col">
+                        <label for="" class="form-label ms-1">Select Mission</label>
+                        <select class="form-select" aria-label="Default select example" id="shareStoryMission">
                             <option selected>Select your mission</option>
-                            
-                              @{
-                            var missionlist= Model.missionApplication.Where(u => u.UserId == Model.LoggedUser.UserId);
+                           
+                        @{
+                            var missionlist= Model.missionApplication.Where(u => u.UserId == Model.LoggedUser.UserId && u.ApprovalStatus=="APPROVE");
                             Console.WriteLine(missionlist);
                             foreach(var listdropdown in missionlist)
                             {
-                                 <option value="@listdropdown.MissionId">@listdropdown.Mission.Title</option>
+                                 <option value="@listdropdown.Mission.MissionId">@listdropdown.Mission.Title</option>
                             }
-                        }    
+                        }           
                         </select>
                     </div>
-                @*    <div class="col form-group">
-                        <label asp-for="Title"  class="form-label ms-1">My Story Title</label>
-                        <input asp-for="Title"  value="@Model.Title type="text" name="storyTitle" id="storyTitle" class="form-control" placeholder="Enter story title">
-                    </div>*@
-                    <div class="col form-group">
-                        <label asp-for="AppliedStory.PublishedAt" class="form-label ms-1">Date</label>
-                        <input asp-for="AppliedStory.PublishedAt"  type="date" name="storyTitle" id="PublishedAt" class="form-control">
+                    <div class="col">
+                        <label for="" class="form-label ms-1">My Story Title</label>
+                        <input type="text" name="storyTitle" id="storyTitle" class="form-control" placeholder="Enter story title" >
+                    </div>
+                    <div class="col">
+                        <label for="" class="form-label ms-1">Date</label>
+                        <input type="date" name="storyTitle" id="storyDate" class="form-control" placeholder="Select Date">
                     </div>
                 </div>
-                <!-- end of first row -->
-
-                <!-- ckeditor -->
-                <label for="" class="form-label ms-1 mt-3">My Story</label>
-                <div class="container border bg-light">
-                    <div class="options py-2 m-2">
-                        <!-- text format options -->
-                        <button class="option-button format buttons" type="button" id="bold">
-                            <i class="fa-solid fa-bold"></i>
-                        </button>
-                        <button id="italic" class="option-button format buttons" type="button">
-                            <i class="fa-solid fa-italic"></i>
-                        </button>
-                        <button id="underline" class="option-button format buttons" type="button">
-                            <i class="fa-solid fa-underline"></i>
-                        </button>
-                        <button id="strikethrough" class="option-button format buttons" type="button">
-                            <i class="fa-solid fa-strikethrough"></i>
-                        </button>
-                        <button id="superscript" class="option-button script buttons" type="button">
-                            <i class="fa-solid fa-superscript"></i>
-                        </button>
-                        <button id="subscript" class="option-button script buttons" type="button">
-                            <i class="fa-solid fa-subscript"></i>
-                        </button>
-                        <!-- <button id="textformat" class="option-button format buttons" type="button" onclick="format()">
-                            <i class="fa-solid fa-text-slash"></i>
-                        </button> -->
-                            
-                        <!-- end of text format -->
-
-                        <!-- list -->
-                        <button id="insertOrderedList" class="option-button buttons" type="button">
-                            <div class="fa-solid fa-list-ol"></div>
-                        </button>
-                        <button id="insertUnorderedList" class="option-button buttons" type="button">
-                            <div class="fa-solid fa-list"></div>
-                        </button>
-
-                        <!-- Undo / redo  -->
-                        <button id="undo" class="option-button buttons" type="button">
-                            <div class="fa-solid fa-rotate-left"></div>
-                        </button>
-                        <button id="redo" class="option-button buttons" type="button">
-                            <div class="fa-solid fa-rotate-right"></div>
-                        </button>
-                    </div>
+               @* <label for="" class="form-label ms-1 mt-3">My Story</label>
+                
+                  
 
                     <!-- text-area -->
-                    <div class="form-group">
-                    <div asp-for="Description" id="text-input" contenteditable="true" class="bg-white m-2"></div>
-                    <div class="end"></div>
+                    <textarea class="form-control" name="editor1"></textarea>
+                   *@
                     <!-- <div class="end"></div> -->
-                </div>
-                <!-- end of ckeditor -->
-                
-                <!-- video link -->
-                <div class="mt-3 form-group"> 
-                    <label asp-for="AppliedStory.PublishedAt" class="form-label ms-1">Enter Video URL</label>
-                    <input asp-for="AppliedStory.PublishedAt" type="url" name="storyTitle" id="Path" class="form-control" placeholder="Enter your url">
-                </div>
-                <!-- video link ends -->
-
-                <!-- darg and drop -->
-                <label asp-for="AppliedStory.PublishedAt" class="form-label mt-3 ms-1 mb-0">Upload your Photos</label>
                 <div class="form-group">
-               <div class="card drag-card" style="border: none;">
+                         <label class="form-label ms-1 mt-3">My Story</label>
+                        <textarea id="editor" name="DSC"></textarea>
+                 </div>
+                <div class="mt-3"> 
+                    <label for="" class="form-label ms-1">Enter Video URL</label>
+                    <textarea type="url" name="storyTitle" id="storyURL" class="form-control" placeholder="Enter your url"></textarea>
+                </div>
+                <label for="" class="form-label mt-3 ms-1 mb-0">Upload your Photos</label>
+                <div class="card drag-card" style="border: none;">
                     <div class="drag-area">
                         <span class="visible">
-                            <span class="select" role="button"><img src="~/images/drag-and-drop.png "></span>
+                            <span class="select" role="button"><img src="~/images/drag-and-drop.png"></span>
                         </span>
                         <span class="on-drop">Drop images here</span>
-                        <input asp-for="AppliedStory.PublishedAt"  name="file" type="file" class="file" multiple />
+                        <input name="file" type="file" class="file" id="upload-files" multiple />
                     </div>
                     <!-- IMAGE PREVIEW CONTAINER -->
-                    <div class="container-img mt-3"></div>
+                    <div class="container-img mt-3" id="imagesShow"></div>
                 </div>
-                </div>
-              
-                <!--  -->
-
-                <!-- submit buttons -->
                 <div class="row mt-3">
-                    <div class="col-md-8 col">
-                        <button class="btn btn-outline-secondary rounded-pill px-5 py-2 mt-md-0 mt-2" >Cancel</button>
+                    <div class="col-md-2 col">
+                        <button class="btn btn-outline-secondary rounded-pill px-5 py-2 mt-md-0 mt-2" type="submit">Cancel</button>
                     </div>
-                    <div class="col-lg-2 col">
-                        <button class="btn submit rounded-pill px-lg-5 px-md-4 px-5 mt-md-0 mt-2 py-2" name="submitType" value="draft">Save as Draft</button>
-                       
+                    <div class="col-md-6 col">
+                        <button class="btn btn-outline-secondary  rounded-pill px-5 py-2 mt-md-0 mt-2 " id="previewStory" disabled>Preview</button>
                     </div>
-                    <div class="col-lg-2 col">
-                        <button  type="submit" class="btn submit rounded-pill px-lg-5 px-md-4 px-5 mt-md-0 mt-2 py-2" name="submitType" value="submit">Submit</button>
-                        
+                    <div class="col-md-2 col">
+                        <button class="btn submit-btn rounded-pill px-5 py-2 mt-md-0 mt-2 saveStory" type="submit" value="1">Save</button>
+                    </div>
+                    <div class="col-md-2 col">
+                        <button class="btn submit-btn rounded-pill px-5 py-2 mt-md-0 mt-2 submitStory" id="submitStory" type="submit" disabled value="2">Submit</button>
                     </div>
                 </div>
-                <!-- end of button -->
-            </form>
-        </div>
-        
-        <!-- footer -->
-        <div class="container-fluid border mt-5"></div>    
-        <div class="container mt-2">
-            <div class="row d-flex no-mission">
-                <div class="col-lg-9 col-md-8 d-flex mb-4 justify-content-md-start justify-content-center">
-                    <li class="nav-item px-2"><a href="#">Privacy Policy</a></li>
-                    <li class="nav-item px-2"><a href="#">Cookie Policy</a></li>
-                    <li class="nav-item px-2"><a href="#">Terms of Use</a></li>
+                </form>
                 </div>
-                <div class="col-lg-3 col-md-4 text-center copyright mb-4">
-                    <h6>&copy; Optimy.com All right reserved.</h6>
-                </div>
-            </div>
-        </div> 
 
-        <script type="text/javascript" src="js/ckeditor.js"></script>
-        
-        <script src="js/bootstrap.bundle.min.js"></script>  
-        <script type="text/javascript" src="js/darg-drop.js"></script>
-           
+                <hr class="mt-5"/>
+
+    <div class="container mb-3">
+        <a asp-action="PrivacyPolicy" asp-controller="Mission">Privacy Policy</a>
+    </div>
+      <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+
+<script src="~/js/StoryPage.js"></script>
+
+<script>    
+        CKEDITOR.replace( 'editor' );
+</script>

@@ -12,6 +12,7 @@ namespace CI_platform.Repository.Interface
     public interface IStoryLandingRepository
     {
         StoryLandingPageVM GetStoryPageData(string email, long storyId,long missionId);
-        StoryLandingPageVM GetStorySharepage(string email);
+        //StoryLandingPageVM GetStorySharepage(string email);
+        StoryLandingPageVM GetPreviewStoryPageData(long userId, long missionId);
     }
 }

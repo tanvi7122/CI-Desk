@@ -9,11 +9,14 @@ using System.Threading.Tasks;
 
 namespace CI_platform.Repository.Interface
 {
-    public interface IStoryRepository:IRepository<Story>
-    {
-        public IEnumerable<Story> GetStoryCard();
-        public IEnumerable<Story> Add();
-        public IEnumerable<Story> GetStoryCardById(long id);
-     
+   
+        public interface IStoryRepository : IRepository<Story>
+        {
+            public IEnumerable<Story> GetStoryCard();
+            public Story GetStoryCardById(long id);
+
+            public Story GetPreviewStoryCardById(long userId, long missionId);
+       
     }
-}
+    }
+

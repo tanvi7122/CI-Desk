@@ -24,34 +24,41 @@ namespace CI_platform.Repository.Repository
 
             storylandingPageVM.LoggedUser = _unitOfWork.User.GetFirstOrDefault(u => u.Email == email);
 
-            storylandingPageVM.AppliedStory = _unitOfWork.Story.GetFirstOrDefault(u => u.StoryId == storyId);
+            storylandingPageVM.AppliedStory = _unitOfWork.Story.GetStoryCardById(storyId);
             storylandingPageVM.storyInvites = _unitOfWork.StoryInvite.GetAll();
             storylandingPageVM.UserList = _unitOfWork.User.GetAll().Where(u => u.Email != email);
-            storylandingPageVM.Mission = _unitOfWork.Mission.GetAll();
-            storylandingPageVM.StoryMedium = _unitOfWork.storyMedium.GetAll();
-            IEnumerable<Story> storylist;
-            storylist = _unitOfWork.Story.GetStoryCardById(storyId);
-            //storyLandingPageVM.ShareStoryMedium.StoryId = _unitOfWork.Story.GetAll();
+            //IEnumerable<Story> storylist;
+            //storylist = _unitOfWork.Story.GetStoryCardById(storyId);
             storylandingPageVM.AppliedStory.Mission = _unitOfWork.Mission.GetFirstOrDefault(u => u.MissionId == missionId);
-            
-            storylandingPageVM.Stories = storylist;
+            //storylandingPageVM.Stories = storylist;
             storylandingPageVM.Skills = _unitOfWork.Skill.GetAll();
             storylandingPageVM.Cities = _unitOfWork.City.GetAll();
             storylandingPageVM.Themes = _unitOfWork.MissionTheme.GetAll();
             storylandingPageVM.Countries = _unitOfWork.Country.GetAll();
             return storylandingPageVM;
         }
-        public StoryLandingPageVM GetStorySharepage(string email)
-        {
-            StoryLandingPageVM GetStorySharepage = new();
 
-            GetStorySharepage.LoggedUser = _unitOfWork.User.GetFirstOrDefault(u => u.Email == email);
-            GetStorySharepage.UserList = _unitOfWork.User.GetAll().Where(u => u.Email == email);
-            GetStorySharepage.Mission = _unitOfWork.Mission.GetAll();
-            GetStorySharepage.StoryMedium = _unitOfWork.storyMedium.GetAll();
-            GetStorySharepage.missionApplication=_unitOfWork.MissionApplication.GetAll();
       
-            return GetStorySharepage;
+        public StoryLandingPageVM GetPreviewStoryPageData(long userId, long missionId)
+        {
+            StoryLandingPageVM storylandingPageVM = new();
+
+            storylandingPageVM.LoggedUser = _unitOfWork.User.GetFirstOrDefault(u => u.UserId == userId);
+
+            //storylandingPageVM.AppliedStory = _unitOfWork.Story.GetFirstOrDefault(u => u.UserId==userId && u.MissionId==missionId && u.Status=="DRAFT");
+
+            storylandingPageVM.AppliedStory = _unitOfWork.Story.GetPreviewStoryCardById(userId, missionId);
+            storylandingPageVM.storyInvites = _unitOfWork.StoryInvite.GetAll();
+            storylandingPageVM.UserList = _unitOfWork.User.GetAll().Where(u => u.UserId != userId);
+            //IEnumerable<Story> storylist;
+            //storylist = _unitOfWork.Story.GetPreviewStoryCardById(userId ,missionId);
+            //storylandingPageVM.AppliedStory.Mission = _unitOfWork.Mission.GetFirstOrDefault(u => u.MissionId == missionId);
+            //storylandingPageVM.Stories = storylist;
+            storylandingPageVM.Skills = _unitOfWork.Skill.GetAll();
+            storylandingPageVM.Cities = _unitOfWork.City.GetAll();
+            storylandingPageVM.Themes = _unitOfWork.MissionTheme.GetAll();
+            storylandingPageVM.Countries = _unitOfWork.Country.GetAll();
+            return storylandingPageVM;
         }
     }
 }

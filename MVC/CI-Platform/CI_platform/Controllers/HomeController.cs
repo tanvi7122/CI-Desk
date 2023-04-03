@@ -17,8 +17,7 @@ namespace CI_platform.Controllers
         public readonly IAccountRepository _AccountRepo;
         public readonly IEmailRepository _emailobj;
         public readonly CiPlatformContext _context;
-
-
+ 
 
         public HomeController(ILogger<HomeController> logger, IAccountRepository AccountRepository, IEmailRepository emailobj, CiPlatformContext context)
         {
@@ -52,14 +51,14 @@ namespace CI_platform.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Login(User user)
         {
-            
+            var Temp = _context.Users.SingleOrDefault(u => u.Email == user.Email);
             var curser = _AccountRepo.GetUserEmail(user.Email);
             Console.WriteLine(user.Email);
             if (curser != null && curser.Password == user.Password)
             {
                 Console.WriteLine("Login successfull");
                 HttpContext.Session.SetString("UserEmail", user.Email);
-             
+                HttpContext.Session.SetString("UserId", Temp.UserId.ToString());
                 return RedirectToAction("HomePage", "Mission");
             }
             else

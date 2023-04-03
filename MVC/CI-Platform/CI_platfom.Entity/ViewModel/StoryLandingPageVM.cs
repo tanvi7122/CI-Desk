@@ -25,8 +25,12 @@ namespace CI_platfom.Entity.ViewModel
         public IEnumerable<User> UserList { get; set; }
         public IEnumerable<Skill> Skills { get; set; }
         public Story AppliedStory { get; set; }
-        public StoryMedium ShareStoryMedium { get; set; }    
+        public IEnumerable<StoryMedium> storyMedia { get; set; }
         public User LoggedUser { get; set; }
         public IFormFile FormFile { get; set; }
+        public int PageSize { get; set; }
+        public int CurrentPage { get; set; } 
+
+        public int TotalPages { get; set; }
     }
 }

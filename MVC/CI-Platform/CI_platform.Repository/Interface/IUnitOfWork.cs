@@ -22,6 +22,7 @@ namespace CI_platform.Repository.Interface
         public IMissionRepository Mission{ get; }
          
         public IStoryRepository Story{ get; }
+
         public IMissionRatingRepository MissionRating { get; }
 
         public IMissionInviteRepository MissionInvite { get; }
@@ -36,7 +37,7 @@ namespace CI_platform.Repository.Interface
         public IMissionApplicationRepository MissionApplication { get; }
 
         public IStoryInviteRepository StoryInvite { get; }
-        public IAddStoryRepository AddStory{ get; }
+        void Update(CI_platfom.Entity.Models.Story databaseStoryObj);
         void Save();
     }
 }

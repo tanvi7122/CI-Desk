@@ -41,18 +41,19 @@ namespace CI_platform.Repository.Repository
             public IMissionMediumRepository MissionMedium { get; private set; }
 
             public IStoryInviteRepository StoryInvite { get; private set; }
-            public IAddStoryRepository AddStory { get; private set; }
+          
             public UnitOfWork(CiPlatformContext db)
             {
                 _db = db;
                 User = new UserRepository(_db);
-                AddStory = new AddStoryRepository(_db);
+              
                 Country = new CountryRepository(_db);
                 City = new CityRepository(_db);
                 MissionTheme = new MissionThemeRepository(_db);
                 Skill = new SkillRepository(_db);
                 Mission = new MissionRepository(_db);
                 Story = new StoryRepository(_db);
+           
                storyMedium = new StoryMediumRepository(_db);
                 FavoriteMission = new FavouriteMissionRepository(_db);
                 MissionRating = new MissionRatingRepository(_db);
@@ -65,7 +66,10 @@ namespace CI_platform.Repository.Repository
                 StoryInvite = new StoryInviteRepository(_db);
               
             }
-
+        public void Update(CI_platfom.Entity.Models.Story databaseStoryObj)
+        { 
+        _db.Add(Story);
+        }
             public void Save()
             {
                 _db.SaveChanges();

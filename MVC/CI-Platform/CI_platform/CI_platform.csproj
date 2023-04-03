@@ -46,4 +46,8 @@
     <ProjectReference Include="..\CI_platform.Repository\CI_platform.Repository.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\upload\" />
+  </ItemGroup>
+
 </Project>

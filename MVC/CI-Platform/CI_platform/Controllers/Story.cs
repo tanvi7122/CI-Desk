@@ -3,7 +3,7 @@ using CI_platfom.Entity.Data;
 using CI_platfom.Entity.Models;
 using CI_platfom.Entity.ViewModel;
 using CI_platform.Repository.Interface;
-using CI_platform.Repository.Repository;
+
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
 using System.Net.Mail;
@@ -19,32 +19,22 @@ namespace CI_platform.Controllers
         private readonly IStoryHomeLandingRepository _StoryHomeLandingRepository;
         private readonly IStoryLandingRepository _StoryLandingRepository;
         private readonly IConfiguration _config;
-        private readonly IAddStoryRepository _AddStoryRepository;
+      
 
-        public StoryController(ILogger<HomeController> logger, IConfiguration config, IUnitOfWork unitOfWork, IStoryHomeLandingRepository StoryHomeLandingRepository, IStoryLandingRepository StoryLandingRepository, IAddStoryRepository _addStoryRepository, CiPlatformContext context)
+        public StoryController(ILogger<HomeController> logger, IConfiguration config, IUnitOfWork unitOfWork, IStoryHomeLandingRepository StoryHomeLandingRepository, IStoryLandingRepository StoryLandingRepository, CiPlatformContext context)
         {
             _unitOfWork = unitOfWork;
 
             this._logger = logger;
             _StoryHomeLandingRepository = StoryHomeLandingRepository;
             _StoryLandingRepository = StoryLandingRepository;
-            _AddStoryRepository =_addStoryRepository;
+        
+            
             _context = context;
             _config = config;
 
         }
-        public IActionResult StoryListing()
-        {
-            var sessionValue = HttpContext.Session.GetString("UserEmail");
-            if (String.IsNullOrEmpty(sessionValue))
-            {
-                TempData["error"] = "Session Expired!\nPlease Login Again!";
-                return RedirectToAction("Index");
-            }
-            StoryLandingPageVM storylandingPageData = _StoryHomeLandingRepository.GetStoryLandingPageData(sessionValue);
-            return View(storylandingPageData);
 
-        }
 
         public IActionResult StoryDetail(long storyId, long missionId)
         {
@@ -59,23 +49,92 @@ namespace CI_platform.Controllers
 
 
         }
-        public IActionResult ShareYourStory()
+        //public IActionResult ShareYourStory()
+        //{
+        //    var sessionValue = HttpContext.Session.GetString("UserEmail");
+        //    if (String.IsNullOrEmpty(sessionValue))
+        //    {
+        //        TempData["error"] = "Session Expired!\nPlease Login Again!";
+
+        //        return RedirectToAction("Index", "Home");
+        //    }
+        //    StoryLandingPageVM GetStorySharepage = _StoryLandingRepository.GetStorySharepage(sessionValue);
+        //    return View(GetStorySharepage);
+
+        //}
+
+
+        //[HttpPost]
+        //public IActionResult ShareYourStory(StoryLandingPageVM ShareStory)
+        //{
+        //    var sessionValue = HttpContext.Session.GetString("UserEmail");
+        //    if (String.IsNullOrEmpty(sessionValue))
+        //    {
+        //        TempData["error"] = "Session Expired!\nPlease Login Again!";
+        //        return RedirectToAction("Index", "Home");
+        //    }
+        //    if (ShareStory.AppliedStory!=null)
+        //    {
+
+        //        _AddStoryRepository.Add(ShareStory);
+        //            _AddStoryRepository.save();
+
+
+        //    }
+        //    return RedirectToAction("StoryListing", "Story");
+
+        //}
+        public JsonResult GetDraftStory(long missionId)
         {
-            var sessionValue = HttpContext.Session.GetString("UserEmail");
-            if (String.IsNullOrEmpty(sessionValue))
-            {
-                TempData["error"] = "Session Expired!\nPlease Login Again!";
-
-                return RedirectToAction("Index", "Home");
-            }
-            StoryLandingPageVM GetStorySharepage = _StoryLandingRepository.GetStorySharepage(sessionValue);
-            return View(GetStorySharepage);
-        
+            var userid = HttpContext.Session.GetString("UserId");
+            long userId = Convert.ToInt64(userid);
+            StoryLandingPageVM storylandingPageData = _StoryLandingRepository.GetPreviewStoryPageData(userId, missionId);
+            return Json(storylandingPageData.AppliedStory);
         }
-
-
         [HttpPost]
-        public IActionResult ShareYourStory(StoryLandingPageVM ShareStory)
+        public JsonResult AddStory(StoryAdd newstory)
+        {
+            var sessionValue = HttpContext.Session.GetString("UserEmail");
+            if (String.IsNullOrEmpty(sessionValue))
+            {
+                TempData["error"] = "Session Expired!\nPlease Login Again!";
+
+            }
+            var userid = HttpContext.Session.GetString("UserId");
+            var Photos = Request.Form.Files.ToList();
+            long UserId = Convert.ToInt64(userid);
+            var addStory = _StoryHomeLandingRepository.ShareYourStory(UserId, newstory, Photos);
+
+            return Json(new { success = true, message = "Story added successfully with Draft !!" });
+        }
+        public IActionResult StoryListing(int currentPage = 1)
+        {
+            var sessionValue = HttpContext.Session.GetString("UserEmail");
+            if (String.IsNullOrEmpty(sessionValue))
+            {
+                TempData["error"] = "Session Expired!\nPlease Login Again!";
+                return RedirectToAction("Index");
+            }
+            StoryLandingPageVM storylandingPageData = _StoryHomeLandingRepository.GetStoryLandingPageData(sessionValue, currentPage);
+            return View(storylandingPageData);
+
+        }
+        public IActionResult PreviewStory(long missionId)
+        {
+            var sessionValue = HttpContext.Session.GetString("UserEmail");
+            var tempuserId = HttpContext.Session.GetString("UserId");
+            long userId = Convert.ToInt64(tempuserId);
+            if (String.IsNullOrEmpty(sessionValue))
+            {
+                TempData["error"] = "Session Expired!\nPlease Login Again!";
+                return RedirectToAction("Index", "Home");
+            }
+            StoryLandingPageVM storylandingPageData = _StoryLandingRepository.GetPreviewStoryPageData(userId, missionId);
+            return View(storylandingPageData);
+        }
+
+
+        public IActionResult ShareYourStory(long storyId, long missionId, int currentPage = 1)
         {
             var sessionValue = HttpContext.Session.GetString("UserEmail");
             if (String.IsNullOrEmpty(sessionValue))
@@ -83,17 +142,11 @@ namespace CI_platform.Controllers
                 TempData["error"] = "Session Expired!\nPlease Login Again!";
                 return RedirectToAction("Index", "Home");
             }
-            if (ShareStory.AppliedStory!=null)
-            {
-
-                _AddStoryRepository.Add(ShareStory);
-                    _AddStoryRepository.save();
-                
-               
-            }
-            return RedirectToAction("StoryListing", "Story");
+            StoryLandingPageVM storylandingPageData = _StoryHomeLandingRepository.GetStoryLandingPageData(sessionValue, currentPage);
+            return View(storylandingPageData);
 
         }
+
         [HttpPost]
         public IActionResult AddVideos(string videoUrls)
         {

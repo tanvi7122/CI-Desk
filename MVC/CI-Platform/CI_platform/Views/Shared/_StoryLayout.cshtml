@@ -86,7 +86,7 @@
                                @{
                                if(@Model.LoggedUser.Avatar !=null)
                                 {
-                                  <span><img src=@Model.LoggedUser.Avatar class="rounded-circle " />  </span>
+                                  <span><img src=@Model.LoggedUser.Avatar class="rounded-circle"/></span>
                                 }
                                else
                                {
@@ -112,20 +112,14 @@
      
         @RenderBody()
     </div>
-       
-   <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/ckeditor.js"></script>
-    <script src="~/js/darg-drop.js"></script>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/Filters.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
-    @await RenderSectionAsync("Scripts", required: false)
-    <script src="https://code.jquery.com/jquery-3.6.3.min.js"
-  integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU="
-  crossorigin="anonymous"></script>
+      @*<script src="~/lib/jquery/dist/jquery.min.js"></script>*@
+       <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+    
+
+     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/StoryPage.js"></script>
+  <script src="https://cdn.ckeditor.com/4.20.2/standard/ckeditor.js"></script>
+ 
 </body>
 </html>
 

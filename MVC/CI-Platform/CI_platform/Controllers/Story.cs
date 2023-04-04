@@ -147,24 +147,7 @@ namespace CI_platform.Controllers
 
         }
 
-        [HttpPost]
-        public IActionResult AddVideos(string videoUrls)
-        {
-            var urls = videoUrls.Split(new[] { "\r\n", "\n" }, StringSplitOptions.RemoveEmptyEntries);
-            if (urls.Length > 20)
-            {
-                return BadRequest("You can add a maximum of 20 video URLs.");
-            }
-            foreach (var url in urls)
-            {
-                if (!Regex.IsMatch(url, @"^https?:\/\/(?:www\.|m\.)?youtube\.com\/watch\?v=.+$"))
-                {
-                    return BadRequest("Invalid YouTube URL.");
-                }
-                // Save URL to database
-            }
-            return Ok();
-        }
+ 
 
 
         [HttpPost]

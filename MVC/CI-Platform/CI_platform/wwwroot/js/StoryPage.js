@@ -178,7 +178,8 @@ $(".saveStory , .submitStory").click(function (e) {
                     const missionId = $('#shareStoryMission').val();
                     const newUrl = `/Story/PreviewStory?missionId=${missionId}`;
                     console.log(newUrl);
-                    window.location.href = newUrl;
+                    /*  window.location.href = newUrl;*/
+                    window.open(newUrl,'_blank');
                 });
             }
             else {
@@ -295,7 +296,7 @@ $('#shareStoryMission').on('change', function () {
                         $('.submitStory').prop('disabled', false);
                     }
                     else {
-
+                        
                         $('#storyTitle').val('');
                         /*  tinymce.get('editorhtml').setContent('');*/
                         CKEDITOR.instances.editor.setData(' ');

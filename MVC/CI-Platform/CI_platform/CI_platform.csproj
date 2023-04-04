@@ -6,10 +6,6 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
-	<ItemGroup>
-		<None Include="Views\Landing_page\Landing_page.cshtml" />
-	</ItemGroup>
-
   <ItemGroup>
     <PackageReference Include="FontAwesome" Version="4.7.0" />
     <PackageReference Include="MailKit" Version="3.6.0" />

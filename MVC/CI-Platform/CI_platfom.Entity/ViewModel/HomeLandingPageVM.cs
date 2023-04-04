@@ -31,8 +31,7 @@ namespace CI_platfom.Entity.ViewModel
         public IEnumerable<MissionDocument> missionDocument { get; set; }
         public IEnumerable<Mission> RelatedMissions { get; set; }
         public IEnumerable<MissionInvite> MissionInvites { get; set; }
-        //public IEnumerable<MissionSkills> MissionSkills { get; set; }
-        //public string SelectedCountry { get; set; }
+
         public User LoggedUser { get; set; }
         public Mission AppliedMission { get; set; }
         public int PageSize { get; set; }
@@ -42,6 +41,7 @@ namespace CI_platfom.Entity.ViewModel
         public int TotalPages { get; set; }
 
         public string sort { get; set; }
+        public User UserProfile { get; set; }
 
     }
 }

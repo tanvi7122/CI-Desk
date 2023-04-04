@@ -1,0 +1,64 @@
+﻿@using CI_platfom.Entity.ViewModel
+@model HomeLandingPageVM
+<head>
+    <link rel="stylesheet" href="~/css/UserProfile.css" />
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
+
+
+<button type="button" class="btn btn-outline-secondary rounded-pill px-4 mt-3" data-bs-toggle="modal" data-bs-target="#skill">Add Skills</button>
+<!-- model of add skills -->
+<div class="modal skill fade" id="skill" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header border-bottom-0">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Add your skills</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row skill-opt px-2">
+                    <div class="col-5 border">
+                        <select name="selectSkill" id="selectSkill" size=20 multiple="multiple" class="p-1">
+                            @foreach (var skill in Model.Skills)
+                            {
+                                <option class="p-1" value="@skill.SkillId">@skill.SkillName</option>
+                            }
+
+
+                        </select>
+                    </div>
+                    <div class="col-2 position-relative">
+                        <button class="btn" id="right" type="button" onclick="rightClick()"><img src="~/images/arrow.png"></img></button>
+                        <button class="btn" id="left" type="button" onclick="leftClick()"><img src="~/images/left.png"></img></button>
+                    </div>
+                    <div class="col-5  border">
+                        <select name="selectedSkill" id="selectedSkill" size=20 multiple="multiple" class="w-100 h-100 ms-1">
+                            @{
+                                var skillcount = @Model.UserProfile.UserSkills;
+
+                                if (skillcount != null)
+                                {
+                                    @foreach (var skillname in skillcount)
+                                    {
+                                        <option class="p-1" value="@skillname.Skill.SkillId">@skillname.Skill.SkillName</option>
+                                    }
+
+                                }
+                            }
+
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer d-block border-top-0">
+                <button type="button" class="btn btn-outline-secondary rounded-pill px-4" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn changePassword rounded-pill px-4" id="skillSave" data-bs-dismiss="modal" data-user-id=@Model.LoggedUser.UserId onclick="addingSkill()">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="~/js/UserProfile.js"></script>

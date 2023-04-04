@@ -1,0 +1,175 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: NotoSans-Light;
+}
+.nav ul li a{
+    color: #333;
+    font-weight: 300;
+}
+.userLogo{
+    width: 40px;
+    height: 40px;
+}
+.notification{
+    width: 1.25rem;
+    height: 1.25rem;
+}
+.search{
+    border: none;
+    color: #757575;
+    font-size: 20px;
+}
+.searchlogo{
+    width: 21px;
+    height: 22px;
+}
+.offcanvas-body .dropdown-item{
+    background-color: white;
+    color:black;
+}
+.navbar-toggler:focus{
+    box-shadow: none;
+}
+
+.footer{
+    padding-top: 15px;
+    color: #757575;
+}
+.footer li{
+    list-style: none;
+}
+.footer li a{
+    color: #333;
+    text-decoration: none;
+}
+
+.btn{
+    box-shadow: none !important;
+}
+
+.changePassword{
+    color: #f88634;
+    border: 1px solid #f88634;
+}
+.changePassword:hover{
+    color: white;
+    background-color: #f88634;
+}
+.modal{
+    top: 14% !important;
+}
+.skill{
+    top: 2% !important;
+}
+#skill{
+    border: none !important;
+}
+h3 { 
+    border-bottom: 1px solid #dee2e6;
+}
+
+span {
+    border-bottom: 2px solid black;
+    display: inline-block;
+    margin: 0 0 -2px 0;
+    padding: 16px 3px;
+}
+.switchOptions-right{
+    position: absolute;
+    top: 45%;
+    left: 41%;
+}
+.switchOptions-left{
+    position: absolute;
+    top: 50%;
+    left: 41%;
+}
+.skill-opt .col-5{
+    width:44.666667%;
+}
+.skill-opt .col-2{
+    width: 8.33333333%;
+}
+#selectedSkill,#selectSkill {
+    border: none !important;
+}
+
+#selectedSkill:focus,#selectSkill:focus{
+    outline: none !important;
+}
+
+#skills{
+    
+    overflow-y: scroll;
+}
+
+.userProfile{
+    height: 17vh; 
+    width: 17vh;
+}
+
+@media (max-width:1199px){
+    .userProfile{
+        height: 15vh;
+        width: 15vh;
+    }
+}
+
+@media (max-width:992px){
+    .userProfile{
+        height: 17vh;
+        width: 17vh;
+    }
+    .border{
+        width: 98.5%;
+        margin-left: 17px;
+    }
+}
+
+@media (max-width:576px){
+    .modal{
+        width: 90% !important;
+        left: 5% !important;
+        top: 6% !important;
+    }
+    .skill-opt .col-5{
+        width:100%;
+    }
+    .skill-opt .col-2{
+        width:100%;
+    }
+    .switchOptions-right{
+        /* position: absolute; */
+        bottom: 58%;
+        transform: rotate(89deg);
+        left: 42%;
+    }
+    .switchOptions-left{
+        /* position: absolute; */
+        bottom: 58%;
+        transform: rotate(89deg);
+        left: 50%;
+    }
+    #selectedSkill,#selectSkill {
+        width: 100%;
+        height: 250px !important;
+    }
+}
+
+.dropdown-toggle::after {
+    margin-left: 9px !important;
+}
+
+
+.btn-check:focus+.btn, .btn:focus{
+    box-shadow: none !important;
+}
+
+@media (max-width:767px){
+    .username{
+        display: none;
+    }
+}
+

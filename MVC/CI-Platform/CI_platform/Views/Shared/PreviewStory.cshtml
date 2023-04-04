@@ -1,10 +1,10 @@
 ﻿@using CI_platfom.Entity.ViewModel
-@model StoryLandingPageVM
+
 @{
     ViewData["Title"] = "StoryDetail";
       Layout = "~/Views/Shared/_StoryLayout.cshtml";
 }
-
+@model StoryLandingPageVM
 <style>
      .row {
         --bs-gutter-x: 0;
@@ -17,7 +17,7 @@
 
     <div class="container p-0">
         <div class="row p-0">
-           <div class="col-lg-6 col-md-6 col-sm-12">
+      <div class="col-lg-6 col-md-6 col-sm-12">
                     <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff"
                         class="swiper mySwiper2">
                         <div class="swiper-wrapper">
@@ -72,7 +72,6 @@
                 </div>
 
 
-
             <div class="col-lg-6 col-12 mt-5">
                 <div class="row px-5">
                     <h2>@Model.AppliedStory.Title</h2>
@@ -84,7 +83,8 @@
                         @Model.AppliedStory.User.WhyIVolunteer
                     </p>
                     <div class="col-md-8 col">
-                        <button class="header-btn px-5" style="height:50px"  data-bs-toggle="modal" data-bs-target="#coWorker1" type="button"><img src="~/images/add1.png" style="margin-right: 20px;" class="flex align-items-center"/>Recommend to Co-Worker</button>
+                        <button class="header-btn px-5" style="height:50px"  data-bs-toggle="modal" data-bs-target="#coWorker1" type="button">
+                            <img src="~/images/add1.png" style="margin-right: 20px;" class="flex align-items-center"/>Recommend to Co-Worker</button>
                     </div>
                     <div class="modal fade" id="coWorker1" tabindex="-1" aria-labelledby="coWorkerlLabel" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered">
@@ -113,19 +113,11 @@
                                             }
                                         </div>
 
+
                                     </div>
                                 </div>
                             </div>
-                    <div class="col-md-4 col">
-                                  <form method="post" asp-controller="Mission" asp-action="MissionDetail" asp-route-missionId="@Model.AppliedStory.Mission.MissionId" asp-route-themeId="@Model.AppliedStory.Mission.ThemeId" asp-route-cityId="@Model.AppliedStory.Mission.CityId" asp-route-countryId="@Model.AppliedStory.Mission.CountryId">
-                                
-                                   <input type="hidden" name="missionId" value="@Model.AppliedStory.Mission.MissionId"/>
-                                    <button class="submit-btn">
-                            Open Mission 
-                           <img src="~/images/right-arrow.png">
-                        </button>
-                            </form>
-                    </div>
+               
                    
                 </div>
             </div>
@@ -142,7 +134,7 @@
                     <div class="tab-pane fade show active mt-3 px-3" id="home" role="tabpanel" aria-labelledby="mission-tab">
                         <h3>@Model.AppliedStory.Title</h3>
                         <p style="font-size:15px">
-                            @Model.AppliedStory.Description
+                            @Html.Raw(Model.AppliedStory.Description)
                             <br>
                             <br>
 
@@ -193,3 +185,4 @@
                     },
                 });
             </Script>
+

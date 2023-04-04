@@ -31,15 +31,14 @@
             </div>
 
             <div class="col-lg-1 col-md-2 d-flex">
-                <button id="grid" class="btn-view temp">
-                    
-                    <img src="~/images/grid.png" alt="gridlogo"/>
-
-                </button>
-                <button id="list" class="btn-view temp">
-
-                       <img src="~/images/list.png" alt="listslogo">
-                </button>
+                 <div class="col-1">
+                    <button class="tablink" onclick="openPage('list', this,'#d8e4f0')"><img
+                            src="~/images/list.png"></button>
+                </div>
+                <div class="col-1">
+                    <button class="tablink " onclick="openPage('grid', this,'#d8e4f0')" id="defaultOpen"><img
+                            src="~/images/grid.png"></button>
+                </div>
           </div>
 
     </div>
@@ -49,52 +48,41 @@
 <partial name="_GridPartial" />
 <partial name="_ListPartial"/>
 
-@*<div class="container d-flex justify-content-center mt-5">
-    <nav aria-label="Page navigation example">
-  <ul class="pagination">
-            @if (Model.CurrentPage > 1)
-            {
-                  <li class="page-item">
-      <a class="page-link" href="/Mission/HomePage?sort=@Model.sort&currentPage=@(Model.CurrentPage-1)" aria-label="Previous">
-        <span aria-hidden="true">&laquo;</span>
-      
-      </a>
-    </li>
-            }
-          
-            @for(int i = 1; i < Model.TotalPages; i++)
-            {
-                if (i == Model.CurrentPage)
-                {
-                    <li class="page-item mx-3"><a class="page-link active" href="/Mission/HomePage?sort=@Model.sort&currentPage=@i">@i</a></li>
-                }
-                else
-                {
-                    <li class="page-item mx-3"><a class="page-link active" href="/Mission/HomePage?sort=@Model.sort&currentPage=@i">@i</a></li>
 
-                }
-            }
-            
-    @if(Model.CurrentPage < Model.TotalPages){
-    <li class="page-item">
-      <a class="page-link" href="/Mission/HomePage?sort=@Model.sort&currentPage=@(Model.CurrentPage+1)" aria-label="Next">
-        <span aria-hidden="true">&raquo;</span>
-       
-      </a>
-    </li>
-    }
-  </ul>
-</nav>
-</div>*@
+          
+         
 
 
 <div class="container-fluid mt-5">
     <hr />
     
 </div>
+ <script>
+            function openPage(pageName, elmnt, color) {
+                // Hide all elements with class="tabcontent" by default */
+                var i, tabcontent, tablinks;
+                tabcontent = document.getElementsByClassName("tabcontent");
+                for (i = 0; i < tabcontent.length; i++) {
+                    tabcontent[i].style.display = "none";
+                }
 
-  @*  <div class="container mb-3">
-         <a asp-controller="Mission" asp-action="PrivacyPolicy">Privacy Policy</a>
-    </div>*@
+                // Remove the background color of all tablinks/buttons
+                tablinks = document.getElementsByClassName("tablink");
+                for (i = 0; i < tablinks.length; i++) {
+                    tablinks[i].style.backgroundColor = "";
+                }
+
+                // Show the specific tab content
+                document.getElementById(pageName).style.display = "block";
+
+                // Add the specific color to the button used to open the tab content
+                elmnt.style.backgroundColor = color;
+            }
+
+            // Get the element with id="defaultOpen" and click on it
+            document.getElementById("defaultOpen").click();
+
+        </script>
+
    
 

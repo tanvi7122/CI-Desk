@@ -1,0 +1,157 @@
+﻿@using CI_platfom.Entity.ViewModel
+@model HomeLandingPageVM
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
+<form action="">
+    <div class="row mt-3">
+         <div class="col-lg-2 mx-5 text-center">
+                    <div class="border">
+                        <div class="d-flex justify-content-center">
+                                <img src="~/images/user-img-large.png" alt="" class="rounded-circle mt-3 userProfile">
+                    
+                        </div>
+                        <h5 class="mt-3 "><strong>Evan Donohue</strong></h5>
+                        <!-- Change password trigger modal -->
+                        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                            <h6 class="">Change Password</h6>
+                        </button>
+    
+                        <!-- Modal -->
+                        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header border-bottom-0">
+                                        <h1 class="modal-title fs-5" id="staticBackdropLabel">Change Password</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                 
+                              @*         <form asp-action="" method="post" asp-controller="" >
+                                    <div class="modal-body">
+                                            <input class="form-control" type="password" placeholder="Enter Old Password" aria-label="default input example" name="oldPassword">
+                                           <input asp-for="Password" type="Password" class="form-control" id="password" placeholder="**********">
+                                           <input asp-for="Password" type="Password"  class="form-control" name="conformpassword" id="password" placeholder="**********">
+                                        
+                                    </div>
+                                    <div class="modal-footer border-top-0">
+                                        <button type="button" class="btn btn-outline-secondary rounded-pill px-4" data-bs-dismiss="modal">Cancel</button>
+                                        <button type="button" class="btn changePassword rounded-pill px-4">Change Password</button>
+                                        <button type="submit" class="btn changePassword rounded-pill px-4reset-btn">Change Password</button>
+                                    </div>
+                                    </form>*@
+                                </div>
+                            </div>
+                        </div>
+                    </div>    
+                </div>
+   <div class="col-lg-7">
+       <h3 class=""><span>Basic Information</span> </h3>
+       <div class="row">
+        <div class=" col-sm-6">
+            <label for="name" class="form-label text-secondary">Name *</label>
+            <input type="text" class="form-control" id="name" placeholder="Enter your name" value="@Model.LoggedUser.FirstName">
+
+        </div>
+        <div class="col">
+            <label for="surname" class="form-label text-secondary">Surname *</label>
+            <input type="text" class="form-control" id="surname" placeholder="Enter your surname" value="@Model.LoggedUser.LastName">
+        </div>
+        </div>
+   
+    <div class="row mt-3">
+        <div class="col-sm-6">
+            <label for="employee" class="form-label text-secondary">Employee ID</label>
+            <input type="text" class="form-control text-secondary" id="employee" placeholder="Enter your employee id" value="@Model.LoggedUser.EmployeeId">
+        </div>
+        <div class="col">
+            <label for="manager" class="form-label text-secondary">Manager</label>
+            <input type="text" class="form-control" id="manager" placeholder="Enter your manager details">
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-sm-6">
+            <label for="title" class="form-label text-secondary">Title</label>
+            <input type="text" class="form-control" id="title" placeholder="Enter Title" value="@Model.LoggedUser.Title">
+        </div>
+        <div class="col">
+            <label for="department" class="form-label text-secondary">Department</label>
+            <input type="text" class="form-control" id="department" placeholder="Enter your Department" value="@Model.LoggedUser.Department">
+        </div>
+    </div>
+    <div class="mt-3">
+        <label for="profile" class="form-label text-secondary">My Profile *</label>
+        <textarea class="form-control" id="profile" rows="4" placeholder="Enter your comments...">@Model.LoggedUser.ProfileText</textarea>
+    </div>
+    <div class="mt-3">
+        <label for="volunteerReason" class="form-label text-secondary">Why I Volunteer?</label>
+        <textarea class="form-control" id="volunteerReason" rows="4" placeholder="Enter your comments...">@Model.LoggedUser.WhyIVolunteer</textarea>
+    </div>
+
+    <h3 class="mt-4"><span>Address Information</span></h3>
+    <div class="row mt-3">
+        <div class="col-sm-6">
+            <label for="city" class="form-label text-secondary">City</label>
+            <select class="form-select text-secondary" aria-label="Default select example" id="city" name="city">
+            </select>
+        </div>
+        <div class="col">
+            <label for="country" class="form-label text-secondary">Country *</label>
+
+            <select class="form-select text-secondary" aria-label="Default select example" id="Country" value="@Model.LoggedUser.CountryId" asp-for="LoggedUser.CountryId">
+
+                @foreach (var country in Model.Countries)
+                {
+                    @if (country.CountryId == Model.LoggedUser.CountryId)
+                    {
+                        <option value="@country.CountryId" selected>@country.Name</option>
+                    }
+                    else
+                    {
+                        <option value="@country.CountryId">@country.Name</option>
+                    }
+                }
+            </select>
+        </div>
+    </div>
+
+    <h3 class="mt-4"><span>Professional Information</span></h3>
+    <div class="row mt-3">
+        <div class="col-sm-6">
+            <label for="availablity" class="form-label text-secondary">Availablity *</label>
+            <select class="form-select text-secondary" aria-label="Default select example">
+                <option selected>Select your availablity</option>
+                <option value="1">Daily</option>
+                <option value="">Weekly</option>
+                <option value="">Yearly</option>
+                <option value="">Monthly</option>
+            </select>
+        </div>
+        <div class="col">
+            <label for="linkedIn" class="form-label text-secondary">LinkedIn</label>
+            <input type="url" class="form-control" id="linkedIn" placeholder="Enter linkedIn URL" required value="@Model.LoggedUser.LinkedInUrl">
+        </div>
+    </div>
+
+    <h3 class="mt-4"><span>My Skills</span></h3>
+    <div id="partial-UserProfileSkill">
+ <div id="skills">
+  @{ 
+      var skillcount = @Model.UserProfile.UserSkills;
+   }     
+          @foreach(var skillname in skillcount)
+            {
+                @(skillname.Skill.SkillName+"\n");
+            }
+    
+        </div>
+
+        <partial name="UserSkill" />
+    </div>
+
+    <div class="d-flex justify-content-end">
+        <button type="button" class="btn changePassword rounded-pill px-4 submit-userProfile" onclick="updateUserProfile()" data-user-id="@Model.LoggedUser.UserId">Save</button>
+    </div>
+
+</form>
+</div>
+<script src="~/js/UserProfile.js"></script>

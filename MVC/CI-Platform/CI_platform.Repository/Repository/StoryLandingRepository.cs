@@ -42,7 +42,7 @@ namespace CI_platform.Repository.Repository
         public StoryLandingPageVM GetPreviewStoryPageData(long userId, long missionId)
         {
             StoryLandingPageVM storylandingPageVM = new();
-
+         
             storylandingPageVM.LoggedUser = _unitOfWork.User.GetFirstOrDefault(u => u.UserId == userId);
 
             //storylandingPageVM.AppliedStory = _unitOfWork.Story.GetFirstOrDefault(u => u.UserId==userId && u.MissionId==missionId && u.Status=="DRAFT");

@@ -23,7 +23,7 @@ namespace CI_platform.Controllers
             var cities = _unitOfWork.City.GetAll().Where(c => c.CountryId == country).ToList();
             return Json(cities);
         }
-        public IActionResult UserProfile()
+        public IActionResult Profile()
         {
             var sessionValue = HttpContext.Session.GetString("UserEmail");
             if (String.IsNullOrEmpty(sessionValue))
@@ -51,7 +51,7 @@ namespace CI_platform.Controllers
                 var fileName = Guid.NewGuid().ToString() + Path.GetExtension(avatarFile.FileName);
 
                 // Get the path to the user's avatar folder
-                var avatarFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "avatar");
+                var avatarFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "Avatar");
 
                 // If the user doesn't have an avatar folder, create one
                 //if (!Directory.Exists(avatarFolder))

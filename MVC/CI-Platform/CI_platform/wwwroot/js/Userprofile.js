@@ -129,7 +129,7 @@ function updateUserProfile() {
             window.location.reload();
 
         },
-        error: function () {
+        error: function (error) {
             alert("hello world");
         }
 

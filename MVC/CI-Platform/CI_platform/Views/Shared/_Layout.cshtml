@@ -8,10 +8,10 @@
     <title>@ViewData["Title"] - CI_platform</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
      <link rel="stylesheet" href="~/css/Volunteering.css" />
-
+     <link rel="stylesheet" href="~/css/mission.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/HomePage.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/css/mission.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/Volunteering.css"/>
     <link rel="stylesheet" href="~/CI_platform.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -96,7 +96,7 @@
                             </p>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
-                             <li><a class="dropdown-item" asp-controller="User" asp-action="UserProfile">My Profile</a></li>
+                             <li><a class="dropdown-item" asp-controller="User" asp-action="Profile">My Profile</a></li>
                             <li><a class="dropdown-item" href="#">Volunteering Timesheet</a></li>
                             <li><a class="dropdown-item" asp-controller="Home" asp-action="Login">Logout</a></li>
                         </ul>

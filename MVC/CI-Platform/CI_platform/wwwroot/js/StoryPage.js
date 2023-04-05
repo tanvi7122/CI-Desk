@@ -222,10 +222,10 @@ $(".saveStory , .submitStory").click(function (e) {
 
 
 $('#shareStoryMission').on('change', function () {
-
+    var missionId = $('#shareStoryMission').val();
     files.length = 0;
 
-    var missionId = $(this).val();
+   
 
     $.ajax({
         type: "GET",
@@ -239,64 +239,8 @@ $('#shareStoryMission').on('change', function () {
                 data: { missionId: missionId },
                 success: function (story) {
 
-                    if (story != null) {
+                    if (story == "nodraft") {
 
-                        const date = new Date(story.createdAt);
-                        const yyyy = date.getFullYear();
-                        const mm = String(date.getMonth() + 1).padStart(2, '0');
-                        const dd = String(date.getDate()).padStart(2, '0');
-                        const formattedDate = `${yyyy}-${mm}-${dd}`;
-
-
-                        //var plainTextDescription = $(story.description).text().replace(/<\/?[^>]+(>|$)/g, '');
-
-                        CKEDITOR.instances.editor.setData($(story.description).text());
-                        //tinymce.get('editorhtml').setContent(plainTextDescription);
-
-
-                        $('#storyTitle').val(story.title);
-                        $('#storyDate').val(formattedDate);
-
-
-
-                        let videoUrls = '';
-
-                        story.storyMedia.forEach(media => {
-                            if (media.type === 'videourl') {
-                                videoUrls += media.path + '\n';
-                            }
-                        });
-
-                        story.storyMedia.forEach(media => {
-                            if (media.type === 'image') {
-
-                                fetch('/Upload/' + media.path)
-                                    .then(response => response.blob())
-                                    .then(blob => {
-
-                                        const file = new File([blob], media.path, { type: blob.type });
-
-                                        files.push(file);
-                                        showImages();
-                                        console.log(files)
-                                        //UPLOADED_FILES = document.querySelectorAll(".js-remove-image");
-                                        //removeFile();
-
-                                    })
-                                    .catch(error => console.error(error));
-                            }
-                        });
-
-
-
-
-
-
-                        $('#storyURL').val(videoUrls);
-                        $('.submitStory').prop('disabled', false);
-                    }
-                    else {
-                        
                         $('#storyTitle').val('');
                         /*  tinymce.get('editorhtml').setContent('');*/
                         CKEDITOR.instances.editor.setData(' ');
@@ -305,6 +249,55 @@ $('#shareStoryMission').on('change', function () {
                         files.length = 0;
                         showImages();
                         $('.submitStory').prop('disabled', true);
+
+                    }
+                    else {
+
+                        CKEDITOR.instances.editor.setData($(story.value.description).text());
+                        //tinymce.get('editorhtml').setContent(plainTextDescription);
+
+
+                        $('#storyTitle').val(story.value.title);
+                        $('#storyDate').val(story.value.date);
+
+
+
+                        let videoUrls = '';
+
+                        story.value.storyMediaVideoUrl.forEach(media => {
+                            {
+                                videoUrls += media + '\n';
+                            }
+                        });
+                        let Upload = '';
+                        story.value.storyMediaPath.forEach(media => {
+                            fetch('/Upload/' + media)
+                                .then(response => response.blob())
+                                .then(blob => {
+                                    const file = new File([blob], media, { type: blob.type });
+                                    files.push(file);
+                                    showImages();
+                                    console.log(files);
+                                    UPLOADED_FILES = document.querySelectorAll(".js-remove-image");
+                                    removeFile();
+                                })
+                                .catch(error => {
+                                    console.error('Error fetching file:', error);
+                                    // Handle error, such as displaying a message to the user
+                                });
+                        });
+
+
+
+
+
+
+                        $('#upload-files').val(Upload);
+                        $('#storyURL').val(videoUrls);
+                        $('.submitStory').prop('disabled', false);
+
+                        
+                      
                     }
                 },
                 error: function (error) {

@@ -78,16 +78,15 @@ body {
         display: none !important;
     }
 
-    .img-filter {
+   /* .img-filter {
         display: block;
-    }
+    }*/
 
     .nav-item {
         display: none;
     }
-    .tablink {
-        display: none;
-    }
+}
+
 
 .nav-tabs .nav-link.active {
     color: #414141;

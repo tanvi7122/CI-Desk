@@ -43,6 +43,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="wwwroot\Avatar\" />
     <Folder Include="wwwroot\upload\" />
   </ItemGroup>
 

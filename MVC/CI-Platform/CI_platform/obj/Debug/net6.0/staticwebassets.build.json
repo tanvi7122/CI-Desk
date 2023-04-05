@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "z0jnVs7gSYY4gUM83a3eKhYuA/FpiBAGfmyqznWp4T4=",
+  "Hash": "0JRGyTVRs0t8uycCRLwcMU66PHw9J90FDkq1UT/fpCI=",
   "Source": "CI_platform",
   "BasePath": "_content/CI_platform",
   "Mode": "Default",
@@ -3842,6 +3842,23 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
     },
     {
+      "Identity": "C:\\Users\\pca142\\Desktop\\CI-Desk\\MVC\\CI-Platform\\CI_platform\\wwwroot\\upload\\Animal-welfare-_-save-birds-campaign_20008.png",
+      "SourceId": "CI_platform",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\pca142\\Desktop\\CI-Desk\\MVC\\CI-Platform\\CI_platform\\wwwroot\\",
+      "BasePath": "_content/CI_platform",
+      "RelativePath": "upload/Animal-welfare-_-save-birds-campaign_20008.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\upload\\Animal-welfare-_-save-birds-campaign_20008.png"
+    },
+    {
       "Identity": "C:\\Users\\pca142\\Desktop\\CI-Desk\\MVC\\CI-Platform\\CI_platform\\wwwroot\\upload\\bin_20009.png",
       "SourceId": "CI_platform",
       "SourceType": "Discovered",
@@ -3893,6 +3910,40 @@
       "OriginalItemSpec": "wwwroot\\upload\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity_20010.png"
     },
     {
+      "Identity": "C:\\Users\\pca142\\Desktop\\CI-Desk\\MVC\\CI-Platform\\CI_platform\\wwwroot\\upload\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity_20013.png",
+      "SourceId": "CI_platform",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\pca142\\Desktop\\CI-Desk\\MVC\\CI-Platform\\CI_platform\\wwwroot\\",
+      "BasePath": "_content/CI_platform",
+      "RelativePath": "upload/CSR-initiative-stands-for-Coffee--and-Farmer-Equity_20013.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\upload\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity_20013.png"
+    },
+    {
+      "Identity": "C:\\Users\\pca142\\Desktop\\CI-Desk\\MVC\\CI-Platform\\CI_platform\\wwwroot\\upload\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-1_20010.png",
+      "SourceId": "CI_platform",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\pca142\\Desktop\\CI-Desk\\MVC\\CI-Platform\\CI_platform\\wwwroot\\",
+      "BasePath": "_content/CI_platform",
+      "RelativePath": "upload/CSR-initiative-stands-for-Coffee--and-Farmer-Equity-1_20010.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\upload\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-1_20010.png"
+    },
+    {
       "Identity": "C:\\Users\\pca142\\Desktop\\CI-Desk\\MVC\\CI-Platform\\CI_platform\\wwwroot\\upload\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-1_20011.png",
       "SourceId": "CI_platform",
       "SourceType": "Discovered",
@@ -3908,6 +3959,74 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\upload\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-1_20011.png"
+    },
+    {
+      "Identity": "C:\\Users\\pca142\\Desktop\\CI-Desk\\MVC\\CI-Platform\\CI_platform\\wwwroot\\upload\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-1_20012.png",
+      "SourceId": "CI_platform",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\pca142\\Desktop\\CI-Desk\\MVC\\CI-Platform\\CI_platform\\wwwroot\\",
+      "BasePath": "_content/CI_platform",
+      "RelativePath": "upload/CSR-initiative-stands-for-Coffee--and-Farmer-Equity-1_20012.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\upload\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-1_20012.png"
+    },
+    {
+      "Identity": "C:\\Users\\pca142\\Desktop\\CI-Desk\\MVC\\CI-Platform\\CI_platform\\wwwroot\\upload\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-1_20013.png",
+      "SourceId": "CI_platform",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\pca142\\Desktop\\CI-Desk\\MVC\\CI-Platform\\CI_platform\\wwwroot\\",
+      "BasePath": "_content/CI_platform",
+      "RelativePath": "upload/CSR-initiative-stands-for-Coffee--and-Farmer-Equity-1_20013.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\upload\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-1_20013.png"
+    },
+    {
+      "Identity": "C:\\Users\\pca142\\Desktop\\CI-Desk\\MVC\\CI-Platform\\CI_platform\\wwwroot\\upload\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-2_20010.png",
+      "SourceId": "CI_platform",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\pca142\\Desktop\\CI-Desk\\MVC\\CI-Platform\\CI_platform\\wwwroot\\",
+      "BasePath": "_content/CI_platform",
+      "RelativePath": "upload/CSR-initiative-stands-for-Coffee--and-Farmer-Equity-2_20010.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\upload\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-2_20010.png"
+    },
+    {
+      "Identity": "C:\\Users\\pca142\\Desktop\\CI-Desk\\MVC\\CI-Platform\\CI_platform\\wwwroot\\upload\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-2_20013.png",
+      "SourceId": "CI_platform",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\pca142\\Desktop\\CI-Desk\\MVC\\CI-Platform\\CI_platform\\wwwroot\\",
+      "BasePath": "_content/CI_platform",
+      "RelativePath": "upload/CSR-initiative-stands-for-Coffee--and-Farmer-Equity-2_20013.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\upload\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-2_20013.png"
     },
     {
       "Identity": "C:\\Users\\pca142\\Desktop\\CI-Desk\\MVC\\CI-Platform\\CI_platform\\wwwroot\\upload\\Education-Supplies-for-Every--Pair-of-Shoes-Sold-2_20007.png",
@@ -3927,12 +4046,12 @@
       "OriginalItemSpec": "wwwroot\\upload\\Education-Supplies-for-Every--Pair-of-Shoes-Sold-2_20007.png"
     },
     {
-      "Identity": "C:\\Users\\pca142\\Desktop\\CI-Desk\\MVC\\CI-Platform\\CI_platform\\wwwroot\\upload\\Plantation-and-Afforestation-programme_20008.png",
+      "Identity": "C:\\Users\\pca142\\Desktop\\CI-Desk\\MVC\\CI-Platform\\CI_platform\\wwwroot\\upload\\Plantation-and-Afforestation-programme_20008_20008.png",
       "SourceId": "CI_platform",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\pca142\\Desktop\\CI-Desk\\MVC\\CI-Platform\\CI_platform\\wwwroot\\",
       "BasePath": "_content/CI_platform",
-      "RelativePath": "upload/Plantation-and-Afforestation-programme_20008.png",
+      "RelativePath": "upload/Plantation-and-Afforestation-programme_20008_20008.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -3941,7 +4060,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\upload\\Plantation-and-Afforestation-programme_20008.png"
+      "OriginalItemSpec": "wwwroot\\upload\\Plantation-and-Afforestation-programme_20008_20008.png"
     }
   ]
 }

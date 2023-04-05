@@ -89,7 +89,33 @@ namespace CI_platform.Controllers
             var userid = HttpContext.Session.GetString("UserId");
             long userId = Convert.ToInt64(userid);
             StoryLandingPageVM storylandingPageData = _StoryLandingRepository.GetPreviewStoryPageData(userId, missionId);
-            return Json(storylandingPageData.AppliedStory);
+            if (storylandingPageData.AppliedStory != null) 
+            {
+                List<long> StoryMediaIdList = new List<long>();
+                List<string> StoryMediaPathList = new List<string>();
+                List<string> StoryMediaVideoUrlList = new List<string>();
+                foreach (var item in storylandingPageData.AppliedStory.StoryMedia.Where(s => s.Type != "videourl"))
+                {
+                    StoryMediaIdList.Add(item.StoryMediaId);
+                    StoryMediaPathList.Add(item.Path);
+                }
+                foreach (var item1 in storylandingPageData.AppliedStory.StoryMedia.Where(s => s.Type != "image"))
+                {
+                    StoryMediaVideoUrlList.Add(item1.Path);
+                }
+                JsonResult draftstory = new JsonResult(new
+                {
+                    title = storylandingPageData.AppliedStory.Title,
+                    date = storylandingPageData.AppliedStory.PublishedAt.Value.ToString("yyyy-MM-dd"),
+                    description = storylandingPageData.AppliedStory.Description,
+                    StoryMediaID = StoryMediaIdList,
+                    StoryMediaPath = StoryMediaPathList,
+                    StoryMediaVideoUrl = StoryMediaVideoUrlList
+                });
+                return Json(draftstory);
+
+            }
+return new JsonResult("nodraft");
         }
         [HttpPost]
         public JsonResult AddStory(StoryAdd newstory)

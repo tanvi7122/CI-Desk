@@ -98,7 +98,7 @@ function addingSkill() {
 };
 
 function updateUserProfile() {
-
+    var LoggerUserId = document.getElementById('loggerUser').value;
     var UserProfile = {
         WhyIVolunteer: $('#volunteerReason').val(),
         Department: $('#department').val(),
@@ -110,8 +110,8 @@ function updateUserProfile() {
         FirstName: $('#name').val(),
         LastName: $('#surname').val(),
         EmployeeId: $('#employee').val(),
-
-        UserId: $('.submit-userProfile').data('user-id'),
+     
+        UserId: $('UserId').val(),
     }
 
     $.ajax({
@@ -142,39 +142,68 @@ function passwordChange() {
 }
 
 
-//$(document).ready(function () {
-//    $("#avatar-upload").on("change", function () {
-//        var file = $(this).get(0).files[0];
-//        var reader = new FileReader();
-//        reader.onload = function (e) {
-//            $("#avatar-img").attr("src", e.target.result);
-//        }
-//        reader.readAsDataURL(file);
-//    });
-//});
 
-var avatarUpload = document.getElementById('avatar-upload');
-// Listen for changes to the selected file
-avatarUpload.addEventListener('change', function () {
-    // Create a new FormData object
-    var formData = new FormData();
+function verifyFileUpload(e) {
+    var file = document.getElementById("avatar-upload");
+    var LoggerUserId = document.getElementById('loggerUser').value;
+    if (file && file.files.length > 0) {
+        var img = new Image();
+        var flag = 0;
+        img.src = window.URL.createObjectURL(file.files[0]);
+        img.onload = function () {
+            var width = this.naturalWidth,
+                height = this.naturalHeight;
 
-    // Add the selected file to the FormData object
-    formData.append('avatarFile', avatarUpload.files[0]);
-    formData.append('UserId', $('#logged-userId').val());
-    console.log(formData);
+            console.log("Image Width: " + width);
+            console.log("Image Height: " + height);
+            if (this.naturalHeight > 100 || this.naturalWidth > 100) {
+                alert('The selected image exceeds the maximum allowed dimensions of ' + 100 + ' x ' + 100 + ' pixels.');
+                flag = 1;
+            }
+            if (flag == 0) {
+                var formData = new FormData();
 
-    // Send an AJAX request to upload the file
-    $.ajax({
-        url: '/User/UploadAvatar',
-        type: 'POST',
-        data: formData,
-        processData: false,
-        contentType: false,
-        success: function (data) {
-            // Update the user's avatar image in the view
-            $('#avatar-img').attr('src', data.avatar);
-            $('#header-avatar').attr('src', data.avatar);
-        }
-    });
+                // Add the selected file to the FormData object
+                formData.append('avatarFile', file.files[0]);
+                formData.append('UserId', LoggerUserId);
+
+
+                console.log(formData);
+
+                // Send an AJAX request to upload the file
+                $.ajax({
+                    url: '/User/UploadAvatar',
+                    type: 'POST',
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    success: function (data) {
+                        console.log(data);
+                        // Update the user's avatar image in the view
+                        $('#avatar-img').attr('src', data.avatar);
+                        $('#header-avatar').attr('src', data.avatar);
+                    }
+                });
+            }
+        };
+
+    }
+}
+
+        
+    
+
+
+$('#avatar-img').click(function () {
+    $('#avatar-upload').click();
 });
+
+
+
+
+
+
+
+
+
+

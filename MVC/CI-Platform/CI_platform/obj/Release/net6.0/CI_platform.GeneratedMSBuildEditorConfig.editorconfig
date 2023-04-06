@@ -51,10 +51,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxSZXNldC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pca142/Desktop/CI-Desk/MVC/CI-Platform/CI_platform/Views/Landing_page/Landing_page.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGFuZGluZ19wYWdlXExhbmRpbmdfcGFnZS5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/pca142/Desktop/CI-Desk/MVC/CI-Platform/CI_platform/Views/Mission/HomePage.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWlzc2lvblxIb21lUGFnZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -67,6 +63,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/pca142/Desktop/CI-Desk/MVC/CI-Platform/CI_platform/Views/Shared/PreviewStory.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFByZXZpZXdTdG9yeS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/pca142/Desktop/CI-Desk/MVC/CI-Platform/CI_platform/Views/Shared/ShareYourStory.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFNoYXJlWW91clN0b3J5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -77,6 +77,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/pca142/Desktop/CI-Desk/MVC/CI-Platform/CI_platform/Views/Shared/StoryListing.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFN0b3J5TGlzdGluZy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/pca142/Desktop/CI-Desk/MVC/CI-Platform/CI_platform/Views/Shared/UserSkill.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFVzZXJTa2lsbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/pca142/Desktop/CI-Desk/MVC/CI-Platform/CI_platform/Views/Shared/_GridPartial.cshtml]
@@ -109,6 +113,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/pca142/Desktop/CI-Desk/MVC/CI-Platform/CI_platform/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/pca142/Desktop/CI-Desk/MVC/CI-Platform/CI_platform/Views/User/Profile.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxQcm9maWxlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/pca142/Desktop/CI-Desk/MVC/CI-Platform/CI_platform/Views/_ViewImports.cshtml]

@@ -7,10 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - CI_platform</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/HomePage.css" asp-append-version="true" />
      <link rel="stylesheet" href="~/css/Volunteering.css" />
      <link rel="stylesheet" href="~/css/mission.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/css/HomePage.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/Volunteering.css"/>
     <link rel="stylesheet" href="~/CI_platform.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="css/bootstrap.min.css" />
@@ -83,11 +83,11 @@
                                @{
                                if(@Model.LoggedUser.Avatar !=null)
                                 {
-                                  <span><img src=@Model.LoggedUser.Avatar class="rounded-circle " />  </span>
+                                  <span><img src=@Model.LoggedUser.Avatar  id="header-avatar" class="rounded-circle header-avatar" />  </span>
                                 }
                                else
                                {
-                                   <span><img src="~/images/user1.png" class="rounded-circle"/>   </span>
+                                   <span><img src="~/images/user1.png"  id="header-avatar" class="rounded-circle header-avatar"/>   </span>
                                }
                                } 
                           

@@ -10,6 +10,7 @@ namespace CI_platform.Controllers
         private readonly IUnitOfWork _unitOfWork;
         private readonly ILogger _logger;
         private readonly IHomeLandingRepository _HomeLandingRepository;
+
         public UserController(ILogger<HomeController> logger, IUnitOfWork unitOfWork, IHomeLandingRepository HomeLandingRepository)
         {
             _unitOfWork = unitOfWork;
@@ -38,9 +39,41 @@ namespace CI_platform.Controllers
 
             return View(UserProfilePageData);
         }
-      
-
         [HttpPost]
+        public IActionResult Userskill()
+        {
+            var sessionValue = HttpContext.Session.GetString("UserEmail");
+            if (String.IsNullOrEmpty(sessionValue))
+            {
+                TempData["error"] = "Session Expired!\nPlease Login Again!";
+                return RedirectToAction("Index");
+            }
+
+            //HomeLandingPageVM landingPageData = _HomeLandingRepository.GetLandingPageData(sort, sessionValue,currentPage);
+            HomeLandingPageVM UserProfilePageData = _HomeLandingRepository.GetUserProfileData(sessionValue);
+
+
+            return View(UserProfilePageData);
+        }
+        [HttpPost]
+        public IActionResult UpdateUser(long UserId)
+        {
+            var sessionValue = HttpContext.Session.GetString("UserEmail");
+            if (String.IsNullOrEmpty(sessionValue))
+            {
+                TempData["error"] = "Session Expired!\nPlease Login Again!";
+                return RedirectToAction("Index");
+            }
+
+            //HomeLandingPageVM landingPageData = _HomeLandingRepository.GetLandingPageData(sort, sessionValue,currentPage);
+            
+            
+            HomeLandingPageVM UserProfilePageData = _HomeLandingRepository.GetUserProfileData(sessionValue);
+
+
+            return View(UserProfilePageData);
+        }
+       [HttpPost]
         public IActionResult UploadAvatar(IFormFile avatarFile, long UserId)
         {
             // Check if a file was uploaded

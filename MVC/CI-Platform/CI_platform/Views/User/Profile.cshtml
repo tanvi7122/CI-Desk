@@ -4,17 +4,26 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 <div class="container">
 <form action="">
-<div class="row mt-3">
+     <input type="hidden" id="loggerUser" value="@Model.LoggedUser.UserId">
+<div class="row mt-3">.
         <div class="col-lg-2 mx-5 text-center">
             <div class="border">
                 <div class="d-flex justify-content-center">
-                  <form asp-controller="User" asp-action="UploadAvatar" method="post" enctype="multipart/form-data">
-    <div class="form-group">
-        <label id="Avatar">Profile Picture</label>
-        <input type="file" id="Avatar" class="form-control-file" accept=".jpg,.jpeg,.png" />
-    </div>
-    <button type="submit" class="btn btn-primary">Save</button>
-</form>
+                  <form asp-controller="User" asp-action="UploadAvatar" method="post"enctype="multipart/form-data">
+                      <input type="hidden" id="loggerUser" value="@Model.LoggedUser.UserId">
+                      
+                               @{
+                               if(@Model.LoggedUser.Avatar !=null)
+                                {
+                                  <span><img src=@Model.LoggedUser.Avatar  class="rounded-circle" id="avatar-img"/><input type="file" id="avatar-upload" class="submit-userProfile" onchange="verifyFileUpload(event)" accept=".jpg,.jpeg,.png" style="display: none" />  </span>
+                                }
+                               else
+                               {
+                                   <span><img src="~/images/user1.png"   class="rounded-circle" id="avatar-img"/>   </span>
+                               }
+                               } 
+                      
+                  </form>
 
 
                 </div>
@@ -156,7 +165,7 @@
                  </div>
 
             <div class="d-flex justify-content-end">
-                <button type="button" class="btn changePassword rounded-pill px-4 submit-userProfile" onclick="updateUserProfile()" data-user-id="@Model.LoggedUser.UserId">Save</button>
+                <button type="button" class="btn changePassword rounded-pill px-4 submit-userProfile" onclick="updateUserProfile()" >Save</button>
             </div>
 
 

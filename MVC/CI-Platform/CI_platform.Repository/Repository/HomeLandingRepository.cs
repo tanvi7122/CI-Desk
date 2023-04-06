@@ -21,6 +21,7 @@ namespace CI_platform.Repository.Repository
         public HomeLandingPageVM GetUserProfileData(string email)
         {
             HomeLandingPageVM UserProfileDataVM = new();
+            
             UserProfileDataVM.LoggedUser = _unitOfWork.User.GetFirstOrDefault(u => u.Email == email);
             UserProfileDataVM.UserProfile=_unitOfWork.User.GetFirstOrDefault(x => x.Email == email);
             UserProfileDataVM.Countries = _unitOfWork.Country.GetAll();

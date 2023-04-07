@@ -24,6 +24,8 @@ function GetCities() {
         $('#city').empty();
     }
 }
+
+
 let userskill = new Set();
 window.addEventListener("load", function () {
     $("#selectedSkill option").each(function () {
@@ -91,14 +93,14 @@ function addingSkill() {
             /* $('#partial-UserProfile').html(response);*/
             console.log(userAddedSkill);
         },
-        error: function () {
+        error: function (error) {
             alert("hello wolrd");
         }
     })
 };
 
 function updateUserProfile() {
-    var LoggerUserId = document.getElementById('loggerUser').value;
+   
     var UserProfile = {
         WhyIVolunteer: $('#volunteerReason').val(),
         Department: $('#department').val(),
@@ -110,12 +112,12 @@ function updateUserProfile() {
         FirstName: $('#name').val(),
         LastName: $('#surname').val(),
         EmployeeId: $('#employee').val(),
-     
-        UserId: $('UserId').val(),
+  
+        UserId: $('#loggerUser').val(),
     }
 
     $.ajax({
-        url: '/User/UpdateUser',
+        url: '/User/Profile',
         type: 'Post',
         data: UserProfile,
         contentType: 'application/x-www-form-urlencoded;charset=utf-8;',
@@ -127,6 +129,7 @@ function updateUserProfile() {
             //GetCities();
 
             window.location.reload();
+            alert("You have successfully update your profile");
 
         },
         error: function (error) {

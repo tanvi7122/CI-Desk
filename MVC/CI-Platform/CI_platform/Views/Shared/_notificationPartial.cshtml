@@ -1,9 +1,10 @@
-﻿
+﻿<link rel="stylesheet" href="~/css/toastr-custom.css" asp-append-version="true" />
+
 @if(TempData["success"]!=null){
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <script type="text/javascript">
-        toastr.success('@TempData["success"]');
+        toastr.success('@TempData["success"]', '', {"toastClass": "toast-success"});
     </script>
 }
 
@@ -11,6 +12,12 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <script type="text/javascript">
-        toastr.error('@TempData["error"]');
+        toastr.error('@TempData["error"]', '', {"toastClass": "toast-error"});
     </script>
 }
+<script type="text/javascript" >
+toastr.options = {"positionClass": "toast-bottom-right", "preventDuplicates": true, "showDuration": "300", "hideDuration": "1000", "timeOut": "5000", "extendedTimeOut": "1000"
+};
+
+  
+</script >

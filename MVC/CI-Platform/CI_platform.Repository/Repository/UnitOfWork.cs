@@ -41,8 +41,8 @@ namespace CI_platform.Repository.Repository
             public IMissionMediumRepository MissionMedium { get; private set; }
 
             public IStoryInviteRepository StoryInvite { get; private set; }
-          
-            public UnitOfWork(CiPlatformContext db)
+           public IUserSkillRepository UserSkill{ get; set; }
+        public UnitOfWork(CiPlatformContext db)
             {
                 _db = db;
                 User = new UserRepository(_db);
@@ -64,12 +64,13 @@ namespace CI_platform.Repository.Repository
                 MissionMedium = new MissionMediumRepository(_db);
                 MissionComment = new MissionCommentRepository(_db);
                 StoryInvite = new StoryInviteRepository(_db);
-              
+              UserSkill= new UserSkillRepository(_db);
             }
-        public void Update(CI_platfom.Entity.Models.Story databaseStoryObj)
+        public void Update(Story databaseStoryObj)
         { 
         _db.Add(Story);
         }
+      
             public void Save()
             {
                 _db.SaveChanges();

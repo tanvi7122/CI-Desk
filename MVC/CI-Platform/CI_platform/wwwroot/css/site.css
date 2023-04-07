@@ -74,6 +74,7 @@
 }
 /* <forgot_password_page> */
 .reset-btn {
+    background-color: #f88634;
     max-width: 25.063rem;
     width: 100%;
     height: 3rem;

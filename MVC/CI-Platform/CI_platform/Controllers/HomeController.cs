@@ -29,6 +29,7 @@ namespace CI_platform.Controllers
 
 
         }
+
         public IActionResult Index()
         {
             var sessionValue = HttpContext.Session.GetString("UserEmail");

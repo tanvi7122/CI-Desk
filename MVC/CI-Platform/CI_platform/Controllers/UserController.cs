@@ -10,8 +10,9 @@ namespace CI_platform.Controllers
         private readonly IUnitOfWork _unitOfWork;
         private readonly ILogger _logger;
         private readonly IHomeLandingRepository _HomeLandingRepository;
+        public readonly IAccountRepository _AccountRepo;
 
-        public UserController(ILogger<HomeController> logger, IUnitOfWork unitOfWork, IHomeLandingRepository HomeLandingRepository)
+        public UserController(ILogger<HomeController> logger, IUnitOfWork unitOfWork, IAccountRepository AccountRepository, IHomeLandingRepository HomeLandingRepository)
         {
             _unitOfWork = unitOfWork;
 
@@ -40,40 +41,117 @@ namespace CI_platform.Controllers
             return View(UserProfilePageData);
         }
         [HttpPost]
-        public IActionResult Userskill()
+        public IActionResult UserSkill(long UserId, long[] SkillIds)
         {
             var sessionValue = HttpContext.Session.GetString("UserEmail");
+         
             if (String.IsNullOrEmpty(sessionValue))
             {
                 TempData["error"] = "Session Expired!\nPlease Login Again!";
                 return RedirectToAction("Index");
             }
 
-            //HomeLandingPageVM landingPageData = _HomeLandingRepository.GetLandingPageData(sort, sessionValue,currentPage);
-            HomeLandingPageVM UserProfilePageData = _HomeLandingRepository.GetUserProfileData(sessionValue);
 
 
-            return View(UserProfilePageData);
+            foreach (var skillId in SkillIds)
+            {
+                var userSkill = new UserSkill
+                {
+                   UserId=UserId,
+                    SkillId = skillId,
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = DateTime.Now
+                };
+
+                _unitOfWork.UserSkill.Add(userSkill);
+            }
+
+            _unitOfWork.Save();
+
+            return Ok();
         }
+
+        //[HttpPost]
+        //public async Task<IActionResult> Userskill(long UserId, UserSkill skill)
+        //{
+        //    var sessionValue = HttpContext.Session.GetString("UserEmail");
+        //       if (String.IsNullOrEmpty(sessionValue))
+        //       {
+        //           TempData["error"] = "Session Expired!\nPlease Login Again!";
+        //           return RedirectToAction("Index");
+        //        }
+
+        //    try
+        //    {
+        //       var userSkillIds = await _unitOfWork.UserSkill.Where(x => x.UserId == UserId)
+        //            .Select(x => x.SkillId)
+        //            .ToListAsync();
+
+        //        var skillsToAdd = skill.SkillId.Except(userSkillIds).ToList();
+
+        //        foreach (var skillId in skillsToAdd)
+        //        {
+        //            var userSkill = new UserSkill
+        //            {
+        //                UserId = UserId,
+        //                SkillId = skillId,
+        //                CreatedAt = DateTime.Now,
+        //                UpdatedAt = DateTime.Now
+        //            };
+
+        //            _unitOfWork.UserSkill.Add(UserSkill);
+        //        }
+
+        //        Save();
+
+        //        return Ok();
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return BadRequest(ex.Message);
+        //    }
+        //}
+
+
         [HttpPost]
-        public IActionResult UpdateUser(long UserId)
+        public IActionResult Profile(User userProfile, long UserId)
         {
-            var sessionValue = HttpContext.Session.GetString("UserEmail");
-            if (String.IsNullOrEmpty(sessionValue))
+            try
             {
-                TempData["error"] = "Session Expired!\nPlease Login Again!";
-                return RedirectToAction("Index");
+            
+
+                // Update the user profile in the database
+                User user = _unitOfWork.User.GetFirstOrDefault(u => u.UserId == UserId);
+                if (user != null)
+                {
+                    user.WhyIVolunteer = userProfile.WhyIVolunteer;
+                    user.Department = userProfile.Department;
+                    user.ProfileText = userProfile.ProfileText;
+                    user.LinkedInUrl = userProfile.LinkedInUrl;
+                    user.Title = userProfile.Title;
+                    user.CityId = userProfile.CityId;
+                    user.CountryId = userProfile.CountryId;
+                    user.FirstName = userProfile.FirstName;
+                    user.LastName = userProfile.LastName;
+                    user.EmployeeId = userProfile.EmployeeId;
+                    
+
+                    _unitOfWork.Save();
+                    TempData["success"] = "You have successfully update Profile ";
+                }
+
+                // Return a success response
+                return Ok();
             }
-
-            //HomeLandingPageVM landingPageData = _HomeLandingRepository.GetLandingPageData(sort, sessionValue,currentPage);
-            
-            
-            HomeLandingPageVM UserProfilePageData = _HomeLandingRepository.GetUserProfileData(sessionValue);
-
-
-            return View(UserProfilePageData);
+            catch (Exception ex)
+            {
+                // Handle the exception and return an error response
+                return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
+            }
         }
-       [HttpPost]
+
+
+        [HttpPost]
         public IActionResult UploadAvatar(IFormFile avatarFile, long UserId)
         {
             // Check if a file was uploaded
@@ -105,11 +183,49 @@ namespace CI_platform.Controllers
                 _unitOfWork.Save();
 
                 // Return the updated avatar path
+               
+              
                 return Json(new { avatar = user.Avatar });
+
             }
 
             // Return an error message if no file was uploaded
             return Json(new { error = "No file was uploaded" });
+        }
+        public IActionResult ChangePassword(string currentPassword,string newPassword,String ConfirmPassword)
+        
+        {
+            var userid = HttpContext.Session.GetString("UserId");
+            long UserId = Convert.ToInt64(userid);
+            var LoggedUser = _unitOfWork.User.GetFirstOrDefault(u => u.UserId == UserId);
+            if (LoggedUser.Password == currentPassword)
+                {
+                Console.WriteLine("new password match");
+                if (currentPassword != newPassword)
+                {
+                    if (newPassword == ConfirmPassword)
+                    {
+                        _unitOfWork.User.UpdatePassword(LoggedUser, newPassword);
+                        _unitOfWork.Save();
+                    }
+                    else 
+                    {
+                        TempData["error"] = "Your newpassword and confirm password not match";
+                        return RedirectToAction("profile");
+                    }
+         
+                }
+            
+               
+            }
+            else
+            {
+
+                TempData["error"] = "You have Entered Wrong Old Password";
+                return RedirectToAction("profile");
+            }
+
+            return RedirectToAction("profile");
         }
 
     }

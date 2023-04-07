@@ -1,0 +1,20 @@
+﻿/* Change the background color of the success toastr */
+.toast-success {
+    background-color: #00c853;
+}
+
+    /* Change the text color of the success toastr */
+    .toast-success > .toast-message {
+        color: #fff;
+    }
+
+/* Change the background color of the error toastr */
+.toast-error {
+    background-color: #d50000;
+}
+
+    /* Change the text color of the error toastr */
+    .toast-error > .toast-message {
+        color: #fff;
+    }
+

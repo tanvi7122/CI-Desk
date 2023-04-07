@@ -20,6 +20,7 @@ builder.Services.AddScoped<IMissionLandingRepository, MissionLandingRepository>(
 builder.Services.AddScoped<IStoryHomeLandingRepository, StoryHomeLandingRepository>();
 builder.Services.AddScoped<IStoryLandingRepository, StoryLandingRepository>();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+builder.Services.AddScoped<IUserSkillRepository, UserSkillRepository>();
 builder.Services.AddSession();
 builder.Services.AddMemoryCache();
 

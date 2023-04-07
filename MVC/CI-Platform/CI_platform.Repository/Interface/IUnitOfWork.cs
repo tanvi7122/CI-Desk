@@ -35,9 +35,10 @@ namespace CI_platform.Repository.Interface
 
         public IMissionDocumentRepository MissionDocument{ get; }
         public IMissionApplicationRepository MissionApplication { get; }
-
+        public IUserSkillRepository UserSkill { get;   }
         public IStoryInviteRepository StoryInvite { get; }
         void Update(CI_platfom.Entity.Models.Story databaseStoryObj);
         void Save();
+      
     }
 }

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "X6drJLPI6RtieOwqW+U0EkomHdAXRc6JBi0ETyrIF0I=",
+  "Hash": "5eFBzV8EOoflp7LejM50KlSXiGUt6zToBK4oUZ21mBE=",
   "Source": "CI_platform",
   "BasePath": "_content/CI_platform",
   "Mode": "Default",
@@ -695,6 +695,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Avatar\\63b7aaf1-31fc-48b7-8460-b64bca0a10c6.png"
+    },
+    {
+      "Identity": "C:\\Users\\pca142\\Desktop\\CI-Desk\\MVC\\CI-Platform\\CI_platform\\wwwroot\\Avatar\\63ef8c8f-89bf-4a4e-ac91-18c5d6ba64a3.png",
+      "SourceId": "CI_platform",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\pca142\\Desktop\\CI-Desk\\MVC\\CI-Platform\\CI_platform\\wwwroot\\",
+      "BasePath": "_content/CI_platform",
+      "RelativePath": "Avatar/63ef8c8f-89bf-4a4e-ac91-18c5d6ba64a3.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Avatar\\63ef8c8f-89bf-4a4e-ac91-18c5d6ba64a3.png"
     },
     {
       "Identity": "C:\\Users\\pca142\\Desktop\\CI-Desk\\MVC\\CI-Platform\\CI_platform\\wwwroot\\Avatar\\6435e68c-e34e-4980-bbcd-b4fe9b525d19.png",
@@ -1870,6 +1887,40 @@
       "OriginalItemSpec": "wwwroot\\Avatar\\f9e9fcdc-6459-4f90-8d0a-d5d45927c7b0.png"
     },
     {
+      "Identity": "C:\\Users\\pca142\\Desktop\\CI-Desk\\MVC\\CI-Platform\\CI_platform\\wwwroot\\Avatar\\fe62d6b0-868c-428f-a691-8643ab774af3.png",
+      "SourceId": "CI_platform",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\pca142\\Desktop\\CI-Desk\\MVC\\CI-Platform\\CI_platform\\wwwroot\\",
+      "BasePath": "_content/CI_platform",
+      "RelativePath": "Avatar/fe62d6b0-868c-428f-a691-8643ab774af3.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Avatar\\fe62d6b0-868c-428f-a691-8643ab774af3.png"
+    },
+    {
+      "Identity": "C:\\Users\\pca142\\Desktop\\CI-Desk\\MVC\\CI-Platform\\CI_platform\\wwwroot\\Avatar\\ff44c554-47ea-48ea-b84c-668404ddd2b1.png",
+      "SourceId": "CI_platform",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\pca142\\Desktop\\CI-Desk\\MVC\\CI-Platform\\CI_platform\\wwwroot\\",
+      "BasePath": "_content/CI_platform",
+      "RelativePath": "Avatar/ff44c554-47ea-48ea-b84c-668404ddd2b1.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Avatar\\ff44c554-47ea-48ea-b84c-668404ddd2b1.png"
+    },
+    {
       "Identity": "C:\\Users\\pca142\\Desktop\\CI-Desk\\MVC\\CI-Platform\\CI_platform\\wwwroot\\Avatar\\fffd7885-92ec-43c0-8838-1be061a3b6d2.png",
       "SourceId": "CI_platform",
       "SourceType": "Discovered",
@@ -1970,6 +2021,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\Story.css"
+    },
+    {
+      "Identity": "C:\\Users\\pca142\\Desktop\\CI-Desk\\MVC\\CI-Platform\\CI_platform\\wwwroot\\css\\toastr-custom.css",
+      "SourceId": "CI_platform",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\pca142\\Desktop\\CI-Desk\\MVC\\CI-Platform\\CI_platform\\wwwroot\\",
+      "BasePath": "_content/CI_platform",
+      "RelativePath": "css/toastr-custom.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\toastr-custom.css"
     },
     {
       "Identity": "C:\\Users\\pca142\\Desktop\\CI-Desk\\MVC\\CI-Platform\\CI_platform\\wwwroot\\css\\User.css",

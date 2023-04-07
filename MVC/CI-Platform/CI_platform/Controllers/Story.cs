@@ -64,26 +64,7 @@ namespace CI_platform.Controllers
         //}
 
 
-        //[HttpPost]
-        //public IActionResult ShareYourStory(StoryLandingPageVM ShareStory)
-        //{
-        //    var sessionValue = HttpContext.Session.GetString("UserEmail");
-        //    if (String.IsNullOrEmpty(sessionValue))
-        //    {
-        //        TempData["error"] = "Session Expired!\nPlease Login Again!";
-        //        return RedirectToAction("Index", "Home");
-        //    }
-        //    if (ShareStory.AppliedStory!=null)
-        //    {
-
-        //        _AddStoryRepository.Add(ShareStory);
-        //            _AddStoryRepository.save();
-
-
-        //    }
-        //    return RedirectToAction("StoryListing", "Story");
-
-        //}
+     
         public JsonResult GetDraftStory(long missionId)
         {
             var userid = HttpContext.Session.GetString("UserId");

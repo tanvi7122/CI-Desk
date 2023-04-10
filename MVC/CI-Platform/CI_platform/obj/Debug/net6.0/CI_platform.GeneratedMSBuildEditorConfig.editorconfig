@@ -51,12 +51,20 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxSZXNldC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/pca142/Desktop/CI-Desk/MVC/CI-Platform/CI_platform/Views/Mission/ContactUs.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWlzc2lvblxDb250YWN0VXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/pca142/Desktop/CI-Desk/MVC/CI-Platform/CI_platform/Views/Mission/HomePage.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWlzc2lvblxIb21lUGFnZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/pca142/Desktop/CI-Desk/MVC/CI-Platform/CI_platform/Views/Mission/MissionDetail.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWlzc2lvblxNaXNzaW9uRGV0YWlsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/pca142/Desktop/CI-Desk/MVC/CI-Platform/CI_platform/Views/Mission/PrivacyPolicy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWlzc2lvblxQcml2YWN5UG9saWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/pca142/Desktop/CI-Desk/MVC/CI-Platform/CI_platform/Views/Shared/Error.cshtml]

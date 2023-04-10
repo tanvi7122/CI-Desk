@@ -36,10 +36,8 @@ namespace CI_platform.Controllers
 
             //HomeLandingPageVM landingPageData = _HomeLandingRepository.GetLandingPageData(sort, sessionValue,currentPage);
             HomeLandingPageVM UserProfilePageData = _HomeLandingRepository.GetUserProfileData(sessionValue);
-
-
             return View(UserProfilePageData);
-        }
+            }
         [HttpPost]
         public IActionResult UserSkill(long UserId, long[] SkillIds)
         {
@@ -52,7 +50,7 @@ namespace CI_platform.Controllers
             }
 
 
-
+            _unitOfWork.UserSkill.RemoveRange(UserId);
             foreach (var skillId in SkillIds)
             {
                 var userSkill = new UserSkill
@@ -62,7 +60,7 @@ namespace CI_platform.Controllers
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now
                 };
-
+               
                 _unitOfWork.UserSkill.Add(userSkill);
             }
 
@@ -71,47 +69,7 @@ namespace CI_platform.Controllers
             return Ok();
         }
 
-        //[HttpPost]
-        //public async Task<IActionResult> Userskill(long UserId, UserSkill skill)
-        //{
-        //    var sessionValue = HttpContext.Session.GetString("UserEmail");
-        //       if (String.IsNullOrEmpty(sessionValue))
-        //       {
-        //           TempData["error"] = "Session Expired!\nPlease Login Again!";
-        //           return RedirectToAction("Index");
-        //        }
-
-        //    try
-        //    {
-        //       var userSkillIds = await _unitOfWork.UserSkill.Where(x => x.UserId == UserId)
-        //            .Select(x => x.SkillId)
-        //            .ToListAsync();
-
-        //        var skillsToAdd = skill.SkillId.Except(userSkillIds).ToList();
-
-        //        foreach (var skillId in skillsToAdd)
-        //        {
-        //            var userSkill = new UserSkill
-        //            {
-        //                UserId = UserId,
-        //                SkillId = skillId,
-        //                CreatedAt = DateTime.Now,
-        //                UpdatedAt = DateTime.Now
-        //            };
-
-        //            _unitOfWork.UserSkill.Add(UserSkill);
-        //        }
-
-        //        Save();
-
-        //        return Ok();
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return BadRequest(ex.Message);
-        //    }
-        //}
-
+     
 
         [HttpPost]
         public IActionResult Profile(User userProfile, long UserId)
@@ -137,7 +95,7 @@ namespace CI_platform.Controllers
                     
 
                     _unitOfWork.Save();
-                    TempData["success"] = "You have successfully update Profile ";
+               
                 }
 
                 // Return a success response

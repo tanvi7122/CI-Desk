@@ -8,13 +8,14 @@
     <title>@ViewData["Title"] - CI_platform</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/HomePage.css" asp-append-version="true" />
-   <link rel="stylesheet" href="~/css/ toastr-custom.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/Privacy.css" asp-append-version="true"/>
+     <link rel="stylesheet" href="~/css/ toastr-custom.css" asp-append-version="true" />
      <link rel="stylesheet" href="~/css/Volunteering.css" />
      <link rel="stylesheet" href="~/css/mission.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/Volunteering.css"/>
     <link rel="stylesheet" href="~/CI_platform.styles.css" asp-append-version="true" />
-    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap-grid.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
@@ -42,14 +43,9 @@
                             <a class="nav-link active" aria-current="page" asp-controller="Story" asp-action="StoryListing">Stories</a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link active" aria-current="page" asp-controller="Mission" asp-action="PrivacyPolicy">
                                 Policy
                             </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="#">Volunteering</a></li>
-                                <li><a class="dropdown-item" href="#">Sponsored</a></li>
-                                <li><a class="dropdown-item" href="#">Terms and Conditions</a></li>
-                            </ul>
                         </li>
                     </ul>
                 </div>
@@ -71,9 +67,7 @@
 
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="notificationDropdown">
-                            <li><a class="dropdown-item" href="#">My Profile</a></li>
-                            <li><a class="dropdown-item" href="#">Volunteering Timesheet</a></li>
-                            <li><a class="dropdown-item" asp-controller="Home" asp-action="Login">Logout</a></li>
+               
                         </ul>
                     </div>
 
@@ -124,6 +118,10 @@
             integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU="
             crossorigin="anonymous"></script>
 </body>
+  <div class="container mb-3">
+        <a asp-controller="Mission" asp-action="PrivacyPolicy">Privacy Policy</a>
+        <a  asp-controller="User" asp-action="Profile">CONTACT US</a>
+    </div>
 </html>
 
 

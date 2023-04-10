@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace CI_platform.Repository.Repository
 {
 
-    public class UserSkillRepository : Repository<User>, IUserSkillRepository
+    public class UserSkillRepository : Repository<UserSkill>,IUserSkillRepository
     {
         private readonly CiPlatformContext _context;
 
@@ -22,10 +22,11 @@ namespace CI_platform.Repository.Repository
         {
             _context.UserSkills.Add(userSkill);
         }
-
-        public void AddRange(IEnumerable<UserSkill> userSkills)
+        public void RemoveRange(long userId)
         {
-            _context.UserSkills.AddRange(userSkills);
+            var userSkillsToRemove = _context.UserSkills.Where(us => us.UserId == userId);
+            _context.UserSkills.RemoveRange(userSkillsToRemove);
+            _context.SaveChanges();
         }
 
     }

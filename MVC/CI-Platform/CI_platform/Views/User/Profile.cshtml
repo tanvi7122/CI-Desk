@@ -155,17 +155,17 @@
 
             <h3 class="mt-4"><span>My Skills</span></h3>
             <div id="partial-UserProfileSkill">
-                <div id="skills">
-                    @{
+             <div id="skills">
+                  @{
                         var skillcount = @Model.UserProfile.UserSkills;
                     }
+              <textarea id="myTextarea" rows="5" cols="92">         
                     @foreach (var skillname in skillcount)
-                    {
-                        @(skillname.Skill.SkillName+"\n")
-                        ;
-                    }
-
-                </div>
+                    { @(" "+ skillname.Skill.SkillName+"\n" ) }
+                    
+             </textarea>
+          </div>
+              
 
                 <partial name="UserSkill" />
                  </div>
@@ -180,3 +180,12 @@
 </form>
 </div>
 <script src="~/js/UserProfile.js"></script>
+<script>
+    const textarea = document.getElementById('myTextarea');
+
+textarea.addEventListener('input', () => {
+  textarea.style.height = 'auto';
+  textarea.style.height = textarea.scrollHeight + 'px';
+});
+
+</script>

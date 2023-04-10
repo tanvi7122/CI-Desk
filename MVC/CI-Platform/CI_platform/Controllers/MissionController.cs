@@ -266,9 +266,9 @@ namespace CI_platform.Controllers
 
             HomeLandingPageVM landingPageData = _HomeLandingRepository.GetLandingPageData(sessionValue, 1);
 
-            return PartialView("_PrivacyPolicy", landingPageData);
+            return View("PrivacyPolicy", landingPageData);
         }
-
+        
 
     }
 }

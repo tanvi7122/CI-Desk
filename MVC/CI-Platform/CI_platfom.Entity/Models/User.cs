@@ -1,21 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 
 namespace CI_platfom.Entity.Models;
 
 public partial class User
-{   [Required]
+{
     public long UserId { get; set; }
 
     public string? FirstName { get; set; }
 
     public string? LastName { get; set; }
-    [EmailAddress]
+
     public string Email { get; set; } = null!;
-    [Required]
+
     public string Password { get; set; } = null!;
-    [Required]
+
     public long PhoneNumber { get; set; }
 
     public string? Avatar { get; set; }

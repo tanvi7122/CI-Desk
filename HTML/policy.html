@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="viewport" charset="UTF-8" content="width=device-width, initial-scale=1.0">
+        <title>Policy Page</title>
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/policy.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    </head>
+    <body>
+        <!-- sidebar of main menu -->
+        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasExampleLabel"></h5>
+                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <div>
+                    <a class="btn main" data-bs-toggle="collapse" href="#collapse-explore" role="button" aria-expanded="false" aria-controls="collapse-explore">
+                    Explore
+                        <img src="images/drop-down.png" class="drop-down" alt="drop down image">
+                    </a>
+                    <div class="collapse" id="collapse-explore">
+                        <ul class="main-ul mt-2">
+                            <li class="mt-1">
+                                <a class="btn dropdown-item" data-bs-toggle="collapse" href="#collapse-theme" role="button" aria-expanded="false" aria-controls="collapse-theme">
+                                    Top Themes<img src="images/drop-down.png" class="drop-down-themes" alt="drop down image">
+                                </a>
+                                <div class="collapse" id="collapse-theme">
+                                    <ul class="sub-ul">
+                                        <li class="mt-1"><a class="dropdown-item drop-data ms-4" href="#">Education</a></li>
+                                        <li class="mt-1"><a class="dropdown-item drop-data ms-4" href="#">Children</a></li>
+                                        <li class="mt-1"><a class="dropdown-item drop-data ms-4" href="#">Health</a></li>
+                                        <li class="mt-1"><a class="dropdown-item drop-data ms-4" href="#">Animals</a></li>
+                                        <li class="mt-1"><a class="dropdown-item drop-data ms-4" href="#">Nutritions</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="mt-1">
+                                <a class="btn dropdown-item mt-2" data-bs-toggle="collapse" href="#collapse-country" role="button" aria-expanded="false" aria-controls="collapse-country">
+                                Top Countries<img src="images/drop-down.png" class="drop-down-countries" alt="drop down image">
+                                </a>
+                                <div class="collapse" id="collapse-country">
+                                    <ul class="sub-ul">
+                                        <li class="mt-1"><a class="dropdown-item drop-data ms-4" href="#">India</a></li>
+                                        <li class="mt-1"><a class="dropdown-item drop-data ms-4" href="#">USA</a></li>
+                                        <li class="mt-1"><a class="dropdown-item drop-data ms-4" href="#">London</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="mt-1">
+                                <a class="btn dropdown-item mt-2" data-bs-toggle="collapse" href="#collapse-organization" role="button" aria-expanded="false" aria-controls="collapse-organization">
+                                    Top Organization<img src="images/drop-down.png" class="drop-down-organization" alt="drop down image">
+                                </a>
+                                <div class="collapse" id="collapse-organization">
+                                    <ul class="sub-ul">
+                                        <li class="mt-1"><a class="dropdown-item drop-data ms-4" href="#">1</a></li>
+                                        <li class="mt-1"><a class="dropdown-item drop-data ms-4" href="#">2</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="mt-1">
+                                <a class="btn dropdown-item mt-2" data-bs-toggle="collapse" href="#collapse-rank" role="button" aria-expanded="false" aria-controls="collapse-rank">
+                                    Most Ranked<img src="images/drop-down.png" class="drop-down-rank" alt="drop down image">
+                                </a>
+                                <div class="collapse" id="collapse-rank">
+                                    <ul class="sub-ul">
+                                        <li class="mt-1"><a class="dropdown-item drop-data ms-4" href="#">1</a></li>
+                                        <li class="mt-1"><a class="dropdown-item drop-data ms-4" href="#">2</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="mt-1">
+                                <a class="btn dropdown-item mt-2" data-bs-toggle="collapse" href="#collapse-favorite" role="button" aria-expanded="false" aria-controls="collapse-favorite">
+                                    Top Favorite<img src="images/drop-down.png" class="drop-down-favorite" alt="drop down image">
+                                </a>
+                                <div class="collapse" id="collapse-favorite">
+                                    <ul class="sub-ul">
+                                        <li class="mt-1"><a class="dropdown-item drop-data ms-4" href="#">1</a></li>
+                                        <li class="mt-1"><a class="dropdown-item drop-data ms-4" href="#">2</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="mt-1">
+                                <a class="btn dropdown-item mt-2" data-bs-toggle="collapse" href="#collapse-recommend" role="button" aria-expanded="false" aria-controls="collapse-recommend">
+                                    Recommended<img src="images/drop-down.png" class="drop-down-recommend" alt="drop down image">
+                                </a>
+                                <div class="collapse" id="collapse-recommend">
+                                    <ul class="sub-ul">
+                                        <li class="mt-1"><a class="dropdown-item drop-data ms-4" href="#">1</a></li>
+                                        <li class="mt-1"><a class="dropdown-item drop-data ms-4" href="#">2</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="mt-1">
+                                <a class="btn dropdown-item mt-2" data-bs-toggle="collapse" href="#collapse-random" role="button" aria-expanded="false" aria-controls="collapse-random">
+                                    Random<img src="images/drop-down.png" class="drop-down-random" alt="drop down image">
+                                </a>
+                                <div class="collapse" id="collapse-random">
+                                    <ul class="sub-ul">
+                                        <li class="mt-1"><a class="dropdown-item drop-data ms-4" href="#">1</a></li>
+                                        <li class="mt-1"><a class="dropdown-item drop-data ms-4" href="#">2</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <a class="btn main mt-2" href="#">Stories</a><br>
+                    <a class="btn main mt-2" href="#">News</a><br>
+                    <a class="btn main mt-2" data-bs-toggle="collapse" href="#collapse-policy" role="button" aria-expanded="false" aria-controls="collapse-policy">
+                        Policy
+                        <img src="images/drop-down.png" class="drop-down-policy" alt="drop down image">
+                    </a>
+                    <div class="collapse" id="collapse-policy">
+                        <ul class="main-ul">
+                            <li class="mt-1"><a class="dropdown-item drop-data">Mission Policies</a></li>
+                            <li class="mt-1"><a class="dropdown-item drop-data">Other Policies</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- nav bar -->
+        <div class="container mt-3">
+            <!-- Main navbar starts  -->
+            <div class="row">
+                <div class="col-lg-9 col-md-7 col-sm-7 col-6 d-flex justify-content-start">
+                    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+                        <div class="container-fluid">
+                            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample" aria-expanded="false" aria-label="Toggle navigation">
+                                <p class="navbar-toggler-icon"><img src="images/list.png" alt="list icon"></p>
+                            </button>
+                            <!-- <img src="images/logo.png" alt="logo"> -->
+                            <div class="collapse navbar-collapse ms-3 nav" id="navbarSupportedContent">
+                                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                    <!-- <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Explore</a>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="#">Top Themes</a></li>
+                                            <li><a class="dropdown-item" href="#">Top Countries</a></li>
+                                            <li><a class="dropdown-item" href="#">Top Organization</a></li>
+                                            <li><a class="dropdown-item" href="#">Most Ranked</a></li>
+                                            <li><a class="dropdown-item" href="#">Top Favorite</a></li>
+                                            <li><a class="dropdown-item" href="#">Recommended</a></li>
+                                            <li><a class="dropdown-item" href="#">Random</a></li>
+                                        </ul>
+                                    </li> -->
+                                    <li class="nav-item  ms-3">
+                                        <a href="#" class="nav-link">Stories</a>
+                                    </li>
+                                    <!-- <li class="nav-item  ms-3">
+                                        <a href="#" class="nav-link">News</a>
+                                    </li> -->
+                                    <li class="nav-item dropdown ms-3">
+                                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Policy</a>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="#">Mission Policies</a></li>
+                                            <li><a class="dropdown-item" href="#">Other Policies</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+                <div class="col-lg-3 col-md-5 col-sm-5 col-6 d-flex justify-content-end">
+                    <!-- <img src="images/bell.png" alt="notification" class="notification mt-3 me-2"> -->
+                    <img src="images/user-img.png" alt="Logo of user" class="rounded-circle userLogo">
+                    <div class="dropdown">
+                        <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Evan Donohue
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid border"></div>
+
+        <!-- main content -->
+        <div class="container">
+            <h1 class="mt-5">Privacy and Cookie Policy</h1>
+            <div class="row mt-md-5 mt-3">
+                <div class="col-md-4 sticky-top">
+                    <div id="list-example" class="list-group">
+                        <a class="list-group-item list-group-item-action border-top-0 border-end-0 border-start-0 border-bottom mb-1" href="#list-item-1">Introduction
+                            <i class="fa-solid fa-chevron-right switchOptions-right float-end"></i>
+                        </a>
+                        
+                        <a class="list-group-item list-group-item-action border-top-0 border-end-0 border-start-0 border-bottom mb-1" href="#list-item-2">How does use cookies?
+                            <i class="fa-solid fa-chevron-right switchOptions-right float-end"></i>
+                        </a>
+                        <a class="list-group-item list-group-item-action border-top-0 border-end-0 border-start-0 border-bottom mb-1" href="#list-item-3">How to manage your cookie preferences?
+                            <i class="fa-solid fa-chevron-right switchOptions-right float-end"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-8 ms-sm-0 ms-3 mt-md-0 mt-4">
+                    <div data-bs-spy="scroll" data-bs-target="#list-example" data-bs-smooth-scroll="true" class="scrollspy-example">
+                        <h3 id="list-item-1">Introduction</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna 
+                            aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur 
+                            sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, 
+                            eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam 
+                            voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione 
+                            voluptatem sequi nesciunt.</p>    
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna 
+                            aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint 
+                            occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        <div class="container border mt-5"></div>
+                        
+                        <h3 id="list-item-2" >How does use cookies?</h3>
+                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, 
+                            eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam 
+                            voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione 
+                            voluptatem sequi nesciunt.</p>
+                            <h5 class="mt-5">Why Optimy Uses These Technologies?</h5>
+                            <p>We use these technologies for a number of purposes, such as:</p>
+                            <ul>
+                                <li>But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain.</li>
+                                <li>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque
+                                    excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi.</li>
+                                <li>On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized</li>
+                                <li>But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain.</li>
+                                <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore</li>
+                            </ul>
+                            <p class="mt-5">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
+                            <div class="container border mt-5"></div>
+                        
+                        <h3 id="list-item-3" class="border-bottom-0 mb-3 mt-5">How to manage your cookie preferences?</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna 
+                            aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint 
+                            occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, 
+                            eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam 
+                            voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione 
+                            voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci 
+                            velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim 
+                            ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi 
+                            consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, 
+                            vel illum qui dolorem eum fugiat quo voluptas nulla pariatur.</p>
+                        <h5 class="mt-5">Subtitle goes here</h5>
+                        <ol>
+                            <li>
+                                But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain.
+                                <ol>
+                                    <li>On the other hand, we denounce with righteous indignation and dislike men who are so beguiled.</li>
+                                    <li>On the other hand, we denounce with righteous indignation and dislike men who are so beguiled.</li>
+                                </ol>
+                            </li>
+                            <li>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque
+                                excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi.
+                            </li>
+                            <li>On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized</li>
+                            <li>But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain.</li>
+                            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore</li>
+                        </ol>
+                        <h1 class="mt-5">The first level heading - H1</h1>
+                        <h2>The second level heading - H2</h2>
+                        <h3>The third level heading - H3</h3>
+                        <h4>The forth level heading - H4</h4>
+                        <h5>The fifth level heading - H5</h5>
+                        <h6>The sixth level heading - H6</h6>
+                    </div>
+                    <p class="mt-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna 
+                        aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint 
+                        occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- footer -->
+        <div class="container-fluid border mt-5"></div>    
+        <div class="container mt-2">
+            <div class="row d-flex footer">
+                <div class="col-lg-9 col-md-8 d-flex mb-4 justify-content-md-start justify-content-center">
+                    <li class="nav-item px-2"><a href="#">Privacy Policy</a></li>
+                    <!-- <li class="nav-item px-2"><a href="#">Contact us</a></li> -->
+                </div>
+                <div class="col-lg-3 col-md-4 text-center copyright mb-4">
+                    <h6>&copy; All right reserved.</h6>
+                </div>
+            </div>
+        </div> 
+        <!-- footer ends here -->
+
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="js/custom.js"></script>
+        
+    </body>
+</html>

@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace CI_platform.Repository.Interface
 {
-    public interface IUserSkillRepository : IRepository<User>
+    public interface IUserSkillRepository:IRepository<UserSkill>
     {
         void Add(UserSkill userSkill);
-        void AddRange(IEnumerable<UserSkill> userSkills);
+        void RemoveRange(long userId);
     }
 }

@@ -8,7 +8,8 @@
     <title>@ViewData["Title"] - CI_platform</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
    <link rel="stylesheet" href="~/css/Story.css" asp-append-version="true"/>
-    <link rel="stylesheet" href="~/css/ toastr-custom.css" asp-append-version="true" />
+   <link rel="stylesheet" href="~/css/Privacy.css" asp-append-version="true"/>
+     <link rel="stylesheet" href="~/css/ toastr-custom.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/ShareYourStory.css" asp-append-version="true"/>
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/HomePage.css" asp-append-version="true" />
@@ -46,25 +47,14 @@
                   <a class="nav-link active" aria-current="page"  asp-controller="Story" asp-action="StoryListing">Stories</a>
                 </li>
                 <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Policy
-                  </a>
-                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="#">Volunteering</a></li>
-                    <li><a class="dropdown-item" href="#">Sponsored</a></li>
-                    <li><a class="dropdown-item" href="#">Terms and Conditions</a></li>
-                  </ul>
+              <a class="nav-link active" aria-current="page" asp-controller="Mission" asp-action="PrivacyPolicy"> Policy</a>
+                              
+                         
                 </li>
               </ul>
             </div>
             <div class="right-div d-flex">
-               @* <button class="border-none bg-white m-2 me-4">
-                    <img src="~/images/bell.png"/>
-                     <span class="top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                            4
-                        </span>
-                </button>*@
-
+  
                   <div class="dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="notificationDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                        
@@ -75,9 +65,7 @@
               
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="notificationDropdown">
-                        <li><a class="dropdown-item" asp-controller="User" asp-action="Profile">My Profile</a></li>
-                        <li><a class="dropdown-item" href="#">Volunteering Timesheet</a></li>
-                        <li><a class="dropdown-item" asp-controller="Home" asp-action="Login">Logout</a></li>
+                
                     </ul>
                 </div>
 
@@ -100,7 +88,7 @@
                         </p>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
-                         <li><a class="dropdown-item">My Profile</a></li>
+                       <li><a class="dropdown-item" asp-controller="User" asp-action="Profile">My Profile</a></li>
                         <li><a class="dropdown-item" href="#">Volunteering Timesheet</a></li>
                         <li><a class="dropdown-item" asp-controller="Home" asp-action="Login">Logout</a></li>
                     </ul>

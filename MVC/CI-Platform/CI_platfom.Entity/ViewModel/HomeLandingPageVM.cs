@@ -42,6 +42,7 @@ namespace CI_platfom.Entity.ViewModel
 
         public string sort { get; set; }
         public User UserProfile { get; set; }
+        public IEnumerable<UserSkill> UserSkill { get; set; }
 
     }
 }

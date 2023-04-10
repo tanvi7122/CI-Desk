@@ -22,10 +22,12 @@ namespace CI_platform.Repository.Repository
         {
             HomeLandingPageVM UserProfileDataVM = new();
             
-            UserProfileDataVM.LoggedUser = _unitOfWork.User.GetFirstOrDefault(u => u.Email == email);
+           UserProfileDataVM.LoggedUser = _unitOfWork.User.GetFirstOrDefault(u => u.Email == email);
             UserProfileDataVM.UserProfile=_unitOfWork.User.GetFirstOrDefault(x => x.Email == email);
             UserProfileDataVM.Countries = _unitOfWork.Country.GetAll();
             UserProfileDataVM.Skills = _unitOfWork.Skill.GetAll();
+            UserProfileDataVM.UserSkill = _unitOfWork.UserSkill.GetAll(); 
+
             return UserProfileDataVM;
         
         }

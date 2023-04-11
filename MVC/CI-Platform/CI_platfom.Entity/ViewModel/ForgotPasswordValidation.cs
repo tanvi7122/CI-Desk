@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CI_platfom.Entity.ViewModel
 {
-    public class ForgotPasswordValidation
+    public class ForgotPasswordValidation: HeaderVM
     {
         [Required]
         [EmailAddress]

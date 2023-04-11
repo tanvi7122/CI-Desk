@@ -34,7 +34,7 @@ namespace CI_platform.Controllers
                 return RedirectToAction("Index");
             }
 
-            //HomeLandingPageVM landingPageData = _HomeLandingRepository.GetLandingPageData(sort, sessionValue,currentPage);
+          
             HomeLandingPageVM UserProfilePageData = _HomeLandingRepository.GetUserProfileData(sessionValue);
             return View(UserProfilePageData);
             }

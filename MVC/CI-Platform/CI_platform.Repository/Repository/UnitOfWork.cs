@@ -42,6 +42,7 @@ namespace CI_platform.Repository.Repository
 
             public IStoryInviteRepository StoryInvite { get; private set; }
            public IUserSkillRepository UserSkill{ get; set; }
+           public ITimesheetRepository Timesheet { get; set; }
         public UnitOfWork(CiPlatformContext db)
             {
                 _db = db;
@@ -64,7 +65,8 @@ namespace CI_platform.Repository.Repository
                 MissionMedium = new MissionMediumRepository(_db);
                 MissionComment = new MissionCommentRepository(_db);
                 StoryInvite = new StoryInviteRepository(_db);
-              UserSkill= new UserSkillRepository(_db);
+               UserSkill= new UserSkillRepository(_db);
+               Timesheet= new TimesheetRepository(_db); 
             }
         public void Update(Story databaseStoryObj)
         { 

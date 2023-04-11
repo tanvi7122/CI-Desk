@@ -4,18 +4,25 @@
         <meta name="viewport" charset="UTF-8" content="width=device-width, initial-scale=1.0">
         <title>Voluneer Timesheet</title>
         <link rel="stylesheet" href="css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/userProfile.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.13.3/css/dataTables.bootstrap5.min.css">
+        <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.4.0/css/responsive.bootstrap5.min.css">
+     <link rel="stylesheet" href="css/Timesheet.css">
+     
+        
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+      
     </head>
     <body>
-<h1>volunteering Timesheet </h1>
+<h1 style="margin-top:5%;">volunteering Timesheet </h1>
 <div class="row">
-    <div class="col-6">
-<table class="table table-borderless">
-   
+    <div class="col-5" style="border: 0.5px solid black;padding-top:5px; margin-left:8%;">
+      <table id="timebase" >
         <thead>
-            <title>Voluneering Hours</title>
+          <tr>
+            <th>Volunteering Hours</th>
+            <th><img src ="images/cancel1.png"></th>
+          </tr>
           <tr>
             <th scope="col">Mission</th>
             <th scope="col">Date</th>
@@ -26,16 +33,79 @@
         </thead>
         <tbody>
           <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-          </tr>
+            <td>Thor Walton</td>
+            <td>2011-04-25</td>
+            <td>61</td>
+            <td>47</td>
+            <td>New York</td>
+        </tr>
+        <tr>
+            <td>Finn Camacho</td>
+            <td>2011-04-25</td>
+            <td>47</td>
+            <td>47</td>
+            <td>San Francisco</td>
+      
+        </tr>
           
-        </tbody>
-  </table>
-</div>
+          </tbody>
+          </table>
 </div>
 
+<div class="col-5"  style="border: 0.5px solid black; padding-top: 5px; margin:5px;">
+  <table id="goalbase">
+    <thead>
+      <tr>
+        <th scope="col">Mission</th>
+        <th scope="col">Date</th>
+        <th scope="col">Hours</th>
+        <th scope="col">Minutes</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Thor Walton</td>
+        <td>2011-04-25</td>
+        <td>61</td>
+        <td>47</td>
+        <td>New York</td>
+    </tr>
+  
+      </tbody>
+      </table>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.3/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.3/js/dataTables.bootstrap5.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/2.4.0/js/dataTables.responsive.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/2.4.0/js/responsive.bootstrap5.min.js"></script>
+<script>
+  $(document).ready(function() {
+    var table = $('#timebase').DataTable( {
+        lengthChange: false,
+        buttons: [ 'copy', 'excel', 'pdf', 'colvis' ]
+    } );
+ 
+    table.buttons().container()
+        .appendTo( '#timebase_wrapper .col-md-6:eq(0)' );
+} );
+    </Script>
+    <script>
+      $(document).ready(function() {
+        var table = $('#goalbase').DataTable( {
+            lengthChange: false,
+            buttons: [ 'copy', 'excel', 'pdf', 'colvis' ]
+        } );
+     
+        table.buttons().container()
+            .appendTo( '#goalbase_wrapper .col-md-6:eq(0)' );
+    } );
+        </Script>
        </body>
-    </html>
+      
+    </html> 
+
+    
+    

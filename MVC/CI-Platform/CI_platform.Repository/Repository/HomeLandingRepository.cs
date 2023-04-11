@@ -18,6 +18,7 @@ namespace CI_platform.Repository.Repository
             _unitOfWork = unitOfWork;
         }
 
+      
         public HomeLandingPageVM GetUserProfileData(string email)
         {
             HomeLandingPageVM UserProfileDataVM = new();

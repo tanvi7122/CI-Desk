@@ -7,8 +7,9 @@ using System.Threading.Tasks;
 
 namespace CI_platfom.Entity.ViewModel
 {
-   public class HomeLandingPageVM
+   public class HomeLandingPageVM:HeaderVM
     {
+
         public IEnumerable<MissionMedium> MissionMedium;
 
         public IEnumerable<Mission> Mission { get; set; }
@@ -31,8 +32,9 @@ namespace CI_platfom.Entity.ViewModel
         public IEnumerable<MissionDocument> missionDocument { get; set; }
         public IEnumerable<Mission> RelatedMissions { get; set; }
         public IEnumerable<MissionInvite> MissionInvites { get; set; }
+        public IEnumerable<Timesheet> Timesheets { get; set; }
 
-        public User LoggedUser { get; set; }
+       
         public Mission AppliedMission { get; set; }
         public int PageSize { get; set; }
 

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CI_platfom.Entity.ViewModel
 {
-    public class NewPasswordValidation
+    public class NewPasswordValidation: HeaderVM
     {
         [Required]
         public string? Password { get; set; }

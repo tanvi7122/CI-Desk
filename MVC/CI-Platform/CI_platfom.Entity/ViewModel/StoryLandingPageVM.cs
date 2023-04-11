@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace CI_platfom.Entity.ViewModel
 {
-    public class  StoryLandingPageVM
+    public class  StoryLandingPageVM: HeaderVM
     {
         public long MissionId { get; set; }
         public string Title { get; set; }
@@ -18,6 +18,7 @@ namespace CI_platfom.Entity.ViewModel
         public IEnumerable<Mission> Mission { get; set; }
         public IEnumerable<City> Cities { get; set; }
         public IEnumerable<Country> Countries { get; set; }
+        public IEnumerable<Timesheet> Timesheets { get; set; }
 
         public IEnumerable<MissionTheme> Themes { get; set; }
         public IEnumerable<MissionApplication> missionApplication { get; set; }
@@ -26,7 +27,7 @@ namespace CI_platfom.Entity.ViewModel
         public IEnumerable<Skill> Skills { get; set; }
         public Story AppliedStory { get; set; }
         public IEnumerable<StoryMedium> storyMedia { get; set; }
-        public User LoggedUser { get; set; }
+     
         public IFormFile FormFile { get; set; }
         public int PageSize { get; set; }
         public int CurrentPage { get; set; } 

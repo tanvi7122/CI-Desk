@@ -1,5 +1,5 @@
 ﻿using CI_platfom.Entity.Models;
-using CI_platform.Models;
+
 using Microsoft.AspNetCore.Identity;
 using CI_platform.Repository.Interface;
 using CI_platform.Repository.Repository;

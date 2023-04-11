@@ -268,7 +268,8 @@ namespace CI_platform.Controllers
 
             return View("PrivacyPolicy", landingPageData);
         }
-        
+      
+
 
     }
 }

@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace CI_platfom.Entity.ViewModel
 {
-    public class FilterView
+    public class FilterView: HeaderVM
     { 
-        public IEnumerable<Landing_page> Landing_page { get; set; }
+ 
         public long Theme_id { get; set; }
         public string? Title { get; set; }
 

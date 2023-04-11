@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CI_platfom.Entity.ViewModel
 {
-    public class DropDown
+    public class DropDown: HeaderVM
     {
         [DisplayName("Country")]
         public long CountryId { get; set; }

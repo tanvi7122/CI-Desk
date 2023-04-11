@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace CI_platfom.Entity.ViewModel
 {
  
-    public class StoryAdd
+    public class StoryAdd: HeaderVM
     {
         public string MissionTitle { get; set; }
         public string Description { get; set; }

@@ -28,8 +28,6 @@ namespace CI_platform.Controllers
             this._logger = logger;
             _StoryHomeLandingRepository = StoryHomeLandingRepository;
             _StoryLandingRepository = StoryLandingRepository;
-        
-            
             _context = context;
             _config = config;
 

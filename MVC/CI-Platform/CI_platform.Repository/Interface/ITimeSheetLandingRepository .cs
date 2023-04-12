@@ -10,5 +10,6 @@ namespace CI_platform.Repository.Interface
     public interface ITimeSheetLandingRepository
     {
         TimeSheetVM GetTimeSheetPageData(string email);
+        TimeSheetVM GetPreviewTimeSheetPageData(string email, long userId, long missionId);
     }
 }

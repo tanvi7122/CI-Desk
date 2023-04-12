@@ -9,13 +9,13 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.4.0/css/responsive.bootstrap5.min.css" />
 </head>
 <body>
-    <h1 style="margin-top:5%;margin-left:7%; margin-bottom:2%">volunteering Timesheet </h1>
+    <h1 style="margin-left:7%; margin-bottom:2%">volunteering Timesheet </h1>
     <div class="row">
-        <div class="col-5" style="border: 0.5px solid black;padding-top:5px; margin-left:8%;">
+        <div class="col-5" style="border: 0.5px solid black; margin-left:8%;">
             <table id="timebase">
                 <thead>
                     <tr>
-                        <th >Volunteering Hours</th>
+                        <th>Volunteering Hours</th>
                         <th class="p-5"></th>
                           <th class="p-5"></th>
                         <th class="p-5">
@@ -32,11 +32,23 @@
 
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
-                                    <form asp-action="ChangePassword" method="post">
+                                    <form asp-action="TimeSheet" method="post" id="TimeSheetFormData">
                                         <div class="form-group row mx-5">
-                                            <label class="form-label col-12">Mission</label>
-                                            <input type="Mission" class="form-control form-control-lg" id="Mission" name="Mission" placeholder="" required>
-                                        </div>
+                
+                        <label for="" class="form-label ms-1"> Mission</label>
+                        <select class="form-select" aria-label="Default select example" id="Mission">
+                            <option selected>Select your mission</option>
+                           
+                        @{
+                            var missionlist= Model.missionApplications.Where(u => u.UserId == Model.LoggedUser.UserId && u.ApprovalStatus=="APPROVE");
+                            Console.WriteLine(missionlist);
+                            foreach(var listdropdown in missionlist)
+                            {
+                                 <option value="@listdropdown.Mission.MissionId">@listdropdown.Mission.Title</option>
+                            }
+                        }           
+                        </select>
+                    </div>
                                         <div class="form-group row mt-2 mx-5">
                                             <label class="form-label col-12">Date Volunteered</label>
                                             <input type="date" class="form-control form-control-lg" id="DateVolunteered" name="DateVolunteered" placeholder="" required>
@@ -44,11 +56,11 @@
                                         <div class="form-group row  mt-2 mx-5">
                                             <div class="col-6">
                                                 <label class="form-label">Hour</label>
-                                                <input type="datetime" class="form-control form-control-lg" id="Hour" name="Hour" placeholder="" required>
+                                                <input type="number" class="form-control form-control-lg" id="Hour" name="Hour"  min="0" max="23" placeholder="hh"  required>
                                             </div>
                                             <div class="col-6 " mt-2 mx-5">
                                                 <label class="form-label">minutes </label>
-                                                <input type="datetime" class="form-control form-control-lg" id="minutes" name="minutes" placeholder="" required>
+                                                <input type="number" class="form-control form-control-lg" id="minutes" name="minutes"   min="0" max="59" placeholder="mm" required>
                                             </div>
                                         </div>
                                         <div class="form-group row mt-2 mx-5 ">
@@ -57,7 +69,7 @@
                                         </div>
                                         <div class="modal-footer border-top-0">
                                             <button type="button" class="btn btn-outline-secondary rounded-pill px-4" data-bs-dismiss="modal">Cancel</button>
-                                            <button type="submit" class=" rounded-pill px-4 reset-btn w-auto">Submit</button>
+                                            <button type="submit" class=" rounded-pill px-4 reset-btn w-auto" id="submittimesheet">Submit</button>
                                         </div>
                                     </form>
 
@@ -76,15 +88,24 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Thor Walton</td>
-                        <td>2011-04-25</td>
-                        <td>61</td>
-                        <td>47</td>
+                  
+                    
+                    @{
+                        var count = Model.timesheets.Where(t => t.UserId == Model.LoggedUser.UserId && t.Status == "APPROVE");
+                        foreach( var list in count){
+                            
+                            <tr>
+                        <td>@list.Mission.Title</td>
+                        <td>@list.DateVolunteered</td>
+                        <td>@list.Time</td>
+                        <td>57</td>
                         <td><button class="border-0 m-5" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="fa fa-edit"></i></button></td>
                         <td><img src="~/images/bin.png" /></td>
                     </tr>
-
+                        }
+                        }
+                    
+                      
 
                 </tbody>
             </table>
@@ -111,11 +132,22 @@
 
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
-                                    <form asp-action="ChangePassword" method="post">
-                                        <div class="form-group row mt-2 mx-5">
-                                            <label class="form-label col-12">Mission</label>
-                                            <input type="Mission" class="form-control form-control-lg" id="Mission" name="Mission" placeholder="" required>
-                                        </div>
+                                <form asp-action="TimeSheet" method="post" id="TimeSheetFormData">
+                                        <div class="form-group row mx-5">
+                                     <label for="" class="form-label ms-1"> Mission</label>
+                        <select class="form-select" aria-label="Default select example" id="Mission">
+                            <option selected>Select your mission</option>
+                           
+                        @{
+                            var missionlist1= Model.missionApplications.Where(u => u.UserId == Model.LoggedUser.UserId && u.ApprovalStatus=="APPROVE");
+                            Console.WriteLine(missionlist1);
+                            foreach(var listdropdown in missionlist1)
+                            {
+                                 <option value="@listdropdown.Mission.MissionId">@listdropdown.Mission.Title</option>
+                            }
+                        }           
+                        </select>
+                    </div>
                                         <div class="form-group row mt-2 mx-5">
                                             <label class="form-label col-12">Action</label>
                                             <input type="text" class="form-control form-control-lg" id="Action" name="Action" placeholder="" required>
@@ -128,13 +160,13 @@
 
                                         <div class="form-group row mt-2 mx-5 ">
                                             <label class="form-label col-12">Message</label>
-                                            <input type="text" class="form-control form-control-lg" id="Message" name="Message" placeholder="" required>
+                                            <input type="text" class="form-control form-control-lg" id="Notes" name="Message" placeholder="" required>
                                         </div>
                                         <div class="modal-footer border-top-0">
                                             <button type="button" class="btn btn-outline-secondary rounded-pill px-4" data-bs-dismiss="modal">Cancel</button>
-                                            <button type="submit" class=" rounded-pill px-4 reset-btn w-auto">Submit</button>
+                                            <button type="submit" class=" rounded-pill px-4 reset-btn w-auto" id="submitGoalsheet+">Submit</button>
                                         </div>
-                                    </form>
+                                   </form>
 
                                 </div>
                             </div>

@@ -215,17 +215,7 @@ namespace CI_platform.Repository.Repository
                         var uploadPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "Upload");
                         var filePath = Path.Combine(uploadPath, uniqueFileName);
 
-                        //if (extension == Extension.mp4.ToString() || extension == Extension.avi.ToString())
-                        //{
-
-                        //    var media = new StoryMedium
-                        //    {
-                        //        StoryId = userexist.StoryId,
-                        //        Type = MediaType.video.ToString(),
-                        //        Path = uniqueFileName
-                        //    };
-                        //    mediaList.Add(media);
-                        //}else
+                   
                         if (extension == "png" || extension == "jpg" || extension == "jpeg")
                         {
 

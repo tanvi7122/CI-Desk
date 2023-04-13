@@ -1,0 +1,28 @@
+﻿
+@using CI_platfom.Entity.ViewModel
+@{
+    ViewData["Title"] = "TimeSheet";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model TimeSheetVM
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+ 
+   
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+
+
+</head>
+<body>
+<div class="container">
+    <h1 class="mt-5">Volunteering Timesheet</h1>
+   
+ <div id="partial-timesheet">
+        <partial name="_TimeSheetView" />
+    </div>
+</div>
+
+</body>

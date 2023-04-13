@@ -17,7 +17,7 @@
 </style>
 
 <header>
-  
+     
         <link rel="stylesheet" href="~/css/mission.css" asp-append-version="true" />
   
 </header>
@@ -282,24 +282,7 @@
                             </div>
 
                         </form>
-                        @*
-
-                            <div class="d-flex justify-content-center Rating">
-                            @{
-                            var rateobj = Model.AppliedMission.MissionRatings.FirstOrDefault(f => f.UserId == Model.LoggedUser.UserId);
-                            if (rateobj != null)
-                            {
-                            @for (int i = 1; i <= rateobj.Rating; i++)
-                            {
-                            <p  alt="" data-mission-id="@Model.AppliedMission.MissionId" class="selectedstar"></p>
-                            }
-                            @for (int i = 1; i <= (5 - rateobj.Rating); i++)
-                            {
-                            <p  alt="" data-mission-id="@Model.AppliedMission.MissionId" class="unselectedstar"></p>
-                            }
-                            }
-                            }
-                            </div>*@
+                
                     </div>
                     <div class="d-flex mt-3 mission-info-card">
                         <div class="d-flex header-card-text header-card  p-3">
@@ -362,24 +345,23 @@
                         </div>
                     </div>
                     @{
-
                         var flag1 = 1;
                         <div class="d-flex justify-content-center mt-3">
-                           
-                          
-                                        @foreach (var missionapply in Model.AppliedMission.MissionApplications)
+                                 
+                              @foreach (var missionapply in Model.AppliedMission.MissionApplications)
                                 {
                                     @if (missionapply.UserId.Equals(@Model.LoggedUser.UserId))
                                     {
-                             <button class="submit-btn" style="background-color:#449d44;color: #fff;border-color: #398439" data-mission-id="@Model.AppliedMission.MissionId" data-user-id="@Model.LoggedUser.UserId">
-                            Applied already </button>
+                                       <button class="submit-btn" style="background-color:#449d44;color: #fff;border-color: #398439" data-mission-id="@Model.AppliedMission.MissionId" data-user-id="@Model.LoggedUser.UserId">
+                                       Applied already </button>
                                         flag1 = 0;
                                     }
                                 }
                                        @if (flag1 == 1)
                                 {
-                                       <button class="submit-btn apply-mission-btn"  data-mission-id="@Model.AppliedMission.MissionId" data-user-id="@Model.LoggedUser.UserId">
-                            Apply <img src="~/images/right-arrow.png">  </button>
+                                       <button class="submit-btn " id="apply-mission-btn" onclick="applyMission()" data-mission-id="@Model.AppliedMission.MissionId" data-user-id="@Model.LoggedUser.UserId">
+                                     <div id="result">Apply<img src="~/images/right-arrow.png"> </div>
+                                      </button>
                           
                                 }
                             
@@ -490,9 +472,34 @@
                             <input type="hidden" name="cityId" value="@Model.AppliedMission.CityId" />
                             <input type="hidden" name="countryId" value="@Model.AppliedMission.CountryId" />
                             <input type="hidden" name="themeId" value="@Model.AppliedMission.ThemeId" />
-                            <button class="submit-btn mt-3">
-                                Post Comment
-                            </button>
+                            @{
+                                 bool hasApplied = false;
+                                @foreach (var Apply in Model.AppliedMission.MissionApplications)
+                                {
+                                   
+                                    if (Apply.UserId.Equals(@Model.LoggedUser.UserId))
+                                    {
+                                        hasApplied = true;
+                                        break;
+                                    }
+                                 }
+                                    if (hasApplied)
+                                    {
+                                        <button class="submit-btn mt-3">
+                                            Post Comment
+                                        </button>
+                                    
+                                    }
+                                    else
+                                    {
+                                        <button class="submit-btn mt-3" disabled>
+                                            Post disabled
+                                        </button>
+                                      
+                                    }
+                               
+                            }
+                           
                         </form>
 
 
@@ -871,6 +878,8 @@
     </div>
 
 </body>
+
+
       <script>
                 var swiper = new Swiper(".mySwiper", {
                     loop: true,

@@ -127,6 +127,7 @@ namespace CI_platform.Controllers
                 TempData["error"] = "Session Expired!\nPlease Login Again!";
                 return RedirectToAction("Index");
             }
+          
             var mission_user_comment = _unitOfWork.MissionComment.GetFirstOrDefault(u => (u.UserId == userId) && (u.MissionId == missionId));
             if (mission_user_comment == null)
             {
@@ -137,8 +138,16 @@ namespace CI_platform.Controllers
                     CommentText = comment_text,
                 });
             }
-            _unitOfWork.Save();
-            TempData["success"] = "Comment Added!Thank You For Your Comment";
+            if (comment_text == null)
+            {
+                TempData["error"] = "Please Enter Comment";
+            }
+            else
+            {
+                _unitOfWork.Save();
+                TempData["success"] = "Comment Added!Thank You For Your Comment";
+            }
+           
 
             return RedirectToAction("MissionDetail", "Mission", new { missionId, themeId, cityId, countryId });
         }

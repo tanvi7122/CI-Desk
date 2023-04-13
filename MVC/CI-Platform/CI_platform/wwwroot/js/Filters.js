@@ -222,49 +222,7 @@ function FilterMissions() {
     }
 
 }
-//});
 
-//$(".dropdown #ThemeList").on('change', 'input[type="checkbox"]', function () {
-//    console.log('hello');
-//    var selectedThemes = $('input[type="checkbox"]:checked').map(function () {
-//        return $(this).next('label').text();
-//    }).get();
-//    console.log(selectedThemes);
-
-//    $('.card-div').each(function () {
-//        var cardTheme = $(this).find('.mission-theme').text();
-//        var flag = selectedThemes.some(function (selectedTheme) {
-//            return selectedTheme.trim().toUpperCase() == cardTheme.trim().toUpperCase();
-//        });
-//        if (flag) {
-//            $(this).show();
-//        } else {
-//            $(this).hide();
-//        }
-//    });
-//});
-
-//$(".dropdown #SkillList").on('change', 'input[type="checkbox"]', function () {
-//    console.log('hello');
-//    var selectedSkills = $('input[type="checkbox"]:checked').map(function () {
-//        return $(this).next('label').text();
-//    }).get();
-//    console.log(selectedSkills);
-
-//    $('.card-div').each(function () {
-//        var cardSkill = $(this).find('.mission-skill').text();
-
-//        var flag = selectedSkills.some(function (selectedSkill) {
-//            return selectedSkill.toUpperCase() == cardSkill.toUpperCase();
-//        });
-//        console.log(flag);
-//        if (flag) {
-//            $(this).show();
-//        } else {
-//            $(this).hide();
-//        }
-//    });
-//});
 
 $('#sortByDropdown li').on('click', function () {
     selectedSortOption = $(this).find('a').text();
@@ -488,53 +446,33 @@ $('.favorite-button').click(function () {
     });
 });
 
+const resultDiv = document.getElementById('result');
+const applyMissionBtn = document.getElementById('apply-mission-btn');
 
-$('.apply-mission-btn').click(function () {
-    var button = $(this);
-    var missionId = $(this).data('mission-id');
-    var userId = $(this).data('user-id');
-
-    console.log(missionId);
-    console.log(userId);
+applyMissionBtn.addEventListener('click', function () {
+    var missionId = applyMissionBtn.getAttribute('data-mission-id');
+    var userId = applyMissionBtn.getAttribute('data-user-id');
 
     $.ajax({
         url: '/Mission/AddVolunteer',
         type: 'POST',
         data: { missionId: missionId, userId: userId },
+        beforeSend: function () {
+            console.log('Before sending AJAX request');
+        },
         success: function (result) {
-            // Show a success message or update the UI
-            //console.log(missionId)
-            //console.log(fromuserId)
-            //console.log(touserId)
-            //var allrecommendedId = $('.post-btn')
-            //allrecommendedId.each(function () {
-            //    if ($(this).data('mission-id') === missionId && $(this).data('fromuser-id') == fromuserId && $(this).data('touser-id') == touserId) {
-            //if ($(this).hasClass('btn-primary')) {
-            //    $(this).addClass('btn-success')
-            //    $(this).removeClass('btn-primary')
-            //    $(this).html('Recommended')
-            //    console.log("added")
-            //}
-            //else {
-            //    $(this).addClass('btn-primary')
-            //    $(this).removeClass('btn-success')
-            //    $(this).html('Recommend')
-            //    console.log("remove")
-            //}
-            //    console.log("comment added");
-            //}
-            /* })*/
-            console.log("Application added");
-
-
+            resultDiv.innerHTML = 'Applied already';
+            applyMissionBtn.style.backgroundColor = 'green';
+            applyMissionBtn.style.color = 'white';
+            applyMissionBtn.style.border = '2px solid green';
         },
         error: function (error) {
-            // Show an error message or handle the error
-            console.log("error")
-
+            resultDiv.innerHTML = 'Error: ' + error;
         }
     });
 });
+
+
 
 
 

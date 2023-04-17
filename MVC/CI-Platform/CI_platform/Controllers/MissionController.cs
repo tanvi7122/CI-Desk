@@ -2,6 +2,7 @@
 using CI_platfom.Entity.ViewModel;
 using CI_platform.Repository.Interface;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using MimeKit;
 using System.Linq;
 using System.Net;
@@ -76,7 +77,7 @@ namespace CI_platform.Controllers
 
 
         public IActionResult MissionDetail(long missionId, long themeid, long cityid, long countryid)
-        {
+         {
             var sessionValue = HttpContext.Session.GetString("UserEmail");
             if (String.IsNullOrEmpty(sessionValue))
             {
@@ -277,7 +278,39 @@ namespace CI_platform.Controllers
 
             return View("PrivacyPolicy", landingPageData);
         }
-      
+
+        [HttpPost]
+        public IActionResult ContactUs(ContactU model)
+        {
+            var userid = HttpContext.Session.GetString("UserId");
+            long userId = Convert.ToInt64(userid);
+            var sessionValue = HttpContext.Session.GetString("UserEmail");
+            if (String.IsNullOrEmpty(sessionValue))
+            {
+                TempData["error"] = "Session Expired!\nPlease Login Again!";
+                return RedirectToAction("Index");
+            }
+            // Save the data to the database
+            _unitOfWork.ContactU.Add(new ContactU
+            {
+
+                UserId = userId,
+                Subject = model.Subject,
+                Message = model.Message,
+                CreatedAt = DateTime.Now,
+
+            });
+               
+         
+            _unitOfWork.Save();
+            var responseData = new
+            {
+                success = true,
+                message = "Your message has been sent successfully."
+            };
+            return Json(responseData);
+
+        }
 
 
     }

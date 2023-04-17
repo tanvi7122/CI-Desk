@@ -15,7 +15,7 @@
     margin-right: 7px;
 }
 </style>
-
+ <script src="~/js/Filters.js"></script>
 <script
   src="https://code.jquery.com/jquery-3.6.3.min.js"
   integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU="
@@ -30,7 +30,7 @@
                     <span class="input-group-text bg-white border-none" id="seacrhIcon">
                         <img src="~/images/search.png" />
                     </span>
-                    <input type="search" class="form-control border-none" placeholder="Search" aria-label="Search" aria-describedby="seacrhIcon" id="searchField" onkeyup="search()">
+                    <input type="search" class="form-control border-none" placeholder="Search" aria-label="Search" aria-describedby="seacrhIcon" id="searchField" onkeyup="search();">
                 </div>
                 <button class="img-filter border-none bg-white">
                     <img src="~/images/filter.png" type="button" data-bs-toggle="offcanvas" data-bs-target="#filterMenu" aria-controls="filterMenu" />
@@ -66,7 +66,7 @@
                                     {
                                     <li>
                                     <div class="form-check" id="drop-city">
-                                    <input class="form-check-input" type="checkbox" value="@city.Name" id="@city.Name" onclick="isCheckedById('@city.Name')">
+                                    <input class="form-check-input" type="checkbox" value="@city.Name" id="@city.Name" onclick="FilterMissions()">
                                     <label class="form-check-label" for="@city.Name">@city.Name</label>
                                     </div>
                                     </li>
@@ -85,7 +85,7 @@
                                 {
                                     <li>
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="@theme.Title" id="@theme.Title">
+                                            <input class="form-check-input" type="checkbox" value="@theme.Title" id="@theme.Title" onclick="FilterMissions()">
                                             <label class="form-check-label" for="@theme.Title">@theme.Title</label>
                                         </div>
                                     </li>
@@ -103,7 +103,7 @@
                                 {
                                     <li>
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="@skill.SkillName" id="@skill.SkillName">
+                                            <input class="form-check-input" type="checkbox" value="@skill.SkillName" id="@skill.SkillName" onclick="FilterMissions()">
                                             <label class="form-check-label" for="@skill.SkillName">@skill.SkillName</label>
                                         </div>
                                     </li>
@@ -210,4 +210,5 @@
 
 <div id="filter-items">
 </div>
+
 

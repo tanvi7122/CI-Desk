@@ -38,6 +38,7 @@ namespace CI_platform.Repository.Interface
         public IUserSkillRepository UserSkill { get;   }
         public IStoryInviteRepository StoryInvite { get; }
         public ITimesheetRepository Timesheet { get; }  
+        public IContactURepository ContactU { get; }
         void Update(CI_platfom.Entity.Models.Story databaseStoryObj);
         void Save();
       

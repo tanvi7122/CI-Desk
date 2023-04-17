@@ -3,6 +3,7 @@ function search() {
     // Declare variables
     var input, filter;
     input = document.getElementById("searchField");
+    console.log(input)
     filter = input.value.toUpperCase();
     cards = document.getElementsByClassName("card-div");
     titles = document.getElementsByClassName("card-title");
@@ -88,86 +89,86 @@ $('.favorite-button').click(function () {
 
 
 
-let filterPills = $('#filter-items');
-let allDropdowns = $('.dropdown ul');
-allDropdowns.each(function () {
+//let filterpills = $('#filter-items');
+//let alldropdowns = $('.dropdown ul');
+//alldropdowns.each(function () {
 
-    let dropdown = $(this);
-    $(this).on('change', 'input[type="checkbox"]', function () {
+//    let dropdown = $(this);
+//    $(this).on('change', 'input[type="checkbox"]', function () {
 
-        /*// if the check box is checked then add it to pill*/
-        if ($(this).is(':checked')) {
-            let selectedOptionText = $(this).next('label').text();
-            console.log(selectedOptionText);
-            let selectedOptionValue = $(this).val();
-            console.log(selectedOptionValue);
-            const closeAllButton = filterPills.children('.closeAll');
+//        /*// if the check box is checked then add it to pill*/
+//        if ($(this).is(':checked')) {
+//            let selectedoptiontext = $(this).next('label').text();
+//            console.log(selectedoptiontext);
+//            let selectedoptionvalue = $(this).val();
+//            console.log(selectedoptionvalue);
+//            const closeallbutton = filterpills.children('.closeall');
 
-            // creating a new pill
-            let pill = $('<div></div>').addClass('pill');
+//            // creating a new pill
+//            let pill = $('<div></div>').addclass('pill');
 
-            // adding the text to pill
-            let pillText = $('<span></span>').text(selectedOptionText);
-            pill.append(pillText);
+//            // adding the text to pill
+//            let pilltext = $('<span></span>').text(selectedoptiontext);
+//            pill.append(pilltext);
 
-            // add the close icon (bootstrap)
-            let closeIcon = $('<span></span>').addClass('close').html(' x');
-            pill.append(closeIcon);
+//            // add the close icon (bootstrap)
+//            let closeicon = $('<span></span>').addclass('close').html(' x');
+//            pill.append(closeicon);
 
 
-            // for closing the pill when clicking on close icon
-            closeIcon.click(function () {
-                const pillToRemove = $(this).closest('.pill');
-                pillToRemove.remove();
-                // Uncheck the corresponding checkbox
-                const checkboxElement = dropdown.find(`input[type="checkbox"][value="${selectedOptionValue}"]`);
-                checkboxElement.prop('checked', false);
-                if (filterPills.children('.pill').length === 1) {
-                    filterPills.children('.closeAll').remove();
-                }
+//            // for closing the pill when clicking on close icon
+//            closeicon.click(function () {
+//                const pilltoremove = $(this).closest('.pill');
+//                pilltoremove.remove();
+//                // uncheck the corresponding checkbox
+//                const checkboxelement = dropdown.find(`input[type="checkbox"][value="${selectedoptionvalue}"]`);
+//                checkboxelement.prop('checked', false);
+//                if (filterpills.children('.pill').length === 1) {
+//                    filterpills.children('.closeall').remove();
+//                }
 
-                FilterMissions();
-            });
+//                filtermissions();
+//            });
 
-            // Add "Close All" button
-            if (closeAllButton.length === 0) {
-                filterPills.append('<div class=" closeAll"><span>Close All</span></div>');
-                filterPills.children('.closeAll').click(function () {
-                    allDropdowns.find('input[type="checkbox"]').prop('checked', false);
-                    filterPills.empty();
+//            // add "close all" button
+//            if (closeallbutton.length === 0) {
+//                filterpills.append('<div class=" closeall"><span>close all</span></div>');
+//                filterpills.children('.closeall').click(function () {
+//                    alldropdowns.find('input[type="checkbox"]').prop('checked', false);
+//                    filterpills.empty();
 
-                    FilterMissions();
+//                    filtermissions();
 
-                });
+//                });
 
-                //add the pill before the close icon
-                filterPills.prepend(pill);
+//                //add the pill before the close icon
+//                filterpills.prepend(pill);
 
-            }
-            else {
-                filterPills.children('.closeAll').before(pill);
-            }
+//            }
+//            else {
+//                filterpills.children('.closeall').before(pill);
+//            }
 
-        }
-        // if the checkbox is not checked then we have to check for its value if it is exists in the pills section then we have to remove it
-        else {
-            let selectedOptionText = $(this).next('label').text() + ' x';
-            let selectedOptionValue = $(this).val();
-            $('.pill').each(function () {
-                const pillText = $(this).text();
-                if (pillText === selectedOptionText) {
-                    $(this).remove();
-                }
-            });
-            if ($('.pill').length === 1) {
-                $('.closeAll').remove();
-            }
-        }
+//        }
+//        // if the checkbox is not checked then we have to check for its value if it is exists in the pills section then we have to remove it
+//        else {
+//            let selectedoptiontext = $(this).next('label').text() + ' x';
+//            let selectedoptionvalue = $(this).val();
+//            $('.pill').each(function () {
+//                const pilltext = $(this).text();
+//                if (pilltext === selectedoptiontext) {
+//                    $(this).remove();
+//                }
+//            });
+//            if ($('.pill').length === 1) {
+//                $('.closeall').remove();
+//            }
+//        }
 
-        FilterMissions();
-    });
+//        filtermissions();
+//    });
 
-})
+//})
 
 
 //$(".dropdown .CardsFilter").on('change', 'input[type="checkbox"]', function () {
@@ -593,4 +594,47 @@ $(".Rating p").click(function () {
         }
     })
 })
+
+$(window).on('unload', function () {
+    endSession();
+});
+function endSession() {
+    $.ajax({
+        url: '/Home/EndSession',
+        type: 'POST',
+        success: function (result) {
+            console.log('Session ended successfully');
+        },
+        error: function (error) {
+            console.log('Error ending session: ' + error.responseText);
+        }
+    });
+}
+
+
+//function submitForm() {
+//    var data = $('#contact-form').serialize();
+
+//    $.ajax({
+//        type: 'POST',
+//        url: '/Mission/ContactUs',
+//        data: data,
+//        success: function (response) {
+//            if (response.success) {
+//                // show success message
+//                Swal.fire({
+//                    icon: 'success',
+//                    title: 'Success!',
+//                    text: response.message
+//                });
+//                // clear form inputs
+//                $('#contact-form')[0].reset();
+//            } else {
+//                // show error message
+//                Swal.fire({
+//                    icon: 'error',
+//                    title:
+
+
+    
 

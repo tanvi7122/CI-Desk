@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "igU6CYuhWEgEHnjLQjPOaAOPpP/7TVIxXlHHPZ0jQ7w=",
+  "Hash": "ktRj+YDRXodSHCgk15o8C00hBD+v4kSMlTOB77N9wTM=",
   "Source": "CI_platform",
   "BasePath": "_content/CI_platform",
   "Mode": "Default",
@@ -66,6 +66,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Avatar\\071ddac1-85e2-46a4-9bb5-3d561e88cc73.png"
+    },
+    {
+      "Identity": "C:\\Users\\pca142\\Desktop\\CI-Desk\\MVC\\CI-Platform\\CI_platform\\wwwroot\\Avatar\\09cafa6a-e15c-4a25-a1d0-9da2614c8273.png",
+      "SourceId": "CI_platform",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\pca142\\Desktop\\CI-Desk\\MVC\\CI-Platform\\CI_platform\\wwwroot\\",
+      "BasePath": "_content/CI_platform",
+      "RelativePath": "Avatar/09cafa6a-e15c-4a25-a1d0-9da2614c8273.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Avatar\\09cafa6a-e15c-4a25-a1d0-9da2614c8273.png"
     },
     {
       "Identity": "C:\\Users\\pca142\\Desktop\\CI-Desk\\MVC\\CI-Platform\\CI_platform\\wwwroot\\Avatar\\0ba7f145-9678-4ec8-bb11-65666730adb1.png",
@@ -865,6 +882,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Avatar\\6fe72480-bdf0-4baf-8f4c-ff7a1b4860e6.png"
+    },
+    {
+      "Identity": "C:\\Users\\pca142\\Desktop\\CI-Desk\\MVC\\CI-Platform\\CI_platform\\wwwroot\\Avatar\\720efa0a-5f65-4984-b4b8-dedb48649557.png",
+      "SourceId": "CI_platform",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\pca142\\Desktop\\CI-Desk\\MVC\\CI-Platform\\CI_platform\\wwwroot\\",
+      "BasePath": "_content/CI_platform",
+      "RelativePath": "Avatar/720efa0a-5f65-4984-b4b8-dedb48649557.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Avatar\\720efa0a-5f65-4984-b4b8-dedb48649557.png"
     },
     {
       "Identity": "C:\\Users\\pca142\\Desktop\\CI-Desk\\MVC\\CI-Platform\\CI_platform\\wwwroot\\Avatar\\76a2c121-5982-418d-9106-900edff59ba5.png",
@@ -1987,6 +2021,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Avatar\\fffd7885-92ec-43c0-8838-1be061a3b6d2.png"
+    },
+    {
+      "Identity": "C:\\Users\\pca142\\Desktop\\CI-Desk\\MVC\\CI-Platform\\CI_platform\\wwwroot\\css\\Admin.css",
+      "SourceId": "CI_platform",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\pca142\\Desktop\\CI-Desk\\MVC\\CI-Platform\\CI_platform\\wwwroot\\",
+      "BasePath": "_content/CI_platform",
+      "RelativePath": "css/Admin.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\Admin.css"
     },
     {
       "Identity": "C:\\Users\\pca142\\Desktop\\CI-Desk\\MVC\\CI-Platform\\CI_platform\\wwwroot\\css\\HomePage.css",
@@ -3993,6 +4044,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\xlsx.png"
+    },
+    {
+      "Identity": "C:\\Users\\pca142\\Desktop\\CI-Desk\\MVC\\CI-Platform\\CI_platform\\wwwroot\\js\\Admin.js",
+      "SourceId": "CI_platform",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\pca142\\Desktop\\CI-Desk\\MVC\\CI-Platform\\CI_platform\\wwwroot\\",
+      "BasePath": "_content/CI_platform",
+      "RelativePath": "js/Admin.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\Admin.js"
     },
     {
       "Identity": "C:\\Users\\pca142\\Desktop\\CI-Desk\\MVC\\CI-Platform\\CI_platform\\wwwroot\\js\\ckeditor.js",

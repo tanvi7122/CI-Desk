@@ -1,0 +1,81 @@
+﻿@{
+    ViewData["Title"] = "Admin_Mission";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<head>
+        <link rel="stylesheet" href="~/css/Admin.css">
+</head>
+
+      <h3 class="ms-5 mt-4 spanUser"><span>Mission</span> </h3>
+      <div class="row mt-5">
+                <div class="col-md-9 col-6 ms-5 ">
+                    <form action="" class="">
+                        <div class="border searchMission d-flex w-50">
+                            <button type="button" class="btn"><img src="~/images/search.png" alt=""></button>
+                            <input class="form-control me-2 border-0 bg-transparent" type="search" placeholder="Search "
+                                id="searchbtn" aria-label="Search">
+                        </div>
+                    </form>
+                </div>
+                <div class="col d-flex justify-content-center">
+                    <button type="button" class="btn addbtn rounded-pill px-4" id="addBtn" data-bs-toggle="modal"
+                        data-bs-target="#timeModal">
+                        <i class="fa-solid fa-plus pe-2"></i>
+                        Add
+                    </button>
+                </div>
+            </div>
+            <div class="table-responsive ms-5 mt-5">
+                <table id="example" class="table nowrap border" style="width:100%">
+                    <thead class="table-light">
+                        <tr>
+                            <th class="border-bottom-0 ">Mission Title</th>
+                            <th class="border-bottom-0">Mission Type </th>
+                            <th class="border-bottom-0">Start Date</th>
+                            <th class="border-bottom-0">End Date</th>
+                            <th class="border-bottom-0">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Desktop publishing software</td>
+                            <td>Time</td>
+                            <td>05/02/2019</td>
+                            <td>15/02/2019</td>
+                            <td>
+                                <button class="btn border-0" data-bs-toggle="modal" id="addbtn"
+                                    data-bs-target="#editModal"><i class="fa-solid fa-pen-to-square"></i></button>
+                                <button class="btn border-0"><i
+                                        class="fa-solid fa-trash-can"></i></button>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Various versions have evolved over</td>
+                            <td>Goal</td>
+                            <td>10/02/2019</td>
+                            <td>20/02/2020</td>
+                            <td>
+                                <button class="btn border-0" data-bs-toggle="modal" id="addbtn"
+                                    data-bs-target="#editModal"><i class="fa-solid fa-pen-to-square"></i></button>
+                                <button class="btn border-0"><i
+                                        class="fa-solid fa-trash-can"></i></button>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>A Latin professor at Hampden-Sydney</td>
+                            <td>Time</td>
+                            <td>04/06/2020</td>
+                            <td>24/06/2020</td>
+                            <td>
+                                <button class="btn border-0" data-bs-toggle="modal" id="addbtn"
+                                    data-bs-target="#editModal"><i class="fa-solid fa-pen-to-square"></i></button>
+                                <button class="btn border-0"><i
+                                        class="fa-solid fa-trash-can"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            </div>

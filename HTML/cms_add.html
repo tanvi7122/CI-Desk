@@ -1,0 +1,163 @@
+<html lang="en">
+
+<head>
+    <meta name="viewport" charset="UTF-8" content="width=device-width, initial-scale=1.0">
+    <title>Add CMS Page</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/cms_add.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <!-- <link rel="stylesheet" href="https://cdn.datatables.net/1.13.3/css/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.4.0/css/responsive.bootstrap5.min.css"> -->
+</head>
+
+<body>
+
+    <!-- sidebar -->
+    <div class="navigation">
+        <ul>
+            <li>
+                <span class="title text-light">
+                    <h3 class="navi ms-4">NAVIGATION</h3>
+                </span>
+            </li>
+            <li class="mt-3">
+                <a href="#">
+                    <span class="icon mt-3" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="User"><i class="fa-solid fa-user"></i></span>
+                    <span class="title mt-3">User</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="icon mt-3" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="CMS Page"><i class="fa-solid fa-file-lines"></i></span>
+                    <span class="title mt-3">CMS Page</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="icon mt-3" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Mission"><i class="fa-solid fa-bullseye"></i></span>
+                    <span class="title mt-3">Mission</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="icon mt-3" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Mission Theme"><i class="fa-solid fa-border-all"></i></span>
+                    <span class="title mt-3">Mission Theme</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="icon mt-3" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Mission Application"><i class="fa-solid fa-folder"></i></span>
+                    <span class="title mt-3">Mission Application</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="icon mt-3" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Story"><i class="fa-solid fa-book"></i></span>
+                    <span class="title mt-3">Story</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="icon mt-3" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Baner Management"><i class="fa-solid fa-ribbon"></i></span>
+                    <span class="title mt-3">Banner Management</span>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+    <div class="container-fluid">
+        <div class="main">
+            <div class="topbar" style="box-shadow:  1.5px 2.6px 5px 0 rgba(0, 0, 0, 0.08);">
+                <div class="toggle me-5 ms-3 d-lg-none" onclick="toggleMenu();"></div>
+                <div class="col-lg-8 col-6 d-flex justify-content-start mt-lg-3 mt-1">
+                    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+                        <div class="container-fluid">
+                            <div class="collapse navbar-collapse ms-3 nav" id="navbarSupportedContent">
+                                <p>Thursday, November 3, 2022, 10:06 AM</p>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+                <div class="col-lg-4 col-6 d-flex justify-content-center mt-2 ms-5">
+                    <!-- <img src="images/bell.png" alt="notification" class="notification mt-3 me-2"> -->
+                    <img src="images/user-img.png" alt="Logo of user" class="rounded-circle userLogo">
+                    <div class="dropdown">
+                        <button class="btn d-flex" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <p class="username">Evan Donohue</p>
+                            <i class="fa-solid fa-caret-down ms-2 mt-1"></i>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="border mt-5 ms-5 me-5">
+                <h3 class="px-3 py-2 heading">Add</h3>
+                <div class="form ms-3 mt-4 me-1">
+                    <form action="">
+                        <div class="mb-3">
+                            <label for="title" class="form-label">Title</label>
+                            <input type="text" class="form-control" id="title" name="title">
+                        </div>
+                        <div class="mb-3">
+                            <label for="description" class="form-label">My Story</label>
+                            <!-- <input type="text" class="form-control" id="description" name="description"> -->
+                            <textarea  id="editor1" name="editor1"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="slug" class="form-label">Slug</label>
+                            <input type="text" class="form-control" id="slug" name="slug">
+                        </div>
+                        <div class="mb-3">
+                            <label for="status" class="form-label">Status</label>
+                            <select class="form-select text-secondary" aria-label="Default select example">
+                                <option selected>Select your status</option>
+                                <option value="active">Active</option>
+                                <option value="deactive">Deactive</option>
+                            </select>
+                        </div>
+                        <div class="mb-3 d-flex justify-content-end me-2">
+                            <button type="button" class="btn btn-outline-secondary rounded-pill px-4 me-3" data-bs-dismiss="modal">Cancel</button>
+                            <button type="button" class="btn changePassword rounded-pill px-4">Save</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    
+    <script src="https://cdn.ckeditor.com/4.20.2/full/ckeditor.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script>
+        // script fot tooltip
+        const tooltips = document.querySelectorAll(".icon")
+        tooltips.forEach(t=>{
+            new bootstrap.Tooltip(t)
+        });
+
+        // script for sidebar toggle menu
+        function toggleMenu() {
+            let toggle = document.querySelector('.toggle');
+            let navigation = document.querySelector('.navigation');
+            let main = document.querySelector('.main');
+            toggle.classList.toggle('active');
+            navigation.classList.toggle('active');
+            main.classList.toggle('active');
+        }
+
+        // script for ckeditor
+        CKEDITOR.replace('editor1', {
+            height: 260,
+            baseFloatZIndex: 10005,
+            removeButtons: 'PasteFromWord'
+        });
+    </script>
+</body>
+
+</html>

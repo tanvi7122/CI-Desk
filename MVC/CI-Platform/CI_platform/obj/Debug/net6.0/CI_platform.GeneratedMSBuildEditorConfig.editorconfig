@@ -23,6 +23,18 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes = true
 build_property.MSBuildProjectDirectory = C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/pca142/Desktop/CI-Desk/MVC/CI-Platform/CI_platform/Views/Admin/admin_mission.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cYWRtaW5fbWlzc2lvbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/pca142/Desktop/CI-Desk/MVC/CI-Platform/CI_platform/Views/Admin/admin_story.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cYWRtaW5fc3RvcnkuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/pca142/Desktop/CI-Desk/MVC/CI-Platform/CI_platform/Views/Admin/admin_user.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cYWRtaW5fdXNlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/pca142/Desktop/CI-Desk/MVC/CI-Platform/CI_platform/Views/Home/Forgot.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxGb3Jnb3QuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -89,6 +101,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/pca142/Desktop/CI-Desk/MVC/CI-Platform/CI_platform/Views/Shared/UserSkill.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFVzZXJTa2lsbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/pca142/Desktop/CI-Desk/MVC/CI-Platform/CI_platform/Views/Shared/_AdminLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9BZG1pbkxheW91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/pca142/Desktop/CI-Desk/MVC/CI-Platform/CI_platform/Views/Shared/_GridPartial.cshtml]

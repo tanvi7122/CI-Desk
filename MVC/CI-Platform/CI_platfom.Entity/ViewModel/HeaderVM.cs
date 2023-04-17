@@ -10,5 +10,6 @@ namespace CI_platfom.Entity.ViewModel
     public class HeaderVM
     {
         public User LoggedUser { get; set; }
+        public ContactU Contact { get; set; }
     }
 }

@@ -5,11 +5,15 @@ namespace CI_platfom.Entity.Models;
 
 public partial class ContactU
 {
+    public long ContactId { get; set; }
+
     public long UserId { get; set; }
 
-    public string Subject { get; set; } = null!;
+    public string? Message { get; set; }
 
-    public string Message { get; set; } = null!;
+    public string? Subject { get; set; }
 
-    public DateOnly CreatedAt { get; set; }
+    public DateTime? CreatedAt { get; set; }
+
+    public virtual User User { get; set; } = null!;
 }

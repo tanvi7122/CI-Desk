@@ -40,12 +40,38 @@ function loadDataTabel() {
 
 }
 function getDatesTs() {
-        var startDate = $('#missionTimelist').find('option:selected').data('date');    console.log(startDate);    startDate = startDate.split(' ')[0]    var dateParts = startDate.split("-");    var year = dateParts[2];    var month = dateParts[1];    var day = dateParts[0];    var minDateVal = `${year}-${month}-${day}`
-    $('#TimeVolunteerDate').attr('min', minDateVal);    const today = new Date();    const maxDateVal = today.toISOString().split('T')[0];    $('#TimeVolunteerDate').attr('max', maxDateVal);
+
+        var startDate = $('#missionTimelist').find('option:selected').data('date');
+    console.log(startDate);
+    startDate = startDate.split(' ')[0]
+    var dateParts = startDate.split("-");
+    var year = dateParts[2];
+    var month = dateParts[1];
+    var day = dateParts[0];
+    var minDateVal = `${year}-${month}-${day}`
+
+
+    $('#TimeVolunteerDate').attr('min', minDateVal);
+    const today = new Date();
+    const maxDateVal = today.toISOString().split('T')[0];
+    $('#TimeVolunteerDate').attr('max', maxDateVal);
 }
 
 function getDatesGoalTs() {
-    var startDate = $('#missionGoallist').find('option:selected').data('date');    console.log(startDate);    startDate = startDate.split(' ')[0]    var dateParts = startDate.split("-");    var year = dateParts[2];    var month = dateParts[1];    var day = dateParts[0];    var minDateVal = `${year}-${month}-${day}`    $('#GoalVolunteerDate').attr('min', minDateVal);    const today = new Date();    const maxDateVal = today.toISOString().split('T')[0];    $('#GoalVolunteerDate').attr('max', maxDateVal);
+
+    var startDate = $('#missionGoallist').find('option:selected').data('date');
+    console.log(startDate);
+    startDate = startDate.split(' ')[0]
+    var dateParts = startDate.split("-");
+    var year = dateParts[2];
+    var month = dateParts[1];
+    var day = dateParts[0];
+    var minDateVal = `${year}-${month}-${day}`
+    $('#GoalVolunteerDate').attr('min', minDateVal);
+    const today = new Date();
+    const maxDateVal = today.toISOString().split('T')[0];
+    $('#GoalVolunteerDate').attr('max', maxDateVal);
+
 }
 function TimeBaseTs() {
     clearTextBox();
@@ -67,25 +93,28 @@ function GoalBaseTs() {
 }
 function AddTimeTS() {
 
-    var hour = $('#TimeVolunteerHour').val();
-    var min = $('#TimeVolunteerMinute').val();
-    var timeOnly = new TimeOnly(hour, minute);
+    var hour = ($('#TimeVolunteerHour').val());
+    var min = ($('#TimeVolunteerMinute').val());
+  
+    var timeString = hour + ':' + min ;
+    console.log(timeString);
+    var timeParts = timeString.split(':');
+    var timeOnly = new Date(0, 0, 0, timeParts[0], timeParts[1]);
 
-    console.log(timeOnly); // outputs the time string in HH:MM format
- 
     var Timesheet = {
         MissionId: $('#missionTimelist').val(),
         DateVolunteered: $('#TimeVolunteerDate').val(),
-        Time: timeOnly,
+        Time: timeOnly.toTimeString().slice(0, 8),
         Action: $('#VolunteerAction').val(),
         Notes: $('#TimeVolunteerMessage').val(),
         UserId: $('.submit-time-timesheet').data('user-id'),
     }
-    if (validateFormTimeTs()) {
-        temp(Timesheet);
-        loadDataTabel();
-        $('#volunteerHours').modal('toggle');
-    }
+    temp(Timesheet);
+    //if (validateFormTimeTs()) {
+        
+    //    loadDataTabel();
+    //    $('#volunteerHours').modal('toggle');
+    //}
 
 }
 

@@ -147,12 +147,13 @@ namespace CI_platform.Controllers
 
         {
             var sessionValue = HttpContext.Session.GetString("UserEmail");
+            //TimeOnly ts = Timesheet.Time.TimeOfDay;
             if (String.IsNullOrEmpty(sessionValue))
             {
                 TempData["error"] = "Session Expired!\nPlease Login Again!";
                 return RedirectToAction("Index", "Home");
             }
-          
+
             var missionobj = _unitOfWork.Mission.GetFirstOrDefault(m => m.MissionId == Timesheet.MissionId);
             var timeTs = new Timesheet()
             {
@@ -167,16 +168,13 @@ namespace CI_platform.Controllers
             };
             if (Timesheet.DateVolunteered >= missionobj.StartDate && Timesheet.DateVolunteered <= DateTime.Now )
             {
-                _unitOfWork.Timesheet.Add(timeTs);
+                  _unitOfWork.Timesheet.Add(timeTs);
                 _unitOfWork.Save();
                 TimeSheetVM TimeSheetlandingPageData = _TimeSheetLandingRepository.GetTimeSheetPageData(sessionValue);
                 return PartialView("_TimeSheetView", TimeSheetlandingPageData);
-            }
-   
-
+            }      
             else
             {
-
                 TimeSheetVM TimeSheetlandingPageData = _TimeSheetLandingRepository.GetTimeSheetPageData(sessionValue);
                 return PartialView("_TimeSheetView", TimeSheetlandingPageData);
             }

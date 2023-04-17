@@ -1,0 +1,74 @@
+﻿@using CI_platfom.Entity.ViewModel
+@model AdminVM
+@{
+    ViewData["Title"] = "Admin_Mission";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<head>
+        <link rel="stylesheet" href="~/css/Admin.css">
+</head>
+<div class="row mt-5">
+                <div class="col-md-9 col-6 ms-5 ">
+                    <form action="" class="">
+                        <div class="border searchMission d-flex w-50">
+                            <button type="button" class="btn"><img src="images/search.png" alt=""></button>
+                            <input class="form-control me-2 border-0 bg-transparent" type="search" placeholder="Search "
+                                id="searchbtn" aria-label="Search">
+                        </div>
+                    </form>
+                </div>
+                <div class="col d-flex justify-content-center">
+                    <button type="button" class="btn addbtn rounded-pill px-4" id="addBtn" data-bs-toggle="modal"
+                        data-bs-target="#timeModal">
+                        <i class="fa-solid fa-plus pe-2"></i>
+                        Add
+                    </button>
+                </div>
+            </div>
+            <!-- ends search -->
+
+            <div class="table-responsive ms-5 mt-5">
+                <table id="example" class="table nowrap border" style="width:100%">
+                    <thead class="table-light">
+                        <tr>
+                            <th class="border-bottom-0">First Name</th>
+                            <th class="border-bottom-0">Last Name</th>
+                            <th class="border-bottom-0">Email</th>
+                            <th class="border-bottom-0">Employee Id</th>
+                            <th class="border-bottom-0">Department</th>
+                            <th class="border-bottom-0">Status </th>
+                            <th class="border-bottom-0">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    
+            @{
+                var Count = Model.UserList;
+                Console.WriteLine(Count);
+                foreach (var user in Count)
+                {
+                     <tr>
+                            <td>@user.FirstName</td>
+                            <td>@user.LastName</td>
+                            <td>@user.Email</td>
+                            <td>@user.PhoneNumber</td>
+                            <td>@user.Department</td>
+                            <td class="act ">@user.Status</td>
+                            <td>
+                                <button class="btn border-0" data-bs-toggle="modal" id="addbtn"
+                                    data-bs-target="#editModal"><i class="fa-solid fa-pen-to-square"></i></button>
+                                <button class="btn border-0"><i
+                                        class="fa-solid fa-trash-can"></i></button>
+                            </td>
+                        </tr>      
+
+                }
+         
+                            
+                            }
+                      
+                    </tbody>
+                </table>
+            </div>
+
+      

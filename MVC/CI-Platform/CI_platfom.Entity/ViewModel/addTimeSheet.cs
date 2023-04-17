@@ -11,10 +11,10 @@ namespace CI_platfom.Entity.ViewModel
         public long UserId { get; set; }
         public long MissionId { get; set; }
         public DateTime DateVolunteered { get; set; }
-        public int Hour { get; set; }
-        public int minutes { get; set; }
+        //public int Hour { get; set; }
+        //public int minutes { get; set; }
         public string? Notes { get; set; }
-        public TimeOnly? Time { get; set; }
+        public DateTime Time { get; set; }
         public int? Action { get; set; }
 
 

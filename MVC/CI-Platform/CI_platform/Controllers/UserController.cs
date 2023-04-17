@@ -33,8 +33,6 @@ namespace CI_platform.Controllers
                 TempData["error"] = "Session Expired!\nPlease Login Again!";
                 return RedirectToAction("Index");
             }
-
-          
             HomeLandingPageVM UserProfilePageData = _HomeLandingRepository.GetUserProfileData(sessionValue);
             return View(UserProfilePageData);
             }

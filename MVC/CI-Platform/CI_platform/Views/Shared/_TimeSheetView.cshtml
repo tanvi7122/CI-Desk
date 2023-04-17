@@ -1,4 +1,4 @@
-﻿@using CI_platfom.Entity.ViewModel
+﻿;@using CI_platfom.Entity.ViewModel
 @{
     ViewData["Title"] = "Volunteering TimeSheet";
 }
@@ -23,11 +23,10 @@
     .nav-link:focus, .nav-link:hover {
         color: #292a2b;
     }
-</style>
 
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 
-   
+  </style> 
 <body>
 
 <div class="container">
@@ -101,10 +100,10 @@
                                                 <textarea placeholder="Enter Your Message" style="height:150px" id="TimeVolunteerMessage"></textarea>
                                                  <span class="text-danger" id="TimeVolunteerMessageError"></span>
                                             </div>
-                                                 <div class="row pl-0 mt-3" id='TsId'>
-                                                    <label for="" class="form-label">ID</label>
+                                                
+                                                
                                                     <input type="text" id="TimeSheetId" disabled="disabled" hidden>
-                                                </div>
+                                           
                                             
                                         </form>
                                     </div>
@@ -137,7 +136,7 @@
                                     <tr>
                                         <th scope="row">@timesheet_time.Mission.Title</th>
                                         <td>@timesheet_time.DateVolunteered.ToShortDateString()</td>
-                                        @*<td>@timesheet_time.Time</td>*@
+                                        
                                    <td class="hours-filter">@timesheet_time.Time.Value.Hour </td>
                                              <td>@timesheet_time.Time.Value.Minute</td>
                                         <td><i class="bi bi-pencil-square pe-4 TimeBaseUpdate" style="color:#F88634" onclick="EditTime('+@timesheet_time.TimesheetId+')" data-bs-target="#volunteerHours" data-bs-toggle="modal"></i>

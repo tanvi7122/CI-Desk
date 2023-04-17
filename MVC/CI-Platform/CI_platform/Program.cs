@@ -21,6 +21,8 @@ builder.Services.AddScoped<IStoryHomeLandingRepository, StoryHomeLandingReposito
 builder.Services.AddScoped<IStoryLandingRepository, StoryLandingRepository>();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped<IUserSkillRepository, UserSkillRepository>();
+builder.Services.AddScoped<IAdminRepository, AdminRepository>();
+
 builder.Services.AddScoped<ITimeSheetLandingRepository, TimeSheetLandingRepository>();
 builder.Services.AddSession();
 builder.Services.AddMemoryCache();

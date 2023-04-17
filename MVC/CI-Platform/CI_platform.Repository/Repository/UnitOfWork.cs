@@ -43,6 +43,8 @@ namespace CI_platform.Repository.Repository
             public IStoryInviteRepository StoryInvite { get; private set; }
            public IUserSkillRepository UserSkill{ get; set; }
            public ITimesheetRepository Timesheet { get; set; }
+     
+        public IContactURepository ContactU { get; set; }
         public UnitOfWork(CiPlatformContext db)
             {
                 _db = db;
@@ -67,6 +69,8 @@ namespace CI_platform.Repository.Repository
                 StoryInvite = new StoryInviteRepository(_db);
                UserSkill= new UserSkillRepository(_db);
                Timesheet= new TimesheetRepository(_db); 
+            ContactU= new ContactURepository(_db);
+       
             }
         public void Update(Story databaseStoryObj)
         { 

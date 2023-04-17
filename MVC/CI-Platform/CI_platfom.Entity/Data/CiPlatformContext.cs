@@ -241,14 +241,25 @@ public partial class CiPlatformContext : DbContext
 
         modelBuilder.Entity<ContactU>(entity =>
         {
-            entity
-                .HasNoKey()
-                .ToTable("ContactUS");
+            entity.HasKey(e => e.ContactId).HasName("PK__Contact___82ADCD8593904C14");
 
-            entity.Property(e => e.CreatedAt).HasColumnName("created_at");
-            entity.Property(e => e.Message).HasColumnName("message");
-            entity.Property(e => e.Subject).HasColumnName("subject");
+            entity.ToTable("Contact_US");
+
+            entity.Property(e => e.ContactId).HasColumnName("Contact_id");
+            entity.Property(e => e.CreatedAt)
+                .HasDefaultValueSql("(getdate())")
+                .HasColumnType("datetime")
+                .HasColumnName("created_at");
+            entity.Property(e => e.Message).HasColumnType("text");
+            entity.Property(e => e.Subject)
+                .HasMaxLength(150)
+                .IsUnicode(false);
             entity.Property(e => e.UserId).HasColumnName("user_id");
+
+            entity.HasOne(d => d.User).WithMany(p => p.ContactUs)
+                .HasForeignKey(d => d.UserId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK__Contact_U__user___2F650636");
         });
 
         modelBuilder.Entity<Country>(entity =>

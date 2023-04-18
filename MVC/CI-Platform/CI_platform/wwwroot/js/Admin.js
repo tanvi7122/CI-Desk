@@ -31,91 +31,28 @@ setInterval(function () {
 }, 1000); // Update every second (1000 milliseconds)
 
 function DeleteUser(UserId) {
-        Swal.fire({
-            title: 'Are you sure?',
-            text: "You won't be able to revert this!",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, delete it!'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                // If the user clicks on "Yes, delete it!", make an AJAX call to delete the user
-                $.ajax({
-                    url: '/Admin/DeleteUser',
-                    type: 'POST',
-                    data: { UserId: UserId },
-                    success: function (data) {
-                      
-                            // If the user is deleted successfully, show a success message
-                            Swal.fire(
-                                'Deleted!',
-                                'The user has been deleted.',
-                                'success'
-                            ).then(() => {
-                                // Reload the page to show the updated user list
-                                location.reload();
-                            });
-                        
-                    },
-                    error: function (error) {
-                        // If there's an error in making the AJAX call, show an error message
-                        Swal.fire(
-                            'Error!',
-                            'An error occurred while deleting the user.',
-                            'error'
-                        );
-                    }
-                });
-            }
-        });
+    showDeleteConfirmation('/Admin/DeleteUser', { UserId: UserId }).then(() => {
+        // Reload the page to show the updated user list
+        location.reload();
+    });
 }
 
 function DeleteCms(Id) {
-    Swal.fire({
-        title: 'Are you sure?',
-        text: "You won't be able to revert this!",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes, delete it!'
-    }).then((result) => {
-        if (result.isConfirmed) {
-            // If the user clicks on "Yes, delete it!", make an AJAX call to delete the user
-            $.ajax({
-                url: '/Admin/DeleteCms',
-                type: 'POST',
-                data: { Id:Id },
-                success: function (data) {
-
-                    // If the user is deleted successfully, show a success message
-                    Swal.fire(
-                        'Deleted!',
-                        'The user has been deleted.',
-                        'success'
-                    ).then(() => {
-                        // Reload the page to show the updated user list
-                        location.reload();
-                    });
-
-                },
-                error: function (error) {
-                    // If there's an error in making the AJAX call, show an error message
-                    Swal.fire(
-                        'Error!',
-                        'An error occurred while deleting the user.',
-                        'error'
-                    );
-                }
-            });
-        }
+    showDeleteConfirmation('/Admin/DeleteCms', { Id: Id }).then(() => {
+        // Reload the page to show the updated CMS list
+        location.reload();
     });
 }
 
 function DeleteStory(Id) {
-    Swal.fire({
+    showDeleteConfirmation('/Admin/DeleteStory', { Id: Id }).then(() => {
+        // Reload the page to show the updated story list
+        location.reload();
+    });
+}
+
+function showDeleteConfirmation(url, data) {
+    return Swal.fire({
         title: 'Are you sure?',
         text: "You won't be able to revert this!",
         icon: 'warning',
@@ -125,34 +62,29 @@ function DeleteStory(Id) {
         confirmButtonText: 'Yes, delete it!'
     }).then((result) => {
         if (result.isConfirmed) {
-            // If the user clicks on "Yes, delete it!", make an AJAX call to delete the user
-            $.ajax({
-                url: '/Admin/DeleteStory',
+            // If the user clicks on "Yes, delete it!", make an AJAX call to delete the data
+            return $.ajax({
+                url: url,
                 type: 'POST',
-                data: { Id: Id },
-                success: function (data) {
-
-                    // If the user is deleted successfully, show a success message
-                    Swal.fire(
-                        'Deleted!',
-                        'The user has been deleted.',
-                        'success'
-                    ).then(() => {
-                        // Reload the page to show the updated user list
-                        location.reload();
-                    });
-
-                },
-                error: function (error) {
-                    // If there's an error in making the AJAX call, show an error message
-                    Swal.fire(
-                        'Error!',
-                        'An error occurred while deleting the user.',
-                        'error'
-                    );
-                }
+                data: data
+            }).then(() => {
+                // If the data is deleted successfully, show a success message
+                return Swal.fire(
+                    'Deleted!',
+                    'The data has been deleted.',
+                    'success'
+                );
+            }).catch(() => {
+                // If there's an error in making the AJAX call, show an error message
+                return Swal.fire(
+                    'Error!',
+                    'An error occurred while deleting the data.',
+                    'error'
+                );
             });
         }
     });
 }
+
+
 

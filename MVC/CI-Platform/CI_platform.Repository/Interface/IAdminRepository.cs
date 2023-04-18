@@ -10,5 +10,9 @@ namespace CI_platform.Repository.Interface
     public interface IAdminRepository
     {
         AdminVM GetUserData(string email);
+        AdminVM GetStoryData();
+        AdminVM GetMissionData();
+        AdminVM GetCmsData();
+        AdminVM GetMissionApplicationsData();
     }
 }

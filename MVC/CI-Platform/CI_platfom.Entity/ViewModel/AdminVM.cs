@@ -17,7 +17,7 @@ namespace CI_platfom.Entity.ViewModel
 
         public IEnumerable<User> UserList { get; set; } = new List<User>();
 
-      
+        public IEnumerable<CmsPage> CmsPage { get; set; } = new List<CmsPage>();
         public IEnumerable<MissionApplication> missionApplications { get; set; } = new List<MissionApplication>();
     }
 }

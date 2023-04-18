@@ -613,37 +613,25 @@
                                 <a class="nav-link active" aria-current="page" href="#">Recent Volunteers</a>
                             </li>
                         </ul>
-                   
+
                         <div class="d-flex justify-content-around mt-3">
-                  
-
-                            @foreach (var recentvolunteer in @Model.missionApplication)
+                          @{
+                              int recent = 0; // initialize recent before the loop
+                           }
+                         
+                                @foreach (var recentvolunteer in @Model.missionApplication.Where(m => m.ApprovalStatus.Contains("APPROVE")))
                             {
-
+                               
                                 var userFName = recentvolunteer.User.FirstName;
                                 var userLName = recentvolunteer.User.LastName;
-
-
                                 <figure>
-                                    
-                               @{
-                               if(@recentvolunteer.User.Avatar !=null)
-                                {
                                   <img src=@recentvolunteer.User.Avatar alt="" class="volunteer-img">
                                     <center><figcaption>@userFName @userLName</figcaption></center>
-                                }
-                               else
-                               {
-                                   <span><img src="~/images/user1.png" class="rounded-circle h-100"/></span>
-                                   <center><figcaption>@userFName @userLName</figcaption></center>
-                               }
-                               } 
-                                   
                                 </figure>
-
+                                recent++;
                             }
-
-                           
+                            }
+                          
                         </div>
                 
                         <hr />
@@ -654,7 +642,7 @@
                                 </button>
                             </div>
                             <div class="col-md-10 col-6 text-center">
-                                @* @count1*@ Total Volunteers  @Model.missionApplication.Count()
+                               <p>@recent</p>
 
                             </div>
                             <div class="col-md-1 col-3">
@@ -712,10 +700,7 @@
                                         <span class="mission-city" style="color:white">@relatedtheme.City.Name</span>
                                     </a>
                                 </button>
-                                @* <button class="me-2 btn bg-black bg-opacity-50 position-absolute top-50 end-0 p-2 rounded-pill favorite-button" onclick="addToFavourites(@mission.MissionId)">*@
-                                @*<a href="" class="text-decoration-none text-white">
-                                    <img src="~/images/heart.png" alt="" class="img-fluid">
-                                    </a>*@
+                              
                                 @foreach (var fm in relatedtheme.FavouriteMissions)
                                 {
                                     @if (fm.UserId.Equals(@Model.LoggedUser.UserId))
@@ -873,9 +858,7 @@
 
     <hr />
 
-    <div class="container mb-3">
-        <a asp-action="PrivacyPolicy" asp-controller="Mission">Privacy Policy</a>
-    </div>
+
 
 </body>
 

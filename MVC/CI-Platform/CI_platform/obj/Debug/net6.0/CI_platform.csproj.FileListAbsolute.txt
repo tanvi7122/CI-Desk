@@ -1,11 +1,3 @@
-C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\obj\Debug\net6.0\CI_platform.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\bin\Debug\net6.0\Microsoft.CodeAnalysis.VisualBasic.dll
-C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\bin\Debug\net6.0\System.Memory.Data.dll
-C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\bin\Debug\net6.0\System.Runtime.Caching.dll
-C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\bin\Debug\net6.0\System.Text.Json.dll
-C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\bin\Debug\net6.0\es\Microsoft.CodeAnalysis.VisualBasic.resources.dll
-C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\bin\Debug\net6.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\obj\Debug\net6.0\CI_platform.genruntimeconfig.cache
 C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\bin\Debug\net6.0\appsettings.Development.json
 C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\bin\Debug\net6.0\appsettings.json
 C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\bin\Debug\net6.0\libman.json
@@ -326,6 +318,7 @@ C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\bin\Debug\net6.0\Mic
 C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\bin\Debug\net6.0\Microsoft.CodeAnalysis.Features.dll
 C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\bin\Debug\net6.0\Microsoft.CodeAnalysis.Razor.dll
 C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\bin\Debug\net6.0\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\bin\Debug\net6.0\Microsoft.CodeAnalysis.VisualBasic.dll
 C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\bin\Debug\net6.0\Microsoft.CodeAnalysis.VisualBasic.Features.dll
 C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\bin\Debug\net6.0\Microsoft.CodeAnalysis.VisualBasic.Workspaces.dll
 C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\bin\Debug\net6.0\Microsoft.CodeAnalysis.Workspaces.dll
@@ -407,10 +400,13 @@ C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\bin\Debug\net6.0\Sys
 C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\bin\Debug\net6.0\System.Data.SqlClient.dll
 C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\bin\Debug\net6.0\System.Drawing.Common.dll
 C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\bin\Debug\net6.0\System.Memory.Data.dll
 C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\bin\Debug\net6.0\System.Reflection.MetadataLoadContext.dll
+C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\bin\Debug\net6.0\System.Runtime.Caching.dll
 C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\bin\Debug\net6.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\bin\Debug\net6.0\System.Security.Permissions.dll
 C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\bin\Debug\net6.0\System.Text.Encodings.Web.dll
+C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\bin\Debug\net6.0\System.Text.Json.dll
 C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\bin\Debug\net6.0\System.Windows.Extensions.dll
 C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\bin\Debug\net6.0\System.Xml.XPath.XmlDocument.dll
 C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\bin\Debug\net6.0\cs\Microsoft.CodeAnalysis.resources.dll
@@ -506,6 +502,7 @@ C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\bin\Debug\net6.0\zh-
 C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\bin\Debug\net6.0\zh-Hant\Microsoft.CodeAnalysis.Scripting.resources.dll
 C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\bin\Debug\net6.0\cs\Microsoft.CodeAnalysis.VisualBasic.resources.dll
 C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\bin\Debug\net6.0\de\Microsoft.CodeAnalysis.VisualBasic.resources.dll
+C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\bin\Debug\net6.0\es\Microsoft.CodeAnalysis.VisualBasic.resources.dll
 C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\bin\Debug\net6.0\fr\Microsoft.CodeAnalysis.VisualBasic.resources.dll
 C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\bin\Debug\net6.0\it\Microsoft.CodeAnalysis.VisualBasic.resources.dll
 C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\bin\Debug\net6.0\ja\Microsoft.CodeAnalysis.VisualBasic.resources.dll
@@ -549,6 +546,7 @@ C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\bin\Debug\net6.0\fr\
 C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\bin\Debug\net6.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\bin\Debug\net6.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\bin\Debug\net6.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\bin\Debug\net6.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\bin\Debug\net6.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\bin\Debug\net6.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\bin\Debug\net6.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
@@ -594,6 +592,7 @@ C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\obj\Debug\net6.0\CI_
 C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\obj\Debug\net6.0\CI_platform.AssemblyInfoInputs.cache
 C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\obj\Debug\net6.0\CI_platform.AssemblyInfo.cs
 C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\obj\Debug\net6.0\CI_platform.csproj.CoreCompileInputs.cache
+C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\obj\Debug\net6.0\CI_platform.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\obj\Debug\net6.0\CI_platform.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\obj\Debug\net6.0\CI_platform.RazorAssemblyInfo.cache
 C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\obj\Debug\net6.0\CI_platform.RazorAssemblyInfo.cs
@@ -606,3 +605,4 @@ C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\obj\Debug\net6.0\CI_
 C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\obj\Debug\net6.0\CI_platform.dll
 C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\obj\Debug\net6.0\ref\CI_platform.dll
 C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\obj\Debug\net6.0\CI_platform.pdb
+C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\obj\Debug\net6.0\CI_platform.genruntimeconfig.cache

@@ -29,15 +29,15 @@
                 </a>
             </li>
             <li>
-                <a  asp-controller="Admin" asp-action="cms_page">
+                <a  asp-controller="Admin" asp-action="admin_cms">
                     <span class="icon mt-3" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="CMS Page"><i class="fa-solid fa-file-lines"  asp-controller="Admin" asp-action="cms_page"></i></span>
                     <span class="title mt-3" asp-controller="Admin" asp-action="cms_page">CMS Page</span>
                 </a>
             </li>
             <li>
                 <a  asp-controller="Admin" asp-action="admin_mission">
-                    <span class="icon mt-3" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Mission" asp-controller="Admin" asp-action="admin_mission"> <i class="fa-solid fa-bullseye"></i></span>
-                    <span class="title mt-3" asp-controller="Admin" asp-action="admin_mission">Mission</span>
+                    <span class="icon mt-5" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Mission" asp-controller="Admin" asp-action="admin_mission"> <i class="fa-solid fa-bullseye"></i></span>
+                    <span class="title mt-5" asp-controller="Admin" asp-action="admin_mission">Mission</span>
                 </a>
             </li>
             <li>
@@ -47,9 +47,9 @@
                 </a>
             </li>
             <li>
-                <a href="#">
-                    <span class="icon mt-3" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Mission Application"><i class="fa-solid fa-folder"></i></span>
-                    <span class="title mt-3">Mission Application</span>
+                <a asp-controller="Admin" asp-action="admin_mission_application">
+                    <span class="icon mt-5" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Mission Application"><i class="fa-solid fa-folder"></i></span>
+                    <span class="title mt-5">Mission Application</span>
                 </a>
             </li>
             <li>
@@ -86,12 +86,12 @@
                         @{
                                 
                                 //{
-                                //    <span><img src=@Model.LoggedUser.Avatar id="header-avatar" class="rounded-circle header-avatar" /></span>
+                                // <span><img src=@model.loggeduser.avatar id="header-avatar" class="rounded-circle header-avatar" /></span>
                                 //}
                          
                             }
 
-                         @*   <p class="d-inline" id="profiletext">
+                          @* <p class="d-inline" id="profiletext">
                                 @Model.LoggedUser.FirstName @Model.LoggedUser.LastName
                             </p>*@
                         </a>
@@ -102,6 +102,7 @@
                         </ul>
                     </div>
             </div>
+          
 
         
      <div>

@@ -25,10 +25,7 @@ namespace CI_platform.Controllers
             _AdminRepository = AdminRepository;
 
             }
-            public IActionResult admin_mission()
-        {
-            return View();
-        }
+     
         public IActionResult admin_user()
         {
             var sessionValue = HttpContext.Session.GetString("UserEmail");
@@ -45,11 +42,109 @@ namespace CI_platform.Controllers
         }
         public IActionResult admin_story()
         {
-            return View();
+            var sessionValue = HttpContext.Session.GetString("UserEmail");
+            var obj = _unitOfWork.User.GetFirstOrDefault(u => u.Email == sessionValue);
+
+            if (String.IsNullOrEmpty(sessionValue))
+            {
+                TempData["error"] = "Session Expired!\nPlease Login Again!";
+                return RedirectToAction("Index", "Home");
+            }
+
+            AdminVM StoryData = _AdminRepository.GetStoryData();
+            return View(StoryData);
+            
         }
-        public IActionResult cms_page()
+        public IActionResult admin_mission()
         {
-            return View();
+            var sessionValue = HttpContext.Session.GetString("UserEmail");
+            var obj = _unitOfWork.User.GetFirstOrDefault(u => u.Email == sessionValue);
+
+            if (String.IsNullOrEmpty(sessionValue))
+            {
+                TempData["error"] = "Session Expired!\nPlease Login Again!";
+                return RedirectToAction("Index", "Home");
+            }
+
+            AdminVM missiondata = _AdminRepository.GetMissionData();
+            return View(missiondata);
+
+        }
+        public IActionResult admin_cms()
+        {
+            var sessionValue = HttpContext.Session.GetString("UserEmail");
+            var obj = _unitOfWork.User.GetFirstOrDefault(u => u.Email == sessionValue);
+
+            if (String.IsNullOrEmpty(sessionValue))
+            {
+                TempData["error"] = "Session Expired!\nPlease Login Again!";
+                return RedirectToAction("Index", "Home");
+            }
+
+            AdminVM CmsData = _AdminRepository.GetCmsData();
+            return View(CmsData);
+        }
+        public IActionResult admin_mission_application()
+        {
+            var sessionValue = HttpContext.Session.GetString("UserEmail");
+            var obj = _unitOfWork.User.GetFirstOrDefault(u => u.Email == sessionValue);
+
+            if (String.IsNullOrEmpty(sessionValue))
+            {
+                TempData["error"] = "Session Expired!\nPlease Login Again!";
+                return RedirectToAction("Index", "Home");
+            }
+
+            AdminVM MissionApplicationsData = _AdminRepository.GetMissionApplicationsData();
+            return View(MissionApplicationsData);
+        }
+        public IActionResult DeleteUser(int UserId)
+        {
+            var sessionValue = HttpContext.Session.GetString("UserEmail");
+            var obj = _unitOfWork.User.GetFirstOrDefault(u => u.Email == sessionValue);
+
+            if (String.IsNullOrEmpty(sessionValue))
+            {
+                TempData["error"] = "Session Expired!\nPlease Login Again!";
+                return RedirectToAction("Index", "Home");
+            }
+            var user_deleted = _unitOfWork.User.GetFirstOrDefault(u => u.UserId == UserId);/*GetAll().Where(u => u.UserId == userId);*/
+            user_deleted.DeletedAt = DateTime.Now;
+            _unitOfWork.Save();
+            AdminVM UserData = _AdminRepository.GetUserData(sessionValue);
+             return RedirectToAction("admin_user", "Admin") ;
+        }
+        public IActionResult DeleteCms(int Id)
+        {
+            var sessionValue = HttpContext.Session.GetString("UserEmail");
+            var obj = _unitOfWork.User.GetFirstOrDefault(u => u.Email == sessionValue);
+
+            if (String.IsNullOrEmpty(sessionValue))
+            {
+                TempData["error"] = "Session Expired!\nPlease Login Again!";
+                return RedirectToAction("Index", "Home");
+            }
+            var cms_deleted = _unitOfWork.CmsPage.GetFirstOrDefault(c => c.CmsPageId == Id);/*GetAll().Where(u => u.UserId == userId);*/
+            cms_deleted.DeletedAt = DateTime.Now;
+            _unitOfWork.Save();
+            AdminVM CmsData = _AdminRepository.GetCmsData();
+            return RedirectToAction("admin_cms", "Admin");
+        }
+        public IActionResult DeleteStory(int Id)
+        {
+            var sessionValue = HttpContext.Session.GetString("UserEmail");
+            var obj = _unitOfWork.User.GetFirstOrDefault(u => u.Email == sessionValue);
+
+            if (String.IsNullOrEmpty(sessionValue))
+            {
+                TempData["error"] = "Session Expired!\nPlease Login Again!";
+                return RedirectToAction("Index", "Home");
+            }
+            var story_deleted = _unitOfWork.Story.GetFirstOrDefault(s=>s.StoryId== Id);/*GetAll().Where(u => u.UserId == userId);*/
+            story_deleted.DeletedAt = DateTime.Now;
+            _unitOfWork.Save();
+            AdminVM StoryData = _AdminRepository.GetStoryData();
+            return RedirectToAction("admin_story", "Admin");
         }
     }
 }

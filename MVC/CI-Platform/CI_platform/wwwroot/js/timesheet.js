@@ -138,6 +138,7 @@ function AddGoalTS() {
 
 
 function temp(Timesheet) {
+
     $.ajax({
         url: '/TimeSheet/AddTimeTs',
         type: 'Post',

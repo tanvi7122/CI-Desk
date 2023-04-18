@@ -32,7 +32,7 @@ namespace CI_platform.Repository.Interface
 
         public IMissionMediumRepository MissionMedium{ get; }
         public IMissionCommentRepository MissionComment{ get; }
-
+        public ICmsPageRepository CmsPage{ get; }   
         public IMissionDocumentRepository MissionDocument{ get; }
         public IMissionApplicationRepository MissionApplication { get; }
         public IUserSkillRepository UserSkill { get;   }

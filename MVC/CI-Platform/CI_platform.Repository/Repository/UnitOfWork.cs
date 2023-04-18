@@ -39,11 +39,11 @@ namespace CI_platform.Repository.Repository
             public IMissionDocumentRepository MissionDocument { get; private set; }
             public IMissionApplicationRepository MissionApplication { get; private set; }
             public IMissionMediumRepository MissionMedium { get; private set; }
-
+            public ICmsPageRepository CmsPage { get; private set; }
             public IStoryInviteRepository StoryInvite { get; private set; }
            public IUserSkillRepository UserSkill{ get; set; }
            public ITimesheetRepository Timesheet { get; set; }
-     
+      
         public IContactURepository ContactU { get; set; }
         public UnitOfWork(CiPlatformContext db)
             {
@@ -70,6 +70,7 @@ namespace CI_platform.Repository.Repository
                UserSkill= new UserSkillRepository(_db);
                Timesheet= new TimesheetRepository(_db); 
             ContactU= new ContactURepository(_db);
+            CmsPage = new CmsPageRepository(_db);   
        
             }
         public void Update(Story databaseStoryObj)

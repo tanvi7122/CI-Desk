@@ -1,0 +1,32 @@
+﻿.Save-btn {
+  
+    width: 119px;
+    height: 48px;
+    border-radius: 24px;
+    border: solid 2px #f88634;
+    /* font-family: NotoSans; */
+    color: #f88634;
+    background-color: #fff;
+}
+
+    .Save-btn:hover {
+        color: #fff;
+        background-color: #f88634;
+    }
+
+.cancel-btn {
+ 
+    width: 119px;
+    height: 48px;
+    border-radius: 24px;
+    border: solid 2px #757575;
+    /* font-family: NotoSans; */
+    color: #757575;
+    background-color: #fff;
+}
+
+    .cancel-btn:hover {
+        color: #fff;
+        background-color: #757575;
+    }
+    .

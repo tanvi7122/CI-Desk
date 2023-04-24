@@ -11,8 +11,11 @@ namespace CI_platform.Repository.Interface
     {
         AdminVM GetUserData(string email);
         AdminVM GetStoryData();
-        AdminVM GetMissionData();
-        AdminVM GetCmsData();
+        AdminVM GetMissionData(string email);
+        AdminVM GetCmsData(string email);
         AdminVM GetMissionApplicationsData();
+        AdminVM ViewStoryData(long id);
+        AdminVM GetMissionThemes();
+        AdminVM GetMissionSkill();
     }
 }

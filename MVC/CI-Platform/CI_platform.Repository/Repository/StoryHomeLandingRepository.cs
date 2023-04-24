@@ -90,23 +90,7 @@ namespace CI_platform.Repository.Repository
                         var extension = Path.GetExtension(file.FileName).Replace(".", "");
                         var uniqueIdentifier = story.StoryId;
                         var uniqueFileName = $"{fileNameWithoutExtension}_{uniqueIdentifier}.{extension}";
-
                         var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "upload", uniqueFileName);
-
-
-                        //if (extension == "mp4" || extension == "avi")
-                        //{
-
-                        //    var media = new StoryMedium
-                        //    {
-                        //        StoryId = story.StoryId,
-                        //        Type = "video",
-                        //        Path = uniqueFileName
-                        //    };
-                        //    mediaList.Add(media);
-                        //}
-                        //else
-
                         if (extension == "png" || extension == "jpg" || extension == "jpeg")
                         {
 

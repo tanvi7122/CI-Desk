@@ -2,6 +2,7 @@
 using CI_platfom.Entity.ViewModel;
 using CI_platform.Repository.Interface;
 using Microsoft.AspNetCore.Mvc;
+using System.Text.RegularExpressions;
 
 namespace CI_platform.Controllers
 {
@@ -20,6 +21,15 @@ namespace CI_platform.Controllers
             _HomeLandingRepository = HomeLandingRepository;
 
         }
+        public bool IsLinkedInUrl(string url)
+        {
+            // Regular expression to match LinkedIn URLs
+            string pattern = @"^https?://(www\.)?linkedin\.com/";
+
+            // Use Regex.IsMatch to check if the URL matches the pattern
+            return Regex.IsMatch(url, pattern);
+        }
+
         public IActionResult GetCities(long country)
         {
             var cities = _unitOfWork.City.GetAll().Where(c => c.CountryId == country).ToList();
@@ -74,16 +84,24 @@ namespace CI_platform.Controllers
         {
             try
             {
-            
-
                 // Update the user profile in the database
                 User user = _unitOfWork.User.GetFirstOrDefault(u => u.UserId == UserId);
                 if (user != null)
                 {
+                    bool isLinkedInUrl = IsLinkedInUrl(userProfile.LinkedInUrl);
+                    if (isLinkedInUrl)
+                    {
+                        user.LinkedInUrl = userProfile.LinkedInUrl;
+                    }
+                    else
+                    {
+                        // URL is not a LinkedIn URL
+                        return BadRequest("This is not a LinkedIn URL.");
+                    }
                     user.WhyIVolunteer = userProfile.WhyIVolunteer;
                     user.Department = userProfile.Department;
                     user.ProfileText = userProfile.ProfileText;
-                    user.LinkedInUrl = userProfile.LinkedInUrl;
+            
                     user.Title = userProfile.Title;
                     user.CityId = userProfile.CityId;
                     user.CountryId = userProfile.CountryId;
@@ -154,22 +172,29 @@ namespace CI_platform.Controllers
             var userid = HttpContext.Session.GetString("UserId");
             long UserId = Convert.ToInt64(userid);
             var LoggedUser = _unitOfWork.User.GetFirstOrDefault(u => u.UserId == UserId);
-            if (LoggedUser.Password == currentPassword)
+            bool isMatch = BCrypt.Net.BCrypt.Verify(currentPassword, LoggedUser.Password);
+            if (isMatch)
                 {
                 Console.WriteLine("new password match");
                 if (currentPassword != newPassword)
                 {
                     if (newPassword == ConfirmPassword)
                     {
+                        string passwordHash = BCrypt.Net.BCrypt.HashPassword(newPassword);
+                        newPassword = passwordHash;
                         _unitOfWork.User.UpdatePassword(LoggedUser, newPassword);
                         _unitOfWork.Save();
                     }
-                    else 
+                    else
                     {
                         TempData["error"] = "Your newpassword and confirm password not match";
                         return RedirectToAction("profile");
                     }
-         
+
+                }
+                else {
+                    TempData["error"] = "you have entered Old password";
+                    return RedirectToAction("profile");
                 }
             
                

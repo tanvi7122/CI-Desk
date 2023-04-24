@@ -1,0 +1,104 @@
+﻿
+@using CI_platfom.Entity.ViewModel
+@model AdminVM
+@{
+    ViewData["Title"] = "Admin_Add_User";
+    Layout = null;
+}
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="~/css/AdminAddEdit.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<div class="container">
+   <form asp-controller="Admin" Asp-Action="AdminAddUser" Method="post">
+           <div class="row mx-5 my-5">
+            <h3 class="row"><span>Basic Information</span></h3>
+            <div class="row">
+                <input type="hidden" id="UserId" asp-for="Profile.UserId">
+
+                <div class="col-sm-6">
+                    <label for="name" class="form-label text-secondary">Name *</label>
+                    <input type="text" class="form-control" id="name" placeholder="Enter your name" asp-for="Profile.FirstName">
+                </div>
+                <div class="col-sm-6">
+                    <label for="surname" class="form-label text-secondary">Surname *</label>
+                    <input type="text" class="form-control" id="surname" placeholder="Enter your surname" asp-for="Profile.LastName">
+                </div>
+
+                <div class="col-sm-6">
+                    <label for="email" class="form-label text-secondary">Email *</label>
+                    <input type="text" class="form-control" id="email" placeholder="Enter your email" asp-for="Profile.Email">
+                </div>
+                <div class="col-sm-6">
+                    <label for="PhoneNumber" class="form-label text-secondary">PhoneNumber *</label>
+                    <input type="text" class="form-control" id="PhoneNumber" placeholder="Enter your phone number" asp-for="Profile.PhoneNumber">
+                </div>
+
+                <div class="col-sm-6">
+                    <label for="employee" class="form-label text-secondary">Employee ID</label>
+                    <input type="text" class="form-control" id="employee_id" placeholder="Enter your employee id" asp-for="Profile.EmployeeId">
+                </div>
+
+                <div class="col-sm-6">
+                    <label for="department" class="form-label text-secondary">Department</label>
+                    <input type="text" class="form-control" id="department" placeholder="Enter your department" asp-for="Profile.Department">
+                </div>
+                <div class="mt-4">
+    @{
+        <label for="status" class="form-label text-secondary">Status:</label>
+        <select class="form-select text-secondary" id="status" name="status" >
+            @if (Model?.Profile?.Status == 1)
+            {
+                <option value="1" selected="selected">Active</option>
+                <option value="0">In-Active</option>
+            }
+            else
+            {
+                <option value="1">Active</option>
+                <option value="0" selected="selected">In-Active</option>
+            }
+        </select>
+    }
+</div>
+
+               </div>
+            </div>
+           
+        
+
+            <h3 class="mt-4  mx-5 my-5 "><span>Address Information</span></h3>
+            <div class="row mt-2  mx-5 my-5 ">
+                <div class="col-sm-6">
+                    <label for="city" class="form-label text-secondary">City</label>
+                    <select class="form-select text-secondary" aria-label="Default select example" id="city" name="city" asp-for="Profile.CityId">
+                    </select>
+                </div>
+                <div class="col">
+                    <label for="country" class="form-label text-secondary">Country *</label>
+
+                    <select class="form-select text-secondary" aria-label="Default select example" id="Country" value="Country" asp-for="Profile.CountryId">
+
+                        @foreach (var country in Model.Countries)
+                        {
+
+                            @if (Model.Profile!= null &&country.CountryId == Model.Profile.CountryId)
+                            {
+                                <option value="@country.CountryId" selected>@country.Name</option>
+                            }
+                            else
+                            {
+                                <option value="@country.CountryId">@country.Name</option>
+                            }
+                        }
+                    </select>
+                </div>
+            </div>
+                       <div class="mb-3 d-flex justify-content-end me-5">
+                       <button type="button" class="cancel-btn"asp-controller="Admin" asp-action="admin_user">Cancel</button>
+                       <button type="submit" class="Save-btn" >Save</button>
+                   </div>
+    
+      </form>
+        
+</div>
+<script src="~/js/UserProfile.js"></script>
+

@@ -143,9 +143,6 @@ function updateUserProfile() {
 function passwordChange() {
 
 }
-
-
-
 function verifyFileUpload(e) {
     var file = document.getElementById("avatar-upload");
     var LoggerUserId = document.getElementById('loggerUser').value;
@@ -159,10 +156,15 @@ function verifyFileUpload(e) {
 
             console.log("Image Width: " + width);
             console.log("Image Height: " + height);
-            if (this.naturalHeight > 100 || this.naturalWidth > 100) {
+
+            if (file.files[0].size > 100 * 1024) {
+                alert('The selected image exceeds the maximum allowed size of 100 KB.');
+                flag = 1;
+            } else if (this.naturalHeight > 100 || this.naturalWidth > 100) {
                 alert('The selected image exceeds the maximum allowed dimensions of ' + 100 + ' x ' + 100 + ' pixels.');
                 flag = 1;
             }
+
             if (flag == 0) {
                 var formData = new FormData();
 
@@ -192,6 +194,7 @@ function verifyFileUpload(e) {
 
     }
 }
+
 
         
     

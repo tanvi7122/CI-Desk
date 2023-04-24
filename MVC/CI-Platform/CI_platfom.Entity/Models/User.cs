@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace CI_platfom.Entity.Models;
 
@@ -7,14 +8,19 @@ public partial class User
 {
     public long UserId { get; set; }
 
+    [Required(ErrorMessage = "Please enter your first name.")]
     public string? FirstName { get; set; }
 
+    [Required(ErrorMessage = "Please enter your last name.")]
     public string? LastName { get; set; }
-
+    [Required(ErrorMessage = "Please enter your email address.")]
     public string Email { get; set; } = null!;
-
+   
+    [Required(ErrorMessage = "Please enter a password.")]
+    [DataType(DataType.Password)]
     public string Password { get; set; } = null!;
 
+    [Required(ErrorMessage = "Please enter your phone number.")]
     public long PhoneNumber { get; set; }
 
     public string? Avatar { get; set; }

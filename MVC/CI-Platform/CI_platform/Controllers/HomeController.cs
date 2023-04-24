@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication;
 using System.Text;
 using System.Security.Cryptography;
+using System.Text.RegularExpressions;
 
 namespace CI_platform.Controllers
 {
@@ -41,18 +42,17 @@ namespace CI_platform.Controllers
                 Console.WriteLine(sessionValue);
                 return RedirectToAction("HomePage", "Mission");
             }
-            return View();
+            return View("Login");
         }
-        public IActionResult EndSession()
-        {
-            HttpContext.Session.Clear(); // Remove all keys and values from session
-            return Ok();
-        }
-
+ 
         public IActionResult Login()
         {
-            HttpContext.Session.Remove("UserEmail");
-            HttpContext.Session.Remove("UserId");
+            var sessionValue = HttpContext.Session.GetString("UserEmail");
+            if (!String.IsNullOrEmpty(sessionValue))
+            {
+                Console.WriteLine(sessionValue);
+                return RedirectToAction("HomePage", "Mission");
+            }
             return View();
         }
 
@@ -60,7 +60,7 @@ namespace CI_platform.Controllers
         {
             HttpContext.Session.Clear(); // Remove all keys and values from session
             HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme); // Sign out the current user
-            return RedirectToAction("login", "Home"); // Redirect the user to the homepage
+            return RedirectToAction("Login", "Home"); // Redirect the user to the homepage
         }
 
 
@@ -68,14 +68,18 @@ namespace CI_platform.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Login(User user)
         {
-            var Temp = _context.Users.SingleOrDefault(u => u.Email == user.Email);
+            //var Temp = _context.Users.SingleOrDefault(u => u.Email == user.Email);
             var curser = _AccountRepo.GetUserEmail(user.Email);
             Console.WriteLine(user.Email);
-            if (curser != null && curser.Password == user.Password)
+           
+
+            bool isMatch = BCrypt.Net.BCrypt.Verify(user.Password,curser.Password);
+
+            if (curser != null && isMatch)
             {
                 Console.WriteLine("Login successfull");
                 HttpContext.Session.SetString("UserEmail", user.Email);
-                HttpContext.Session.SetString("UserId", Temp.UserId.ToString());
+                HttpContext.Session.SetString("UserId", curser.UserId.ToString());
                 return RedirectToAction("HomePage", "Mission");
             }
             else
@@ -87,64 +91,11 @@ namespace CI_platform.Controllers
 
 
         }
-
-        private static byte[] GenerateKey(int keySize)
-        {
-            var rng = new RNGCryptoServiceProvider();
-            var key = new byte[keySize / 8];
-            rng.GetBytes(key);
-            return key;
-        }
-
-        public static class EncryptionHelper
-        {
-            private const int SaltSize = 16;
-
-            public static string Encrypt(string plainText, byte[] encryptionKey)
-            {
-                byte[] salt = new byte[SaltSize];
-                byte[] iv = new byte[16];
-                byte[] array;
-
-                // Generate a random salt
-                using (RNGCryptoServiceProvider rng = new RNGCryptoServiceProvider())
-                {
-                    rng.GetBytes(salt);
-                }
-
-                using (Aes aes = Aes.Create())
-                {
-                    aes.Key = encryptionKey;
-                    aes.IV = iv;
-
-                    ICryptoTransform encryptor = aes.CreateEncryptor(aes.Key, aes.IV);
-
-                    using (MemoryStream memoryStream = new MemoryStream())
-                    {
-                        using (CryptoStream cryptoStream = new CryptoStream(memoryStream, encryptor, CryptoStreamMode.Write))
-                        {
-                            // Write the salt to the output stream
-                            cryptoStream.Write(salt, 0, salt.Length);
-
-                            // Encrypt the plain text
-                            using (StreamWriter streamWriter = new StreamWriter(cryptoStream))
-                            {
-                                streamWriter.Write(plainText);
-                            }
-
-                            array = memoryStream.ToArray();
-                        }
-                    }
-                }
-
-                // Combine the salt and encrypted data into a single base64 string
-                byte[] combinedArray = new byte[SaltSize + array.Length];
-                Buffer.BlockCopy(salt, 0, combinedArray, 0, SaltSize);
-                Buffer.BlockCopy(array, 0, combinedArray, SaltSize, array.Length);
-
-                return Convert.ToBase64String(combinedArray);
-            }
-        }
+     private bool ValidatePassword(string password)
+{
+    // Password must contain at least 8 characters, including at least one letter and one number
+    return password.Length >= 8 && password.Any(char.IsLetter) && password.Any(char.IsDigit);
+}
 
         public IActionResult Registration()
         {
@@ -166,22 +117,29 @@ namespace CI_platform.Controllers
                 }
                 else
                 {
-                    // Generate the encryption key
-                    byte[] encryptionKey = GenerateKey(256);
-
-                    // Encrypt the password using the generated key
-                    string encryptedPassword = EncryptionHelper.Encrypt(user.Password, encryptionKey);
-
-                    // Set the encrypted password and key on the user object
-                    user.Password = encryptedPassword;
-                    //user.EncryptionKey = Convert.ToBase64String(encryptionKey);
-
-                    string imagePath = Url.Content("~/images/user1.png");
-                    user.Avatar = imagePath;
-                    _AccountRepo.Add(user);
-                    _AccountRepo.save();
-                    ViewData["success"] = "Registration Successful";
-                    return RedirectToAction("Login");
+                    if (!string.IsNullOrEmpty(user.Password))
+                    {
+                        bool isValidPassword = ValidatePassword(user.Password);
+                        if (!isValidPassword)
+                        {
+                            // Password is not valid
+                            ModelState.AddModelError("password", "Password must contain at least 8 characters, including at least one letter and one number.");
+                        }
+                        else
+                        {
+                            // Password is valid
+                            string passwordHash = BCrypt.Net.BCrypt.HashPassword(user.Password);
+                            user.Password = passwordHash;
+                            string imagePath = Url.Content("~/images/user1.png");
+                            user.Avatar = imagePath;
+                            _AccountRepo.Add(user);
+                            _AccountRepo.save();
+                            ViewData["success"] = "Registration Successful";
+                            return RedirectToAction("Login");
+                        }
+                    }
+           
+                  
 
                 }
             }
@@ -234,6 +192,9 @@ namespace CI_platform.Controllers
             {
                 if (form["conformpassword"] == obj.Password)
                 {
+                    string passwordHash = BCrypt.Net.BCrypt.HashPassword(obj.Password);
+                    obj.Password = passwordHash;
+
                     _AccountRepo.UpdateUser(obj);
                     TempData["success"] = "Password updated!!!";
                     return RedirectToAction("Login", "Home");

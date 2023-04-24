@@ -1,0 +1,155 @@
+﻿@using CI_platfom.Entity.ViewModel
+@model AdminVM
+@{
+    ViewData["Title"] = "Admin_Add_User";
+    Layout = null;
+}
+
+<style>
+     .row {
+        --bs-gutter-x: 0;
+        --bs-gutter-y: 0;
+    }
+
+   
+</style>
+<head>
+    <link rel="stylesheet" href="~/css/Story.css" asp-append-version="true"/>
+ </head>
+<body>
+
+    <div class="container p-0">
+        <div class="row p-0">
+           <div class="col-lg-6 col-md-6 col-sm-12">
+                    <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff"
+                        class="swiper mySwiper2">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <img src="~/images/Grow-Trees-On-the-path-to-environment-sustainability-2.png" />
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="~/images/img11.png" />
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="~/images/img1.png" />
+                            </div>
+
+                            <div class="swiper-slide">
+                                <img src="~/images/CSR-initiative-stands-for-Coffee--and-Farmer-Equity-2.png" />
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="~/images/Education-Supplies-for-Every--Pair-of-Shoes-Sold-2.png" />
+                            </div>
+
+                            <div class="swiper-slide">
+                                <img src="~/images/Animal-welfare-_-save-birds-campaign.png" />
+                            </div>
+                        </div>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                    </div>
+                    <div thumbsSlider="" class="swiper mySwiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <img src="~/images/Grow-Trees-On-the-path-to-environment-sustainability-2.png" />
+                            </div>
+
+                            <div class="swiper-slide">
+                                <img src="~/images/img11.png" />
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="~/images/img1.png" />
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="~/images/CSR-initiative-stands-for-Coffee--and-Farmer-Equity-2.png" />
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="~/images/Education-Supplies-for-Every--Pair-of-Shoes-Sold-2.png" />
+                            </div>
+
+                            <div class="swiper-slide">
+                                <img src="~/images/Animal-welfare-_-save-birds-campaign.png" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            <div class="col-lg-6 col-12 mt-5">
+                <div class="row px-5">
+                  <input type="hidden" id="StoryId" asp-for="ViewStory.StoryId">
+                    <h2>@Model.ViewStory.Title</h2>
+                      <img src=@Model.ViewStory.User.Avatar alt="" class="rounded-circle stoty_user_image">
+                    <p>
+                        @Model.ViewStory.User.FirstName @Model.ViewStory.User.LastName
+                    </p>
+                    <p>
+                        @Model.ViewStory.User.WhyIVolunteer
+                    </p>
+                
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-5" style="height:100%">
+            <div class="col-xl-8 col-12">
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="mission-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">@Model.ViewStory.Title</button>
+                    </li>
+                </ul>
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active mt-3 px-3" id="home" role="tabpanel" aria-labelledby="mission-tab">
+                        <h3>@Model.ViewStory.Title</h3>
+                        <p style="font-size:15px">
+                            @Model.ViewStory.Description
+                            <br>
+                            <br>
+
+                            <br>
+                            <br>
+                       
+                        </p>
+                        
+                       
+                    </div>
+                   
+                    
+                </div>
+
+            </div>
+
+          
+        </div>
+    </div>
+
+
+    <hr />
+
+  
+    <link rel="stylesheet" href="~/css/ShareYourStory.css" asp-append-version="true"/>
+     <script>
+                var swiper = new Swiper(".mySwiper", {
+                    loop: true,
+                    spaceBetween: 10,
+                    slidesPerView: 4,
+                    freeMode: true,
+                    watchSlidesProgress: true,
+                });
+                var swiper2 = new Swiper(".mySwiper2", {
+                    loop: true,
+                    spaceBetween: 10,
+                    navigation: {
+                        nextEl: ".swiper-button-next",
+                        prevEl: ".swiper-button-prev",
+                    },
+                    thumbs: {
+                        swiper: swiper,
+                    },
+                });
+            </Script>
+</body>
+
+
+  

@@ -18,7 +18,7 @@ namespace CI_platform.Repository.Repository
         {
             _context = context;
         }
-        public void Add(UserSkill userSkill)
+        public new void Add(UserSkill userSkill)
         {
             _context.UserSkills.Add(userSkill);
         }

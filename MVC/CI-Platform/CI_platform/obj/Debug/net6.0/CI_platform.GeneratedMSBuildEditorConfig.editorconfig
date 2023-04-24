@@ -23,6 +23,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes = true
 build_property.MSBuildProjectDirectory = C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/pca142/Desktop/CI-Desk/MVC/CI-Platform/CI_platform/Views/Admin/AdminAddMission.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQWRtaW5BZGRNaXNzaW9uLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/pca142/Desktop/CI-Desk/MVC/CI-Platform/CI_platform/Views/Admin/admin_cms.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cYWRtaW5fY21zLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -31,8 +35,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cYWRtaW5fbWlzc2lvbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/pca142/Desktop/CI-Desk/MVC/CI-Platform/CI_platform/Views/Admin/Admin_MissionTheme.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQWRtaW5fTWlzc2lvblRoZW1lLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/pca142/Desktop/CI-Desk/MVC/CI-Platform/CI_platform/Views/Admin/admin_mission_application.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cYWRtaW5fbWlzc2lvbl9hcHBsaWNhdGlvbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/pca142/Desktop/CI-Desk/MVC/CI-Platform/CI_platform/Views/Admin/admin_Mission_Skill.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cYWRtaW5fTWlzc2lvbl9Ta2lsbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/pca142/Desktop/CI-Desk/MVC/CI-Platform/CI_platform/Views/Admin/admin_story.cshtml]
@@ -87,6 +99,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWlzc2lvblxQcml2YWN5UG9saWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/pca142/Desktop/CI-Desk/MVC/CI-Platform/CI_platform/Views/Shared/AdminAddCms.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEFkbWluQWRkQ21zLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/pca142/Desktop/CI-Desk/MVC/CI-Platform/CI_platform/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -107,12 +123,28 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFN0b3J5TGlzdGluZy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/pca142/Desktop/CI-Desk/MVC/CI-Platform/CI_platform/Views/Shared/UpdateMissionTheme.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFVwZGF0ZU1pc3Npb25UaGVtZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/pca142/Desktop/CI-Desk/MVC/CI-Platform/CI_platform/Views/Shared/UserSkill.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFVzZXJTa2lsbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/pca142/Desktop/CI-Desk/MVC/CI-Platform/CI_platform/Views/Shared/_AdminAddSkillPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9BZG1pbkFkZFNraWxsUGFydGlhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/pca142/Desktop/CI-Desk/MVC/CI-Platform/CI_platform/Views/Shared/_AdminAddUserPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9BZG1pbkFkZFVzZXJQYXJ0aWFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/pca142/Desktop/CI-Desk/MVC/CI-Platform/CI_platform/Views/Shared/_AdminLayout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9BZG1pbkxheW91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/pca142/Desktop/CI-Desk/MVC/CI-Platform/CI_platform/Views/Shared/_AdminViewStory.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9BZG1pblZpZXdTdG9yeS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/pca142/Desktop/CI-Desk/MVC/CI-Platform/CI_platform/Views/Shared/_GridPartial.cshtml]

@@ -137,11 +137,8 @@ $(".saveStory , .submitStory").click(function (e) {
                 });
             }
             else {
-                //$(".alert-success").html("Story Submitted Sucessfully with Status Pending");
-                //$(".alert-success").slideToggle().delay(2000);
-
+                
                 alert("Story Added Successfully with Pending Status!!Admin Approve it soon");
-
                 var element = document.getElementById("storyFormData");
                 element.reset();
                 CKEDITOR.instances.editor.setData('');

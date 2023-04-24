@@ -35,7 +35,7 @@ namespace CI_platform.Repository.Repository
             public IMissionInviteRepository MissionInvite { get; private set; }
             public IMissionSkillRepository MissionSkill { get; private set; }
             public IMissionCommentRepository MissionComment { get; private set; }
-
+            public IBannerRepository Banner { get; private set; }
             public IMissionDocumentRepository MissionDocument { get; private set; }
             public IMissionApplicationRepository MissionApplication { get; private set; }
             public IMissionMediumRepository MissionMedium { get; private set; }
@@ -56,7 +56,7 @@ namespace CI_platform.Repository.Repository
                 Skill = new SkillRepository(_db);
                 Mission = new MissionRepository(_db);
                 Story = new StoryRepository(_db);
-           
+                Banner = new BannerRepository(_db);
                storyMedium = new StoryMediumRepository(_db);
                 FavoriteMission = new FavouriteMissionRepository(_db);
                 MissionRating = new MissionRatingRepository(_db);
@@ -69,6 +69,7 @@ namespace CI_platform.Repository.Repository
                 StoryInvite = new StoryInviteRepository(_db);
                UserSkill= new UserSkillRepository(_db);
                Timesheet= new TimesheetRepository(_db); 
+            MissionTheme= new MissionThemeRepository(_db);
             ContactU= new ContactURepository(_db);
             CmsPage = new CmsPageRepository(_db);   
        

@@ -1,5 +1,5 @@
 ﻿* {
-    font-family: NotoSans;
+    font-family: notosans;
     box-sizing: border-box;
 }
 
@@ -99,6 +99,16 @@ body {
     .navigation.active ul {
         margin-left: 2px;
     }
+.header-avatar {
+    height: 40px;
+    width: 40px;
+}
+
+.avatar-img {
+    height: 100%;
+}
+
+
 
 .main {
     position: absolute;
@@ -158,31 +168,31 @@ body {
     border-bottom: 1px solid #dee2e6;
 }
 
-#addBtn {
-    color: #f88634;
-    border: 1px solid #f88634;
-    
-}
 
-    #addBtn:hover {
-        color: white;
-        background-color: #f88634;
-    }
+
+
+table {
+    border: 0.5px solid #dee2e6;
+   
+}
 
 .table-responsive {
     width: 90%;
+ 
 }
 
 th {
-    padding: 16px 16px 16px 8px !important;
-    text-align: center !important;
-    outline: none !important;
+    background-color: #d6e3f2;
+ 
+    text-align: left;
+   
 }
 
 td {
-    padding: 16px 16px 16px 8px !important;
-    text-align: center;
-    outline: none !important;
+    border-bottom: 0.3px solid #dee2e6;
+
+    text-align: left;
+    vertical-align:central;
 }
 
 #example_first i, #example_previous i, #example_next i, #example_last i {
@@ -200,7 +210,6 @@ table.dataTable.dtr-inline.collapsed > tbody > tr > td.dtr-control:before, table
 
 .form-control {
  
-   
     border: none;
 }
 

@@ -10,17 +10,17 @@ namespace CI_platfom.Entity.ViewModel
  
     public class StoryAdd: HeaderVM
     {
-        public string MissionTitle { get; set; }
-        public string Description { get; set; }
-        public string Title { get; set; }
+        public string? MissionTitle { get; set; }
+        public string? Description { get; set; }
+        public string? Title { get; set; }
 
         public DateTime Date { get; set; }
 
-        public List<string> VideoUrl { get; set; }
+        public List<string>? VideoUrl { get; set; }
 
         public int value { get; set; }
 
-        public List<IFormFile> Photos { get; set; }
+        public List<IFormFile>? Photos { get; set; }
 
     }
 }

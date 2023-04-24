@@ -41,7 +41,7 @@ namespace CI_platform.Controllers
             if (String.IsNullOrEmpty(sessionValue))
             {
                 TempData["error"] = "Session Expired!\nPlease Login Again!";
-                return RedirectToAction("Index");
+                return RedirectToAction("Login","Home");
             }
 
             //HomeLandingPageVM landingPageData = _HomeLandingRepository.GetLandingPageData(sort, sessionValue,currentPage);
@@ -57,7 +57,7 @@ namespace CI_platform.Controllers
             if (String.IsNullOrEmpty(sessionValue))
             {
                 TempData["error"] = "Session Expired!\nPlease Login Again!";
-                return RedirectToAction("Index");
+                return RedirectToAction("Login", "Home");
             }
             var mission_user_comment = _unitOfWork.MissionApplication.GetFirstOrDefault(u => (u.UserId == userId) && (u.MissionId == missionId));
             if (mission_user_comment == null)
@@ -82,7 +82,7 @@ namespace CI_platform.Controllers
             if (String.IsNullOrEmpty(sessionValue))
             {
                 TempData["error"] = "Session Expired!\nPlease Login Again!";
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Login", "Home");
             }
 
             HomeLandingPageVM MissionlandingPageData = _MissionLandingRepository.GetMissionPageData(sessionValue, missionId, themeid, cityid, countryid);

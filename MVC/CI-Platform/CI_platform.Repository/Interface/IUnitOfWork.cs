@@ -8,9 +8,10 @@ namespace CI_platform.Repository.Interface
 {
     public interface IUnitOfWork
     {
+
         public IUserRepository User{ get; }
         public IPasswordResetRepository PasswordReset{ get; }
-       
+       public IBannerRepository Banner{ get; }  
         public ICountryRepository Country{ get; }
 
         public ICityRepository City{ get; }

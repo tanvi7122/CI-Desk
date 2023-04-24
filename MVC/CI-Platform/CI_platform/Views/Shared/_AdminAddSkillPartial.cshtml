@@ -1,0 +1,50 @@
+﻿
+@using CI_platfom.Entity.ViewModel
+@model AdminVM
+@{
+    ViewData["Title"] = "Admin_Update_skill";
+    Layout = null;
+}
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="~/css/AdminAddEdit.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<div class="container">
+   <form asp-controller="Admin" Asp-Action="AdminSkill" Method="post">
+           <div class="row mx-5 my-5">
+            <h3 class="row"><span>Skill</span></h3>
+            <div class="row">
+                <input type="hidden" id="SkillId" asp-for="skill.SkillId">
+
+                <div class="col-sm-6">
+                    <label for="title" class="form-label text-secondary">Skill *</label>
+                    <input type="text" class="form-control" id="name" placeholder="Enter skill" asp-for="skill.SkillName">
+                </div>
+                 <div class="col-sm-6">
+             @{
+                <label for="status" class="form-label text-secondary">Status:</label>
+                <select id="status" class="form-select text-secondary" name="status">
+               @if (Model.skill!=null && Model.skill.Status == 1)
+               {
+                <option value="1" selected="selected">Active</option>
+                <option value="0">In-Active</option>
+               }
+              else
+              {
+                <option value="1">Active</option>
+                <option value="0" selected="selected">In-Active</option>
+              }
+              </select>
+              }
+             </div>
+
+               </div>
+            <div class=" mt-5 mb-3 d-flex justify-content-end me-5">
+                 <button type="button" class="cancel-btn"asp-controller="Admin" asp-action="admin_user">Cancel</button>
+                  <button type="submit" class="Save-btn" >Save</button>
+                   </div>
+              
+            </form>
+        
+</div>
+<script src="~/js/UserProfile.js"></script>
+

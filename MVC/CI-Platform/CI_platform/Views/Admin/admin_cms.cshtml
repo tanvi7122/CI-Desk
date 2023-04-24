@@ -11,9 +11,11 @@
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
     <link rel="stylesheet" href="~/css/Admin.css">
+      <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css">
 </head>
- <h3 class="ms-5 mt-4 spanUser"><span>CMS Page</span> </h3>
 
+ <div id="partialView">
+ <h3 class="ms-5 mt-4 spanUser"><span>CMS Page</span> </h3>
             <!-- search options -->
             <div class="row mt-5">
                 <div class="col-md-9 col-6 ms-5 ">
@@ -26,8 +28,7 @@
                     </form>
                 </div>
                 <div class="col d-flex justify-content-center">
-                    <button type="button" class="btn addbtn rounded-pill px-4" id="addBtn" data-bs-toggle="modal"
-                        data-bs-target="#timeModal">
+                    <button type="button" class="Save-btn" onclick="AdminCms(0)">
                         <i class="fa-solid fa-plus pe-2"></i>
                         Add
                     </button>
@@ -65,8 +66,7 @@
                             }
                              </td>
                             <td>
-                                <button class="btn border-0" data-bs-toggle="modal" id="addbtn"
-                                    data-bs-target="#editModal"><i class="fa-solid fa-pen-to-square"></i></button>
+                                <button class="btn border-0" onclick="AdminCms(@cmsPage.CmsPageId)"><i class="fa-solid fa-pen-to-square"></i></button>
                                   <button class="btn border-0" onclick="DeleteCms(@cmsPage.CmsPageId)"><i class="fa-solid fa-trash-can"></i></button>
                             </td>
                         </tr>      
@@ -77,6 +77,6 @@
 
                     </tbody>
                 </table>
-             
+             </div>
              
             </div>

@@ -595,21 +595,6 @@ $(".Rating p").click(function () {
     })
 })
 
-$(window).on('unload', function () {
-    endSession();
-});
-function endSession() {
-    $.ajax({
-        url: '/Home/EndSession',
-        type: 'POST',
-        success: function (result) {
-            console.log('Session ended successfully');
-        },
-        error: function (error) {
-            console.log('Error ending session: ' + error.responseText);
-        }
-    });
-}
 
 
 //function submitForm() {

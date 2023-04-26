@@ -1,5 +1,5 @@
 ﻿* {
-    font-family: notosans;
+   
     box-sizing: border-box;
 }
 
@@ -42,8 +42,7 @@ body {
             .navigation ul li:hover {
                 background: #ffffff;
                 width: 95%;
-                margin-top:3px;
-                margin-left: 8px;
+
             }
 
             .navigation ul li:nth-child(1):hover {
@@ -71,6 +70,7 @@ body {
                 .navigation ul li a .icon {
                     position: relative;
                     display: block;
+                    padding: 5 5px;
                     min-width: 60px;
                     height: 40px;
                     margin-top: 3px;
@@ -86,7 +86,7 @@ body {
                 .navigation ul li a .title {
                     position: relative;
                     display: block;
-                    padding: 0 10px;
+                    padding: 5 5px;
                     height: 40px;
                     /* line-height: 17px; */
                     white-space: nowrap;
@@ -225,7 +225,7 @@ table.dataTable.dtr-inline.collapsed > tbody > tr > td.dtr-control:before, table
     align-items: center;
 }
 
-
+/*
 .searchMission {
     height: 35px;
     border: 1px solid #ccc;
@@ -237,7 +237,7 @@ table.dataTable.dtr-inline.collapsed > tbody > tr > td.dtr-control:before, table
 
     .searchMission:hover {
         box-shadow: 0 0 4px #007bff;
-    }
+    }*/
 @media (min-width: 768px) {
     .searchmission {
         display: flex;
@@ -364,3 +364,123 @@ table.dataTable.dtr-inline.collapsed > tbody > tr > td.dtr-control:before, table
     border-width: 8px 8px 8px 0px !important;
     margin-top: -5px;
 }
+
+
+.missionForm {
+    max-height: 650px;
+    overflow-y: scroll;
+}
+
+.skillsSelectList {
+    width: 100% !important;
+    height: 40px !important;
+    border: 1px solid rgb(173, 171, 171);
+    border-radius: 10px;
+    padding: 7px 5px;
+}
+
+.scrollable-menu {
+    max-height: 200px !important;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.container-img {
+    width: 100%;
+    margin-bottom: 13px;
+    height: auto;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    max-height: 400px;
+}
+
+.container-doc {
+    width: 100%;
+    margin-bottom: 13px;
+    height: auto;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    max-height: 400px;
+}
+
+.doc-pill {
+    border: 1px solid #a3a3a3;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 14px;
+    display: flex;
+    justify-content: space-between;
+    margin-right: 5px;
+}
+
+    .doc-pill p {
+        margin-bottom: 0px;
+        margin-right: 5px;
+    }
+
+    .doc-pill span {
+        cursor: pointer;
+    }
+
+.container-img .image {
+    max-width: 100px;
+    width: 100%;
+    margin-right: 30px;
+    height: 100px;
+    position: relative;
+}
+
+    .container-img .image img {
+        width: 100%;
+        height: 100%;
+        border-radius: 1px;
+    }
+
+    .container-img .image span {
+        position: absolute;
+        color: red;
+        top: -6px;
+        right: 5px;
+        font-size: 20px;
+        cursor: pointer;
+    }
+
+    .container-img .image input {
+        position: absolute;
+        top: 5px;
+        left: 5px;
+        cursor: pointer;
+    }
+
+.view-btn {
+    border: 1px solid #F88634;
+    border-radius: 13px;
+    padding: 2px 10px;
+    font-size: 15px;
+    text-decoration: none;
+    color: #F88634;
+    margin: 5px;
+}
+
+    .view-btn:hover {
+        background-color: #F88634;
+        color: white;
+    }
+
+.descScroll {
+    max-height: 200px;
+    overflow-y: scroll;
+}
+
+.storyImages {
+    height: 130px;
+    width: 200px;
+    margin-right: 10px;
+}
+
+
+

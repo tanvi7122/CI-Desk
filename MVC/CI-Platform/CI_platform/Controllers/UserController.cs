@@ -1,6 +1,7 @@
 ﻿using CI_platfom.Entity.Models;
 using CI_platfom.Entity.ViewModel;
 using CI_platform.Repository.Interface;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Text.RegularExpressions;
 
@@ -35,6 +36,8 @@ namespace CI_platform.Controllers
             var cities = _unitOfWork.City.GetAll().Where(c => c.CountryId == country).ToList();
             return Json(cities);
         }
+
+        [Authorize(Roles = "user")]
         public IActionResult Profile()
         {
             var sessionValue = HttpContext.Session.GetString("UserEmail");
@@ -77,8 +80,8 @@ namespace CI_platform.Controllers
             return Ok();
         }
 
-     
 
+        [Authorize(Roles = "user")]
         [HttpPost]
         public IActionResult Profile(User userProfile, long UserId)
         {

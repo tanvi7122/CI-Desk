@@ -1,0 +1,58 @@
+﻿
+@using CI_platfom.Entity.ViewModel
+@model AdminVM
+@{
+    ViewData["Title"] = "Admin_Banner";
+    Layout = null;
+}
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="~/css/AdminAddEdit.css">
+
+<div class="container">
+   <form asp-controller="Admin" Asp-Action="AdminAddBanner" Method="post">
+           <div class="row mx-5 my-5">
+              <div class="form-header mt-4 p-3">
+            @if (Model.banner != null)
+            {
+                <h4 class="form-header-text">Edit Banner</h4>
+            }
+            else
+            {
+                <h4 class="form-header-text">Add Banner</h4>                
+            }
+              </div>
+            <div class="row">
+                <input type="hidden" id="SkillId" asp-for="banner.BannerId">
+
+                <div class="col-sm-6">
+                    <label for="title" class="form-label text-secondary">Text*</label>
+                    <input type="text" class="form-control" id="name" placeholder="Enter Text" asp-for="banner.Text">
+                </div>
+                 <div class="col-sm-6">
+                    <label for="Sort_Order" class="form-label text-secondary">Sort Order*</label>
+                    <input type="text" class="form-control" id="Sort_Order" placeholder="Enter Sort Order" asp-for="banner.SortOrder">
+               </div>
+               
+                           <div class="mb-3">
+                 <label for="files" class="form-label text-secondary">Banner*</label>
+                    <input id="images" accept=".jpg,.png,.jpeg" name="Images" type="file" class="form-control" asp-for="banner.Image" multiple />
+                    <span class="text-danger" id="errImage" ></span>
+                    <div class="container-img mt-3">
+                        @foreach(var media in Model.banners)
+                        {
+                                <div class="image">
+			                        <img src="@media.Image" class="oldImgs" value="1" />
+                                </div>
+                        }
+                    </div>
+                </div>
+            <div class=" mt-5 mb-3 d-flex justify-content-end me-5">
+                 <button type="submit" class="cancel-btn"asp-controller="Admin" asp-action="admin_banner">Cancel</button>
+                  <button type="submit" class="Save-btn" >Save</button>
+                   </div>
+              
+            </form>
+        
+</div>
+<script src="~/js/UserProfile.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>

@@ -12,6 +12,8 @@ using Microsoft.AspNetCore.Authentication;
 using System.Text;
 using System.Security.Cryptography;
 using System.Text.RegularExpressions;
+using CI_Platform.Authentication;
+using Data_Access.Auth;
 
 namespace CI_platform.Controllers
 {
@@ -21,16 +23,16 @@ namespace CI_platform.Controllers
         public readonly IAccountRepository _AccountRepo;
         public readonly IEmailRepository _emailobj;
         public readonly CiPlatformContext _context;
+        private readonly IConfiguration _configuration;
 
-
-        public HomeController(ILogger<HomeController> logger, IAccountRepository AccountRepository, IEmailRepository emailobj, CiPlatformContext context)
+        public HomeController(ILogger<HomeController> logger, IAccountRepository AccountRepository, IEmailRepository emailobj, CiPlatformContext context, IConfiguration configuration)
         {
 
             _logger = logger;
             _emailobj = emailobj;
             _context = context;
             _AccountRepo = AccountRepository;
-
+            _configuration = configuration;
 
         }
 
@@ -53,6 +55,7 @@ namespace CI_platform.Controllers
                 Console.WriteLine(sessionValue);
                 return RedirectToAction("HomePage", "Mission");
             }
+
             return View();
         }
 
@@ -66,30 +69,35 @@ namespace CI_platform.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+
         public IActionResult Login(User user)
         {
             //var Temp = _context.Users.SingleOrDefault(u => u.Email == user.Email);
             var curser = _AccountRepo.GetUserEmail(user.Email);
-            Console.WriteLine(user.Email);
-           
-
+          
             bool isMatch = BCrypt.Net.BCrypt.Verify(user.Password,curser.Password);
-
             if (curser != null && isMatch)
             {
-                Console.WriteLine("Login successfull");
+             
                 HttpContext.Session.SetString("UserEmail", user.Email);
                 HttpContext.Session.SetString("UserId", curser.UserId.ToString());
-                return RedirectToAction("HomePage", "Mission");
+                var jwtSettings = _configuration.GetSection(nameof(JwtSetting)).Get<JwtSetting>();
+                var token = JwtTokenHelper.GenerateToken(jwtSettings, curser);
+                HttpContext.Session.SetString("Token", token);
+                if (curser.Role == "user")
+                {
+                    return RedirectToAction("HomePage", "Mission");
+                }
+                else {
+                    return RedirectToAction("admin_user", "Admin");
+                }
             }
             else
             {
-                Console.WriteLine("Login Unsuccessfull");
+               
                 ViewData["ErrorMessage"] = "Login Failed";
                 return View(user);
             }
-
-
         }
      private bool ValidatePassword(string password)
 {
@@ -131,6 +139,7 @@ namespace CI_platform.Controllers
                             string passwordHash = BCrypt.Net.BCrypt.HashPassword(user.Password);
                             user.Password = passwordHash;
                             string imagePath = Url.Content("~/images/user1.png");
+                            user.Role = "user";
                             user.Avatar = imagePath;
                             _AccountRepo.Add(user);
                             _AccountRepo.save();
@@ -138,9 +147,6 @@ namespace CI_platform.Controllers
                             return RedirectToAction("Login");
                         }
                     }
-           
-                  
-
                 }
             }
             else

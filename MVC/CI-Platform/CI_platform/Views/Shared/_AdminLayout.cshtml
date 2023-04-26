@@ -5,14 +5,14 @@
 <head>
     <meta name="viewport" charset="UTF-8" content="width=device-width, initial-scale=1.0">
     <title>Admin</title>
- 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
     <link rel="stylesheet" href="~/css/Admin.css">
     <link rel="stylesheet" href="~/css/AdminAddEdit.css">
     <link rel="stylesheet" href="~/css/HomePage.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.3/css/dataTables.bootstrap5.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.4.0/css/responsive.bootstrap5.min.css">
-   <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css">
 </head>
 
 <body>
@@ -27,18 +27,18 @@
             </li>
             <li class="mt-3">
                 <a asp-controller="Admin" asp-action="admin_user">
-                    <span class="icon" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="User" asp-controller="Admin" asp-action="admin_user" ><i class="fa-solid fa-user"></i></span>
+                    <span class="icon" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="User" asp-controller="Admin" asp-action="admin_user"><i class="fa-solid fa-user"></i></span>
                     <span class="title" asp-controller="Admin" asp-action="admin_user">User</span>
                 </a>
             </li>
             <li>
-                <a  asp-controller="Admin" asp-action="admin_cms">
-                    <span class="icon" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="CMS Page"><i class="fa-solid fa-file-lines"  asp-controller="Admin" asp-action="cms_page"></i></span>
+                <a asp-controller="Admin" asp-action="admin_cms">
+                    <span class="icon" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="CMS Page"><i class="fa-solid fa-file-lines" asp-controller="Admin" asp-action="cms_page"></i></span>
                     <span class="title" asp-controller="Admin" asp-action="cms_page">CMS Page</span>
                 </a>
             </li>
             <li>
-                <a  asp-controller="Admin" asp-action="admin_mission">
+                <a asp-controller="Admin" asp-action="admin_mission">
                     <span class="icon " data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Mission" asp-controller="Admin" asp-action="admin_mission"> <i class="fa-solid fa-bullseye"></i></span>
                     <span class="title " asp-controller="Admin" asp-action="admin_mission">Mission</span>
                 </a>
@@ -55,7 +55,7 @@
                     <span class="title ">Mission Application</span>
                 </a>
             </li>
-               <li>
+            <li>
                 <a asp-controller="Admin" asp-action="Admin_Mission_Skill">
                     <span class="icon" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Mission Skills"><i class="fa-solid fa-ribbon"></i></span>
                     <span class="title">Mission Skills</span>
@@ -68,7 +68,7 @@
                 </a>
             </li>
             <li>
-                <a href="Admin_MissionSkill">
+                <a asp-controller="Admin" asp-action="admin_banner">
                     <span class="icon" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Baner Management"><i class="fa-solid fa-ribbon"></i></span>
                     <span class="title">Banner Management</span>
                 </a>
@@ -76,7 +76,7 @@
 
         </ul>
     </div>
-        <div class="container-fluid">
+    <div class="container-fluid">
         <div class="main">
             <div class="topbar" style="box-shadow:  1.5px 2.6px 5px 0 rgba(0, 0, 0, 0.08);">
                 <div class="toggle me-5 ms-3 d-lg-none" onclick="toggleMenu();"></div>
@@ -84,92 +84,89 @@
                     <nav class="navbar navbar-expand-lg bg-body-tertiary">
                         <div class="container-fluid">
                             <div class="collapse navbar-collapse ms-3 nav" id="navbarSupportedContent">
-                               <p id="live-time"></p>
+                                <p id="live-time"></p>
                             </div>
                         </div>
                     </nav>
                 </div>
-                   <div class="dropdown">
-              @*          <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">*@
-                                 <span><img src="~/Avatar/071ddac1-85e2-46a4-9bb5-3d561e88cc73.png" id="header-avatar" class="rounded-circle header-avatar" /></span>
-                          @*  <p class="d-inline" id="profiletext">
-                                @Model.LoggedUser.FirstName @Model.LoggedUser.LastName
-                            </p>*@
-                     @*   </a>
-                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
-                            <li><a class="dropdown-item" asp-controller="User" asp-action="Profile">My Profile</a></li>
-                            <li><a class="dropdown-item" asp-controller="TimeSheet" asp-action="TimeSheet">Volunteering Timesheet</a></li>
-                            <li><a class="dropdown-item" asp-controller="Home" asp-action="Logout">Logout</a></li>
-                        </ul>*@
-                    </div>
+                <div class="dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <span><img src="~/Avatar/071ddac1-85e2-46a4-9bb5-3d561e88cc73.png" id="header-avatar" class="rounded-circle header-avatar" /></span>
+                        <p class="d-inline" id="profiletext">
+                            @Model.LoggedUser.FirstName @Model.LoggedUser.LastName
+                        </p>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
+                        <li><a class="dropdown-item" asp-controller="Home" asp-action="Logout">Logout</a></li>
+                    </ul>
+                </div>
             </div>
-          
-            
-        
-     <div>
 
-        @RenderBody()
-    </div>
-       
-        
- 
 
-    <!-- <script src="js/bootstrap.bundle.min.js"></script> -->
-    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.datatables.net/1.13.3/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.13.3/js/dataTables.bootstrap5.min.js"></script>
-    <script src="https://cdn.datatables.net/responsive/2.4.0/js/dataTables.responsive.min.js"></script>
-    <script src="https://cdn.datatables.net/responsive/2.4.0/js/responsive.bootstrap5.min.js"></script>
-    <script src="~/js/Admin.js"></script>
-     <script src="https://cdn.ckeditor.com/4.20.2/full/ckeditor.js"></script>
-  
-    <script>
 
-        const tooltips = document.querySelectorAll(".icon")
-        tooltips.forEach(t=>{
-            new bootstrap.Tooltip(t)
-        });
+            <div>
+                @RenderBody()
+            </div>
 
-        $(document).ready(function () {
-            var dataTable = $('#example').DataTable({
-                responsive: {
-                    details: {
-                        display: $.fn.dataTable.Responsive.display.modal({
-                            header: function (row) {
-                                var data = row.data();
-                                return 'Details for ' + data[0] + ' ' + data[1];
+            <!-- <script src="js/bootstrap.bundle.min.js"></script> -->
+
+            <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/js/bootstrap.bundle.min.js"></script>
+            <script src="https://cdn.datatables.net/1.13.3/js/jquery.dataTables.min.js"></script>
+            <script src="https://cdn.datatables.net/1.13.3/js/dataTables.bootstrap5.min.js"></script>
+            <script src="https://cdn.datatables.net/responsive/2.4.0/js/dataTables.responsive.min.js"></script>
+            <script src="https://cdn.datatables.net/responsive/2.4.0/js/responsive.bootstrap5.min.js"></script>
+            <script src="https://cdn.ckeditor.com/ckeditor5/37.0.1/classic/ckeditor.js"></script>
+            <script src="~/js/Admin.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+
+            <script>
+
+                const tooltips = document.querySelectorAll(".icon")
+                tooltips.forEach(t=>{
+                    new bootstrap.Tooltip(t)
+                });
+
+                $(document).ready(function () {
+                    var dataTable = $('#example').DataTable({
+                        responsive: {
+                            details: {
+                                display: $.fn.dataTable.Responsive.display.modal({
+                                    header: function (row) {
+                                        var data = row.data();
+                                        return 'Details for ' + data[0] + ' ' + data[1];
+                                    }
+                                }),
+                                renderer: $.fn.dataTable.Responsive.renderer.tableAll({
+                                    tableClass: 'table'
+                                }),
                             }
-                        }),
-                        renderer: $.fn.dataTable.Responsive.renderer.tableAll({
-                            tableClass: 'table'
-                        }),
-                    }
-                },
-                "pageLength": 10, "pagingType": "full_numbers", "oLanguage": {
-                    "sEmptyTable": " ",
-                    "oPaginate": {
-                        "sNext": '<i class="fa-solid fa-chevron-right"></i>',
-                        "sPrevious": '<i class="fa-solid fa-chevron-left"></i>',
-                        "sFirst": '<i class="fa-solid fa-angles-left"></i>',
-                        "sLast": '<i class="fa-solid fa-angles-right"></i>',
-                           }
-                    }
-            });
-            $("#searchbtn").keyup(function () {
-                dataTable.search(this.value).draw();
-            });
-        });
-    
-        function toggleMenu() {
-            let toggle = document.querySelector('.toggle');
-            let navigation = document.querySelector('.navigation');
-            let main = document.querySelector('.main');
-            toggle.classList.toggle('active');
-            navigation.classList.toggle('active');
-            main.classList.toggle('active');
-        }
-    </script>
+                        },
+                        "pageLength": 10, "pagingType": "full_numbers", "oLanguage": {
+                            "sEmptyTable": " ",
+                            "oPaginate": {
+                                "sNext": '<i class="fa-solid fa-chevron-right"></i>',
+                                "sPrevious": '<i class="fa-solid fa-chevron-left"></i>',
+                                "sFirst": '<i class="fa-solid fa-angles-left"></i>',
+                                "sLast": '<i class="fa-solid fa-angles-right"></i>',
+                                   }
+                            }
+                    });
+                    $("#searchbtn").keyup(function () {
+                        dataTable.search(this.value).draw();
+                    });
+                });
 
-     </body>
+                function toggleMenu() {
+                    let toggle = document.querySelector('.toggle');
+                    let navigation = document.querySelector('.navigation');
+                    let main = document.querySelector('.main');
+                    toggle.classList.toggle('active');
+                    navigation.classList.toggle('active');
+                    main.classList.toggle('active');
+                }
+            </script>
+
+</body>
 </html>

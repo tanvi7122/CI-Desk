@@ -280,6 +280,7 @@ C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platfom.Entity\bin\Debug\net6
 C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platfom.Entity\bin\Debug\net6.0\refs\System.Xml.XPath.dll
 C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platfom.Entity\bin\Debug\net6.0\refs\System.Xml.XPath.XDocument.dll
 C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platfom.Entity\bin\Debug\net6.0\refs\WindowsBase.dll
+C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platfom.Entity\obj\Debug\net6.0\CI_platfom.Entity.csproj.AssemblyReference.cache
 C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platfom.Entity\obj\Debug\net6.0\CI_platfom.Entity.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platfom.Entity\obj\Debug\net6.0\CI_platfom.Entity.AssemblyInfoInputs.cache
 C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platfom.Entity\obj\Debug\net6.0\CI_platfom.Entity.AssemblyInfo.cs
@@ -288,4 +289,3 @@ C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platfom.Entity\obj\Debug\net6
 C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platfom.Entity\obj\Debug\net6.0\ref\CI_platfom.Entity.dll
 C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platfom.Entity\obj\Debug\net6.0\CI_platfom.Entity.pdb
 C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platfom.Entity\obj\Debug\net6.0\CI_platfom.Entity.genruntimeconfig.cache
-C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platfom.Entity\obj\Debug\net6.0\CI_platfom.Entity.csproj.AssemblyReference.cache

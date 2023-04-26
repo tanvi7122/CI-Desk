@@ -20,7 +20,7 @@
                 <div class="col-md-9 col-6 ms-5 ">
                     <form action="" class="">
                         <div class="border searchMission d-flex w-50">
-                            <button type="button" class="btn"><img src="images/search.png" alt=""></button>
+                            <button type="button" class="btn"><img src="~/images/search.png" alt=""></button>
                             <input class="form-control me-2 border-0 bg-transparent" type="search" placeholder="Search "
                                 id="searchbtn" aria-label="Search">
                         </div>
@@ -53,7 +53,7 @@
                     <tbody>
                     
             @{
-                var Count = Model.UserList.Where(u=>u.DeletedAt==null);
+                var Count = Model.UserList.Where(u=>u.DeletedAt==null&& u.Role=="user");
                 Console.WriteLine(Count);
                 foreach (var user in Count)
                 {
@@ -61,7 +61,7 @@
                             <td>@user.FirstName</td>
                             <td>@user.LastName</td>
                             <td>@user.Email</td>
-                            <td>@user.PhoneNumber</td>
+                            <td>@user.EmployeeId</td>
                             <td>@user.Department</td>
                            
                          <td>

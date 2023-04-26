@@ -1,6 +1,7 @@
 ﻿using CI_platfom.Entity.Models;
 using CI_platfom.Entity.ViewModel;
 using CI_platform.Repository.Interface;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using MimeKit;
@@ -34,7 +35,7 @@ namespace CI_platform.Controllers
             var cities = _unitOfWork.City.GetAll().Where(c => c.CountryId == countryId).ToList();
             return Json(cities);
         }
-
+        [Authorize(Roles = "user")]
         public IActionResult HomePage(string sort = "", int currentPage = 1)
         {
             var sessionValue = HttpContext.Session.GetString("UserEmail");
@@ -75,7 +76,7 @@ namespace CI_platform.Controllers
         }
 
 
-
+        [Authorize(Roles = "user")]
         public IActionResult MissionDetail(long missionId, long themeid, long cityid, long countryid)
          {
             var sessionValue = HttpContext.Session.GetString("UserEmail");
@@ -300,16 +301,8 @@ namespace CI_platform.Controllers
                 CreatedAt = DateTime.Now,
 
             });
-               
-         
             _unitOfWork.Save();
-            var responseData = new
-            {
-                success = true,
-                message = "Your message has been sent successfully."
-            };
-            return Json(responseData);
-
+            return View(HomePage);
         }
 
 

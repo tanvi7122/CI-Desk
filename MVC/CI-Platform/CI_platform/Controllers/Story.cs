@@ -3,7 +3,7 @@ using CI_platfom.Entity.Data;
 using CI_platfom.Entity.Models;
 using CI_platfom.Entity.ViewModel;
 using CI_platform.Repository.Interface;
-
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
 using System.Net.Mail;
@@ -33,7 +33,7 @@ namespace CI_platform.Controllers
 
         }
 
-
+        [Authorize(Roles = "user")]
         public IActionResult StoryDetail(long storyId, long missionId)
         {
             var sessionValue = HttpContext.Session.GetString("UserEmail");
@@ -47,8 +47,8 @@ namespace CI_platform.Controllers
 
 
         }
-       
-     
+
+        [Authorize(Roles = "user")]
         public JsonResult GetDraftStory(long missionId)
         {
             var userid = HttpContext.Session.GetString("UserId");
@@ -110,6 +110,7 @@ return new JsonResult("nodraft");
             return View(storylandingPageData);
 
         }
+        [Authorize(Roles = "user")]
         public IActionResult PreviewStory(long missionId)
         {
             var sessionValue = HttpContext.Session.GetString("UserEmail");
@@ -124,7 +125,7 @@ return new JsonResult("nodraft");
             return View(storylandingPageData);
         }
 
-
+        [Authorize(Roles = "user")]
         public IActionResult ShareYourStory(long storyId, long missionId, int currentPage = 1)
         {
             var sessionValue = HttpContext.Session.GetString("UserEmail");

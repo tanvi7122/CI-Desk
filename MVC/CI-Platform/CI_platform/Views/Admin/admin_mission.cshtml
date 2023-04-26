@@ -12,20 +12,20 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
     <link rel="stylesheet" href="~/css/Admin.css">
 </head>
-
+<div id="mainContentBody">
       <h3 class="ms-5 mt-4 spanUser"><span>Mission</span> </h3>
          <div class="row mt-5">
                 <div class="col-md-9 col-6 ms-5 ">
                     <form action="" class="">
                         <div class="border searchMission d-flex w-50">
-                            <button type="button" class="btn"><img src="images/search.png" alt=""></button>
+                            <button type="button" class="btn"><img src="~/images/search.png" alt=""></button>
                             <input class="form-control me-2 border-0 bg-transparent" type="search" placeholder="Search "
                                 id="searchbtn" aria-label="Search">
                         </div>
                     </form>
                 </div>
-                <div class="col d-flex justify-content-center">
-                    <button type="button" class="Save-btn" id="addBtn" >
+               <div class="col d-flex justify-content-center">
+                    <button type="button" class="Save-btn" onclick="GetUpsertMissionPage()" value="0">
                         <i class="fa-solid fa-plus pe-2"></i>
                         Add
                     </button>
@@ -58,7 +58,7 @@
          
                             <td>
                                 <button class="btn border-0" data-bs-toggle="modal" id="addbtn"
-                                    data-bs-target="#editModal"><i class="fa-solid fa-pen-to-square"></i></button>
+                                    data-bs-target="#editModal"><i class="fa-solid fa-pen-to-square" onclick="GetUpsertMissionPage()" value="@mission.MissionId"></i></button>
                                 <button class="btn border-0" onclick="DeleteMission(@mission.MissionId)"><i
                                         class="fa-solid fa-trash-can"></i></button>
                             </td>
@@ -74,3 +74,4 @@
                 </table>
             </div>
             </div>
+           

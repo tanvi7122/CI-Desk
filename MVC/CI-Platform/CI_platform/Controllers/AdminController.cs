@@ -1,6 +1,7 @@
 ﻿using CI_platfom.Entity.Models;
 using CI_platfom.Entity.ViewModel;
 using CI_platform.Repository.Interface;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CI_platform.Controllers
@@ -14,7 +15,6 @@ namespace CI_platform.Controllers
             private readonly IMissionLandingRepository _MissionLandingRepository;
              private readonly IAdminRepository _AdminRepository;
             private readonly IConfiguration _config;
-
             public AdminController( IConfiguration config, IUnitOfWork unitOfWork, IHomeLandingRepository HomeLandingRepository, IAdminRepository AdminRepository,IMissionLandingRepository MissionLandingRepository)
             {
                 _unitOfWork = unitOfWork;
@@ -22,7 +22,6 @@ namespace CI_platform.Controllers
                
                 _HomeLandingRepository = HomeLandingRepository;
                 _config = config;
-                _MissionLandingRepository = MissionLandingRepository;
             _AdminRepository = AdminRepository;
 
             }
@@ -38,6 +37,7 @@ namespace CI_platform.Controllers
         }
 
         //-----Admin User----
+        [Authorize(Roles = "admin")]
         public IActionResult admin_user()
         {
             var sessionValue = HttpContext.Session.GetString("UserEmail");
@@ -69,6 +69,7 @@ namespace CI_platform.Controllers
             return PartialView("_AdminAddUserPartial", UserData);
         }
 
+        [Authorize(Roles = "admin")]
         [HttpPost]
         public IActionResult AdminAddUser(AdminVM userProfile)
         {
@@ -92,10 +93,13 @@ namespace CI_platform.Controllers
                 }
                 else
                 {
+                    string imagePath = Url.Content("~/images/user1.png");
+                    userProfile.Profile.Avatar = imagePath;
                     userProfile.Profile.UpdatedAt = DateTime.Now;
                     userProfile.Profile.Password = "qwertyuiop";
                     string passwordHash = BCrypt.Net.BCrypt.HashPassword(userProfile.Profile.Password);
                     userProfile.Profile.Password = passwordHash;
+                    userProfile.Profile.Role = "user";
                     _unitOfWork.User.Add(userProfile.Profile);
                     _unitOfWork.Save();
                 }
@@ -124,6 +128,7 @@ namespace CI_platform.Controllers
 
 
         //----Admin StoryPage
+        [Authorize(Roles = "admin")]
         public IActionResult admin_story()
         {
             var sessionValue = HttpContext.Session.GetString("UserEmail");
@@ -135,10 +140,11 @@ namespace CI_platform.Controllers
                 return RedirectToAction("Index", "Home");
             }
 
-            AdminVM StoryData = _AdminRepository.GetStoryData();
+            AdminVM StoryData = _AdminRepository.GetStoryData(sessionValue);
             return View(StoryData);
             
         }
+        [Authorize(Roles = "admin")]
         public IActionResult ApproveStatusStory(long Id, bool status)
         {
             var sessionValue = HttpContext.Session.GetString("UserEmail");
@@ -174,9 +180,10 @@ namespace CI_platform.Controllers
             var story_deleted = _unitOfWork.Story.GetFirstOrDefault(s => s.StoryId == Id);
             story_deleted.DeletedAt = DateTime.Now;
             _unitOfWork.Save();
-            AdminVM StoryData = _AdminRepository.GetStoryData();
+            AdminVM StoryData = _AdminRepository.GetStoryData(sessionValue);
             return RedirectToAction("admin_story", "Admin");
         }
+        [Authorize(Roles = "admin")]
         public IActionResult AdminViewStory(long Id)
         {
             var sessionValue = HttpContext.Session.GetString("UserEmail");
@@ -186,13 +193,14 @@ namespace CI_platform.Controllers
                 TempData["error"] = "Session Expired!\nPlease Login Again!";
                 return RedirectToAction("Index", "Home");
             }
-            AdminVM StoryData = _AdminRepository.ViewStoryData(Id);
+            AdminVM StoryData = _AdminRepository.ViewStoryData(Id, sessionValue);
             return PartialView("_AdminViewStory", StoryData);
 
         }
-      
+
 
         //----Admin Csm Page
+        [Authorize(Roles = "admin")]
         public IActionResult admin_cms()
         {
             var sessionValue = HttpContext.Session.GetString("UserEmail");
@@ -220,6 +228,7 @@ namespace CI_platform.Controllers
             AdminVM CmsData = _AdminRepository.GetCmsData(sessionValue);
             return RedirectToAction("admin_cms", "Admin");
         }
+        [Authorize(Roles = "admin")]
         public IActionResult AdminAddCms(long Id)
         {
             var sessionValue = HttpContext.Session.GetString("UserEmail");
@@ -236,6 +245,7 @@ namespace CI_platform.Controllers
             }
             return PartialView("AdminAddCms", CmsData);
         }
+        [Authorize(Roles = "admin")]
         [HttpPost]
         public IActionResult AdminAddCms(AdminVM AddCms)
         {
@@ -247,12 +257,12 @@ namespace CI_platform.Controllers
                 return RedirectToAction("Index", "Home");
             }
             var cms = _unitOfWork.CmsPage.GetFirstOrDefault(c => c.CmsPageId == AddCms.AddCmsPage.CmsPageId);
-            if (AddCms != null)
+            if (cms != null)
             {
                 cms.Title = AddCms.AddCmsPage.Title;
                 cms.Description = AddCms.AddCmsPage.Description;
-                cms.Slug = AddCms.AddCmsPage.Slug;
-                cms.Status = AddCms.AddCmsPage.Status;
+                cms.Slug = AddCms.AddCmsPage?.Slug;
+                cms.Status = AddCms.AddCmsPage?.Status;
                 _unitOfWork.Save();
             }
             else
@@ -264,6 +274,7 @@ namespace CI_platform.Controllers
 
         }
         //---Admin Mission Applicaton
+        [Authorize(Roles = "admin")]
         public IActionResult admin_mission_application()
         {
             var sessionValue = HttpContext.Session.GetString("UserEmail");
@@ -273,9 +284,10 @@ namespace CI_platform.Controllers
                 return RedirectToAction("Index", "Home");
             }
             
-            AdminVM MissionApplicationsData = _AdminRepository.GetMissionApplicationsData();
+            AdminVM MissionApplicationsData = _AdminRepository.GetMissionApplicationsData(sessionValue);
             return View(MissionApplicationsData);
         }
+        [Authorize(Roles = "admin")]
         public IActionResult ApproveStatusMissionApplication(long Id, bool status)
         {
             var sessionValue = HttpContext.Session.GetString("UserEmail");
@@ -315,6 +327,7 @@ namespace CI_platform.Controllers
             return RedirectToAction("admin_mission_application", "Admin");
         }
         //---Admin MissionTheme
+        [Authorize(Roles = "admin")]
         public IActionResult Admin_MissionTheme()
         {
             var sessionValue = HttpContext.Session.GetString("UserEmail");
@@ -324,7 +337,7 @@ namespace CI_platform.Controllers
                 return RedirectToAction("Index", "Home");
             }
 
-            AdminVM Missionthemedata = _AdminRepository.GetMissionThemes();
+            AdminVM Missionthemedata = _AdminRepository.GetMissionThemes(sessionValue);
             return View(Missionthemedata);
         }
         public IActionResult UpdateMissionTheme(long Id)
@@ -337,13 +350,14 @@ namespace CI_platform.Controllers
                 return RedirectToAction("Index", "Home");
             }
 
-            AdminVM MissionThemesData = _AdminRepository.GetMissionThemes();
+            AdminVM MissionThemesData = _AdminRepository.GetMissionThemes(sessionValue);
             if (Id > 0)
             {
                 MissionThemesData.missionTheme = _unitOfWork.MissionTheme.GetFirstOrDefault(MissionTheme => MissionTheme.MissionThemeId == Id);
             }
             return PartialView("UpdateMissionTheme", MissionThemesData);
         }
+        [Authorize(Roles = "admin")]
         [HttpPost]
         public IActionResult UpdateMissionTheme(AdminVM adminmissionTheme)
         {
@@ -377,6 +391,7 @@ namespace CI_platform.Controllers
         }
 
         //!---Admin SkillPage
+        [Authorize(Roles = "admin")]
         public IActionResult Admin_Mission_Skill()
         {
             var sessionValue = HttpContext.Session.GetString("UserEmail");
@@ -386,7 +401,7 @@ namespace CI_platform.Controllers
                 return RedirectToAction("Index", "Home");
             }
 
-            AdminVM MissionSkillData = _AdminRepository.GetMissionSkill();
+            AdminVM MissionSkillData = _AdminRepository.GetMissionSkill(sessionValue);
             return View(MissionSkillData);
         }
       
@@ -403,7 +418,7 @@ namespace CI_platform.Controllers
             _unitOfWork.Save();
             return RedirectToAction("admin_Mission_Skill", "Admin");
         }
-
+        [Authorize(Roles = "admin")]
         public IActionResult AdminSkill(long Id)
         {
             var sessionValue = HttpContext.Session.GetString("UserEmail");
@@ -414,7 +429,7 @@ namespace CI_platform.Controllers
                 return RedirectToAction("Index", "Home");
             }
 
-            AdminVM SkillData = _AdminRepository.GetMissionSkill();
+            AdminVM SkillData = _AdminRepository.GetMissionSkill(sessionValue);
             if (Id > 0)
             {
                 SkillData.skill = _unitOfWork.Skill.GetFirstOrDefault(Skill => Skill.SkillId == Id);
@@ -425,7 +440,9 @@ namespace CI_platform.Controllers
         public IActionResult AdminSkill(AdminVM adminskills)
         {
             var Addskill = _unitOfWork.Skill.GetFirstOrDefault(Skill => Skill.SkillId == adminskills.skill.SkillId);
-            if (Addskill != null)
+            if (ModelState.IsValid)
+            { 
+                  if (Addskill != null)
             {
                 Addskill.SkillName = adminskills.skill.SkillName;
                 Addskill.Status = adminskills.skill.Status;
@@ -435,11 +452,15 @@ namespace CI_platform.Controllers
                 _unitOfWork.Skill.Add(adminskills.skill);
                 _unitOfWork.Save();
             }
+            }
+          
             return RedirectToAction("Admin_Mission_Skill");
         }
 
-        //---Admin Mission
-        public IActionResult admin_mission()
+       
+        //---Banner
+        [Authorize(Roles = "admin")]
+        public IActionResult admin_banner()
         {
             var sessionValue = HttpContext.Session.GetString("UserEmail");
             var obj = _unitOfWork.User.GetFirstOrDefault(u => u.Email == sessionValue);
@@ -450,29 +471,25 @@ namespace CI_platform.Controllers
                 return RedirectToAction("Index", "Home");
             }
 
-            AdminVM missiondata = _AdminRepository.GetMissionData(sessionValue);
-            return View(missiondata);
-
+            AdminVM BannerData = _AdminRepository.GetBanner(sessionValue);
+            return View(BannerData);
         }
-
-        public IActionResult DeleteMission(int Id)
+        
+        public IActionResult DeleteBanner(int Id)
         {
             var sessionValue = HttpContext.Session.GetString("UserEmail");
-
-
             if (String.IsNullOrEmpty(sessionValue))
             {
                 TempData["error"] = "Session Expired!\nPlease Login Again!";
                 return RedirectToAction("Index", "Home");
             }
-            var Mission_deleted = _unitOfWork.Mission.GetFirstOrDefault(m=>m.MissionId == Id);
-            Mission_deleted.DeletedAt = DateTime.Now;
+            var Banner_deleted = _unitOfWork.Banner.GetFirstOrDefault(Banner => Banner.BannerId == Id);
+            Banner_deleted.DeletedAt = DateTime.Now;
             _unitOfWork.Save();
-            AdminVM MissionData = _AdminRepository.GetMissionData(sessionValue);
-            return RedirectToAction("admin_mission", "Admin");
+            return RedirectToAction("admin_banner", "Admin");
         }
-
-        public IActionResult AdminAddMission(long Id)
+        [Authorize(Roles = "admin")]
+        public IActionResult AdminAddBanner(long Id)
         {
             var sessionValue = HttpContext.Session.GetString("UserEmail");
 
@@ -481,58 +498,38 @@ namespace CI_platform.Controllers
                 TempData["error"] = "Session Expired!\nPlease Login Again!";
                 return RedirectToAction("Index", "Home");
             }
-
-            AdminVM MissionData = _AdminRepository.GetMissionData(sessionValue);
+            AdminVM BannerData = _AdminRepository.GetBanner(sessionValue);
             if (Id > 0)
             {
-                MissionData.Mission = _unitOfWork.Mission.GetFirstOrDefault(Mission => Mission.MissionId == Id);
+                BannerData.banner = _unitOfWork.Banner.GetFirstOrDefault(Banner => Banner.BannerId == Id);
             }
-            return View("AdminAddMission");
+            return PartialView("AdminAddBanner", BannerData);
         }
-
         [HttpPost]
-        public IActionResult AdminAddMission(AdminVM mission)
+        public IActionResult AdminAddBanner(AdminVM Adminbanner)
         {
-            try
+            var sessionValue = HttpContext.Session.GetString("UserEmail");
+
+            if (String.IsNullOrEmpty(sessionValue))
             {
-                // Update the user profile in the database
-                Mission Addmission = _unitOfWork.Mission.GetFirstOrDefault(Mission => Mission.MissionId == mission.Mission.MissionId);
-                if (Addmission != null)
-                {
-                    Addmission.Title = mission.Mission.Title;
-                    Addmission.ShortDescription = mission.Mission.ShortDescription;
-                    Addmission.Description = mission.Mission.Description;
-                    Addmission.MissionType = mission.Mission.MissionType;
-                    Addmission.Status = mission.Mission.Status;
-                    Addmission.OrganizationName = mission.Mission.OrganizationName;
-                    Addmission.OrganizationDetail = mission.Mission.OrganizationDetail;
-                    Addmission.Availability = mission.Mission.Availability;
-                    Addmission.CityId = mission.Mission.CityId;
-                    Addmission.ThemeId = mission.Mission.ThemeId;
-                    Addmission.CountryId = mission.Mission.CountryId;
-                   Addmission.StartDate = mission.Mission.StartDate;
-                    Addmission.EndDate = mission.Mission.EndDate;
-                    _unitOfWork.Save();
-                }
-                else
-                {
-                    mission.Mission.UpdatedAt = DateTime.Now;
-                    _unitOfWork.Mission.Add(mission.Mission);
-                    _unitOfWork.Save();
-                }
-                // Return a success response
-                return RedirectToAction("admin_mission");
+                TempData["error"] = "Session Expired!\nPlease Login Again!";
+                return RedirectToAction("Index", "Home");
             }
-            catch (Exception ex)
+            var banner = _unitOfWork.Banner.GetFirstOrDefault(Banner => Banner.BannerId == Adminbanner.banner.BannerId);
+            if (banner != null)
             {
-                // Handle the exception and return an error response
-                return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
+                banner.Text = Adminbanner.banner.Text;
+                banner.SortOrder = Adminbanner.banner.SortOrder;
+                banner.Image=Adminbanner.banner.Image;
+                _unitOfWork.Save();
             }
+            else
+            {
+                _unitOfWork.Banner.Add(Adminbanner.banner);
+                _unitOfWork.Save();
+            }
+            return RedirectToAction("admin_banner", "Admin");
+
         }
-
-
-
-
-
     }
 }

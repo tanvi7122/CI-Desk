@@ -1,0 +1,74 @@
+﻿ @using CI_platfom.Entity.ViewModel
+@model AdminVM
+@{
+    ViewData["Title"] = "Admin_Mission";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<head>
+       <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.min.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.min.js"></script>
+     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+    <link rel="stylesheet" href="~/css/Admin.css">
+      <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css">
+</head>
+
+ <div id="partialViewContainer">
+ <h3 class="ms-5 mt-4 spanUser"><span>Banner</span> </h3>
+            <!-- search options -->
+            <div class="row mt-5">
+                <div class="col-md-9 col-6 ms-5 ">
+                    <form action="" class="">
+                        <div class="border searchMission d-flex w-50">
+                            <button type="button" class="btn"><img src="~/images/search.png" alt=""></button>
+                            <input class="form-control me-2 border-0 bg-transparent" type="search" placeholder="Search "
+                                id="searchbtn" aria-label="Search">
+                        </div>
+                    </form>
+                </div>
+                <div class="col d-flex justify-content-center">
+                    <button type="button" class="Save-btn" onclick="AdminBanner(0)">
+                        <i class="fa-solid fa-plus pe-2"></i>
+                        Add
+                    </button>
+                </div>
+            </div>
+            <!-- ends search -->
+
+            <div class="table-responsive ms-5 mt-5">
+                <table id="example" class="table nowrap border" style="width:100%">
+                    <thead class="table-light">
+                        <tr>
+                            <th class="border-bottom-0">Image</th>
+                            <th class="border-bottom-0 ">Text</th>
+                            <th class="border-bottom-0">Sort Order</th>
+                            <th class="border-bottom-0">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                         @{
+                var Count = Model.banners.Where(c=>c.DeletedAt==null);
+                Console.WriteLine(Count);
+                foreach (var banner in Count)
+                {
+                     <tr>
+                           <td>@banner.Image</td>
+                            <td>@banner.Text</td>
+                            <td>@banner.SortOrder</td>
+                            <td>
+                                <button class="btn border-0" onclick="AdminBanner(@banner.BannerId)"><i class="fa-solid fa-pen-to-square"></i></button>
+                                  <button class="btn border-0" onclick="DeleteBanner(@banner.BannerId)"><i class="fa-solid fa-trash-can"></i></button>
+                            </td>
+                        </tr>      
+
+                }
+                }
+                     
+
+                    </tbody>
+                </table>
+             </div>
+             
+            </div>

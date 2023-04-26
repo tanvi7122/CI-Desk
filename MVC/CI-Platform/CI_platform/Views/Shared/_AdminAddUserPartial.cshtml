@@ -11,41 +11,51 @@
 <div class="container">
    <form asp-controller="Admin" Asp-Action="AdminAddUser" Method="post">
            <div class="row mx-5 my-5">
-            <h3 class="row"><span>Basic Information</span></h3>
+             <div class="form-header mt-4 p-3">
+            @if (Model.Profile != null)
+            {
+                <h4 class="form-header-text">Edit User</h4>
+            }
+            else
+            {
+                <h4 class="form-header-text">Add User</h4>                
+            }
+              </div>
             <div class="row">
                 <input type="hidden" id="UserId" asp-for="Profile.UserId">
 
                 <div class="col-sm-6">
-                    <label for="name" class="form-label text-secondary">Name *</label>
-                    <input type="text" class="form-control" id="name" placeholder="Enter your name" asp-for="Profile.FirstName">
+                    <label for="name" class="form-label text-secondary" required>Name *</label>
+                    <input type="text" class="form-control" id="name" placeholder="Enter your name" asp-for="Profile.FirstName" required>
                 </div>
                 <div class="col-sm-6">
-                    <label for="surname" class="form-label text-secondary">Surname *</label>
-                    <input type="text" class="form-control" id="surname" placeholder="Enter your surname" asp-for="Profile.LastName">
-                </div>
-
-                <div class="col-sm-6">
-                    <label for="email" class="form-label text-secondary">Email *</label>
-                    <input type="text" class="form-control" id="email" placeholder="Enter your email" asp-for="Profile.Email">
-                </div>
-                <div class="col-sm-6">
-                    <label for="PhoneNumber" class="form-label text-secondary">PhoneNumber *</label>
-                    <input type="text" class="form-control" id="PhoneNumber" placeholder="Enter your phone number" asp-for="Profile.PhoneNumber">
+                    <label for="surname" class="form-label text-secondary" required>Surname *</label>
+                    <input type="text" class="form-control" id="surname" placeholder="Enter your surname" asp-for="Profile.LastName" required>
                 </div>
 
                 <div class="col-sm-6">
-                    <label for="employee" class="form-label text-secondary">Employee ID</label>
-                    <input type="text" class="form-control" id="employee_id" placeholder="Enter your employee id" asp-for="Profile.EmployeeId">
+                    <label for="email" class="form-label text-secondary" required>Email *</label>
+                    <input type="text" class="form-control" id="email" placeholder="Enter your email" asp-for="Profile.Email" required>
+
+                </div>
+                <div class="col-sm-6">
+                    <label for="PhoneNumber" class="form-label text-secondary" required>PhoneNumber *</label>
+                    <input type="text" class="form-control" id="PhoneNumber" placeholder="Enter your phone number" asp-for="Profile.PhoneNumber" required>
                 </div>
 
                 <div class="col-sm-6">
-                    <label for="department" class="form-label text-secondary">Department</label>
-                    <input type="text" class="form-control" id="department" placeholder="Enter your department" asp-for="Profile.Department">
+                    <label for="employee" class="form-label text-secondary" required>Employee ID</label>
+                    <input type="text" class="form-control" id="employee_id" placeholder="Enter your employee id" asp-for="Profile.EmployeeId" required>
+                </div>
+
+                <div class="col-sm-6">
+                    <label for="department" class="form-label text-secondary" required>Department</label>
+                    <input type="text" class="form-control" id="department" placeholder="Enter your department" asp-for="Profile.Department" required>
                 </div>
                 <div class="mt-4">
     @{
-        <label for="status" class="form-label text-secondary">Status:</label>
-        <select class="form-select text-secondary" id="status" name="status" >
+        <label for="status" class="form-label text-secondary" required>Status:</label>
+        <select class="form-select text-secondary" id="status" name="status" required >
             @if (Model?.Profile?.Status == 1)
             {
                 <option value="1" selected="selected">Active</option>
@@ -67,15 +77,11 @@
 
             <h3 class="mt-4  mx-5 my-5 "><span>Address Information</span></h3>
             <div class="row mt-2  mx-5 my-5 ">
-                <div class="col-sm-6">
-                    <label for="city" class="form-label text-secondary">City</label>
-                    <select class="form-select text-secondary" aria-label="Default select example" id="city" name="city" asp-for="Profile.CityId">
-                    </select>
-                </div>
+               
                 <div class="col">
-                    <label for="country" class="form-label text-secondary">Country *</label>
+                    <label for="country" class="form-label text-secondary" required>Country *</label>
 
-                    <select class="form-select text-secondary" aria-label="Default select example" id="Country" value="Country" asp-for="Profile.CountryId">
+                    <select class="form-select text-secondary" aria-label="Default select example" id="Country" value="Country" asp-for="Profile.CountryId" required>
 
                         @foreach (var country in Model.Countries)
                         {
@@ -91,9 +97,27 @@
                         }
                     </select>
                 </div>
+                 <div class="col-sm-6">
+                    <label for="city" class="form-label text-secondary" required>City</label>
+                    <select class="form-select text-secondary" aria-label="Default select example" id="city" name="city" value="city" asp-for="Profile.CityId" required>
+                        
+                              @foreach (var city in Model.cities)
+                        {
+
+                            @if (Model.Profile!= null &&city.CityId == Model.Profile.CityId)
+                            {
+                                <option value="@city.CityId" selected>@city.Name</option>
+                            }
+                            else
+                            {
+                                <option value="@city.CityId">@city.Name</option>
+                            }
+                        }
+                    </select>
+                </div>
             </div>
                        <div class="mb-3 d-flex justify-content-end me-5">
-                       <button type="button" class="cancel-btn"asp-controller="Admin" asp-action="admin_user">Cancel</button>
+                       <button type="reset" class="cancel-btn"asp-controller="Admin" asp-action="admin_user">Cancel</button>
                        <button type="submit" class="Save-btn" >Save</button>
                    </div>
     

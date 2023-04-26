@@ -71,8 +71,8 @@ public partial class CiPlatformContext : DbContext
     public virtual DbSet<UserSkill> UserSkills { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-
-        => optionsBuilder.UseSqlServer("Server=PCA142\\SQL2017;Database=CI_platform;User Id=sa;Password=Tatva@123;Encrypt=False;");
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
+        => optionsBuilder.UseSqlServer("Server=pca142\\SQL2017;Database=CI_platform;User Id=sa;Password=Tatva@123;Encrypt=False;");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -367,6 +367,9 @@ public partial class CiPlatformContext : DbContext
                 .HasDefaultValueSql("(getdate())")
                 .HasColumnType("datetime")
                 .HasColumnName("created_at");
+            entity.Property(e => e.Deadline)
+                .HasColumnType("datetime")
+                .HasColumnName("deadline");
             entity.Property(e => e.DeletedAt)
                 .HasColumnType("datetime")
                 .HasColumnName("deleted_at");
@@ -965,6 +968,9 @@ public partial class CiPlatformContext : DbContext
             entity.Property(e => e.ProfileText)
                 .HasColumnType("text")
                 .HasColumnName("profile_text");
+            entity.Property(e => e.Role)
+                .HasMaxLength(50)
+                .IsUnicode(false);
             entity.Property(e => e.Status)
                 .HasDefaultValueSql("((1))")
                 .HasColumnName("status");

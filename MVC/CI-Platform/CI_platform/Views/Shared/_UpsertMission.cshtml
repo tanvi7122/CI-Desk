@@ -1,0 +1,324 @@
+﻿@using CI_platfom.Entity.ViewModel
+
+@model AdminVM
+<header>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+</header>
+<div class="AdminMission mx-5 my-5">
+    @if (Model != null)
+    {
+        <form method="post" onsubmit="return validateMissionForm()" enctype="multipart/form-data">
+
+            <div class="form-header mt-4 p-3">
+                @if (Model.Mission != null)
+                {
+                    <h4 class="form-header-text">Edit Mission</h4>
+                    <input type="hidden" asp-for="Mission.MissionId" id="missionId">
+                }
+                else
+                {
+                    <h4 class="form-header-text">Add Mission</h4>
+                }
+
+            </div>
+            <div class="container-fluid p-3 missionForm border">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label asp-for="Mission.Title" for="title" class="form-label">Title</label>
+                            <input onchange="removeValidation()" type="text" class="form-control" id="title" placeholder="Enter Mission Title" asp-for="Mission.Title">
+                            <span class="text-danger" for="title" id="errTitle"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label asp-for="Mission.ShortDescription" for="shortDesc" class="form-label">Short Description</label>
+                            <input onchange="removeValidation()" type="text" class="form-control" id="shortDesc" placeholder="Enter Mission Short Description" asp-for="Mission.ShortDescription">
+                            <span class="text-danger" for="shortDesc" id="errShortDesc"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="mb-3">
+                        <label asp-for="Mission.Description" for="description" class="form-label">Description</label>
+                        <textarea onchange="removeValidation()" class="form-control" id="description" placeholder="Enter Mission Description" asp-for="Mission.Description"></textarea>
+                        <span class="text-danger" for="description" id="errDescription"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="mb-3">
+                        <label asp-for="Mission.OrganizationName" for="orgName" class="form-label">Organization Name</label>
+                        <input onchange="removeValidation()" type="text" class="form-control" id="orgName" placeholder="Enter Mission Organization Name" asp-for="Mission.OrganizationName">
+                        <span class="text-danger" for="orgName" id="errOrgName"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="mb-3">
+                        <label asp-for="Mission.OrganizationDetail" for="orgDetail" class="form-label">Organization Details</label>
+                        <textarea onchange="removeValidation()" class="form-control" id="orgDetail" placeholder="Enter Mission Organization Detail" asp-for="Mission.OrganizationDetail"></textarea>
+                        <span class="text-danger" for="orgDetail" id="errOrgDetail"></span>
+                    </div>
+                </div>
+                <div class="row mt-2  ">
+                    <div class="col-sm-6">
+                        <label for="city" class="form-label text-secondary">City</label>
+                        <select class="form-select text-secondary" aria-label="Default select example" id="city" name="city" value="city" asp-for="Mission.CityId">
+                        </select>
+                    </div>
+                    <div class="col">
+                        <label for="country" class="form-label text-secondary">Country *</label>
+
+                        <select class="form-select text-secondary" aria-label="Default select example" id="Country" value="Country" asp-for="Mission.CountryId">
+
+                            @foreach (var country in Model.Countries)
+                            {
+
+                                @if (Model.Mission != null && country.CountryId == Model.Mission.CountryId)
+                                {
+                                    <option value="@country.CountryId" selected>@country.Name</option>
+                                }
+                                else
+                                {
+                                    <option value="@country.CountryId">@country.Name</option>
+                                }
+                            }
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label asp-for="Mission.StartDate" for="startDate" class="form-label">Mission Start Date</label>
+                            @if (Model.Mission != null && Model.Mission.StartDate < DateTime.Now)
+                            {
+                                <input onchange="removeValidation()" type="date" class="form-control" id="startDate" asp-for="Mission.StartDate" disabled>
+                            }
+                            else
+                            {
+                                <input onchange="removeValidation()" type="date" class="form-control" id="startDate" min="@DateTime.Now.ToString("yyyy-MM-dd")" asp-for="Mission.StartDate">
+                            }
+                            <span class="text-danger" for="startDate" id="errStartDate"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label asp-for="Mission.EndDate" for="endDate" class="form-label">Mission End Date</label>
+                            <input onchange="removeValidation()" type="date" class="form-control" id="endDate" asp-for="Mission.EndDate" min="@DateTime.Now.ToString("yyyy-MM-dd")">
+                            <span class="text-danger" for="endDate" id="errEndDate"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="mb-3">
+                            <label asp-for="Mission.MissionType" for="typeSelect" class="form-label">Mission Type</label>
+
+                            @if (Model.Mission != null && Model.Mission.MissionId > 0)
+                            {
+                                <input type="hidden" asp-for="Mission.MissionType" />
+                                <select disabled onchange="removeValidation()" asp-for="Mission.MissionType" class="form-select" id="typeSelect">
+                                    <option selected value="0">Select Mission Type</option>
+                                    <option value="Time">Time</option>
+                                    <option value="Goal">Goal</option>
+                                </select>
+                            }
+                            else
+                            {
+                                <select onchange="removeValidation()" asp-for="Mission.MissionType" class="form-select" id="typeSelect">
+                                    <option selected value="0">Select Mission Type</option>
+                                    <option value="Time">Time</option>
+                                    <option value="Goal">Goal</option>
+                                </select>
+
+                            }
+
+
+                            <span class="text-danger" for="typeSelect" id="errType"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-4 d-none" id="totalSeatsDiv">
+                        <div class="mb-3">
+                            <label asp-for="Mission.TotalSeats" for="totalSeats" class="form-label">Total Seats</label>
+                            <input onchange="removeValidation()" type="text" class="form-control" id="totalSeats" asp-for="Mission.TotalSeats">
+                            <span class="text-danger" for="totalSeats" id="errTotalSeats"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-4 d-none" id="deadlineDiv">
+                        <div class="mb-3">
+                            <label asp-for="Mission.Deadline" for="deadline" class="form-label">Mission Deadline</label>
+                            <input onchange="removeValidation()" type="date" class="form-control" id="deadline" min="@DateTime.Now.ToString("yyyy-MM-dd")" asp-for="Mission.Deadline">
+                            <span class="text-danger" for="deadline" id="errDeadline"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-4 d-none" id="goalTextDiv">
+                        <div class="mb-3">
+                            <label for="goalText" class="form-label">Mission Goal Text</label>
+                            <input onchange="removeValidation()" type="text" class="form-control" id="goalText" name="GoalText" asp-for="GoalMission.GoalObjectiveText">
+                            <span class="text-danger" for="goalText" id="errGoalText"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-4 d-none" id="goalValueDiv">
+                        <div class="mb-3">
+                            <label for="goalValue" class="form-label">Mission Goal Value</label>
+                            <input onchange="removeValidation()" type="text" class="form-control" id="goalValue" name="GoalValue" asp-for="GoalMission.GoalValue">
+                            <span class="text-danger" for="goalValue" id="errGoalValue"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label asp-for="Mission.ThemeId" for="themeSelect" class="form-label">Mission Theme</label>
+                            <div class="dropdown form-select">
+                                <a class="nav-link filter-dropdown" href="#" id="cityDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Select Mission Theme
+                                </a>
+                                <ul class="dropdown-menu ps-2 scrollable-menu" aria-labelledby="cityDropdown" style="width:inherit">
+
+                                    @foreach (var theme in Model.missionThemes)
+                                    { if (Model.Missions.Any(Missions => Missions.ThemeId == theme.MissionThemeId))
+                                        {
+                                            <li>
+                                            <div class="form-check">
+                                                <input class="form-check-input skillSelect" name="SkillList" type="checkbox" value="@theme.Title" checked>
+                                                <label class="form-check-label">@theme.Title</label>
+                                            </div>
+                                        </li>  
+                                        } 
+                                    
+                                       else
+                                        {
+                                            <li>
+                                                <div class="form-check">
+                                                    <input class="form-check-input skillSelect" name="SkillList" type="checkbox" value="@theme.Title">
+                                                    <label class="form-check-label">@theme.Title</label>
+                                                </div>
+                                            </li>
+                                        }
+                                       }
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label for="totalSeats" class="form-label">Mission Skills</label>
+                            <div class="dropdown form-select">
+                                <a class="nav-link filter-dropdown" href="#" id="cityDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Select Mission Skills
+                                </a>
+                                <ul class="dropdown-menu ps-2 scrollable-menu" aria-labelledby="cityDropdown" style="width:inherit">
+
+                                    @foreach (var skill in Model.Skill)
+                                    {
+                                        if (Model.MissionSkills.Any(m => m.SkillId == skill.SkillId))
+                                        {
+                                            <li>
+                                                <div class="form-check">
+                                                    <input class="form-check-input skillSelect" name="SkillList" type="checkbox" value="@skill.SkillId" checked>
+                                                    <label class="form-check-label">@skill.SkillName</label>
+                                                </div>
+                                            </li>
+                                        }
+                                        else
+                                        {
+                                            <li>
+                                                <div class="form-check">
+                                                    <input class="form-check-input skillSelect" name="SkillList" type="checkbox" value="@skill.SkillId">
+                                                    <label class="form-check-label">@skill.SkillName</label>
+                                                </div>
+                                            </li>
+                                        }
+
+
+                                    }
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="mb-3">
+                        <label for="files" class="form-label">Upload Mission Images</label>
+                        <input id="images" accept=".jpg,.png,.jpeg" name="Images" type="file" class="form-control" multiple />
+                        <span class="text-danger" id="errImage"></span>
+                        <div class="container-img mt-3">
+                            @foreach (var media in Model.missionMedia.Where(media => media.MediaType != "URL"))
+                            {
+                                if (media.Default == 1)
+                                {
+                                    <div class="image">
+                                        <img src="@media.MediaPath" class="oldImgs" value="1" />
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div class="image">
+                                        <img src="@media.MediaPath" class="oldImgs" value="0" />
+                                    </div>
+                                }
+
+                            }
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="mb-3">
+                        <label for="documents" class="form-label">Upload Mission Documents</label>
+                        <input id="documents" accept=".doc, .docx,.xls,.xlsx,.pdf" name="Documents" type="file" class="form-control" multiple />
+                        <div class="container-doc mt-3">
+                            @foreach (var doc in Model.MissionDocuments)
+                            {
+                                <a href="@doc.DocumentPath" class="oldDoc">@(doc.DocumentName+"."+doc.DocumentType.ToLower())</a>
+                            }
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="mb-3">
+                        <div class="mb-3">
+                            <label for="videoUrl" class="form-label">Enter Video URL</label>
+                            <textarea type="text" class="form-control" id="videoUrl" placeholder="Enter Mission Video URLs" name="VideoUrl">@foreach (var urlMedia in Model.missionMedia.Where(media => media.MediaType == "URL"))
+                                {
+                                    @(urlMedia.MediaPath + "\n")
+                                }</textarea>
+                            <span class="text-danger" for="videoUrl" id="errVideoUrl"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label asp-for="Mission.Availability" for="statusSelect" class="form-label">Mission Availability</label>
+                            <select onchange="removeValidation()" asp-for="Mission.Availability" class="form-select" id="availabilitySelect">
+                                <option selected value="None">Select Mission Availability</option>
+                                <option value="Daily">Daily</option>
+                                <option value="Weekly">Weekly</option>
+                                <option value="Week-end">Week-end</option>
+                                <option value="Monthly">Monthly</option>
+                            </select>
+                            <span class="text-danger" for="availabilitySelect" id="errAvailabilty"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label asp-for="Mission.Status" for="statusSelect" class="form-label">Status</label>
+                            <select onchange="removeValidation()" asp-for="Mission.Status" class="form-select" id="statusSelect">
+                                <option selected value="true">Active</option>
+                                <option value="false">Inactive</option>
+                            </select>
+                            <span class="text-danger" for="statusSelect" id="errStatusSelect"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex flex-row-reverse mt-4">
+                <button type="submit" class="Save-btn" asp-controller="AdminMission" asp-action="SaveMission">Save</button>
+                <a type="button" style="padding: 8px 35px;text-decoration: none;" class="cancel-btn me-3" asp-controller="AdminMission" asp-action="MissionIndex">Cancel</a>
+            </div>
+        </form>
+    }
+</div>

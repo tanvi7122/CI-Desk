@@ -11,7 +11,17 @@
 <div class="container">
    <form asp-controller="Admin" Asp-Action="UpdateMissionTheme" Method="post">
            <div class="row mx-5 my-5">
-            <h3 class="row"><span>Mission Theme</span></h3>
+               <div class="form-header mt-4 p-3">
+            @if (Model.missionTheme != null)
+            {
+                <h4 class="form-header-text">Edit Mission Theme</h4>   
+            }
+            else
+            {
+                <h4 class="form-header-text">Add Mission</h4>                
+            }
+
+        </div>
             <div class="row">
                 <input type="hidden" id="MissionThemeId" asp-for="missionTheme.MissionThemeId">
 

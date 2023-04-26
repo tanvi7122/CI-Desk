@@ -17,9 +17,10 @@
 </style>
 
 <header>
-     
-        <link rel="stylesheet" href="~/css/mission.css" asp-append-version="true" />
-  
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+      <link rel="stylesheet" href="~/css/mission.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
 </header>
 <body>
 
@@ -218,7 +219,7 @@
                                             {
                                                 var torecommendeduser = Model.MissionInvites.FirstOrDefault(m => (m.ToUserId == @user.UserId) && (m.FromUserId == @Model.LoggedUser.UserId) && (m.MissionId == @Model.AppliedMission.MissionId));
                                                 <div class="d-flex justify-content-between mx-3 my-3">
-                                                    <p>@user.FirstName @user.LastName @user.PhoneNumber</p>
+                                                    <p>  <img src="@user.Avatar" class="rounded-circle header-avatar"/> @user.FirstName @user.LastName</p>
                                                     @if (torecommendeduser == null)
                                                     {
                                                         <button class="recommend-btn btn btn-primary" data-mission-id="@Model.AppliedMission.MissionId" data-theme-id="@Model.AppliedMission.ThemeId" data-fromuser-id="@Model.LoggedUser.UserId" data-touser-id="@user.UserId" data-city-id="@Model.AppliedMission.CityId" data-country-id="@Model.AppliedMission.CountryId">Recommend</button>
@@ -249,6 +250,7 @@
                                             var rateobj = Model.AppliedMission.MissionRatings.FirstOrDefault(f => f.UserId == Model.LoggedUser.UserId);
                                             if (rateobj != null)
                                             {
+                                                <input type="hidden" name="rating" value="@rateobj.Rating" id="lblRating" />
                                                 for (int i = 1; i <= rateobj.Rating; i++)
                                                 {
                                                     <span id="span_@i" onmouseout="CRateOut(@i)" onmouseover="CRateOver(@i)" onClick="CRateClick(@i)" class="bi bi-star-fill  yellow-color"></span>
@@ -271,7 +273,6 @@
 
                                     </div>
                                     <div>
-                                        <input type="hidden" name="rating" id="lblRating" />
                                         <input type="hidden" name="MissionId" id="lblRating" value="@Model.AppliedMission.MissionId" />
                                         <input type="hidden" name="cityId" value="@Model.AppliedMission.CityId" />
                                         <input type="hidden" name="countryId" value="@Model.AppliedMission.CountryId" />
@@ -630,7 +631,7 @@
                                 </figure>
                                 recent++;
                             }
-                            }
+                         
                           
                         </div>
                 
@@ -781,9 +782,9 @@
                                     @if (relatedtheme.MissionType.Equals("Time"))
                                     {
                                         <button style="width:273px;background: #FFFFFF 0% 0% no-repeat padding-box;
-    border: 1px solid #E8E8E8;
-    border-radius: 18px;
-    opacity: 1;color: #414141">
+                                                border: 1px solid #E8E8E8;
+                                                 border-radius: 18px;
+                                               opacity: 1;color: #414141">
                                             From @relatedtheme.StartDate.Value.ToShortDateString() until @relatedtheme.EndDate.Value.ToShortDateString()
                                         </button>
                                     }
@@ -795,9 +796,9 @@
 
 
                                             <button style="width:273px;background: #FFFFFF 0% 0% no-repeat padding-box;
-    border: 1px solid #E8E8E8;
-    border-radius: 18px;
-    opacity: 1;color: #414141">
+                                                      border: 1px solid #E8E8E8;
+                                                       border-radius: 18px;
+                                                     opacity: 1;color: #414141">
                                                 @goal_mission.GoalObjectiveText
                                             </button>
                                         }
@@ -859,10 +860,8 @@
     <hr />
 
 
-
-</body>
-
-
+     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+     <script src="js/bootstrap.bundle.min.js"></script>
       <script>
                 var swiper = new Swiper(".mySwiper", {
                     loop: true,
@@ -886,8 +885,12 @@
            </Script>
            <script>
     function CRateOut(rating){
-        for(var i=1;i<=rating;i++){
+         for(var i=1;i<=rating;i++){
             $("#span_"+i).attr('class','bi bi-star')
+        }
+      rating = $("#lblRating").val();
+       for(var i=1;i<=rating;i++){
+           $("#span_"+i).attr('class','bi bi-star-fill yellow-color')
         }
     }
     function CRateOver(rating){
@@ -912,3 +915,4 @@
     }
 
 </script>
+</body>

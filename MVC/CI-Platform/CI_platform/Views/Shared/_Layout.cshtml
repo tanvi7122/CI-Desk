@@ -11,8 +11,8 @@
     <link rel="stylesheet" href="~/css/Story.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/HomePage.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/Privacy.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/css/ShareYourStory.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/css/ toastr-custom.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/ShareYourStory.css" asp-append-version="true"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"/>
     <link rel="stylesheet" href="~/css/Volunteering.css" />
     <link rel="stylesheet" href="~/css/mission.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
@@ -25,7 +25,6 @@
     <link rel="stylesheet" href="~/lib/Font-Awesome/css/regular.min.css">
     <link rel="stylesheet" href="~/lib/Font-Awesome/css/solid.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.3/css/dataTables.bootstrap5.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.4.0/css/responsive.bootstrap5.min.css" />
@@ -58,16 +57,11 @@
                                 Policy
                             </a>
                         </li>
-                        <li> <a class="nav-link" asp-controller="Admin" asp-action="admin_User"> Admin</a></li>
+                       
                     </ul>
                 </div>
                 <div class="right-div d-flex">
-                    @* <button class="border-none bg-white m-2 me-4">
-                        <img src="~/images/bell.png"/>
-                        <span class="top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                        4
-                        </span>
-                        </button>*@
+                  
 
                     <div class="dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="notificationDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -85,7 +79,7 @@
 
                     <div class="dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <span><img src=@Model.LoggedUser.Avatar id="header-avatar" class="rounded-circle header-avatar" />  </span>
+                                    <span><img src=@Model.LoggedUser.Avatar id="header-avatar" class="rounded-circle header-avatar"/></span>
                             <p class="d-inline" id="profiletext">
                                 @Model.LoggedUser.FirstName @Model.LoggedUser.LastName
                             </p>
@@ -100,8 +94,10 @@
             </div>
         </nav>
     </header>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <partial name="_notificationPartial" />
-    <div>
+    <div id=Partialview>
 
         @RenderBody()
     </div>
@@ -110,7 +106,6 @@
     <script src="https://code.jquery.com/jquery-3.6.3.min.js"
             integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU="
             crossorigin="anonymous"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/js/bootstrap.bundle.min.js"></script>
@@ -119,7 +114,7 @@
     <script src="https://cdn.datatables.net/responsive/2.4.0/js/dataTables.responsive.min.js"></script>
     <script src="https://cdn.datatables.net/responsive/2.4.0/js/responsive.bootstrap5.min.js"></script>
     <script src="~/js/Filters.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+   
 </body>
 <div class="container mb-3">
     <a style="color: black;" asp-controller="Mission" asp-action="PrivacyPolicy">Privacy Policy</a>
@@ -128,7 +123,7 @@
         <h6 class="">CONTACT US</h6>
 
     </button>
-<div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdrop2Label" aria-hidden="true">
+    <div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdrop2Label" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header border-bottom-0">

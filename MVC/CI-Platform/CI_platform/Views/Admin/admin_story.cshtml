@@ -18,7 +18,7 @@
                 <div class="col-md-9 col-6 ms-5 ">
                     <form action="" class="">
                         <div class="border searchMission d-flex w-50">
-                            <button type="button" class="btn"><img src="images/search.png" alt=""></button>
+                            <button type="button" class="btn"><img src="~/images/search.png" alt=""></button>
                             <input class="form-control me-2 border-0 bg-transparent" type="search" placeholder="Search "
                                 id="searchbtn" aria-label="Search">
                         </div>
@@ -50,7 +50,7 @@
                              <td>@story.Mission.Title</td>
                        
                             <td>  
-                                <button class="btn rounded-pill"  onclick="ViewStory(@story.StoryId)">
+                                <button class="view-btn"  onclick="ViewStory(@story.StoryId)">
                                     View
                                 </button>
                        

@@ -15,6 +15,7 @@ using System.Text.RegularExpressions;
 using CI_Platform.Authentication;
 using Data_Access.Auth;
 
+
 namespace CI_platform.Controllers
 {
     public class HomeController : Controller
@@ -94,9 +95,9 @@ namespace CI_platform.Controllers
             }
             else
             {
-               
-                ViewData["ErrorMessage"] = "Login Failed";
-                return View(user);
+
+                TempData["error"] = ToastrMessages.InvalidPasswordMessage;
+              return View();
             }
         }
      private bool ValidatePassword(string password)
@@ -207,7 +208,7 @@ namespace CI_platform.Controllers
                 }
                 else
                 {
-                    TempData["error"] = "password dosen't match";
+                    TempData["error"] = ToastrMessages.InvalidPasswordMessage;
                     return View(obj);
                 }
             }

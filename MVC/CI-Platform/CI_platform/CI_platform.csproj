@@ -37,6 +37,7 @@
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="Power.EntityFrameworkCore" Version="19.3.1703" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.3.0" />
+    <PackageReference Include="toastr" Version="2.1.1" />
   </ItemGroup>
 
   <ItemGroup>
@@ -46,6 +47,8 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\Avatar\" />
+    <Folder Include="wwwroot\documents\mission\" />
+    <Folder Include="wwwroot\images\mission\media\" />
     <Folder Include="wwwroot\upload\" />
   </ItemGroup>
 

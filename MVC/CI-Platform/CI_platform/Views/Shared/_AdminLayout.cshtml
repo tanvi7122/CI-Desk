@@ -5,7 +5,7 @@
 <head>
     <meta name="viewport" charset="UTF-8" content="width=device-width, initial-scale=1.0">
     <title>Admin</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"/>
     <link rel="stylesheet" href="~/css/Admin.css">
     <link rel="stylesheet" href="~/css/AdminAddEdit.css">
     <link rel="stylesheet" href="~/css/HomePage.css">
@@ -40,7 +40,7 @@
             <li>
                 <a asp-controller="Admin" asp-action="admin_mission">
                     <span class="icon " data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Mission" asp-controller="Admin" asp-action="admin_mission"> <i class="fa-solid fa-bullseye"></i></span>
-                    <span class="title " asp-controller="Admin" asp-action="admin_mission">Mission</span>
+                    <span class="title " asp-controller="AdminMission" asp-action="MissionIndex">Mission</span>
                 </a>
             </li>
             <li>
@@ -103,7 +103,9 @@
             </div>
 
 
-
+             <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+             <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+            <partial name="_notificationPartial" />
             <div>
                 @RenderBody()
             </div>
@@ -118,6 +120,7 @@
             <script src="https://cdn.datatables.net/responsive/2.4.0/js/responsive.bootstrap5.min.js"></script>
             <script src="https://cdn.ckeditor.com/ckeditor5/37.0.1/classic/ckeditor.js"></script>
             <script src="~/js/Admin.js"></script>
+         
             <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
 

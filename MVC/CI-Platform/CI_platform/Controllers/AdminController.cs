@@ -4,6 +4,7 @@ using CI_platform.Repository.Interface;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
+
 namespace CI_platform.Controllers
 {
     public class AdminController : Controller
@@ -75,24 +76,31 @@ namespace CI_platform.Controllers
         {
             try
             {
-                // Update the user profile in the database
-                User user = _unitOfWork.User.GetFirstOrDefault(u => u.UserId == userProfile.Profile.UserId);
-                if (user != null)
+                // Update or add the user profile in the database
+                User existingUser = _unitOfWork.User.GetFirstOrDefault(u => u.UserId == userProfile.Profile.UserId);
+                User existingEmail = _unitOfWork.User.GetFirstOrDefault(u => u.Email == userProfile.Profile.Email);
+
+                if (existingUser != null)
                 {
-                    user.Department = userProfile.Profile.Department;
-                    user.Email = userProfile.Profile.Email;
-                    user.PhoneNumber = userProfile.Profile.PhoneNumber;
-                    user.Status = userProfile.Profile.Status;
-                    user.Title = userProfile.Profile.Title;
-                    user.CityId = userProfile.Profile.CityId;
-                    user.CountryId = userProfile.Profile.CountryId;
-                    user.FirstName = userProfile.Profile.FirstName;
-                    user.LastName = userProfile.Profile.LastName;
-                    user.EmployeeId = userProfile.Profile.EmployeeId;
+                    // Update the existing user profile
+                    existingUser.Department = userProfile.Profile.Department;
+                    existingUser.Email = userProfile.Profile.Email;
+                    existingUser.PhoneNumber = userProfile.Profile.PhoneNumber;
+                    existingUser.Status = userProfile.Profile.Status;
+                    existingUser.Title = userProfile.Profile.Title;
+                    existingUser.CityId = userProfile.Profile.CityId;
+                    existingUser.CountryId = userProfile.Profile.CountryId;
+                    existingUser.FirstName = userProfile.Profile.FirstName;
+                    existingUser.LastName = userProfile.Profile.LastName;
+                    existingUser.EmployeeId = userProfile.Profile.EmployeeId;
+                    existingUser.UpdatedAt = DateTime.Now;
                     _unitOfWork.Save();
+                    TempData["success"] = ToastrMessages.AccountUpdatedMessage;
+                
                 }
-                else
+                else if (existingEmail == null)
                 {
+                    // Add a new user profile
                     string imagePath = Url.Content("~/images/user1.png");
                     userProfile.Profile.Avatar = imagePath;
                     userProfile.Profile.UpdatedAt = DateTime.Now;
@@ -102,8 +110,12 @@ namespace CI_platform.Controllers
                     userProfile.Profile.Role = "user";
                     _unitOfWork.User.Add(userProfile.Profile);
                     _unitOfWork.Save();
+                    TempData["success"] = ToastrMessages.AccountCreatedMessage;
                 }
-                // Return a success response
+                else
+                {
+                    TempData["error"] = ToastrMessages.UserAlreadyExistsMessage;
+                }
                 return RedirectToAction("admin_user");
             }
             catch (Exception ex)
@@ -112,6 +124,7 @@ namespace CI_platform.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
         }
+
         public IActionResult DeleteUser(int UserId)
         {
             var sessionValue = HttpContext.Session.GetString("UserEmail");
@@ -362,15 +375,25 @@ namespace CI_platform.Controllers
         public IActionResult UpdateMissionTheme(AdminVM adminmissionTheme)
         {
             var MissionTheme = _unitOfWork.MissionTheme.GetFirstOrDefault(MissionTheme => MissionTheme.MissionThemeId == adminmissionTheme.missionTheme.MissionThemeId);
-            if (MissionTheme != null)
+            var existingtheme = _unitOfWork.MissionTheme.GetFirstOrDefault(mt => mt.MissionThemeId != adminmissionTheme.missionTheme.MissionThemeId && mt.Title == adminmissionTheme.missionTheme.Title);
+
+            if (MissionTheme != null&& existingtheme != null)
             {
                 MissionTheme.Title = adminmissionTheme.missionTheme.Title;
                 MissionTheme.Status = adminmissionTheme.missionTheme.Status;
+                _unitOfWork.Save();
+                TempData["success"] = ToastrMessages.AccountUpdatedMessage;
             }
-            else
+            else if (existingtheme == null)
             {
                 _unitOfWork.MissionTheme.Add(adminmissionTheme.missionTheme);
                 _unitOfWork.Save();
+                TempData["success"] = ToastrMessages.AccountCreatedMessage;
+            }
+            else
+            {
+                TempData["error"] = ToastrMessages.UserAlreadyExistsMessage;
+               
             }
             return RedirectToAction("Admin_MissionTheme");
         }
@@ -404,7 +427,7 @@ namespace CI_platform.Controllers
             AdminVM MissionSkillData = _AdminRepository.GetMissionSkill(sessionValue);
             return View(MissionSkillData);
         }
-      
+       
              public IActionResult DeleteSkill(int Id)
         {
             var sessionValue = HttpContext.Session.GetString("UserEmail");
@@ -440,24 +463,31 @@ namespace CI_platform.Controllers
         public IActionResult AdminSkill(AdminVM adminskills)
         {
             var Addskill = _unitOfWork.Skill.GetFirstOrDefault(Skill => Skill.SkillId == adminskills.skill.SkillId);
-            if (ModelState.IsValid)
-            { 
-                  if (Addskill != null)
-            {
-                Addskill.SkillName = adminskills.skill.SkillName;
-                Addskill.Status = adminskills.skill.Status;
-            }
-            else
-            {
-                _unitOfWork.Skill.Add(adminskills.skill);
-                _unitOfWork.Save();
-            }
-            }
-          
+            var existingskill = _unitOfWork.Skill.GetFirstOrDefault(s => s.SkillId != adminskills.skill.SkillId && s.SkillName == adminskills.skill.SkillName);
+           
+                if (Addskill != null && existingskill != null)
+                {
+                    Addskill.SkillName = adminskills.skill.SkillName;
+                    Addskill.Status = adminskills.skill.Status;
+                    _unitOfWork.Save();
+                    TempData["success"] = ToastrMessages.AccountUpdatedMessage;
+                }
+                else if (existingskill == null)
+                {
+                    _unitOfWork.Skill.Add(adminskills.skill);
+                    _unitOfWork.Save();
+                    TempData["success"] = ToastrMessages.AccountCreatedMessage;
+                }
+                else
+                {
+                    TempData["error"] = ToastrMessages.UserAlreadyExistsMessage;
+                }
+                return RedirectToAction("Admin_Mission_Skill");
+           
+            TempData["error"] = ToastrMessages.ErrorMessage;
             return RedirectToAction("Admin_Mission_Skill");
-        }
 
-       
+        }
         //---Banner
         [Authorize(Roles = "admin")]
         public IActionResult admin_banner()
@@ -531,5 +561,6 @@ namespace CI_platform.Controllers
             return RedirectToAction("admin_banner", "Admin");
 
         }
+     
     }
 }

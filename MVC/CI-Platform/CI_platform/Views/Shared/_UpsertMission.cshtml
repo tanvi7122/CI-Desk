@@ -59,7 +59,7 @@
                         <span class="text-danger" for="orgDetail" id="errOrgDetail"></span>
                     </div>
                 </div>
-                <div class="row mt-2  ">
+         @*       <div class="row mt-2  ">
                     <div class="col-sm-6">
                         <label for="city" class="form-label text-secondary">City</label>
                         <select class="form-select text-secondary" aria-label="Default select example" id="city" name="city" value="city" asp-for="Mission.CityId">
@@ -84,7 +84,50 @@
                             }
                         </select>
                     </div>
+                </div>*@
+
+                            <div class="row mt-2  mx-5 my-5 ">
+               
+                <div class="col">
+                    <label for="country" class="form-label text-secondary" required>Country *</label>
+
+                    <select class="form-select text-secondary" aria-label="Default select example" id="Country" value="Country" asp-for="Profile.CountryId" required>
+
+                        @foreach (var country in Model.Countries)
+                        {
+
+                            @if (Model.Profile!= null &&country.CountryId == Model.Profile.CountryId)
+                            {
+                                <option value="@country.CountryId" selected>@country.Name</option>
+                            }
+                            else
+                            {
+                                <option value="@country.CountryId">@country.Name</option>
+                            }
+                        }
+                    </select>
+              
                 </div>
+                 <div class="col-sm-6">
+                    <label for="city" class="form-label text-secondary" required>City</label>
+                    <select class="form-select text-secondary" aria-label="Default select example" id="city" value="city" asp-for="Profile.CityId" >
+                        
+                              @foreach (var city in Model.cities)
+                        {
+
+                            @if (Model.Profile!= null &&city.CityId == Model.Profile.CityId)
+                            {
+                                <option value="@city.CityId" selected>@city.Name</option>
+                            }
+                            else
+                            {
+                                <option value="@city.CityId">@city.Name</option>
+                            }
+                        }
+                    </select>
+                    
+                </div>
+            </div>
                 <div class="row">
                     <div class="col-md-6">
                         <div class="mb-3">
@@ -180,7 +223,7 @@
                                         {
                                             <li>
                                             <div class="form-check">
-                                                <input class="form-check-input skillSelect" name="SkillList" type="checkbox" value="@theme.Title" checked>
+                                                <input class="form-check-input skillSelect" name="Mission.ThemeId" type="checkbox" value="@theme.MissionThemeId" checked>
                                                 <label class="form-check-label">@theme.Title</label>
                                             </div>
                                         </li>  
@@ -190,7 +233,7 @@
                                         {
                                             <li>
                                                 <div class="form-check">
-                                                    <input class="form-check-input skillSelect" name="SkillList" type="checkbox" value="@theme.Title">
+                                                    <input class="form-check-input skillSelect" name="Mission.ThemeId" type="checkbox" value="@theme.MissionThemeId">
                                                     <label class="form-check-label">@theme.Title</label>
                                                 </div>
                                             </li>
@@ -295,10 +338,10 @@
                             <label asp-for="Mission.Availability" for="statusSelect" class="form-label">Mission Availability</label>
                             <select onchange="removeValidation()" asp-for="Mission.Availability" class="form-select" id="availabilitySelect">
                                 <option selected value="None">Select Mission Availability</option>
-                                <option value="Daily">Daily</option>
-                                <option value="Weekly">Weekly</option>
-                                <option value="Week-end">Week-end</option>
-                                <option value="Monthly">Monthly</option>
+                                <option value="daily">daily</option>
+                                <option value="weekly">weekly</option>
+                                <option value="yearly">yearly</option>
+                                <option value="monthly">monthly</option>
                             </select>
                             <span class="text-danger" for="availabilitySelect" id="errAvailabilty"></span>
                         </div>
@@ -322,3 +365,4 @@
         </form>
     }
 </div>
+   <script src="~/js/Userprofile.js"></script>

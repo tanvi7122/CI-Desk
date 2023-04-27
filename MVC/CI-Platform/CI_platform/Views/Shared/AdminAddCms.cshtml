@@ -1,72 +1,63 @@
-﻿    
-@using CI_platfom.Entity.ViewModel
+﻿@using CI_platfom.Entity.ViewModel
 @model AdminVM
-@{
-    ViewData["Title"] = "Admin_Mission";
-    Layout = null;
-}
-<div class="border mt-5 ms-5 me-5">
-       <div class="form-header mt-4 p-3">
-            @if (Model.CmsPage != null)
-            {
-                <h4 class="form-header-text">Edit CmsPage</h4>
-            }
-            else
-            {
-                <h4 class="form-header-text">Add CmsPage</h4>                
-            }
-              </div>
-    <div class="form ms-3 mt-4 me-1">
-        <form name="cmspage" asp-controller="Admin" asp-action="AdminAddCms" method="post">
+<!DOCTYPE html>
+<html>
 
-            <div class="mb-3">
-                <input type="hidden" asp-for="AddCmsPage.CmsPageId">
-                <label for="title" class="form-label">Title</label>
-                <input type="text" class="form-control text-secondary" id="Title"  asp-for="AddCmsPage.Title" required>
-            </div>
-            <div class="mb-3">
-                <label for="description" class="form-label" >Description</label>
-                <textarea id="editor1" name="editor1" class="text-secondary" placeholder="When an unknown printer" asp-for="AddCmsPage.Description"  required>
-                   
-                </textarea>
-            </div>
-            <div class="mb-3">
-                <label for="slug" class="form-label">Slug</label>
-                <input type="text" class="form-control text-secondary" id="Slug" name="Slug" asp-for="AddCmsPage.Slug" required>
-            </div>
-            <div class="mb-3">
-                  @{
-                            <label for="status" class="form-label text-secondary">Status:</label>
-                             <select class="form-select text-secondary"  asp-for="AddCmsPage.Status" >
-                                 @if (Model.AddCmsPage!= null && Model.AddCmsPage.Status== 1) {
-                                 <option value="1" selected>Active</option>
-                                    <option value="0">In-Active</option>} 
-                                    else {
-                                           <option value="1">Active</option>
-                                           <option value="0" selected>In-Active</option> }
- 
-                             </select>
-                          }
-            </div>
-            <div class="mb-3 d-flex justify-content-end me-2">
-                      <button type="reset" class="cancel-btn"asp-controller="Admin" asp-action="admin_cms">Cancel</button>
-                       <button type="submit" class="Save-btn" >Save</button>
-            </div>
-        </form>
+  <meta charset="UTF-8">
+  <title>Admin Mission</title>
+
+<body>
+  <div class="border mt-5 ms-5 me-5">
+    <div class="form-header mt-4 p-3">
+      @if (Model.CmsPage != null)
+      {
+        <h4 class="form-header-text">Edit CmsPage</h4>
+      }
+      else
+      {
+        <h4 class="form-header-text">Add CmsPage</h4>                
+      }
     </div>
-</div>
- <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/js/bootstrap.bundle.min.js"></script>
-<script src="~/js/Admin.js"></script>
-<script src="https://cdn.ckeditor.com/4.20.2/full/ckeditor.js"></script>
-<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-
-<script>
-        // script for ckeditor
-        CKEDITOR.replace('editor1', {
-            height: 260,
-            baseFloatZIndex: 10005,
-            removeButtons: 'PasteFromWord'
-  
-        });
-  
-    </script>
+    <div class="form ms-3 mt-4 me-1">
+      <form name="cmspage" asp-controller="Admin" asp-action="AdminAddCms" method="post">
+        <div class="mb-3">
+          <input type="hidden" asp-for="AddCmsPage.CmsPageId">
+          <label for="title" class="form-label">Title</label>
+          <input type="text" class="form-control text-secondary" id="Title" asp-for="AddCmsPage.Title" required>
+        </div>
+        <div class="mb-3">
+          <label for="description" class="form-label">Description</label>
+     <textarea id="description" asp-for="AddCmsPage.Description"></textarea>
+        </div>
+        <div class="mb-3">
+          <label for="slug" class="form-label">Slug</label>
+          <input type="text" class="form-control text-secondary" id="Slug" asp-for="AddCmsPage.Slug" required>
+        </div>
+        <div class="mb-3">
+          @{
+            <label for="status" class="form-label text-secondary">Status:</label>
+            <select class="form-select text-secondary" asp-for="AddCmsPage.Status">
+              @if (Model.AddCmsPage != null && Model.AddCmsPage.Status == 1) {
+                <option value="1" selected>Active</option>
+                <option value="0">In-Active</option>
+              }
+              else {
+                <option value="1">Active</option>
+                <option value="0" selected>In-Active</option>
+              }
+            </select>
+          }
+        </div>
+        <div class="mb-3 d-flex justify-content-end me-2">
+          <button type="reset" class="cancel-btn" asp-controller="Admin" asp-action="admin_cms">Cancel</button>
+          <button type="submit" class="Save-btn">Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+ 
+  <script>    
+        CKEDITOR.replace( 'description' );
+</script>
+</body>
+</html>

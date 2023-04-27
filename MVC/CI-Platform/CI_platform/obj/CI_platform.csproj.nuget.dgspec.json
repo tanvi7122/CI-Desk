@@ -122,6 +122,10 @@
             "Power.EntityFrameworkCore": {
               "target": "Package",
               "version": "[19.3.1703, )"
+            },
+            "toastr": {
+              "target": "Package",
+              "version": "[2.1.1, )"
             }
           },
           "imports": [
@@ -261,6 +265,10 @@
             "Power.EntityFrameworkCore": {
               "target": "Package",
               "version": "[19.3.1703, )"
+            },
+            "toastr": {
+              "target": "Package",
+              "version": "[2.1.1, )"
             }
           },
           "imports": [
@@ -419,6 +427,10 @@
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.3.0, )"
+            },
+            "toastr": {
+              "target": "Package",
+              "version": "[2.1.1, )"
             }
           },
           "imports": [

@@ -9,6 +9,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Mail;
 
+
 namespace CI_platform.Controllers
 {
     public class MissionController : Controller
@@ -17,6 +18,7 @@ namespace CI_platform.Controllers
         private readonly ILogger _logger;
         private readonly IHomeLandingRepository _HomeLandingRepository;
         private readonly IMissionLandingRepository _MissionLandingRepository;
+        
         private readonly IConfiguration _config;
 
         public MissionController(ILogger<HomeController> logger, IConfiguration config, IUnitOfWork unitOfWork, IHomeLandingRepository HomeLandingRepository, IMissionLandingRepository MissionLandingRepository)
@@ -70,6 +72,7 @@ namespace CI_platform.Controllers
                     AppliedAt = DateTime.Now,
                 });
             }
+            TempData["success"] = ToastrMessages.AccountUpdatedMessage;
             _unitOfWork.Save();
 
             return Ok();

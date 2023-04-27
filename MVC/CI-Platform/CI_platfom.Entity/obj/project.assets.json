@@ -3190,6 +3190,12 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XPath.XmlDocument.dll": {}
         }
+      },
+      "toastr/2.1.1": {
+        "type": "package",
+        "dependencies": {
+          "jQuery": "1.6.3"
+        }
       }
     }
   },
@@ -10655,6 +10661,23 @@
         "system.xml.xpath.xmldocument.4.3.0.nupkg.sha512",
         "system.xml.xpath.xmldocument.nuspec"
       ]
+    },
+    "toastr/2.1.1": {
+      "sha512": "h/688XvzYk1xVYn213ryU+HCElE4n/drYzAHJkAi9LsSUPS3EbI6wGlvCglBUt7i4h5iESgAVarYaigjQmVpqg==",
+      "type": "package",
+      "path": "toastr/2.1.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "content/content/toastr.css",
+        "content/content/toastr.less",
+        "content/content/toastr.min.css",
+        "content/content/toastr.scss",
+        "content/scripts/toastr.js",
+        "content/scripts/toastr.min.js",
+        "toastr.2.1.1.nupkg.sha512",
+        "toastr.nuspec"
+      ]
     }
   },
   "projectFileDependencyGroups": {
@@ -10676,7 +10699,8 @@
       "Microsoft.jQuery.Unobtrusive.Validation >= 4.0.0",
       "MimeKit >= 3.6.0",
       "Newtonsoft.Json >= 13.0.3",
-      "Power.EntityFrameworkCore >= 19.3.1703"
+      "Power.EntityFrameworkCore >= 19.3.1703",
+      "toastr >= 2.1.1"
     ]
   },
   "packageFolders": {
@@ -10802,6 +10826,10 @@
           "Power.EntityFrameworkCore": {
             "target": "Package",
             "version": "[19.3.1703, )"
+          },
+          "toastr": {
+            "target": "Package",
+            "version": "[2.1.1, )"
           }
         },
         "imports": [

@@ -20,22 +20,19 @@ namespace CI_platform.Controllers
             _hostEnvironment = hostEnvironment;
         }
         [Authorize(Roles = "admin")]
-        [Route("Admin/Missions")]
+ 
+    
         public IActionResult MissionIndex()
         {
-            string? sessionValue = HttpContext.Session.GetString("UserEmail");
-            if (string.IsNullOrEmpty(sessionValue))
+            var sessionValue = HttpContext.Session.GetString("UserEmail");
+            if (String.IsNullOrEmpty(sessionValue))
             {
-               
+                TempData["error"] = "Session Expired!\nPlease Login Again!";
                 return RedirectToAction("Index", "Home");
             }
-            AdminVM viewModel = _AdminRepository.GetMissionPageData(sessionValue);
-            if (viewModel == null || viewModel.Admin.AdminId == 0)
-            {
-                return RedirectToAction("Error", "Home");
-            }
 
-            return View(viewModel);
+            AdminVM MissionData = _AdminRepository.GetMissionData(sessionValue);
+            return View(MissionData);
         }
         [Authorize(Roles = "admin")]
         public IActionResult GetUpsertMissionPage(long MissionId)
@@ -71,30 +68,12 @@ namespace CI_platform.Controllers
             return PartialView("_UpsertMission", viewModel);
         }
 
-        //public IActionResult GetCityListMission(long countryId)
-        //{
-        //    string? sessionValue = HttpContext.Session.GetString("AdminEmail");
-        //    if (string.IsNullOrEmpty(sessionValue))
-        //    {
-
-        //        return Content("SessionExpired");
-        //    }
-        //    AdminVM viewModel = _AdminRepository.GetMissionPageData(sessionValue);
-
-        //    if (viewModel == null || viewModel.Admin.AdminId == 0)
-        //    {
-        //        return Content("Error");
-        //    }
-
-        //    viewModel.cities = _unitOfWork.City.GetAll().Where(c => c.CountryId == countryId && c.Name != "Undefined");
-        //    return PartialView("_CityListAdmin", viewModel);
-        //}
 
 
         [HttpPost]
         public IActionResult SaveMission(AdminVM obj, MissionFormAdditionalParams extraParams)
         {
-            string? sessionValue = HttpContext.Session.GetString("AdminEmail");
+            string? sessionValue = HttpContext.Session.GetString("UserEmail");
             if (string.IsNullOrEmpty(sessionValue))
             {
                
@@ -252,7 +231,7 @@ namespace CI_platform.Controllers
                 if (dbMission.MissionType == "Time")
                 {
                     dbMission.TotalSeats = MissionObj.TotalSeats;
-                    //dbMission.Deadline = MissionObj.Deadline;
+                    dbMission.Deadline = MissionObj.Deadline;
                 }
                 else
                 {
@@ -295,9 +274,10 @@ namespace CI_platform.Controllers
                 dbMission.Availability = MissionObj.Availability;
                 dbMission.Status = MissionObj.Status;
                 dbMission.UpdatedAt = DateTime.Now;
-                _unitOfWork.Mission.Add(dbMission);
+                //_unitOfWork.Mission.u(dbMission);
                
             }
+            TempData["success"] = ToastrMessages.AccountUpdatedMessage;
             _unitOfWork.Save();
             return RedirectToAction("MissionIndex");
         }

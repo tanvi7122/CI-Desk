@@ -52,6 +52,7 @@
           "MimeKit": "3.6.0",
           "Newtonsoft.Json": "13.0.3",
           "Power.EntityFrameworkCore": "19.3.1703",
+          "toastr": "2.1.1",
           "Microsoft.AspNetCore.Antiforgery": "6.0.0.0",
           "Microsoft.AspNetCore.Authentication.Abstractions.Reference": "6.0.0.0",
           "Microsoft.AspNetCore.Authentication.Cookies.Reference": "6.0.0.0",
@@ -2638,6 +2639,11 @@
           "ref/netstandard1.3/System.Xml.XPath.XmlDocument.dll": {}
         }
       },
+      "toastr/2.1.1": {
+        "dependencies": {
+          "jQuery": "1.8.0"
+        }
+      },
       "CI_platfom.Entity/1.0.0": {
         "dependencies": {
           "BCrypt.Net-Next": "4.0.3",
@@ -2654,7 +2660,8 @@
           "Microsoft.jQuery.Unobtrusive.Validation": "4.0.0",
           "MimeKit": "3.6.0",
           "Newtonsoft.Json": "13.0.3",
-          "Power.EntityFrameworkCore": "19.3.1703"
+          "Power.EntityFrameworkCore": "19.3.1703",
+          "toastr": "2.1.1"
         },
         "runtime": {
           "CI_platfom.Entity.dll": {}
@@ -5788,6 +5795,13 @@
       "sha512": "sha512-A/uxsWi/Ifzkmd4ArTLISMbfFs6XpRPsXZonrIqyTY70xi8t+mDtvSM5Os0RqyRDobjMBwIDHDL4NOIbkDwf7A==",
       "path": "system.xml.xpath.xmldocument/4.3.0",
       "hashPath": "system.xml.xpath.xmldocument.4.3.0.nupkg.sha512"
+    },
+    "toastr/2.1.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-h/688XvzYk1xVYn213ryU+HCElE4n/drYzAHJkAi9LsSUPS3EbI6wGlvCglBUt7i4h5iESgAVarYaigjQmVpqg==",
+      "path": "toastr/2.1.1",
+      "hashPath": "toastr.2.1.1.nupkg.sha512"
     },
     "CI_platfom.Entity/1.0.0": {
       "type": "project",

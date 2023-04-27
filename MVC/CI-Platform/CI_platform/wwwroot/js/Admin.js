@@ -75,7 +75,7 @@ function DeleteStory(Id) {
     });
 }
 function DeleteMission(Id) {
-    showDeleteConfirmation('/Admin/DeleteMission', { Id: Id }).then(() => {
+    showDeleteConfirmation('/AdminMission/DeleteMission', { Id: Id }).then(() => {
         // Reload the page to show the updated story list
         location.reload();
     });
@@ -804,6 +804,34 @@ function validateMissionForm() {
         return false;
     }
 }
+//function validateUserForm()
+//{
+
+//    let flag = 0;
+
+//    if ($("#email").val() == "") {
+//        $("#erremail").html("Please Enter EmailId!")
+//        flag = 1;
+//    }
+//    else {
+//        $("#erremail").html("");
+//    }
+
+//    if ($("#phoneno").val() == "") {
+//        $("#errphoneno").html("Please Enter EmailId!")
+//        flag = 1;
+//    }
+//    else {
+//        $("#errphoneno").html("");
+//    }
+//    if ($("#employeeid").val() == "") {
+//        $("#erremployeeid").html("Please Enter EmailId!")
+//        flag = 1;
+//    }
+//    else {
+//        $("#erremployeeid").html("");
+//    }
+//}
 
 
 

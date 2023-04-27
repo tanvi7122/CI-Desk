@@ -4417,6 +4417,12 @@
           "lib/netstandard1.3/System.Xml.XPath.XmlDocument.dll": {}
         }
       },
+      "toastr/2.1.1": {
+        "type": "package",
+        "dependencies": {
+          "jQuery": "1.6.3"
+        }
+      },
       "CI_platfom.Entity/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -4435,7 +4441,8 @@
           "Microsoft.jQuery.Unobtrusive.Validation": "4.0.0",
           "MimeKit": "3.6.0",
           "Newtonsoft.Json": "13.0.3",
-          "Power.EntityFrameworkCore": "19.3.1703"
+          "Power.EntityFrameworkCore": "19.3.1703",
+          "toastr": "2.1.1"
         },
         "compile": {
           "bin/placeholder/CI_platfom.Entity.dll": {}
@@ -4462,7 +4469,8 @@
           "Microsoft.jQuery.Unobtrusive.Validation": "4.0.0",
           "MimeKit": "3.6.0",
           "Newtonsoft.Json": "13.0.3",
-          "Power.EntityFrameworkCore": "19.3.1703"
+          "Power.EntityFrameworkCore": "19.3.1703",
+          "toastr": "2.1.1"
         },
         "compile": {
           "bin/placeholder/CI_platform.Repository.dll": {}
@@ -13693,6 +13701,23 @@
         "system.xml.xpath.xmldocument.nuspec"
       ]
     },
+    "toastr/2.1.1": {
+      "sha512": "h/688XvzYk1xVYn213ryU+HCElE4n/drYzAHJkAi9LsSUPS3EbI6wGlvCglBUt7i4h5iESgAVarYaigjQmVpqg==",
+      "type": "package",
+      "path": "toastr/2.1.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "content/content/toastr.css",
+        "content/content/toastr.less",
+        "content/content/toastr.min.css",
+        "content/content/toastr.scss",
+        "content/scripts/toastr.js",
+        "content/scripts/toastr.min.js",
+        "toastr.2.1.1.nupkg.sha512",
+        "toastr.nuspec"
+      ]
+    },
     "CI_platfom.Entity/1.0.0": {
       "type": "project",
       "path": "../CI_platfom.Entity/CI_platfom.Entity.csproj",
@@ -13728,7 +13753,8 @@
       "NETCore.MailKit >= 2.1.0",
       "Newtonsoft.Json >= 13.0.3",
       "Power.EntityFrameworkCore >= 19.3.1703",
-      "Swashbuckle.AspNetCore >= 6.3.0"
+      "Swashbuckle.AspNetCore >= 6.3.0",
+      "toastr >= 2.1.1"
     ]
   },
   "packageFolders": {
@@ -13873,6 +13899,10 @@
           "Swashbuckle.AspNetCore": {
             "target": "Package",
             "version": "[6.3.0, )"
+          },
+          "toastr": {
+            "target": "Package",
+            "version": "[2.1.1, )"
           }
         },
         "imports": [

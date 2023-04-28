@@ -1,8 +1,10 @@
 ﻿using CI_platfom.Entity.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,6 +21,8 @@ namespace CI_platfom.Entity.ViewModel
         public Skill? skill { get; set; }
         public MissionTheme? missionTheme { get; set; }
         public Banner? banner { get; set; }
+        public List<IFormFile> Images { get; set; } = new List<IFormFile>();
+        public int DefaultSelect { get; set; } = 0;
         public IEnumerable<MissionMedium> missionMedia { get; set; } = new List<MissionMedium>();
         public IEnumerable<Country> Countries { get; set; } = new List<Country>();
         public IEnumerable<City> cities { get; set; } = new List<City>();

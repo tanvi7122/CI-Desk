@@ -46,7 +46,6 @@
                         
                          @{
                 var Count = Model.CmsPage.Where(c=>c.DeletedAt==null);
-                Console.WriteLine(Count);
                 foreach (var cmsPage in Count)
                 {
                      <tr>

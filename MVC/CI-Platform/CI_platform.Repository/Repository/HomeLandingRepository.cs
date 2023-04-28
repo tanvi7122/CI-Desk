@@ -50,7 +50,6 @@ namespace CI_platform.Repository.Repository
             int pageSize = 9;
             missionsList = missionsList.Skip((currentPage - 1) * pageSize).Take(pageSize).ToList();
             int totalPages = (int)Math.Ceiling(totalrecords / (double)pageSize);
-
             landingPageVM.Mission = missionsList;
             landingPageVM.CurrentPage = currentPage;
             landingPageVM.TotalPages = totalPages;

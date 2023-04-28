@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="~/css/AdminAddEdit.css">
 
 <div class="container">
-   <form asp-controller="Admin" Asp-Action="AdminAddBanner" Method="post">
+   <form asp-controller="Admin" Asp-Action="AdminAddBanner" Method="post" enctype="multipart/form-data" >
            <div class="row mx-5 my-5">
               <div class="form-header mt-4 p-3">
             @if (Model.banner != null)

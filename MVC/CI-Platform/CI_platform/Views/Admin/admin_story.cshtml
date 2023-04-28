@@ -40,7 +40,7 @@
                     <tbody>
    
                          @{
-                var Cnt = Model.Stories.Where(Story=>Story.DeletedAt==null&& Story.Status=="DRAFT");
+                var Cnt = Model.Stories.Where(Story=>Story.DeletedAt==null);
                 Console.WriteLine(Cnt);
                 foreach (var story in Cnt)
                 {

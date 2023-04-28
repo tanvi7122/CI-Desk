@@ -23,6 +23,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes = true
 build_property.MSBuildProjectDirectory = C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/pca142/Desktop/CI-Desk/MVC/CI-Platform/CI_platform/Views/AdminMission/MissionIndex.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5NaXNzaW9uXE1pc3Npb25JbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/pca142/Desktop/CI-Desk/MVC/CI-Platform/CI_platform/Views/Admin/admin_banner.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cYWRtaW5fYmFubmVyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -49,10 +53,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/pca142/Desktop/CI-Desk/MVC/CI-Platform/CI_platform/Views/Admin/admin_user.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cYWRtaW5fdXNlci5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/pca142/Desktop/CI-Desk/MVC/CI-Platform/CI_platform/Views/Admin/MissionIndex.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cTWlzc2lvbkluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/pca142/Desktop/CI-Desk/MVC/CI-Platform/CI_platform/Views/Home/Forgot.cshtml]

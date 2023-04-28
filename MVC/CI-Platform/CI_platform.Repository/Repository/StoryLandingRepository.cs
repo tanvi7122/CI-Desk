@@ -35,6 +35,7 @@ namespace CI_platform.Repository.Repository
             storylandingPageVM.Cities = _unitOfWork.City.GetAll();
             storylandingPageVM.Themes = _unitOfWork.MissionTheme.GetAll();
             storylandingPageVM.Countries = _unitOfWork.Country.GetAll();
+            storylandingPageVM.StoryMedium = _unitOfWork.storyMedium.GetAll();
             return storylandingPageVM;
         }
 

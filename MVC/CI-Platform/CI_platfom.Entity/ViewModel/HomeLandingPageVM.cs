@@ -20,7 +20,7 @@ namespace CI_platfom.Entity.ViewModel
 
         public IEnumerable<MissionTheme>? Themes { get; set; }
 
-
+       
 
         public IEnumerable<User>? UserList { get; set; }
         

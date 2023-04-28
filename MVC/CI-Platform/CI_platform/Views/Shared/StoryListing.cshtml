@@ -14,7 +14,7 @@
         ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
         aliquip ex ea commodo consequat. Duis aute irure dolor in
     </div>
- 
+
 
        <form> <button class="story-btn mt-4 p-2" asp-controller="Story" asp-action="ShareYourStory">
             Share Your Story
@@ -31,47 +31,46 @@
         <div class="row row-cols-1 row-cols-xl-3 row-cols-md-2 g-4 mt-3">
             @foreach (var story in Model.Stories)
             {
-                <div class="col">
-                    <div class="card h-100">
+                    <div class="col">
+                        <div class="card h-100">
 
 
-                        <div class="card-img position-relative">
-                            <img src="~/images/Grow-Trees-On-the-path-to-environment-sustainability-1.png" class="card-img-top " alt="...">
-                               <form asp-controller="Story" asp-action="StoryDetail" asp-route-storyId="@story.StoryId" asp-route-missionId="@story.Mission.MissionId" asp-route-themeId="@story.Mission.ThemeId" asp-route-cityId="@story.Mission.CityId" asp-route-countryId="@story.Mission.CountryId">
-                                <button class="btn-share-story rounded-pill px-4 py-2 position-absolute top-50 start-50 translate-middle">
-                                    View Details
-                                    <i class="bi bi-arrow-right" style="color:white"></i>
-                                </button>
-                            </form>
+                            <div class="card-img position-relative">
+                                <img src="~/images/Grow-Trees-On-the-path-to-environment-sustainability-1.png" class="card-img-top " alt="...">
+                                   <form asp-controller="Story" asp-action="StoryDetail" asp-route-storyId="@story.StoryId" asp-route-missionId="@story.Mission.MissionId" asp-route-themeId="@story.Mission.ThemeId" asp-route-cityId="@story.Mission.CityId" asp-route-countryId="@story.Mission.CountryId">
+                                    <button class="btn-share-story rounded-pill px-4 py-2 position-absolute top-50 start-50 translate-middle">
+                                        View Details
+                                        <i class="bi bi-arrow-right" style="color:white"></i>
+                                    </button>
+                                </form>
 
-                            <div class="position-absolute top-100 start-50 translate-middle bg-white rounded-pill px-3 py-2 text-center" style="color: #414141;">
+                                <div class="position-absolute top-100 start-50 translate-middle bg-white rounded-pill px-3 py-2 text-center" style="color: #414141;">
                                 @story.Mission.Theme.Title
+                                </div>
                             </div>
+
+
+
+                            <div class="card-body px-3">
+                                <h5 class="card-title custom-card-title">@story.Title</h5>
+                                <p class="card-text" style="color:#757575">@story.Description</p>
+
+
+                            </div>
+
+
+                            <div class="d-flex justify-content-start px-3 mb-3 gap-3 align-items-center">
+                                <img src=@story.User.Avatar alt="volunteer-img" class="rounded-circle" style="width:50px;height;50px" />
+                                <span>@story.User.FirstName @story.User.LastName</span>
+                            </div>
+
+
                         </div>
-
-
-
-                        <div class="card-body px-3">
-                            <h5 class="card-title custom-card-title">@story.Title</h5>
-                            <p class="card-text" style="color:#757575">@story.Description</p>
-
-
-                        </div>
-
-
-                        <div class="d-flex justify-content-start px-3 mb-3 gap-3 align-items-center">
-                            <img src=@story.User.Avatar alt="volunteer-img" class="rounded-circle" style="width:50px;height;50px" />
-                            <span>@story.User.FirstName @story.User.LastName</span>
-                        </div>
-
-
                     </div>
-                </div>
             }
 
         </div>
 
-        @*}*@
     </div>
 
 </div>
@@ -102,7 +101,7 @@
 
 <div class="container-fluid mt-5">
     <hr />
-
+     <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
 </div>
 
 

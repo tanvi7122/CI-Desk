@@ -1,3 +1,4 @@
+C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\bin\Debug\net6.0\Microsoft.CodeAnalysis.CSharp.dll
 C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\bin\Debug\net6.0\appsettings.Development.json
 C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\bin\Debug\net6.0\appsettings.json
 C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\bin\Debug\net6.0\libman.json
@@ -313,7 +314,6 @@ C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\bin\Debug\net6.0\Mic
 C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\bin\Debug\net6.0\Microsoft.Build.Framework.dll
 C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\bin\Debug\net6.0\Microsoft.CodeAnalysis.AnalyzerUtilities.dll
 C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\bin\Debug\net6.0\Microsoft.CodeAnalysis.dll
-C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\bin\Debug\net6.0\Microsoft.CodeAnalysis.CSharp.dll
 C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\bin\Debug\net6.0\Microsoft.CodeAnalysis.CSharp.Features.dll
 C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\bin\Debug\net6.0\Microsoft.CodeAnalysis.CSharp.Scripting.dll
 C:\Users\pca142\Desktop\CI-Desk\MVC\CI-Platform\CI_platform\bin\Debug\net6.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll

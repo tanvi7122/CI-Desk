@@ -30,52 +30,65 @@
                     <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff"
                         class="swiper mySwiper2">
                         <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <img src="~/images/Grow-Trees-On-the-path-to-environment-sustainability-2.png" />
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="~/images/img11.png" />
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="~/images/img1.png" />
-                            </div>
+                           
+                      @{
+                            var missionId = @Model.AppliedMission.MissionId;
+                            var images = Model.MissionMedium.Where(m => m.MissionId == missionId && m.MediaType!="URL");
+                            var video = Model.MissionMedium.Where(m => m.MissionId == missionId && m.MediaType=="URL");
+                            if (images != null)
+                            {
+                                foreach (var image in images)
+                                {
+                                    <div class="swiper-slide">
+                                        <img src="@image.MediaPath"/>
+                                    </div>
+                                }
+                            }
+                            if (video != null)
+                            {
+                                foreach (var videos in video)
+                                {
+                                   var videoId = videos.MediaPath.Split("=")[1];
+                                 var embedUrl = "https://www.youtube.com/embed/" + videoId;
+                                  <div class="swiper-slide">
+                               <iframe width="560" height="315" src="@embedUrl" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; SameSite=Strict " allowfullscreen></iframe>
+                                </div>
+   
+                             }
+                            }
 
-                            <div class="swiper-slide">
-                                <img src="~/images/CSR-initiative-stands-for-Coffee--and-Farmer-Equity-2.png" />
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="~/images/Education-Supplies-for-Every--Pair-of-Shoes-Sold-2.png" />
-                            </div>
-
-                            <div class="swiper-slide">
-                                <img src="~/images/Animal-welfare-_-save-birds-campaign.png" />
-                            </div>
+                        }
                         </div>
                         <div class="swiper-button-next"></div>
                         <div class="swiper-button-prev"></div>
                     </div>
                     <div thumbsSlider="" class="swiper mySwiper">
                         <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <img src="~/images/Grow-Trees-On-the-path-to-environment-sustainability-2.png" />
-                            </div>
+                     @{
+                     
+                            if (images != null)
+                            {
+                                foreach (var image in images)
+                                {
+                                    <div class="swiper-slide">
+                                        <img src="@image.MediaPath"/>
+                                    </div>
+                                }
+                            }
+                            if (video != null)
+                            {
+                                foreach (var videos in video)
+                                {
+                                   var videoId = videos.MediaPath.Split("=")[1];
+                                 var embedUrl = "https://www.youtube.com/embed/" + videoId;
+                                  <div class="swiper-slide">
+                               <iframe width="560" height="315" src="@embedUrl" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; SameSite=Strict " allowfullscreen></iframe>
+                                </div>
+   
+                             }
+                            }
 
-                            <div class="swiper-slide">
-                                <img src="~/images/img11.png" />
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="~/images/img1.png" />
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="~/images/CSR-initiative-stands-for-Coffee--and-Farmer-Equity-2.png" />
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="~/images/Education-Supplies-for-Every--Pair-of-Shoes-Sold-2.png" />
-                            </div>
-
-                            <div class="swiper-slide">
-                                <img src="~/images/Animal-welfare-_-save-birds-campaign.png" />
-                            </div>
+                        }
                         </div>
                     </div>
                 </div>
@@ -861,7 +874,7 @@
 
 
      <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-     <script src="js/bootstrap.bundle.min.js"></script>
+      <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
       <script>
                 var swiper = new Swiper(".mySwiper", {
                     loop: true,

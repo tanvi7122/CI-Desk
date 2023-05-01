@@ -33,7 +33,7 @@ namespace CI_platfom.Entity.ViewModel
         public IEnumerable<Mission>? RelatedMissions { get; set; }
         public IEnumerable<MissionInvite>? MissionInvites { get; set; }
         public IEnumerable<Timesheet>? Timesheets { get; set; }
-
+        public IEnumerable<CmsPage>? cmsPages { get; set; }  
        
         public Mission? AppliedMission { get; set; }
         public int PageSize { get; set; }

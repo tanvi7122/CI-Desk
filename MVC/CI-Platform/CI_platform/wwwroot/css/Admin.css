@@ -182,17 +182,16 @@ table {
 }
 
 th {
-    background-color: #d6e3f2;
- 
+    background-color: #f8f9fc;
     text-align: left;
    
 }
 
 td {
     border-bottom: 0.3px solid #dee2e6;
-
     text-align: left;
-    vertical-align:central;
+    vertical-align: central;
+    margin-bottom: 0px;
 }
 
 #example_first i, #example_previous i, #example_next i, #example_last i {
@@ -224,7 +223,26 @@ table.dataTable.dtr-inline.collapsed > tbody > tr > td.dtr-control:before, table
     display: inline-flex;
     align-items: center;
 }
-
+.fa-pen-to-square {
+    color: #f88634;
+    height:26px;
+    width:26px;
+}
+.fa-circle-check {
+    color: #26dd17;
+    height: 26px;
+    width: 26px;
+}
+.fa-circle-xmark {
+    color: #f30e0e;
+    height: 26px;
+    width: 26px;
+}
+.fa-trash-can {
+    color: #333;
+    height: 26px;
+    width: 26px;
+}
 /*
 .searchMission {
     height: 35px;

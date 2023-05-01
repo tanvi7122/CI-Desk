@@ -185,7 +185,7 @@ namespace CI_platform.Controllers
         }
 
         [HttpPost]
-        public IActionResult AddToFavorite(long missionId, long userId, long themeId, long cityId, long countryId)
+        public IActionResult AddToFavorite(long missionId, long userId)
         {
 
 
@@ -193,25 +193,26 @@ namespace CI_platform.Controllers
             var mission_user_favourite = _unitOfWork.FavoriteMission.GetFirstOrDefault(u => (u.UserId == userId) && (u.MissionId == missionId));
             if (mission_user_favourite != null)
             {
-                // Mission is already in favorites, return an error message or redirect back to the mission page
+          
                 var FavoriteMissionId = _unitOfWork.FavoriteMission.GetFirstOrDefault(u => (u.UserId == userId) && (u.MissionId == missionId));
                 _unitOfWork.FavoriteMission.Remove(FavoriteMissionId);
                 _unitOfWork.Save();
-                return RedirectToAction("MissionDetail", "Mission", new { missionId, themeId, cityId, countryId });
+                TempData["success"] = ToastrMessages.AccountUpdatedMessage;
 
-
-                //return BadRequest("Mission is already in favorites.");
             }
-
-            // Add the mission to favorites for the user
-            _unitOfWork.FavoriteMission.Add(new FavouriteMission
+            else
             {
-                MissionId = missionId,
-                UserId = userId,
-            });
-            TempData["success"] = "Added To Favourite Mission";
-            _unitOfWork.Save();
-            return RedirectToAction("MissionDetail", "Mission", new { missionId, themeId, cityId, countryId });
+                // Add the mission to favorites for the user
+                _unitOfWork.FavoriteMission.Add(new FavouriteMission
+                {
+                    MissionId = missionId,
+                    UserId = userId,
+                });
+                _unitOfWork.Save();
+                TempData["success"] = ToastrMessages.CommentAddedMessage;
+            }
+        
+            return RedirectToAction("MissionDetail", "Mission", new { missionId });
         }
 
 

@@ -57,6 +57,7 @@ namespace CI_platform.Repository.Repository
             //landingPageVM.PageSize = pageSize;
             landingPageVM.Themes = _unitOfWork.MissionTheme.GetAll();
             landingPageVM.Skills = _unitOfWork.Skill.GetAll();
+            landingPageVM.cmsPages=_unitOfWork.CmsPage.GetAll();
             return landingPageVM;
         }
     }

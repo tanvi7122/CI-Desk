@@ -53,13 +53,13 @@
                 Console.WriteLine(Count);
                 foreach (var banner in Count)
                 {
-                     <tr>
+                     <tr class="text-muted">
                            <td>@banner.Image</td>
                             <td>@banner.Text</td>
                             <td>@banner.SortOrder</td>
                             <td>
                                 <button class="btn border-0" onclick="AdminBanner(@banner.BannerId)"><i class="fa-solid fa-pen-to-square"></i></button>
-                                  <button class="btn border-0" onclick="DeleteBanner(@banner.BannerId)"><i class="fa-solid fa-trash-can"></i></button>
+                                <button class="btn border-0" onclick="DeleteBanner(@banner.BannerId)"><i class="fa-solid fa-trash-can"></i></button>
                             </td>
                         </tr>      
 

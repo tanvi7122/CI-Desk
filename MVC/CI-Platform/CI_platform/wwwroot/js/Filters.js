@@ -56,10 +56,11 @@ function GetCitiesByCountry(countryId) {
 $('.favorite-button').click(function () {
 
     var missionId = $(this).data('mission-id');
+    var userId = $(this).data('user-id');
     $.ajax({
         url: '/Mission/AddToFavorites',
         type: 'POST',
-        data: { missionId: missionId },
+        data: { missionId: missionId, userId: userId },
         success: function (result) {
             // Show a success message or update the UI
             console.log(missionId)
@@ -408,70 +409,34 @@ $('#sortByDropdown li').on('click', function () {
 
 
 
-
-$('.favorite-button').click(function () {
-    var button = $(this)
+$('.like').click(function () {
+    var button = $(this);
     var missionId = $(this).data('mission-id');
     var userId = $(this).data('user-id');
     console.log(missionId);
     console.log(userId);
     $.ajax({
-        url: '/Mission/AddToFavorites',
+        url: '/Mission/AddToFavorite',
         type: 'POST',
         data: { missionId: missionId, userId: userId },
         success: function (result) {
             // Show a success message or update the UI
             console.log(missionId)
             console.log(userId)
-            var allMissionId = $('.favorite-button')
-            allMissionId.each(function () {
-                if ($(this).data('mission-id') === missionId) {
-                    if ($(this).hasClass('bi-heart')) {
-                        $(this).addClass('bi-heart-fill text-danger')
-                        $(this).removeClass('bi-heart text-light')
-                        console.log("added")
-                    }
-                    else {
-                        $(this).addClass('bi-heart text-light')
-                        $(this).removeClass('bi-heart-fill text-danger')
-                        console.log("remove")
-                    }
-                }
-            })
+            button.find('i').toggleClass('bi-heart bi-heart-fill text-danger');
+            if (button.find('i').hasClass('bi-heart-fill text-danger')) {
+                button.find('i').text('Added To Favourites');
+            } else {
+                button.find('i').text('Add To Favourites');
+            }
         },
         error: function (error) {
             // Show an error message or handle the error
             console.log("error")
-
         }
     });
 });
 
-const resultDiv = document.getElementById('result');
-const applyMissionBtn = document.getElementById('apply-mission-btn');
-
-applyMissionBtn.addEventListener('click', function () {
-    var missionId = applyMissionBtn.getAttribute('data-mission-id');
-    var userId = applyMissionBtn.getAttribute('data-user-id');
-
-    $.ajax({
-        url: '/Mission/AddVolunteer',
-        type: 'POST',
-        data: { missionId: missionId, userId: userId },
-        beforeSend: function () {
-            console.log('Before sending AJAX request');
-        },
-        success: function (result) {
-            resultDiv.innerHTML = 'Applied already';
-            applyMissionBtn.style.backgroundColor = 'green';
-            applyMissionBtn.style.color = 'white';
-            applyMissionBtn.style.border = '2px solid green';
-        },
-        error: function (error) {
-            resultDiv.innerHTML = 'Error: ' + error;
-        }
-    });
-});
 
 
 

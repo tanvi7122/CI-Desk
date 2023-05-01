@@ -83,7 +83,7 @@
                                  var embedUrl = "https://www.youtube.com/embed/" + videoId;
                                   <div class="swiper-slide">
                                <iframe width="560" height="315" src="@embedUrl" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; SameSite=Strict " allowfullscreen></iframe>
-                                </div>
+      whitehite                         </div>
    
                              }
                             }
@@ -190,35 +190,32 @@
 
                         var flag = 1;
                         <div class="d-flex justify-content-between fav-btn">
-                            <form method="post" asp-action="AddToFavorite" asp-controller="Mission">
-                                <input type="hidden" name="missionId" value="@Model.AppliedMission.MissionId" />
-                                <input type="hidden" name="userId" value="@Model.LoggedUser.UserId" />
-                                <input type="hidden" name="cityId" value="@Model.AppliedMission.CityId" />
-                                <input type="hidden" name="countryId" value="@Model.AppliedMission.CountryId" />
-                                <input type="hidden" name="themeId" value="@Model.AppliedMission.ThemeId" />
-                                @foreach (var favourite in Model.AppliedMission.FavouriteMissions)
-                                {
-                                    @if (favourite.UserId.Equals(@Model.LoggedUser.UserId))
-                                    {
-                                        //<img src="~/images/heart1.png" style="margin-right: 20px;"  />
+                       
 
-                                        <button class="header-btn" style="width:320px;height:50px;">
-                                            <i class="bi bi-heart-fill text-danger">Added To Favourites</i>
-                                        </button>
+                       
+@foreach (var favourite in Model.AppliedMission.FavouriteMissions)
+{
+    @if (favourite.UserId.Equals(Model.LoggedUser.UserId))
+    {
+        <button  type="button" class="like"  style="width:320px;height:50px;" data-mission-id="@Model.AppliedMission.MissionId"  data-user-id="@Model.LoggedUser.UserId">
+            <i class="bi bi-heart-fill text-danger">Added To Favourites</i>
+        </button>
+        flag = 0;
+    }
+}
 
-                                        flag = 0;
-                                    }
-                                }
-                                @if (flag == 1)
-                                {
-                                    <button class="header-btn" style="width:320px;height:50px" type="submit">
-                                        <i class="bi bi-heart" style="color:black">Add To Favourites</i>
-                                    </button>
-                                }
+@if (flag == 1)
+{
+    <button  type="button" class="like" style="width:320px;height:50px;"  data-mission-id="@Model.AppliedMission.MissionId"   data-user-id="@Model.LoggedUser.UserId">
+        <i class="bi bi-heart" style="color:black">Add To Favourites</i>
+    </button>
+}
 
 
-                            </form>
-                            <button class="header-btn" style="width:320px;height:50px" data-bs-toggle="modal" data-bs-target="#coWorker1" type="button">
+
+
+                          
+                            <button class="recommend-btn header-btn" style="width:320px;height:50px" data-bs-toggle="modal" data-bs-target="#coWorker1" type="button">
                             <img src="~/images/add1.png" style="margin-right: 20px;" />Recommend to Co-Worker</button>
                             <div class="modal fade" id="coWorker1" tabindex="-1" aria-labelledby="coWorkerlLabel" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered">
@@ -399,8 +396,8 @@
                         <button class="nav-link" id="comments-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">Comments</button>
                     </li>
                 </ul>
-                <div class="tab-content" id="myTabContent">
-                    <div class="tab-pane fade show active mt-3 px-3" id="home" role="tabpanel" aria-labelledby="mission-tab">
+                <div class="tab-content" id="myTabContent"  >
+                    <div class="tab-pane fade show active mt-3 px-3" id="home" role="tabpanel" aria-labelledby="mission-tab" style="background-color:white">
                         <h3>Introduction</h3>
                         <p style="font-size:15px">
                             @Model.AppliedMission.ShortDescription
@@ -463,7 +460,7 @@
                             }
                         </div>
                     </div>
-                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="organization-tab">
+                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="organization-tab" style="background-color:white">
 
                         <h3>Introduction</h3>
 
@@ -481,11 +478,8 @@
                         <form class="mt-3" method="post" asp-action="AddComment" asp-controller="Mission">
                             <textarea class="form-control" placeholder="Leave a comment here" style="height: 100px" name="comment_text"></textarea>
                             @* <label for="floatingTextarea2">Enter Your Comments Here.....</label>*@
-                            <input type="hidden" name="missionId" value="@Model.AppliedMission.MissionId" />
+                            <input type="hidden" name="missionId" value="@Model.AppliedMission.MissionId"/>
                             <input type="hidden" name="userId" value="@Model.LoggedUser.UserId" />
-                            <input type="hidden" name="cityId" value="@Model.AppliedMission.CityId" />
-                            <input type="hidden" name="countryId" value="@Model.AppliedMission.CountryId" />
-                            <input type="hidden" name="themeId" value="@Model.AppliedMission.ThemeId" />
                             @{
                                  bool hasApplied = false;
                                 @foreach (var Apply in Model.AppliedMission.MissionApplications)
@@ -517,7 +511,7 @@
                         </form>
 
 
-                        <div class="container mt-3" style="border:1px solid #e8e8e869;background-color:#e8e8e869;">
+                        <div class="container mt-3" style="background-color:white;">
                             <div class="overflow-scroll mt-3" style="max-height:510px">
 
                                 @foreach (var comment in @Model.AppliedMission.Comments.Where(m => m.ApprovalStatus.Contains("PUBLISHED")))

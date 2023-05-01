@@ -45,12 +45,12 @@
                     </thead>
                     <tbody>
                    
-                                 @{
+              @{
                 var Count = Model.Missions.Where(m=>m.DeletedAt==null);
                 Console.WriteLine(Count);
                 foreach (var mission in Count)
                 {
-                     <tr>
+                        <tr class="text-muted">
                             <td>@mission.Title</td>
                             <td>@mission.MissionType</td>
                             <td>@mission.StartDate</td>
@@ -59,17 +59,12 @@
                             <td>
                                 <button class="btn border-0" data-bs-toggle="modal" id="addbtn"
                                     data-bs-target="#editModal"><i class="fa-solid fa-pen-to-square" onclick="GetUpsertMissionPage()" value="@mission.MissionId"></i></button>
-                                <button class="btn border-0" onclick="DeleteMission(@mission.MissionId)"><i
-                                        class="fa-solid fa-trash-can"></i></button>
+                                <button class="btn border-0" onclick="DeleteMission(@mission.MissionId)"><i class="fa-solid fa-trash-can"></i></button>
                             </td>
                         </tr>      
 
                 }
-         
-                            
-                            }
-
-                    
+             }
                     </tbody>
                 </table>
             </div>

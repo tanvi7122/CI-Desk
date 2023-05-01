@@ -48,16 +48,16 @@
                 Console.WriteLine(Cnt);
                 foreach (var Themes in Cnt)
                 {
-                            <tr>
+                               <tr class="text-muted">
                             <td>@Themes.Title</td>
                             <td>
                              @if (@Themes.Status == 1)
                             {
-                             <p style="color: green;">Active</p>
+                             <p style="color: #26dd17;">Active</p>
                             }
                                 else
                                {
-                                    <p style="color: red;">Inactive</p> 
+                                    <p style="color: #f30e0e;">Inactive</p> 
                             }
                              </td>
                             <td>  

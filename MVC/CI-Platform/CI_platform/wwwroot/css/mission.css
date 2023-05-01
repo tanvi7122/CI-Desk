@@ -78,7 +78,7 @@ body {
         display: none !important;
     }
 
-   /* .img-filter {
+    /* .img-filter {
         display: block;
     }*/
 
@@ -116,6 +116,12 @@ body {
     border: 1px solid #E8E8E8;
 }
 
+.like {
+    background-color: #fff;
+    border-radius: 21px;
+    border: 1px solid #E8E8E8;
+}
+
 .progress {
     width: 200px;
     border-radius: 20px;
@@ -129,16 +135,18 @@ body {
     border: 2px solid #E8E8E8;
     width: 140px;
     height: 130px;
-  
 }
+
 .header-card-text {
     flex-direction: column;
-    justify-content:space-around;
+    justify-content: space-around;
 }
+
 .mission-info-card {
     flex-direction: row;
-    justify-content:space-between;
+    justify-content: space-between;
 }
+
 .submit-btn {
     border: 1px solid #F88634;
     color: #F88634;
@@ -147,13 +155,16 @@ body {
     background-color: #fff;
     border-radius: 21px;
 }
+
 .doc-btn {
     width: 196px;
     height: 46px
 }
-.fav-btn{
-    flex-direction:row;
+
+.fav-btn {
+    flex-direction: row;
 }
+
 .header-img {
     background-image: url('../images/CSR-initiative-stands-for-Coffee--and-Farmer-Equity-4.png');
     width: 672px;
@@ -180,7 +191,7 @@ body {
         background-repeat: no-repeat;
         /* background-size: cover; */
     }
-  
+
     .header-card {
         border: 2px solid #E8E8E8;
         width: 110px;
@@ -200,7 +211,6 @@ body {
     .cara {
         display: hidden;
     }
-
 }
 
 
@@ -211,28 +221,27 @@ body {
     border: 2px solid #F88634;
     border-radius: 24px;
     opacity: 1;
-    
 }
 
 @media (max-width:520px) {
-    .fav-btn{
-        flex-direction:column;
-        align-items:center;
-      
+    .fav-btn {
+        flex-direction: column;
+        align-items: center;
     }
-   .mission-info-card{
-       flex-direction:column;
-       justify-content:center;
-       align-items:center;
-       
-   }
-   .mission-info-card .header-card{
-       width:100%;
-   }
-    .mission-info-card .header-card {
-        width: 100%;
+
+    .mission-info-card {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
-    
+
+        .mission-info-card .header-card {
+            width: 100%;
+        }
+
+        .mission-info-card .header-card {
+            width: 100%;
+        }
 }
 
 .selectedstar {

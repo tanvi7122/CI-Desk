@@ -76,7 +76,9 @@ namespace CI_platform.Controllers
                     StoryMediaID = StoryMediaIdList,
                     StoryMediaPath = StoryMediaPathList,
                     StoryMediaVideoUrl = StoryMediaVideoUrlList
+                    
                 });
+                TempData["success"] = ToastrMessages.StoryAddedMessage;
                 return Json(draftstory);
 
             }
@@ -191,7 +193,7 @@ return new JsonResult("nodraft");
             // Send the message
             smtpClient.Send(message);
 
-            TempData["success"] = "Coworker Recommended Successfully.";
+            TempData["success"] = ToastrMessages.RecommendedSuccess;
 
             return Ok();
         }

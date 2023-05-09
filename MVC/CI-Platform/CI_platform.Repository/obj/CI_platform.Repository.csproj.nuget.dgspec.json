@@ -123,6 +123,10 @@
               "target": "Package",
               "version": "[13.0.3, )"
             },
+            "PagedList.Mvc": {
+              "target": "Package",
+              "version": "[4.5.0, )"
+            },
             "Power.EntityFrameworkCore": {
               "target": "Package",
               "version": "[19.3.1703, )"
@@ -269,6 +273,10 @@
             "Newtonsoft.Json": {
               "target": "Package",
               "version": "[13.0.3, )"
+            },
+            "PagedList.Mvc": {
+              "target": "Package",
+              "version": "[4.5.0, )"
             },
             "Power.EntityFrameworkCore": {
               "target": "Package",

@@ -41,6 +41,7 @@ namespace CI_platfom.Entity.ViewModel
         public int CurrentPage { get; set; }
 
         public int TotalPages { get; set; }
+        public int TotalMission { get; set; }
 
         public string? sort { get; set; }
         public User? UserProfile { get; set; }

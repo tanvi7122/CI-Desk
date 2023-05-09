@@ -15,5 +15,6 @@ namespace CI_platform.Repository.Interface
         //HomeLandingPageVM GetLandingPageData(string sort, string email,int currentPage);
         HomeLandingPageVM GetLandingPageData(string email, int currentPage);
         HomeLandingPageVM GetUserProfileData(string email);
+     
     }
 }

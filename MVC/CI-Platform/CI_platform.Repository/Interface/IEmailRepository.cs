@@ -11,6 +11,6 @@ namespace CI_platform.Repository.Interface
     public interface IEmailRepository
     {
 
-        public void EmailGeneration(ForgotPasswordValidation obj);
+        public void EmailGeneration(LandingPageVM obj);
     }
 }

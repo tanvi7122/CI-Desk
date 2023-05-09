@@ -71,22 +71,22 @@
                     <input type="hidden" id="loggerUser" value="@Model.LoggedUser.UserId">
                 <div class=" col-sm-6">
                     <label for="name" class="form-label text-secondary">Name *</label>
-                    <input type="text" class="form-control" id="name" placeholder="Enter your name" value="@Model.LoggedUser.FirstName">
+                    <input type="text" class="form-control" id="name" placeholder="Enter your name" value="@Model.LoggedUser.FirstName" required>
 
                 </div>
                 <div class="col">
                     <label for="surname" class="form-label text-secondary">Surname *</label>
-                    <input type="text" class="form-control" id="surname" placeholder="Enter your surname" value="@Model.LoggedUser.LastName">
+                    <input type="text" class="form-control" id="surname" placeholder="Enter your surname" value="@Model.LoggedUser.LastName" required>
                 </div>
             </div>
             <div class="row mt-3">
                 <div class="col-sm-6">
                     <label for="employee" class="form-label text-secondary">Employee ID</label>
-                    <input type="text" class="form-control text-secondary" id="employee" placeholder="Enter your employee id" value="@Model.LoggedUser.EmployeeId">
+                    <input type="text" class="form-control text-secondary" id="employee" placeholder="Enter your employee id" value="@Model.LoggedUser.EmployeeId" >
                 </div>
                 <div class="col">
                     <label for="manager" class="form-label text-secondary">Manager</label>
-                    <input type="text" class="form-control" id="manager" placeholder="Enter your manager details">
+                    <input type="text" class="form-control" id="manager" placeholder="Enter your manager details" >
                 </div>
             </div>
             <div class="row mt-3">
@@ -112,7 +112,7 @@
             <div class="row mt-3">
                 <div class="col-sm-6">
                     <label for="city" class="form-label text-secondary">City</label>
-                    <select class="form-select text-secondary" aria-label="Default select example" id="city" name="city">
+                    <select class="form-select text-secondary" aria-label="Default select example" id="city" required>
                     </select>
                 </div>
                 <div class="col">
@@ -179,6 +179,7 @@
 </div>
 </form>
 </div>
+ <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="~/js/UserProfile.js"></script>
 <script>
     const textarea = document.getElementById('myTextarea');

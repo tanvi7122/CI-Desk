@@ -13,7 +13,7 @@
                 <div class="col-md-4 sticky-top">
                      <div id="list-example" class="list-group">
                  @{
-                      var Count = Model.cmsPages.Where(c=>c.DeletedAt==null);
+                      var Count = Model.cmsPages.Where(c=>c.DeletedAt==null &&c.Status== 1);
                     foreach (var cmsPage in Count)
                     {   
                           <a class="list-group-item list-group-item-action border-top-0 border-end-0 border-start-0 border-bottom mb-1" href="#list-item-1">@cmsPage.Slug
@@ -25,7 +25,7 @@
                     </div>
                     <div class="col-md-8 ms-sm-0 ms-3 mt-md-0 mt-4">
                    <div data-bs-spy="scroll" data-bs-target="#list-example" data-bs-smooth-scroll="true" class="scrollspy-example"> 
-                   @foreach (var cms in @Model.cmsPages.Where(c=>c.DeletedAt==null))
+                   @foreach(var cms in @Model.cmsPages.Where(c=>c.DeletedAt==null&&c.Status== 1))
                    {
                         <h3 id="list-item-1"  class="border-bottom-0 mb-3 mt-5">@cms.Title</h3>
                         <p> @cms.Description </p>

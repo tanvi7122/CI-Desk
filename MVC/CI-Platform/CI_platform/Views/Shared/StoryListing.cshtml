@@ -29,7 +29,7 @@
         @* @for(int k = 0; k < 3; k++)
             { *@
         <div class="row row-cols-1 row-cols-xl-3 row-cols-md-2 g-4 mt-3">
-            @foreach (var story in Model.Stories)
+            @foreach (var story in Model.Stories.Where(s=>s.Status=="PUBLISHED"&&s.DeletedAt==null))
             {
                     <div class="col">
                         <div class="card h-100">

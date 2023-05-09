@@ -21,7 +21,7 @@ namespace CI_platform.Repository.Repository
             _ciPlatformContext = ciPlatformContext;
         }
     
-        void IEmailRepository.EmailGeneration(ForgotPasswordValidation obj)
+        void IEmailRepository.EmailGeneration(LandingPageVM obj)
         {
 
 

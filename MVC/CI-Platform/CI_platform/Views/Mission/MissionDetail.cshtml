@@ -83,7 +83,7 @@
                                  var embedUrl = "https://www.youtube.com/embed/" + videoId;
                                   <div class="swiper-slide">
                                <iframe width="560" height="315" src="@embedUrl" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; SameSite=Strict " allowfullscreen></iframe>
-      whitehite                         </div>
+                               </div>
    
                              }
                             }
@@ -124,10 +124,10 @@
 
 
                                 }
-                                else
+                              @*  else
                                 {
                                     <button class="header-btn">  From @Model.AppliedMission.StartDate.Value.ToShortDateString() until @Model.AppliedMission.EndDate.Value.ToShortDateString()</button>
-                                }
+                                }*@
 
 
                             </div>
@@ -177,7 +177,7 @@
                             {
                                 <img src="~/images/deadline.png" alt="seats-left-logo" />
                                 <div class="d-flex flex-column">
-                                    <span style="font-weight:400" class="deadline">@((Model.AppliedMission.StartDate - TimeSpan.FromDays(1)).Value.ToShortDateString())</span>
+                                    <span style="font-weight:400" class="deadline">@((Model.AppliedMission.Deadline).Value.ToShortDateString())</span>
                                     <span>Deadline</span>
                                 </div>
 
@@ -225,7 +225,7 @@
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
-                                            @foreach (var user in Model.UserList)
+                                            @foreach (var user in Model.UserList.Where(u=>u.Status==1&&u.DeletedAt==null&& u.Role=="user"))
                                             {
                                                 var torecommendeduser = Model.MissionInvites.FirstOrDefault(m => (m.ToUserId == @user.UserId) && (m.FromUserId == @Model.LoggedUser.UserId) && (m.MissionId == @Model.AppliedMission.MissionId));
                                                 <div class="d-flex justify-content-between mx-3 my-3">
@@ -406,9 +406,7 @@
                             @Model.AppliedMission.Description
                             <br>
                             <br>
-                            voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
-                            officia deserunt mollit anim id est laborum.
+                   
                         </p>
                         <h3>Challenge</h3>
                         <p style="font-size:15px">
@@ -433,25 +431,25 @@
                         <div class="d-flex justify-start mt-4">
                             @foreach (var missiondocument in @Model.missionDocument)
                             {
-                                @if (@missiondocument.DocumentType.Equals("doc"))
+                                @if (@missiondocument.DocumentType.Equals("DOC"))
                                 {
                                     <button class="header-btn doc-btn">
                                         <img src="~/images/doc.png" alt="">
-                                        <a href="@missiondocument.DocumentPath" target="_blank">@missiondocument.DocumentPath</a>
+                                        <a href="@missiondocument.DocumentPath" target="_blank">@missiondocument.DocumentName</a>
                                     </button>
                                 }
-                                @if (@missiondocument.DocumentType.Equals("pdf"))
+                                @if (@missiondocument.DocumentType.Equals("PDF"))
                                 {
                                     <button class="header-btn doc-btn">
                                         <img src="~/images/pdf.png" alt="">
-                                        <a href="@missiondocument.DocumentPath" target="_blank">@missiondocument.DocumentPath</a>
+                                        <a href="@missiondocument.DocumentPath" target="_blank">@missiondocument.DocumentName</a>
                                     </button>
                                 }
-                                @if (@missiondocument.DocumentType.Equals("xlsx"))
+                                @if (@missiondocument.DocumentType.Equals("XLSX"))
                                 {
                                     <button class="header-btn doc-btn">
                                         <img src="~/images/xlsx.png" alt="">
-                                        <a href="@missiondocument.DocumentPath" target="_blank">@missiondocument.DocumentPath</a>
+                                        <a href="@missiondocument.DocumentPath" target="_blank">@missiondocument.DocumentName</a>
                                     </button>
                                 }
 
@@ -514,7 +512,7 @@
                         <div class="container mt-3" style="background-color:white;">
                             <div class="overflow-scroll mt-3" style="max-height:510px">
 
-                                @foreach (var comment in @Model.AppliedMission.Comments.Where(m => m.ApprovalStatus.Contains("PUBLISHED")))
+                                @foreach (var comment in @Model.AppliedMission.Comments.Where(m => m.DeletedAt==null))
                                 {
 
                                     <div class="card mb-3" style="max-width: 100%;">
@@ -676,8 +674,8 @@
 
 
 
-                foreach (var relatedtheme in Model.RelatedMissions)
-                {
+                foreach (var relatedtheme in Model.RelatedMissions.Where(r => r.Status == 1 && r.DeletedAt == null))
+                    {
 
 
                     var registered_users_related = relatedtheme.MissionApplications.Count(m => m.ApprovalStatus.Contains("APPROVE"));
@@ -733,23 +731,42 @@
                                 </button>
                                 <!-- Button trigger modal -->
                                 <!-- Modal -->
-                            <div class="modal fade" id="coWorker" tabindex="-1" aria-labelledby="coWorkerlLabel" aria-hidden="true">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                            </div>
-                                            <div class="modal-body">
-                                                Hello
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                <button type="button" class="btn btn-primary">Save changes</button>
-                                            </div>
+                         
+                        <button class="me-2 btn bg-black bg-opacity-50 position-absolute bottom-0 end-0 p-2 rounded-pill" data-bs-toggle="modal" data-bs-target="#coWorker1" type="button">
+                            <a class="text-decoration-none text-white">
+                                <img src="~/images/user.png" alt="" class="img-fluid">
+                            </a>
+                        </button>
+                            <div class="modal fade" id="coWorker1" tabindex="-1" aria-labelledby="coWorkerlLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-content overflow-scroll" style="max-height:500px">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Recommend To Your Co-Workers</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
+                                        <div class="modal-body">
+                                            @foreach (var user in Model.UserList)
+                                            {
+                                                var torecommendeduser = Model.MissionInvites.FirstOrDefault(m => (m.ToUserId == @user.UserId) && (m.FromUserId == @Model.LoggedUser.UserId) && (m.MissionId == @Model.AppliedMission.MissionId));
+                                                <div class="d-flex justify-content-between mx-3 my-3">
+                                                    <p>  <img src="@user.Avatar" class="rounded-circle header-avatar"/> @user.FirstName @user.LastName</p>
+                                                    @if (torecommendeduser == null)
+                                                    {
+                                                        <button class="recommend-btn btn btn-primary" data-mission-id="@Model.AppliedMission.MissionId" data-theme-id="@Model.AppliedMission.ThemeId" data-fromuser-id="@Model.LoggedUser.UserId" data-touser-id="@user.UserId" data-city-id="@Model.AppliedMission.CityId" data-country-id="@Model.AppliedMission.CountryId">Recommend</button>
+                                                    }
+                                                    else
+                                                    {
+                                                        <button class="recommend-btn btn btn-success" data-mission-id="@Model.AppliedMission.MissionId" data-theme-id="@Model.AppliedMission.ThemeId" data-city-id="@Model.AppliedMission.CityId" data-country-id="@Model.AppliedMission.CountryId" data-fromuser-id="@Model.LoggedUser.UserId" data-touser-id="@user.UserId">Recommend</button>
+                                                    }
+
+                                                </div>
+                                            }
+                                        </div>
+
                                     </div>
                                 </div>
+                            </div>
+
                                 <div class="position-absolute top-100 start-50 translate-middle bg-white rounded-pill px-3 py-2">
                                     <span class="mission-theme">@relatedtheme.Theme.Title</span>
                                 </div>
@@ -764,13 +781,13 @@
                                     </p>
 
                                     <div class="d-flex">
-                                        @for (int i = 1; i <= avg_rating_related; i++)
+                                        @for (int i = 1; i <=avg_rating; i++)
                                         {
                                             <div>
                                                 <img src="~/images/selected-star.png" alt="rating" />
                                             </div>
                                         }
-                                        @for (int i = 5; i > avg_rating_related; i--)
+                                        @for (int i = 5; i > avg_rating; i--)
                                         {
                                             <div>
                                                 <img src="~/images/star.png" alt="rating" />
@@ -788,14 +805,14 @@
                                     </div>
                                     @if (relatedtheme.MissionType.Equals("Time"))
                                     {
-                                        <button style="width:273px;background: #FFFFFF 0% 0% no-repeat padding-box;
-                                                border: 1px solid #E8E8E8;
+                                       <button style="width:273px;background: #FFFFFF 0% 0% no-repeat padding-box;
+                                               border: 1px solid #E8E8E8;
                                                  border-radius: 18px;
-                                               opacity: 1;color: #414141">
+                                              opacity: 1;color: #414141">
                                             From @relatedtheme.StartDate.Value.ToShortDateString() until @relatedtheme.EndDate.Value.ToShortDateString()
-                                        </button>
+                                       </button>
                                     }
-                                    else
+                                   else
                                     {
 
                                         @foreach (var goal_mission in relatedtheme.GoalMissions)
@@ -839,7 +856,7 @@
                                             <img src="~/images/deadline.png" alt="seats-left-logo" />
                                         </div>
                                         <div class="d-flex flex-column" style="font-size:22px">
-                                            <span style="font-weight:600" class="deadline">@((relatedtheme.StartDate - TimeSpan.FromDays(1)).Value.ToShortDateString())</span>
+                                            <span style="font-weight:600" class="deadline">@((relatedtheme.Deadline).Value.ToShortDateString())</span>
                                             <span>Deadline</span>
                                         </div>
 
@@ -872,14 +889,14 @@
       <script>
                 var swiper = new Swiper(".mySwiper", {
                     loop: true,
-                    spaceBetween: 10,
+                    spaceBetween: 5,
                     slidesPerView: 4,
                     freeMode: true,
                     watchSlidesProgress: true,
                 });
                 var swiper2 = new Swiper(".mySwiper2", {
                     loop: true,
-                    spaceBetween: 10,
+                    spaceBetween: 5,
                     navigation: {
                         nextEl: ".swiper-button-next",
                         prevEl: ".swiper-button-prev",

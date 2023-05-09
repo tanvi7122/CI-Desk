@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CI_platfom.Entity.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -41,7 +42,7 @@ namespace CI_platform.Repository.Interface
         public ITimesheetRepository Timesheet { get; }  
         public IContactURepository ContactU { get; }
         public IGoalMissionRepository GoalMission { get; }
-        void Update(CI_platfom.Entity.Models.Story databaseStoryObj);
+        void Update(Story databaseStoryObj);
         void Save();
       
     }

@@ -10,11 +10,12 @@ namespace CI_platform.Repository.Interface
 {
     public interface IAccountRepository
     {
-        void Add(User user);
+      
         void save();
         public User GetUserEmail(string email);
 
         public void UpdateUser(NewPasswordValidation obj);
+        void Add(CI_platfom.Entity.Models.User user);
     }
 }
 

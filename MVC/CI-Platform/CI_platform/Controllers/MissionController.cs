@@ -46,9 +46,28 @@ namespace CI_platform.Controllers
                 TempData["error"] = "Session Expired!\nPlease Login Again!";
                 return RedirectToAction("Login","Home");
             }
-
-            //HomeLandingPageVM landingPageData = _HomeLandingRepository.GetLandingPageData(sort, sessionValue,currentPage);
+            var pageSize = 3;
+            int page = currentPage;
             HomeLandingPageVM landingPageData = _HomeLandingRepository.GetLandingPageData(sessionValue, currentPage);
+            landingPageData.Mission = _unitOfWork.Mission.GetAll()
+          .Where(m => m.Status == 1 && m.DeletedAt == null)
+            .OrderByDescending(m => m.StartDate)
+          .Skip((page - 1) * pageSize)
+          .Take(pageSize)
+          .ToList();
+
+            // Set the total number of missions to be used for pagination
+            landingPageData.TotalMission = _unitOfWork.Mission.GetAll()
+                .Where(m => m.Status == 1 && m.DeletedAt == null)
+                .Count();
+
+            // Calculate the total number of pages needed for pagination
+            landingPageData.TotalPages = (int)Math.Ceiling((double)landingPageData.TotalMission / pageSize);
+
+            // Set the current page number
+            landingPageData.CurrentPage = page;
+
+           
             return View(landingPageData);
         }
 
@@ -273,11 +292,7 @@ namespace CI_platform.Controllers
         public IActionResult PrivacyPolicy()
         {
             var sessionValue = HttpContext.Session.GetString("UserEmail");
-            if (String.IsNullOrEmpty(sessionValue))
-            {
-                TempData["error"] = "Session Expired!\nPlease Login Again!";
-                return RedirectToAction("Index");
-            }
+          
 
             HomeLandingPageVM landingPageData = _HomeLandingRepository.GetLandingPageData(sessionValue, 1);
 

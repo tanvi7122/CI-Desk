@@ -30,7 +30,7 @@
                     @{
                         var StoryId = @Model.AppliedStory.StoryId;
                         var images = Model.StoryMedium.Where(s => s.StoryId == StoryId && s.Type != "videourl");
-                        var video = Model.StoryMedium.Where(s=>s.StoryId == StoryId && s.Type=="videourl");
+                      
                             if (images != null)
                             {
                                 foreach (var image in images)
@@ -40,18 +40,7 @@
                                     </div>
                                 }
                             }
-                            if (video != null)
-                            {
-                                foreach (var videos in video)
-                                {
-                                   var videoId = videos.Path.Split("=")[1];
-                                 var embedUrl = "https://www.youtube.com/embed/" + videoId;
-                                  <div class="swiper-slide">
-                               <iframe width="560" height="315" src="@embedUrl" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; SameSite=Strict " allowfullscreen></iframe>
-                                </div>
-   
-                             }
-                            }
+                       
 
                         }
                           </div>
@@ -71,19 +60,6 @@
                                     </div>
                                 }
                             }
-                            if (video != null)
-                            {
-                                foreach (var videos in video)
-                                {
-                                   var videoId = videos.Path.Split("=")[1];
-                                 var embedUrl = "https://www.youtube.com/embed/" + videoId;
-                                  <div class="swiper-slide">
-                               <iframe width="560" height="315" src="@embedUrl" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; SameSite=Strict " allowfullscreen></iframe>
-                                </div>
-   
-                             }
-                            }
-
                         }
                         </div>
                     </div>

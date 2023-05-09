@@ -14,9 +14,9 @@ namespace CI_platform.Repository.Repository
             _CIPlatformContext = CIPlatformContext;
 
         }
-        public void Add(User user)
+        public void Add(User User)
         {
-            _CIPlatformContext.Add(user);
+            _CIPlatformContext.Add(User);
         }
         public void save()
         {

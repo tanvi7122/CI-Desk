@@ -63,7 +63,6 @@ dragArea.addEventListener('drop', e => {
 
     let file = e.dataTransfer.files;
     for (let i = 0; i < file.length; i++) {
-        /** Check selected file is image */
         if (file[i].type.split("/")[0] != 'image') continue;
 
         if (!files.some(e => e.name == file[i].name)) files.push(file[i])
@@ -122,8 +121,6 @@ $(".saveStory , .submitStory").click(function (e) {
 
             if (value == 1) {
                 console.log($('#shareStoryMission').val())
-                //$(".alert-success").html("Story Saved Sucessfully with Status Draft");
-                //$(".alert-success").slideToggle().delay(2000);
                 $('.submitStory').prop('disabled', false);
                 $('#previewStory').prop('disabled', false);
                 const previewBtn = document.getElementById("previewStory");
@@ -132,7 +129,6 @@ $(".saveStory , .submitStory").click(function (e) {
                     const missionId = $('#shareStoryMission').val();
                     const newUrl = `/Story/PreviewStory?missionId=${missionId}`;
                     console.log(newUrl);
-                    /*  window.location.href = newUrl;*/
                     window.open(newUrl,'_blank');
                 });
             }
@@ -145,11 +141,6 @@ $(".saveStory , .submitStory").click(function (e) {
                 console.log(container.innerHTML);
                 container.innerHTML = " ";
                 console.log(container.innerHTML);
-                //var imagepreviewContainer = $('#imagesShow').val();
-                //console.log("HEllo" + imagepreviewContainer);
-                //imagepreviewContainer.innerHTML = " ";
-
-
                 $('.submitStory').prop('disabled', true);
                 $('#previewStory').prop('disabled', true);
 

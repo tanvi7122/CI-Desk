@@ -19,8 +19,6 @@ namespace CI_platform.Controllers
             public AdminController( IConfiguration config, IUnitOfWork unitOfWork, IHomeLandingRepository HomeLandingRepository, IAdminRepository AdminRepository,IMissionLandingRepository MissionLandingRepository)
             {
                 _unitOfWork = unitOfWork;
-
-               
                 _HomeLandingRepository = HomeLandingRepository;
                 _config = config;
             _AdminRepository = AdminRepository;

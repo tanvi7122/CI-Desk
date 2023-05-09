@@ -37,6 +37,7 @@
     <PackageReference Include="Microsoft.jQuery.Unobtrusive.Validation" Version="4.0.0" />
     <PackageReference Include="MimeKit" Version="3.6.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="PagedList.Mvc" Version="4.5.0" />
     <PackageReference Include="Power.EntityFrameworkCore" Version="19.3.1703" />
     <PackageReference Include="toastr" Version="2.1.1" />
   </ItemGroup>

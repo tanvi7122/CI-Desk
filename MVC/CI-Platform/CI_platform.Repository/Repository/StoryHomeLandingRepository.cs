@@ -35,14 +35,12 @@ namespace CI_platform.Repository.Repository
             storiesList = _unitOfWork.Story.GetStoryCard().Where(u => u.Status.Equals("PUBLISHED"));
             int totalrecords = storiesList.Count();
             Console.WriteLine(totalrecords);
-            int pageSize = 6;
+            int pageSize = 3;
             storiesList = storiesList.Skip((currentPage - 1) * pageSize).Take(pageSize).ToList();
             int totalPages = (int)Math.Ceiling(totalrecords / (double)pageSize);
-
-
             StoryLandingPageVM.CurrentPage = currentPage;
             StoryLandingPageVM.TotalPages = totalPages;
-             
+            StoryLandingPageVM.TotalStory = totalrecords;
             StoryLandingPageVM.PageSize = pageSize;
             StoryLandingPageVM.Stories = storiesList;
             return StoryLandingPageVM;

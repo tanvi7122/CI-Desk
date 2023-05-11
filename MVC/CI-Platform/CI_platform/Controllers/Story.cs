@@ -82,7 +82,7 @@ namespace CI_platform.Controllers
                 return Json(draftstory);
 
             }
-return new JsonResult("nodraft");
+           return new JsonResult("nodraft");
         }
         [HttpPost]
         public JsonResult AddStory(StoryAdd newstory)
@@ -108,7 +108,26 @@ return new JsonResult("nodraft");
                 TempData["error"] = "Session Expired!\nPlease Login Again!";
                 return RedirectToAction("Index");
             }
+            var pageSize = 3;
+            int page = currentPage;
             StoryLandingPageVM storylandingPageData = _StoryHomeLandingRepository.GetStoryLandingPageData(sessionValue, currentPage);
+            storylandingPageData.Stories = _unitOfWork.Story.GetAll()
+             .Where(s => s.Status == "PUBLISHED" && s.DeletedAt == null)
+              .OrderByDescending(s => s.PublishedAt)
+              .Skip((page - 1) * pageSize)
+                 .Take(pageSize)
+                  .ToList();
+
+            // Set the total number of missions to be used for pagination
+            storylandingPageData.TotalStory = _unitOfWork.Story.GetAll()
+                .Where(s => s.Status == "PUBLISHED" && s.DeletedAt == null)
+                .Count();
+
+            // Calculate the total number of pages needed for pagination
+            storylandingPageData.TotalPages = (int)Math.Ceiling((double)storylandingPageData.TotalStory / pageSize);
+
+            // Set the current page number
+            storylandingPageData.CurrentPage = page;
             return View(storylandingPageData);
 
         }

@@ -44,8 +44,7 @@
 
                         }
                           </div>
-                        <div class="swiper-button-next"></div>
-                        <div class="swiper-button-prev"></div>
+                       
                     </div>
                     <div thumbsSlider="" class="swiper mySwiper">
                         <div class="swiper-wrapper">
@@ -62,6 +61,8 @@
                             }
                         }
                         </div>
+                         <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
                     </div>
                 </div>
 
@@ -96,11 +97,11 @@
                                                     <p>  <img src="@user.Avatar" class="rounded-circle header-avatar"/> @user.FirstName @user.LastName</p>
                                                     @if (torecommendeduser == null)
                                                     {
-                                                        <button class="recommend-story-btn btn btn-primary" data-story-id="@Model.AppliedStory.StoryId"  data-mission-id="@Model.AppliedStory.MissionId" data-fromuser-id="@Model.LoggedUser.UserId" data-touser-id="@user.UserId">recommend</button>
+                                                        <button class="btn btn-primary" onclick="RecommendStory(@Model.AppliedStory.StoryId,@Model.AppliedStory.MissionId,@Model.LoggedUser.UserId,@user.UserId)" ></button>
                                                     }
                                                     else
                                                     {
-                                                        <button class="recommend-story-btn btn btn-success" data-story-id="@Model.AppliedStory.StoryId"  data-mission-id="@Model.AppliedStory.MissionId " data-fromuser-id="@Model.LoggedUser.UserId" data-touser-id="@user.UserId">recommended</button>
+                                                        <button class="btn btn-success" onclick="RecommendStory(@Model.AppliedStory.StoryId,@Model.AppliedStory.MissionId,@Model.LoggedUser.UserId,@user.UserId)">recommended</button>
                                                     }
 
                                                 </div>

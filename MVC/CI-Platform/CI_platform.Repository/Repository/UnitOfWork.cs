@@ -43,9 +43,9 @@ namespace CI_platform.Repository.Repository
             public IStoryInviteRepository StoryInvite { get; private set; }
            public IUserSkillRepository UserSkill{ get; set; }
            public ITimesheetRepository Timesheet { get; set; }
-       public IGoalMissionRepository GoalMission { get; set; }  
-        public IContactURepository ContactU { get; set; }
-        public UnitOfWork(CiPlatformContext db)
+           public IGoalMissionRepository GoalMission { get; set; }  
+           public IContactURepository ContactU { get; set; }
+          public UnitOfWork(CiPlatformContext db)
             {
                 _db = db;
                 User = new UserRepository(_db);

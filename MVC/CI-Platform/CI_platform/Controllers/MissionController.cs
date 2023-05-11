@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using MimeKit;
 using System.Linq;
+using System.Web;
 using System.Net;
 using System.Net.Mail;
 
@@ -107,7 +108,7 @@ namespace CI_platform.Controllers
                 TempData["error"] = "Session Expired!\nPlease Login Again!";
                 return RedirectToAction("Login", "Home");
             }
-
+            
             HomeLandingPageVM MissionlandingPageData = _MissionLandingRepository.GetMissionPageData(sessionValue, missionId, themeid, cityid, countryid);
             return View(MissionlandingPageData);
         }
@@ -131,15 +132,9 @@ namespace CI_platform.Controllers
                 _unitOfWork.MissionRating.UpdateRating(mission_user_rating, rating);
             }
             _unitOfWork.Save();
-            TempData["success"] = "Rating Successfull";
-            var sessionValue = HttpContext.Session.GetString("UserEmail");
-            if (String.IsNullOrEmpty(sessionValue))
-            {
-                TempData["error"] = "Session Expired!\nPlease Login Again!";
-                return RedirectToAction("Index");
-            }
-            return RedirectToAction("MissionDetail", "Mission", new { missionId, themeId, cityId, countryId });
+            return Json(new { success = true });
         }
+
 
 
         [HttpPost]
@@ -236,7 +231,7 @@ namespace CI_platform.Controllers
 
 
         [HttpPost]
-        public IActionResult RecommendToCoWorker(long missionId, long fromuserId, long touserId, long theme, long cityid, long countryid)
+        public IActionResult RecommendToCoWorker(long missionId, long fromuserId, long touserId, long themeId, long cityId, long countryId)
         {
             // Check if the mission is already in favorites for the user
             var mission_user_recommended = _unitOfWork.MissionInvite.GetFirstOrDefault(u => (u.FromUserId == fromuserId) && (u.MissionId == missionId) && (u.ToUserId == touserId));
@@ -264,7 +259,7 @@ namespace CI_platform.Controllers
             });
             _unitOfWork.Save();
             var message = new MailMessage();
-            var recommendedMissionLink = Url.Action("MissionDetail", "Mission", new { missionId = missionId, themeid = theme, cityid = cityid, countryid = countryid }, Request.Scheme);
+            var recommendedMissionLink = Url.Action("MissionDetail", "Mission", new { missionId = missionId, themeid = themeId, cityid = cityId, countryid = countryId }, Request.Scheme);
             message.Body = recommendedMissionLink;
             var senderEmail = _unitOfWork.User.GetFirstOrDefault(u => u.UserId == fromuserId);
             var receiverEmail = _unitOfWork.User.GetFirstOrDefault(u => u.UserId == touserId);

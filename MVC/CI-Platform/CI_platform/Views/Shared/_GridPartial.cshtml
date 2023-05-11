@@ -4,7 +4,9 @@
   
     <div class="row row-cols-1 row-cols-xl-3 row-cols-md-2 g-4 mt-3">
         @foreach (var mission in Model.Mission)
-        {
+        {  
+            var missionskill = Model.MissionSkills.Where(m => m.MissionId == @mission.MissionId);
+            var favmission = Model.favouriteMissions.Where(m => m.MissionId == @mission.MissionId && m.UserId == Model.LoggedUser.UserId);
             var registered_users = mission.MissionApplications.Count(m => m.ApprovalStatus.Contains("APPROVE"));
             var total_seats = mission.TotalSeats - registered_users;
             double avg_rating = 0;
@@ -14,8 +16,7 @@
             }
 
             var flag = 1;
-
-
+        
             <div class="col card-div">
                 <div class="card h-100 grid-card">
                     <span class="d-none created-date">@mission.StartDate </span>
@@ -38,7 +39,14 @@
                             }
 
                         }
-
+                        
+                      
+                               @foreach (var skill in missionskill)  { 
+                                 <p class="card-text mission-skills" hidden>
+                                   @skill.Skill.SkillName
+                                 </p> 
+                               }
+                              
                         <span class="d-none mission-country">@mission.Country.CountryId</span>
                         <button class="me-2 btn bg-black bg-opacity-50 position-absolute top-0 end-0 p-2 rounded-pill text-decoration-none text-white" disabled>
                             <a  class="text-decoration-none text-white">
@@ -46,7 +54,12 @@
                                 <span class="mission-city" style="color:white">@mission.City.Name</span>
                             </a>
                         </button>
-
+                              
+                         @foreach (var fav in favmission)  { 
+                                 <p class="card-text mission-favorite" hidden>
+                                   @fav.MissionId
+                                 </p> 
+                               }
                         @foreach (var fm in mission.FavouriteMissions)
                         {
                             @if (fm.UserId.Equals(@Model.LoggedUser.UserId))
@@ -236,6 +249,7 @@
 
    @if (Model.TotalPages > 1)
 {
+    <div class="container d-flex justify-content-center mt-5">
     <nav>
         <ul class="pagination">
             <li class="page-item @(Model.CurrentPage == 1 ? "disabled" : "")">
@@ -248,7 +262,7 @@
            
                    @for (int i = 1; i <= Model.TotalPages; i++)
                    {
-                      <li class="page-item @(i == Model.CurrentPage ? "active" : "")">
+                      <li  class="page-item @(i == Model.CurrentPage ? "active" : "")">
                       <a class="page-link" href="@Url.Action("HomePage", new { currentPage = i })">@i</a>
                      </li>
                    }
@@ -262,6 +276,7 @@
             </li>
         </ul>
     </nav>
+    </div>
 }
 
 </div>

@@ -21,7 +21,7 @@ namespace CI_platfom.Entity.ViewModel
         public IEnumerable<MissionTheme>? Themes { get; set; }
 
        
-
+        public IEnumerable<FavouriteMission> favouriteMissions { get; set; }
         public IEnumerable<User>? UserList { get; set; }
         
         public IEnumerable<Skill>? Skills { get; set; }

@@ -40,11 +40,11 @@ namespace CI_platform.Repository.Repository
             landingPageVM.Countries = _unitOfWork.Country.GetAll();
             landingPageVM.UserList = _unitOfWork.User.GetAll().Where(u => u.Email != email);
             landingPageVM.MissionMedium = _unitOfWork.MissionMedium.GetAll();
+            landingPageVM.MissionSkills = _unitOfWork.MissionSkill.GetAll();
+            landingPageVM.favouriteMissions = _unitOfWork.FavoriteMission.GetAll();
             IEnumerable<Mission> missionsList;
             landingPageVM.Cities = _unitOfWork.City.GetAll();
-            //missionsList = _unitOfWork.Mission.GetMisssionCard();
             landingPageVM.MissionInvites = _unitOfWork.MissionInvite.GetAll();
-            //landingPageVM.Cities = _unitOfWork.City.GetAll().Where(c => c.Name != "Undefined");
             missionsList = _unitOfWork.Mission.GetMissionCard();
             int TotalMissions = missionsList.Count();
            int pageSize = 3;

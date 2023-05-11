@@ -18,40 +18,6 @@ function search() {
         }
     }
 }
-$("#CountryList li").click(function () {
-
-    var countryId = $(this).val();
-    console.log(countryId);
-
-    $('.card-div').each(function () {
-        var cardCountry = $(this).find('.mission-country').text();
-        //console.log(cardCountry);
-
-        if (countryId == cardCountry) {
-            $(this).show();
-        } else {
-            $(this).hide();
-        }
-    });
-    GetCitiesByCountry(countryId);
-});
-
-function GetCitiesByCountry(countryId) {
-    $.ajax({
-        type: "GET",
-        url: "/Mission/GetCitiesByCountry",
-        data: { countryId: countryId },
-        success: function (data) {
-            var dropdown = $("#cityList");
-            dropdown.empty();
-            var items = "";
-            $(data).each(function (i, item) {
-                items += `<li> <div class="dropdown-item mb-1 ms-3 form-check"> <input type="checkbox" class="form-check-input" id="exampleCheck1" value=` + item.cityId + `><label class="form-check-label" for="exampleCheck1" value=` + item.cityId + `>` + item.name + `</label></div></li>`
-            })
-            dropdown.html(items);
-        }
-    });
-}
 
 $('.favorite-button').click(function () {
 
@@ -172,10 +138,44 @@ $('.favorite-button').click(function () {
 //})
 
 
-//$(".dropdown .CardsFilter").on('change', 'input[type="checkbox"]', function () {
-//    console.log('hello');
-function FilterMissions() {
+$("#CountryList li").click(function () {
 
+    var countryId = $(this).val();
+    console.log(countryId);
+
+    $('.card-div').each(function () {
+        var cardCountry = $(this).find('.mission-country').text();
+        //console.log(cardCountry);
+
+        if (countryId == cardCountry) {
+            $(this).show();
+        } else {
+            $(this).hide();
+        }
+    });
+    GetCitiesByCountry(countryId);
+});
+
+function GetCitiesByCountry(countryId) {
+    $.ajax({
+        type: "GET",
+        url: "/Mission/GetCitiesByCountry",
+        data: { countryId: countryId },
+        success: function (data) {
+            var dropdown = $("#cityList");
+            dropdown.empty();
+            var items = "";
+            $(data).each(function (i, item) {
+                items += `<li> <div class="dropdown-item mb-1 ms-3 form-check"> <input type="checkbox" class="form-check-input" id="cityList" value=` + item.cityId + `><label class="form-check-label" for="cityList" value=` + item.cityId + `>` + item.name + `</label></div></li>`
+            })
+            dropdown.html(items);
+            $("#cityList input[type='checkbox']").click(function () {
+                FilterMissions();
+            });
+        }
+    });
+}
+function FilterMissions() {
     var selectedCities = $('#cityList input[type="checkbox"]:checked').map(function () {
         return $(this).next('label').text();
     }).get();
@@ -186,44 +186,48 @@ function FilterMissions() {
     }).get();
     console.log(selectedThemes);
 
-    if (selectedCities.length === 0 && selectedThemes.length === 0) {
-        $('.card-div').show();
-    } else {
-        //console.log(selectedCities);
+    var selectedSkills = $('#SkillList input[type="checkbox"]:checked').map(function () {
+        return $(this).parent().find('label').text().trim();
+    }).get().filter(function (value) {
+        return value !== '';
+    });
 
-        $('.card-div').each(function () {
-            var cardCity = $(this).find('.mission-city').text();
-            var cardTheme = $(this).find('.mission-theme').text();
+    console.log(selectedSkills);
 
-            var cityFlag = selectedCities.some(function (selectedCity) {
-                return selectedCity.trim().toUpperCase() == cardCity.trim().toUpperCase();
-            });
-            var themeFlag = selectedThemes.some(function (selectedTheme) {
-                return selectedTheme.trim().toUpperCase() == cardTheme.trim().toUpperCase();
-            });
+    var $cards = $('.card-div');
 
-            //if (cityFlag) {
-            //    $(this).show();
-            //} else {
-            //    $(this).hide();
-            //}
-            if (selectedThemes.length === 0) {
-                if (cityFlag) {
-                    $(this).show();
-                } else {
-                    $(this).hide();
-                }
-            } else {
-                if (cityFlag && themeFlag) {
-                    $(this).show();
-                } else {
-                    $(this).hide();
-                }
-            }
+    $cards.each(function () {
+        var cardCity = $(this).find('.mission-city').text();
+        var cardTheme = $(this).find('.mission-theme').text();
+        var cardSkills = $(this).find('.mission-skills').text().trim().replace(/\s+/g, ' ');
+
+        var cityFlag = selectedCities.length === 0 || selectedCities.some(function (selectedCity) {
+            return selectedCity.trim().toUpperCase() == cardCity.trim().toUpperCase();
         });
-    }
 
+        var themeFlag = selectedThemes.length === 0 || selectedThemes.some(function (selectedTheme) {
+            return selectedTheme.trim().toUpperCase() == cardTheme.trim().toUpperCase();
+        });
+        console.log(`Selected Skills: ${selectedSkills}, Card Skills: ${cardSkills}`);
+
+        var skillFlag = selectedSkills.length === 0 || selectedSkills.some(function (selectedSkill) {
+            var skills = cardSkills.split(' ');
+            return skills.some(function (skill) {
+                return selectedSkill.trim().toUpperCase() == skill.trim().toUpperCase();
+            });
+        });
+
+
+
+        if (cityFlag && themeFlag && skillFlag) {
+            $(this).show();
+        } else {
+            $(this).hide();
+        }
+    });
 }
+
+
 
 
 $('#sortByDropdown li').on('click', function () {
@@ -358,7 +362,19 @@ $('#sortByDropdown li').on('click', function () {
             break;
 
         case 'My favourites':
-
+            var $cards = $('.card-div');
+            var cardsArray = $cards.toArray();
+            console.log(cardsArray)
+            cardsArray.sort(function (a, b) {
+                var favA = $(a).find('.mission-favorite').data('favorite');
+                var favB = $(b).find('.mission-favorite').data('favorite');
+                return favB - favA;
+            });
+          
+            $('.mission-container').empty();
+            for (var i = 0; i < cardsArray.length; i++) {
+                $('.mission-container').append(cardsArray[i]);
+            }
             break;
 
         case 'Registration deadline':
@@ -401,7 +417,7 @@ $('#sortByDropdown li').on('click', function () {
                     }
                 });
             }
-            /*    filter()*/
+        
             break;
     }
 })
@@ -442,21 +458,14 @@ $('.like').click(function () {
 
 
 
-$('.recommend-btn').click(function () {
-    var button = $(this)
-    var missionId = $(this).data('mission-id');
-    var fromuserId = $(this).data('fromuser-id');
-    var touserId = $(this).data('touser-id');
-    var themeId = $(this).data('theme-id');
-    var cityId = $(this).data('city-id');
-    var countryId = $(this).data('country-id');
-    console.log(missionId);
-    console.log(fromuserId);
-    console.log(touserId);
+function RecommendMission(missionId, fromuserId, touserId, themeId, countryId, cityId) {
+
     $.ajax({
         url: '/Mission/RecommendToCoWorker',
         type: 'POST',
-        data: { missionId: missionId, fromuserId: fromuserId, touserId: touserId, theme: themeId, cityid: cityId, countryid:countryId },
+        data: {
+            missionId: missionId, fromuserId: fromuserId, touserId: touserId, themeId: themeId, countryId: countryId, cityId: cityId
+        },
         success: function (result) {
             // Show a success message or update the UI
             console.log(missionId)
@@ -486,16 +495,8 @@ $('.recommend-btn').click(function () {
 
         }
     });
-});
-$('.recommend-story-btn').click(function () {
-    var button = $(this)
-    var storyId = $(this).data('story-id');
-    var missionId = $(this).data('mission-id');
-    var fromuserId = $(this).data('fromuser-id');
-    var touserId = $(this).data('touser-id');
-    console.log(missionId);
-    console.log(fromuserId);
-    console.log(touserId);
+};
+function RecommendStory(storyId, missionId, fromuserId, touserId) {
     $.ajax({
         url: '/Story/RecommendToCoWorker',
         type: 'POST',
@@ -529,7 +530,7 @@ $('.recommend-story-btn').click(function () {
 
         }
     });
-});
+};
 
 
 

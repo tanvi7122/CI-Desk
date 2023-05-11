@@ -22,27 +22,19 @@ namespace CI_platform.Repository.Repository
             HomeLandingPageVM landingPageVM = new();
 
             landingPageVM.LoggedUser = _unitOfWork.User.GetFirstOrDefault(u => u.Email == email);
-
             landingPageVM.AppliedMission = _unitOfWork.Mission.GetFirstOrDefault(u => u.MissionId == missionId);
-
-            //landingPageVM.Countries = _unitOfWork.Country.GetAll();
             landingPageVM.UserList = _unitOfWork.User.GetAll().Where(u => u.Email != email);
             landingPageVM.MissionSkills = _unitOfWork.MissionSkill.GetAll().Where(m=>m.MissionId==missionId);
-            //landingPageVM.MissionMedia = _unitOfWork.MissionMedia.GetAll().Where(m => m.MissionId == missionId);
             IEnumerable<Mission> missionsList;
-            //landingPageVM.Cities = _unitOfWork.City.GetAll();
             landingPageVM.RelatedMissions = _unitOfWork.Mission.GetMissionCard().Where(m => (m.ThemeId == themeid || m.CountryId==countryid || m.CityId==cityid) && (m.MissionId!=missionId )).Take(3);
             landingPageVM.MissionMedium = _unitOfWork.MissionMedium.GetAll();
             landingPageVM.MissionInvites = _unitOfWork.MissionInvite.GetAll();
             landingPageVM.missionApplication = _unitOfWork.MissionApplication.GetAll().Where(m => m.MissionId == missionId);
             landingPageVM.missionDocument = _unitOfWork.MissionDocument.GetAll().Where(m => m.MissionId == missionId);
-            //landingPageVM.Cities = _unitOfWork.City.GetAll().Where(c => c.Name != "Undefined");
             missionsList = _unitOfWork.Mission.GetMissionCardById(missionId);
-
             landingPageVM.Mission = missionsList;
             landingPageVM.Skills = _unitOfWork.Skill.GetAll();
             int totalrecords = missionsList.Count();
-
             return landingPageVM;
         }
     }

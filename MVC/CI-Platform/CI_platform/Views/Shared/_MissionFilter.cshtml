@@ -94,7 +94,7 @@
                             <a class="nav-link dropdown-toggle" href="#" id="skillsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Skills
                             </a>
-                            <ul class="dropdown-menu ps-2 scrollable-menu CardsFilter" aria-labelledby="skillsDropdown">
+                            <ul class="dropdown-menu ps-2 scrollable-menu CardsFilter" id="SkillList" aria-labelledby="skillsDropdown">
                                 @foreach (var skill in Model.Skills)
                                 {
                                     <li>
@@ -139,11 +139,11 @@
                                 </button>
                             </h2>
                             <div id="citiesAccordion" class="accordion-collapse collapse" aria-labelledby="city" data-bs-parent="#filters">
-                                <div class="accordion-body">
+                                <div class="accordion-body" id="cityList">
                                     @foreach (var city in Model.Cities)
                                     {
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="@city.Name" id="@city.Name">
+                                            <input class="form-check-input" type="checkbox" value="@city.Name" id="@city.Name" onclick="FilterMissions()">
                                             <label class="form-check-label" for="@city.Name">
                                                 @city.Name
                                             </label>
@@ -160,11 +160,11 @@
                                 </button>
                             </h2>
                             <div id="themesAccordion" class="accordion-collapse collapse" aria-labelledby="theme" data-bs-parent="#filters">
-                                <div class="accordion-body">
+                                <div class="accordion-body"  id="ThemeList">
                                     @foreach (var theme in Model.Themes)
                                     {
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="" id="@theme.Title">
+                                            <input class="form-check-input" type="checkbox" value="" id="@theme.Title" onclick="FilterMissions()">
                                             <label class="form-check-label" for="@theme.Title">
                                                 @theme.Title
                                             </label>
@@ -181,11 +181,11 @@
                                 </button>
                             </h2>
                             <div id="skillsAccordion" class="accordion-collapse collapse" aria-labelledby="skill" data-bs-parent="#filters">
-                                <div class="accordion-body">
+                                <div class="accordion-body"  id="SkillList">
                                     @foreach (var skill in Model.Skills)
                                     {
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="" id=" @skill.SkillName">
+                                            <input class="form-check-input" type="checkbox" value="" id=" @skill.SkillName" onclick="FilterMissions()">
                                             <label class="form-check-label" for=" @skill.SkillName">
                                                 @skill.SkillName
                                             </label>

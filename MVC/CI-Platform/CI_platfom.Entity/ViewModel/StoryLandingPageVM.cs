@@ -30,8 +30,8 @@ namespace CI_platfom.Entity.ViewModel
      
         public IFormFile? FormFile { get; set; }
         public int PageSize { get; set; }
-        public int CurrentPage { get; set; } 
-
+        public int CurrentPage { get; set; }
+        public int TotalStory { get; set; }
         public int TotalPages { get; set; }
     }
 }
